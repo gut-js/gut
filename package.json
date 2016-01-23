@@ -4,13 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server/server.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gut-js/gut.git"
   },
-  "author": "",
+  "author": "Carl Bernardo[carlbernrdo@gmail.com], Daisy Tsao[daisy.tsao@gmail.com], Justin Tan[jtanman9@gmail.com], Shin Adachi[adachi.shin@gmail.com]",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/gut-js/gut/issues"

@@ -2,3 +2,6 @@
 
 #Dependencies
 node_modules
+
+#Webpack Bundle
+client/dist/
