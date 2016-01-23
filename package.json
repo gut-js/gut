@@ -4,19 +4,30 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server/server.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gut-js/gut.git"
   },
-  "author": "",
+  "author": "Carl Bernardo[carlbernrdo@gmail.com], Daisy Tsao[daisy.tsao@gmail.com], Justin Tan[jtanman9@gmail.com], Shin Adachi[adachi.shin@gmail.com]",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/gut-js/gut/issues"
   },
   "homepage": "https://github.com/gut-js/gut#readme",
   "dependencies": {
+    "babel-polyfill": "^6.3.14",
+    "babel-preset-es2015": "^6.3.13",
     "express": "^4.13.4"
+  },
+  "devDependencies": {
+    "babel-core": "^6.4.5",
+    "babel-loader": "^6.2.1",
+    "babel-preset-react": "^6.3.13",
+    "react": "^0.14.6",
+    "react-dom": "^0.14.6",
+    "webpack": "^1.12.11"
   }
 }
