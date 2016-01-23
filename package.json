@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/gut-js/gut/issues"
   },
-  "homepage": "https://github.com/gut-js/gut#readme"
+  "homepage": "https://github.com/gut-js/gut#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
 }
