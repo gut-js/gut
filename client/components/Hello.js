@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 
 class Hello extends React.Component{
   render(){
-    console.log(this.props);
+    console.log("in hello", this.props);
 
     const { daisy, shin, justin, carl, text } = this.props
 

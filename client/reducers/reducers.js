@@ -1,4 +1,4 @@
-import { HELLO_DAISY, HELLO_SHIN, HELLO_JUSTIN, HELLO_CARL } from './../actions/actions'
+import { HELLO_DAISY, HELLO_SHIN, HELLO_JUSTIN, HELLO_CARL } from './../actions/actions';
 
 const initialState = {
   text: 'DEFAULTTTT'
