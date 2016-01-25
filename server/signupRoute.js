@@ -15,12 +15,13 @@ router.post('/', function(req, res) {
   //hash password
   bcrypt.genSalt(10, function(err, salt) {
     bcrypt.hash(password, salt, function(err, hash) {
-
       //store user info
-      var user = db.User({
+      var user = new db.User({
         username: username,
         password: hash
       });
+
+      console.log('user', user);
 
       user.save(function(err, user) {
         console.log('inside user.save');
@@ -30,13 +31,14 @@ router.post('/', function(req, res) {
         }
         else {
           console.log('user was saved:', user);
-          //create token
-          var token = jwt.sign(user, router.get('superSecret'), { expiresInminutes:1440 });
+          //create token - this causes an error (TypeError: secret must be a string or buffer)
+          // var token = jwt.sign(user, router.get('superSecret'), { expiresInminutes:1440 });
+          
           //send token
           res.json({
             success: true,
             message: 'Enjoy your token!',
-            token: token,
+            // token: token,
             username: user.username,
             password: user.password
           });
