@@ -10,11 +10,63 @@ import Login from './../components/Login';
 import Signup from './../components/Signup';
 
 class HomePage extends React.Component {
+  constructor(){
+    super();
+    this.openLogin = this.openLogin.bind(this);
+    this.closeLogin = this.closeLogin.bind(this);
+    this.openSignup = this.openSignup.bind(this);
+    this.closeSignup = this.closeSignup.bind(this);
+    this.state = {
+      showLoginModal: false,
+      showSignupModal: false,
+    }
+  }
+
+  openLogin(){
+    this.setState({
+      showLoginModal: true
+    })
+  }
+
+  closeLogin(){
+    this.setState({
+      showLoginModal: false
+    })
+  }
+
+  openSignup(){
+    this.setState({
+      showSignupModal: true
+    })
+  }
+
+  closeSignup(){
+    this.setState({
+      showSignupModal: false
+    })
+  }
+
   render(){
     return (
-      <div>
-        <Login {...this.props}/>
-        <Signup {...this.props}/>
+      <div className='row'>
+        <button
+          type='button'
+          className='btn col-md-7 center-block'
+          onClick={this.openLogin}>Click here to log in
+        </button>
+        <Login
+          {...this.props}
+          showLoginModal={this.state.showLoginModal}
+          closeLogin={this.closeLogin} />
+        <button
+          type='button'
+          className='btn col-md-7 center-block'
+          onClick={this.openSignup}>Click here to sign up
+        </button>
+        <Signup
+          {...this.props}
+          showSignupModal={this.state.showSignupModal}
+          closeSignup={this.closeSignup} />
       </div>
     )
   }
@@ -22,7 +74,8 @@ class HomePage extends React.Component {
 
 function mapStateToProps(state){
   return {
-    text: state.text
+    text: state.sayHello.text,
+    meep: state.sayHello.hello
   }
 }
 
