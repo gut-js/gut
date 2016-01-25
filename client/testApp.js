@@ -7,7 +7,8 @@ $(document).ready(function(){
           type: 'GET',
           data: {location:location},
           success: function(data){
-            console.log('success');
+            console.log('yelp location sent');
+            console.log(data);
           },
           error: function(err){
             console.log('error',err);
