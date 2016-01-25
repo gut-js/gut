@@ -19,7 +19,7 @@ $(document).ready(function(){
         e.preventDefault();
         var username = $('#signupUsername').val();
         var password = $('#signupPassword').val();
-        data = {username:username,password:password}
+        var data = {username:username,password:password}
         $.ajax({
             url: '/signup',
             type: 'POST',
@@ -36,25 +36,25 @@ $(document).ready(function(){
     });
 
     $('#loginForm').submit(function(e){
-    e.preventDefault();
-    var username = $('#loginUsername').val();
-    var password = $('#loginPassword').val();
-    data = {username:username,password:password};
-    console.log('data:', data);
-    $.ajax({
+      e.preventDefault();
+      var username = $('#loginUsername').val();
+      var password = $('#loginPassword').val();
+      var loginData = {username:username,password:password};
+      console.log('loginData:', loginData);
+      $.ajax({
         url: '/login',
         type: 'POST',
-        data: JSON.stringify(data),
+        data: JSON.stringify(loginData),
         contentType: 'application/json',
         success: function(data){
-            console.log('success');
-            console.log('data', data);
+          console.log('success');
+          console.log('data', data);
         },
         error: function(err){
-            console.log('error',err);
+          console.log('error',err);
         }
+      });
     });
-});
 
 
 })
