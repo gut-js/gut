@@ -5,8 +5,6 @@ var uniqueValidator = require('mongoose-unique-validator');
 var app = express();
 var port = process.env.PORT || 5679;
 
-console.log('im at the top of server.js');
-
 app.use(function(req, res, next){
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
@@ -23,7 +21,6 @@ app.get('/', function(req, res){
 app.use(bodyParser.json());
 
 // routes
-console.log('not inside routes yet');
 app.use('/login', require('./loginRoute'));
 app.use('/signup', require('./signupRoute'));
 app.use('/yelp', require('./yelpRoute'));

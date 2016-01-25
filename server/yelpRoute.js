@@ -17,7 +17,6 @@ var request_yelp = function(set_parameters, callback) {
   /* We can setup default parameters here */
   var default_parameters = {
     term: 'restaurants',
-    location: 'santa+monica',
     sort: '2'
   };
 
@@ -52,22 +51,22 @@ var request_yelp = function(set_parameters, callback) {
   var apiURL = url+'?'+paramURL;
 
   /* Then we use request to send make the API Request */
-  request(apiURL, function(error, response, body){
+  request(apiURL, function(error, response, body) {
     return callback(error, response, body);
   });
 
 };
 
-// request_yelp({}, function (error, response, body) {
-//   if (error) {
-//     console.log(error);
-//   }
-//   console.log(body);
-// })
-
 router.get('/', function(req, res) {
-  console.log('GET request to yelpRoute', req.query);
-  res.send('hi');
+
+  // calling yelp api
+  request_yelp({location: req.query.location}, function (error, response, body) {
+    if (error) {
+      console.error(error);
+    }
+    res.send(body)
+  })
+
 })
 
 module.exports = router;
