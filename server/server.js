@@ -5,20 +5,6 @@ var uniqueValidator = require('mongoose-unique-validator');
 var app = express();
 var port = process.env.PORT || 5679;
 
-//******DATABASE SET UP
-
-var dbURI = 'mongodb://localhost/gut'
-mongoose.connect(dbURI);
-var Schema = mongoose.Schema;
-var userSchema = new Schema ({
-	username: { type: String, required: true, unique: true },
-	password: { type: String, required: true },
-	loginMessage: { type: String },
-	address: { type: String }
-});
-userSchema.plugin(uniqueValidator);
-var User = mongoose.model('User', userSchema);
-
 app.use(function(req, res, next){
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
@@ -27,6 +13,7 @@ app.use(function(req, res, next){
 
 //serving static files
 app.use('/', express.static( __dirname + '/../client' ));
+
 app.get('/', function(req, res){
   res.sendFile(path.join(__dirname, '../client/index.html'));
 });

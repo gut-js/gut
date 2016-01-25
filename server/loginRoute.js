@@ -6,7 +6,7 @@ var mongoose = require('mongoose');
 
 //log into account
 router.post('/login', function(req, res){
-
+  console.log('inside loginRoute');
   var username = req.body.username;
   var password = req.body.password;
 

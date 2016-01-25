@@ -58,9 +58,16 @@ var request_yelp = function(set_parameters, callback) {
 
 };
 
-request_yelp({}, function (error, response, body) {
-  if (error) {
-    console.log(error);
-  }
-  console.log(body);
+// request_yelp({}, function (error, response, body) {
+//   if (error) {
+//     console.log(error);
+//   }
+//   console.log(body);
+// })
+
+router.get('/', function(req, res) {
+  console.log('GET request to yelpRoute', req.query);
+  res.send('hi');
 })
+
+module.exports = router;
