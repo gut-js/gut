@@ -52,7 +52,7 @@ class HomePage extends React.Component {
         <button
           type='button'
           className='btn col-md-7 center-block'
-          onClick={this.openSignIn}>Click here to sign in
+          onClick={this.openSignIn}>SIGN IN
         </button>
         <SignIn
           {...this.props}
@@ -61,7 +61,7 @@ class HomePage extends React.Component {
         <button
           type='button'
           className='btn col-md-7 center-block'
-          onClick={this.openRegister}>Click here to register
+          onClick={this.openRegister}>REGISTER
         </button>
         <Register
           {...this.props}
