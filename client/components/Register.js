@@ -2,6 +2,27 @@ import React, { PropTypes } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 
 class Register extends React.Component {
+  constructor(){
+    super();
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(e){
+    e.preventDefault();
+    const username = this.refs.username;
+    const password = this.refs.password;
+    const email = this.refs.email;
+    const userInfo = {
+      username: username.value,
+      password: password.value,
+      email: email.value
+    };
+    console.log('REGISTER', userInfo);
+    username.value = '';
+    password.value = '';
+    email.value = '';
+  }
+
   render(){
     return(
       <Modal show={this.props.showRegisterModal} onHide={this.props.closeRegister}>
@@ -12,16 +33,32 @@ class Register extends React.Component {
           <Modal.Body>
             <form>
               <div className='form-group'>
-                <input type='text' className='form-control' placeholder='Username' />
+                <input
+                  type='text'
+                  className='form-control'
+                  placeholder='Username'
+                  ref='username' />
               </div>
               <div className='form-group'>
-                <input type='password' className='form-control' placeholder='Password' />
+                <input
+                  type='password'
+                  className='form-control'
+                  placeholder='Password'
+                  ref='password' />
               </div>
               <div className='form-group'>
-                <input type='email' className='form-control' placeholder='Email' />
+                <input
+                  type='email'
+                  className='form-control'
+                  placeholder='Email'
+                  ref='email' />
               </div>
               <div className='form-group'>
-                <button type='submit' className='btn btn-block'>Log in</button>
+                <button
+                  type='submit'
+                  className='btn btn-block'
+                  onClick={this.handleClick}>Log in
+                </button>
                 <div>
                   Have an account? Click <a>here</a> to log in.
                 </div>
