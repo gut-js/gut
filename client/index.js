@@ -1,20 +1,20 @@
-import React from 'react'
-import { render } from 'react-dom'
-import { createStore, applyMiddleware } from 'redux'
-import { Provider } from 'react-redux'
-import thunk from 'redux-thunk'
-import sayHello from './reducers/reducers'
-import App from './containers/App'
+import React from 'react';
+import { render } from 'react-dom';
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
+import configureStore from './store/configureStore';
 
-const createStoreWithMiddleware = applyMiddleware(
-  thunk
-)(createStore)
+//Containers
+import HomePage from './containers/HomePage'
 
-const store = createStoreWithMiddleware(sayHello)
+const store = configureStore();
 
 render(
   <Provider store={store}>
-    <App />
+    <div>
+      <HomePage />
+    </div>
   </Provider>,
   document.getElementById('root')
 );
