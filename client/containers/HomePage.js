@@ -6,43 +6,43 @@ import { connect } from 'react-redux';
 import * as HelloActions from './../actions/actions';
 
 //Components
-import Login from './../components/Login';
-import Signup from './../components/Signup';
+import SignIn from './../components/SignIn';
+import Register from './../components/Register';
 
 class HomePage extends React.Component {
   constructor(){
     super();
-    this.openLogin = this.openLogin.bind(this);
-    this.closeLogin = this.closeLogin.bind(this);
-    this.openSignup = this.openSignup.bind(this);
-    this.closeSignup = this.closeSignup.bind(this);
+    this.openSignIn = this.openSignIn.bind(this);
+    this.closeSignIn = this.closeSignIn.bind(this);
+    this.openRegister = this.openRegister.bind(this);
+    this.closeRegister = this.closeRegister.bind(this);
     this.state = {
-      showLoginModal: false,
-      showSignupModal: false,
+      showSignInModal: false,
+      showRegisterModal: false,
     }
   }
 
-  openLogin(){
+  openSignIn(){
     this.setState({
-      showLoginModal: true
+      showSignInModal: true
     })
   }
 
-  closeLogin(){
+  closeSignIn(){
     this.setState({
-      showLoginModal: false
+      showSignInModal: false
     })
   }
 
-  openSignup(){
+  openRegister(){
     this.setState({
-      showSignupModal: true
+      showRegisterModal: true
     })
   }
 
-  closeSignup(){
+  closeRegister(){
     this.setState({
-      showSignupModal: false
+      showRegisterModal: false
     })
   }
 
@@ -52,21 +52,21 @@ class HomePage extends React.Component {
         <button
           type='button'
           className='btn col-md-7 center-block'
-          onClick={this.openLogin}>Click here to log in
+          onClick={this.openSignIn}>Click here to sign in
         </button>
-        <Login
+        <SignIn
           {...this.props}
-          showLoginModal={this.state.showLoginModal}
-          closeLogin={this.closeLogin} />
+          showSignInModal={this.state.showSignInModal}
+          closeSignIn={this.closeSignIn} />
         <button
           type='button'
           className='btn col-md-7 center-block'
-          onClick={this.openSignup}>Click here to sign up
+          onClick={this.openRegister}>Click here to register
         </button>
-        <Signup
+        <Register
           {...this.props}
-          showSignupModal={this.state.showSignupModal}
-          closeSignup={this.closeSignup} />
+          showRegisterModal={this.state.showRegisterModal}
+          closeRegister={this.closeRegister} />
       </div>
     )
   }
