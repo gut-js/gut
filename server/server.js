@@ -5,9 +5,7 @@ var uniqueValidator = require('mongoose-unique-validator');
 var bcrypt = require('bcrypt');
 var jwt = require('jsonwebtoken');
 var bcrypt = require('brypt');
-
 var app = express();
-var jsonParser = bodyParser.json();
 var port = process.env.PORT || 5679;
 
 //******DATABASE SET UP
@@ -32,12 +30,16 @@ app.use(function(req, res, next){
 
 //serving static files
 app.use('/', express.static( __dirname + '/../client' ));
-
 app.get('/', function(req, res){
   res.sendFile(path.join(__dirname, '../client/index.html'));
 });
 
 app.use(bodyParser.json());
+
+// routes
+app.use('/yelp', require('./yelpRoute'));
+
+var port = process.env.PORT || 5679;
 
 //auth
 var jwtSecret = 'thupers3crT$14';
@@ -67,15 +69,6 @@ function authenticate(req, res, next){
 	    });
 	}
 }
-
-app.post('/emptyLoginMessage', function(req,res){
-	var username = req.body.username;
-	User.findOne({username:username},function(err,user){
-		user.loginMessage='';
-		user.save();
-		res.end();
-	});
-})
 
 //maintain logged-in status upon refresh
 app.post('/authenticate', function(req, res) {
