@@ -27,10 +27,34 @@ $(document).ready(function(){
             contentType: 'application/json',
             success: function(data){
                 console.log('success');
+                console.log('data', data);
             },
             error: function(err){
                 console.log('error',err);
             }
         });
     });
+
+    $('#loginForm').submit(function(e){
+    e.preventDefault();
+    var username = $('#loginUsername').val();
+    var password = $('#loginPassword').val();
+    data = {username:username,password:password};
+    console.log('data:', data);
+    $.ajax({
+        url: '/login',
+        type: 'POST',
+        data: JSON.stringify(data),
+        contentType: 'application/json',
+        success: function(data){
+            console.log('success');
+            console.log('data', data);
+        },
+        error: function(err){
+            console.log('error',err);
+        }
+    });
+});
+
+
 })
