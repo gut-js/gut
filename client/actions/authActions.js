@@ -65,7 +65,7 @@ const registerSuccess = (user) => {
   }
 }
 
-// Main Login Function
+// Main Sign in Function
 export const signinUser = (credentials) => {
   return dispatch => {
     dispatch(signinRequest(credentials));
