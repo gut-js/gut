@@ -3,8 +3,7 @@ import { Button } from 'react-bootstrap';
 import _ from 'lodash';
 
 // test data
-var categoryPrettyNames = _.uniq([ 'Salad', 'Pizza', 'Italian', 'Burgers', 'American (New)', 'Japanese', 'Japanese', 'Coffee & Tea', 'Wine Bars', 'Delis', 'Wine Bars', 'American (New)', 'Mediterranean', 'American (New)', 'Asian Fusion', 'Tapas/Small Plates', 'Italian', 'Beer Gardens', 'Live/Raw Food', 'American (New)' ])
-var categoryUglyNames = _.uniq([ 'salad', 'pizza', 'italian', 'burgers', 'newamerican', 'japanese', 'japanese', 'coffee', 'wine_bars', 'delis', 'wine_bars', 'newamerican', 'mediterranean', 'newamerican', 'asianfusion', 'tapasmallplates', 'italian', 'beergardens', 'raw_food', 'newamerican' ])
+var categoryNames = _.uniq([ [ 'American (New)', 'newamerican' ], [ 'Asian Fusion', 'asianfusion' ], [ 'Beer Gardens', 'beergardens' ], [ 'Burgers', 'burgers' ], [ 'Coffee & Tea', 'coffee' ], [ 'Delis', 'delis' ], [ 'Italian', 'italian' ], [ 'Japanese', 'japanese' ], [ 'Live/Raw Food', 'raw_food' ], [ 'Mediterranean', 'mediterranean' ], [ 'Pizza', 'pizza' ], [ 'Salad', 'salad' ], [ 'Tapas/Small Plates', 'tapasmallplates' ], [ 'Wine Bars', 'wine_bars' ] ]);
 
 // counter object
 var counter = {}
@@ -33,18 +32,18 @@ class CategoryPair extends React.Component {
         <button
           type='submit'
           className='btn col-md-7 center-block'
-          value={this.props.category1}
+          value={this.props.category1[1]}
           onClick={this.handleClick}
         >
-          {this.props.category1}
+          {this.props.category1[0]}
         </button>
         <button
           type='submit'
           className='btn col-md-7 center-block'
-          value={this.props.category2}
+          value={this.props.category2[1]}
           onClick={this.handleClick}
         >
-          {this.props.category2}
+          {this.props.category2[0]}
         </button>
         <br />
       </p>
@@ -54,16 +53,23 @@ class CategoryPair extends React.Component {
 
 // a list of button pairs
 class Categories extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      responses: []
+    };
+  }
+
   render(){
-    var categoryButtons = categoryPrettyNames.map(function(category) {
+    var categoryButtons = categoryNames.map(function(category) {
 
       // select random categories for each button
-      var category1 = categoryPrettyNames[Math.floor(Math.random()*categoryPrettyNames.length)]
-      var category2 = categoryPrettyNames[Math.floor(Math.random()*categoryPrettyNames.length)]
+      var category1 = categoryNames[Math.floor(Math.random()*categoryNames.length)]
+      var category2 = categoryNames[Math.floor(Math.random()*categoryNames.length)]
 
       // ensure buttons show different categories
       while (category1 === category2) {
-        category2 = categoryPrettyNames[Math.floor(Math.random()*categoryPrettyNames.length)]
+        category2 = categoryNames[Math.floor(Math.random()*categoryNames.length)]
       };
 
       return(
