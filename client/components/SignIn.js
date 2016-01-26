@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 
-class Signin extends React.Component {
+class SignIn extends React.Component {
   constructor(){
     super();
     this.handleClick = this.handleClick.bind(this);
@@ -9,18 +9,27 @@ class Signin extends React.Component {
 
   handleClick(e){
     e.preventDefault();
+    const { signinUser } = this.props.authActions;
     const username = this.refs.username;
     const password = this.refs.password;
     const userInfo = {
       username: username.value,
       password: password.value
     };
-    console.log('SIGN IN', userInfo);
+
+    signinUser(userInfo);
+
     username.value = '';
     password.value = '';
   }
 
   render(){
+    let errorMsg = this.props.errorMessage ? (
+      <p>
+        Either the username or password you entered is incorrect.
+      </p>) : null;
+
+    console.log('props in signin', this.props);
     return(
       <Modal show={this.props.showSignInModal} onHide={this.props.closeSignIn}>
         <Modal.Header closeButton>
@@ -45,6 +54,7 @@ class Signin extends React.Component {
                 ref='password' />
             </div>
             <div className='form-group'>
+              {errorMsg}
               <button
                 type='submit'
                 className='btn btn-block'
@@ -62,4 +72,4 @@ class Signin extends React.Component {
   }
 }
 
-export default Signin;
+export default SignIn;

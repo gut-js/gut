@@ -18,7 +18,7 @@ class HomePage extends React.Component {
     this.closeRegister = this.closeRegister.bind(this);
     this.state = {
       showSignInModal: false,
-      showRegisterModal: false,
+      showRegisterModal: false
     }
   }
 
@@ -47,6 +47,10 @@ class HomePage extends React.Component {
   }
 
   render(){
+    let isLoggedIn = this.props.isLoggedIn ? <p>Logged In</p> : <p>NOT Logged In</p>
+
+    console.log('props on homepage', this.props);
+
     return (
       <div className='row'>
         <button
@@ -67,6 +71,9 @@ class HomePage extends React.Component {
           {...this.props}
           showRegisterModal={this.state.showRegisterModal}
           closeRegister={this.closeRegister} />
+          <div className='col-md-12 center-block'>
+            {isLoggedIn}
+          </div>
       </div>
     )
   }
@@ -77,7 +84,7 @@ function mapStateToProps(state){
     username: state.authReducer.username,
     isLoggedIn: state.authReducer.isLoggedIn,
     isFetching: state.authReducer.isFetching,
-    errorMessage: state.authReducer.errorMessage
+    errorMessage: state.authReducer.errorMessage,
   }
 }
 
