@@ -27,7 +27,10 @@ class Register extends React.Component {
   }
 
   render(){
-    let error = this.props.errorMessage.message ? (<p>Sorry, this username has been taken. Please try another one.</p>) : null;
+    let errorMsg = this.props.errorMessage.message ? (
+      <p>
+        Sorry, this username has been taken. Please try another one.
+      </p>) : null;
 
     return(
       <Modal show={this.props.showRegisterModal} onHide={this.props.closeRegister}>
@@ -44,7 +47,7 @@ class Register extends React.Component {
                   placeholder='Username'
                   ref='username' />
               </div>
-              {error}
+              {errorMsg}
               <div className='form-group'>
                 <input
                   type='password'

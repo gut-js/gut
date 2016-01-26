@@ -1,9 +1,10 @@
 export const REGISTER_REQUEST = 'REGISTER_REQUEST';
 export const REGISTER_ERROR = 'REGISTER_ERROR';
 export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
-export const LOGIN_REQUEST = 'LOGIN_REQUEST';
-export const LOGIN_ERROR = 'LOGIN_ERROR';
-export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const SIGNIN_REQUEST = 'SIGNIN_REQUEST';
+export const SIGNIN_ERROR_PW = 'SIGNIN_ERROR_PW';
+export const SIGNIN_ERROR_USER = 'SIGNIN_ERROR_USER';
+export const SIGNIN_SUCCESS = 'SIGNIN_SUCCESS';
 // export const LOGOUT_REQUEST = 'LOGOUT_REQUEST';
 // export const LOGOUT_ERROR = 'LOGOUT_ERROR';
 // export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
@@ -65,9 +66,9 @@ const registerSuccess = (user) => {
 }
 
 // Main Login Function
-export const loginUser = (credentials) => {
+export const signinUser = (credentials) => {
   return dispatch => {
-    dispatch(loginRequest(credentials));
+    dispatch(signinRequest(credentials));
 
     return fetch('http://localhost:5679/login', {
       method: 'POST',
@@ -84,39 +85,48 @@ export const loginUser = (credentials) => {
       return response.json();
     })
     .then(response => {
-      console.log('response from logging in', response)
       try {
         if(response.success){
-          dispatch(loginSuccess(response));
+          dispatch(signinSuccess(response));
         } else {
-          console.log(response);
-          dispatch(loginError(response));
+          if(response === 'InvalidPassword'){
+            dispatch(signinErrorPassword(response));
+          } else {
+            dispatch(signinErrorUsername(response));
+          }
         }
       } catch(e){
-        dispatch(loginError(response.error));
+        dispatch(signinError(response.error));
       }
     })
-    .catch(err => console.error('Error in Login User:', err));
+    .catch(err => console.error('Error in Signing In User:', err));
   }
 }
 
-const loginRequest = (info) => {
+const signinRequest = (info) => {
   return {
-    type: LOGIN_REQUEST,
+    type: SIGNIN_REQUEST,
     info
   }
 }
 
-const loginError = (err) => {
+const signinErrorPassword = (err) => {
   return {
-    type: LOGIN_ERROR,
+    type: SIGNIN_ERROR_PW,
     err
   }
 }
 
-const loginSuccess = (user) => {
+const signinErrorUsername = (err) => {
   return {
-    type: LOGIN_SUCCESS,
+    type: SIGNIN_ERROR_USER,
+    err
+  }
+}
+
+const signinSuccess = (user) => {
+  return {
+    type: SIGNIN_SUCCESS,
     user
   }
 }

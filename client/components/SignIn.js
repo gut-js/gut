@@ -9,8 +9,7 @@ class SignIn extends React.Component {
 
   handleClick(e){
     e.preventDefault();
-    console.log('props in signin', this.props)
-    const { loginUser } = this.props.authActions;
+    const { signinUser } = this.props.authActions;
     const username = this.refs.username;
     const password = this.refs.password;
     const userInfo = {
@@ -18,13 +17,19 @@ class SignIn extends React.Component {
       password: password.value
     };
 
-    loginUser(userInfo);
+    signinUser(userInfo);
 
     username.value = '';
     password.value = '';
   }
 
   render(){
+    let errorMsg = this.props.errorMessage ? (
+      <p>
+        Either the username or password you entered is incorrect.
+      </p>) : null;
+
+    console.log('props in signin', this.props);
     return(
       <Modal show={this.props.showSignInModal} onHide={this.props.closeSignIn}>
         <Modal.Header closeButton>
@@ -49,6 +54,7 @@ class SignIn extends React.Component {
                 ref='password' />
             </div>
             <div className='form-group'>
+              {errorMsg}
               <button
                 type='submit'
                 className='btn btn-block'

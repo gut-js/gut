@@ -47,8 +47,10 @@ class HomePage extends React.Component {
   }
 
   render(){
-    let loggedIn = this.props.loginCheck ? <p>Logged In</p> : <p>NOT Logged In</p>
-    
+    let isLoggedIn = this.props.isLoggedIn ? <p>Logged In</p> : <p>NOT Logged In</p>
+
+    console.log('props on homepage', this.props);
+
     return (
       <div className='row'>
         <button
@@ -70,7 +72,7 @@ class HomePage extends React.Component {
           showRegisterModal={this.state.showRegisterModal}
           closeRegister={this.closeRegister} />
           <div className='col-md-12 center-block'>
-            {loggedIn}
+            {isLoggedIn}
           </div>
       </div>
     )
@@ -83,7 +85,6 @@ function mapStateToProps(state){
     isLoggedIn: state.authReducer.isLoggedIn,
     isFetching: state.authReducer.isFetching,
     errorMessage: state.authReducer.errorMessage,
-    loginCheck: state.authReducer.loginCheck
   }
 }
 

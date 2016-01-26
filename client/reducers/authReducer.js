@@ -2,17 +2,17 @@ import {
   REGISTER_REQUEST,
   REGISTER_ERROR,
   REGISTER_SUCCESS,
-  LOGIN_REQUEST,
-  LOGIN_ERROR,
-  LOGIN_SUCCESS
+  SIGNIN_REQUEST,
+  SIGNIN_ERROR_PW,
+  SIGNIN_ERROR_USER,
+  SIGNIN_SUCCESS,
 } from './../actions/authActions';
 
 const initialState = {
   isFetching: false,
   isLoggedIn: false,
   username: '',
-  errorMessage: '',
-  loginCheck: false,
+  errorMessage: ''
 }
 
 export default function authReducer(state = initialState, action){
@@ -33,27 +33,30 @@ export default function authReducer(state = initialState, action){
       return Object.assign({}, state, {
         isFetching: false,
         isLoggedIn: true,
-        loginCheck: true,
         errorMessage: ''
       })
-    case LOGIN_REQUEST:
+    case SIGNIN_REQUEST:
       return Object.assign({}, state, {
         isFetching: true,
         isLoggedIn: false,
         username: action.info
       })
-    case LOGIN_ERROR:
+    case SIGNIN_ERROR_PW:
       return Object.assign({}, state, {
         isFetching: false,
         isLoggedIn: false,
         errorMessage: action.err
       })
-    case LOGIN_SUCCESS:
+    case SIGNIN_ERROR_USER:
+      return Object.assign({}, state, {
+        isFetching: false,
+        isLoggedIn: false,
+        errorMessage: action.err
+      })
+    case SIGNIN_SUCCESS:
       return Object.assign({}, state, {
         isFetching: false,
         isLoggedIn: true,
-        loginCheck: true,
-        errorMessage: ''
       })
     default:
       return state;
