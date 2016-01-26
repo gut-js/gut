@@ -32,6 +32,7 @@
     "querystring": "^0.2.0",
     "react-bootstrap": "^0.28.2",
     "react-redux": "^4.0.6",
+    "react-router": "^2.0.0-rc5",
     "redux": "^3.0.5",
     "redux-thunk": "^1.0.3",
     "request": "^2.67.0"
