@@ -8,6 +8,7 @@ import * as authActions from './../actions/authActions';
 //Components
 import SignIn from './../components/SignIn';
 import Register from './../components/Register';
+import RestaurantList from './RestaurantList';
 
 class HomePage extends React.Component {
   constructor(){
@@ -74,6 +75,8 @@ class HomePage extends React.Component {
           <div className='col-md-12 center-block'>
             {isLoggedIn}
           </div>
+        <RestaurantList 
+        {...this.props}/>
       </div>
     )
   }
