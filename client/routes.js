@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, IndexRoute } from 'react-router';
+import { Router, Route, IndexRoute, browserHistory, hashHistory } from 'react-router';
 
 //Containers
 import HomePage from './containers/HomePage';
@@ -16,8 +16,11 @@ import Profile from './containers/Profile';
 // <IndexRoute component={Profile} onEnter={checkAuth} />
 // <Route path ='login' component={HomePage} />
 
-export default (
-	<Route path="/" component={HomePage}>
-
-	</Route>
+const routes = (
+	<Router history={hashHistory}>
+		<Route path='/' component={HomePage} />
+			<Route path='profile' component={Profile} />
+	</Router>
 );
+
+export default routes;

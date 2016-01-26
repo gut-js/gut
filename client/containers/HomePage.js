@@ -50,8 +50,6 @@ class HomePage extends React.Component {
   render(){
     let isLoggedIn = this.props.isLoggedIn ? <p>Logged In</p> : <p>NOT Logged In</p>
 
-    console.log('props on homepage', this.props);
-
     return (
       <div className='row'>
         <button
@@ -75,8 +73,6 @@ class HomePage extends React.Component {
           <div className='col-md-12 center-block'>
             {isLoggedIn}
           </div>
-        <RestaurantList 
-        {...this.props}/>
       </div>
     )
   }

@@ -7,27 +7,27 @@ import Restaurant from '../components/Restaurant';
 class RestaurantList extends Component {
  	constructor(props) {
  		super(props);
- 
+
  		this.state = { term: '' };
- 
+
  		this.onInputChange = this.onInputChange.bind(this);
  		this.onFormSubmit = this.onFormSubmit.bind(this);
  	}
- 
+
  	onInputChange(event) {
  		this.setState({ term: event.target.value });
  	}
- 
+
  	onFormSubmit(event) {
  		event.preventDefault();
- 
+
  		//fetch restaurant data
  		this.props.searchActions.fetchRestaurants(this.state.term);
  		this.setState({ term: '' });
- 
- 
+
+
  	}
- 
+
  	render() {
  		let restaurant = this.props.restaurants.map(function(restaurant) {
  			return (
@@ -38,12 +38,11 @@ class RestaurantList extends Component {
  		return (
  			<div>
 		 		<form onSubmit={this.onFormSubmit} className='input-group'>
-		 			<input 
+		 			<input
 		 				placeholder="Find a restaurant in your favorite city"
 		 				className="form-control"
 		 				value={this.state.term}
 		 				onChange={this.onInputChange}/>
-		 				}
 		 			<span className="input-group-btn">
 		 				<button type="submit" className="btn btn-secondary">Submit</button>
 		 			</span>
@@ -63,5 +62,5 @@ class RestaurantList extends Component {
  		searchActions: bindActionCreators(searchActions, dispatch)
  	};
  }
- 
- export default connect(mapStateToProps, mapDispatchToProps)(RestaurantList); 
+
+ export default connect(mapStateToProps, mapDispatchToProps)(RestaurantList);
