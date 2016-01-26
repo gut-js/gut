@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 
-class Signin extends React.Component {
+class SignIn extends React.Component {
   constructor(){
     super();
     this.handleClick = this.handleClick.bind(this);
@@ -9,13 +9,17 @@ class Signin extends React.Component {
 
   handleClick(e){
     e.preventDefault();
+    console.log('props in signin', this.props)
+    const { loginUser } = this.props.authActions;
     const username = this.refs.username;
     const password = this.refs.password;
     const userInfo = {
       username: username.value,
       password: password.value
     };
-    console.log('SIGN IN', userInfo);
+
+    loginUser(userInfo);
+
     username.value = '';
     password.value = '';
   }
@@ -62,4 +66,4 @@ class Signin extends React.Component {
   }
 }
 
-export default Signin;
+export default SignIn;

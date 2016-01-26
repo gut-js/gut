@@ -16,6 +16,7 @@ router.post('/', function(req, res){
     db.User.findOne({username: username}, function(err, user){
       if (err) {
         console.log('err finding user');
+        res.send(err);
       }
       else {
         console.log('found user', user);
@@ -46,12 +47,12 @@ router.post('/', function(req, res){
                 loginMessage: loginMessage
               });
             } else {
-              res.send('InvalidPassword');
+              res.json('InvalidPassword');
             }
           })
 
       } else {
-        res.send('InvalidUser');
+        res.json('InvalidUser');
       }
   });
 });
