@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 //Actions
-import * as HelloActions from './../actions/actions';
+import * as authActions from './../actions/authActions';
 
 //Components
 import SignIn from './../components/SignIn';
@@ -74,13 +74,17 @@ class HomePage extends React.Component {
 
 function mapStateToProps(state){
   return {
-    text: state.sayHello.text,
-    meep: state.sayHello.hello
+    username: state.authReducer.username,
+    isLoggedIn: state.authReducer.isLoggedIn,
+    isFetching: state.authReducer.isFetching,
+    errorMessage: state.authReducer.errorMessage
   }
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators(HelloActions, dispatch);
+  return {
+    authActions: bindActionCreators(authActions, dispatch)
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
