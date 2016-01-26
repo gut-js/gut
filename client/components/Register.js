@@ -61,7 +61,7 @@ class Register extends React.Component {
                 <button
                   type='submit'
                   className='btn btn-block'
-                  onClick={this.handleClick}>Log in
+                  onClick={this.handleClick}>Register
                 </button>
                 <div>
                   Have an account? Click <a>here</a> to log in.
