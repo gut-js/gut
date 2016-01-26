@@ -17,13 +17,16 @@ class Register extends React.Component {
       password: password.value,
       email: email.value
     };
-    console.log('REGISTER', userInfo);
+    this.props.authActions.registerUser(userInfo);
+    console.log('REGISTER INFO SENT:', userInfo);
     username.value = '';
     password.value = '';
     email.value = '';
   }
 
   render(){
+    let error = this.props.errorMessage.message ? (<p>Sorry, this username has been taken. Please try another one.</p>) : null;
+
     return(
       <Modal show={this.props.showRegisterModal} onHide={this.props.closeRegister}>
         <Modal.Header closeButton>
@@ -39,6 +42,7 @@ class Register extends React.Component {
                   placeholder='Username'
                   ref='username' />
               </div>
+              {error}
               <div className='form-group'>
                 <input
                   type='password'
