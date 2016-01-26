@@ -9,6 +9,7 @@ class Register extends React.Component {
 
   handleClick(e){
     e.preventDefault();
+    const { registerUser } = this.props.authActions;
     const username = this.refs.username;
     const password = this.refs.password;
     const email = this.refs.email;
@@ -18,8 +19,8 @@ class Register extends React.Component {
       email: email.value
     };
 
-    this.props.authActions.registerUser(userInfo);
-    
+    registerUser(userInfo);
+
     username.value = '';
     password.value = '';
     email.value = '';
