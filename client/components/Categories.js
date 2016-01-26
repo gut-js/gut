@@ -18,11 +18,7 @@ class CategoryPair extends React.Component {
   handleClick(e){
     e.preventDefault();
     console.log('you chose', e.target.value);
-    if (!counter[e.target.value]) {
-      counter[e.target.value] = 1
-    } else {
-      counter[e.target.value]++
-    };
+    counter[e.target.value][0]++
     console.log(counter);
   }
 
@@ -71,6 +67,20 @@ class Categories extends React.Component {
       while (category1 === category2) {
         category2 = categoryNames[Math.floor(Math.random()*categoryNames.length)]
       };
+
+      // increase times displayed count (index 1) in counter object
+      // initialize as [0,1] if undefined
+      if (counter[category1[1]]) {
+        counter[category1[1]][1]++
+      } else {
+        counter[category1[1]] = [ 0, 1 ]
+      }
+
+      if (counter[category2[1]]) {
+        counter[category2[1]][1]++
+      } else {
+        counter[category2[1]] = [ 0, 1 ]
+      }
 
       return(
         <CategoryPair key={category} category1={category1} category2={category2} />
