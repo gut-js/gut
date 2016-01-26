@@ -29,7 +29,6 @@ export const registerUser = (credentials) => {
     })
     .then(response => {
       try {
-        console.log('response in register user', response)
         if(response.success){
           dispatch(registerSuccess(response));
         } else {

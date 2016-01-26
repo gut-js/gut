@@ -17,8 +17,9 @@ class Register extends React.Component {
       password: password.value,
       email: email.value
     };
+
     this.props.authActions.registerUser(userInfo);
-    console.log('REGISTER INFO SENT:', userInfo);
+    
     username.value = '';
     password.value = '';
     email.value = '';
