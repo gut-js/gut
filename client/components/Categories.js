@@ -2,11 +2,19 @@ import React, { PropTypes } from 'react';
 import { Button } from 'react-bootstrap';
 import _ from 'lodash';
 
+// MVP: user must go through all questions for accurate results
+
 // test data
 var categoryNames = _.uniq([ [ 'American (New)', 'newamerican' ], [ 'Asian Fusion', 'asianfusion' ], [ 'Beer Gardens', 'beergardens' ], [ 'Burgers', 'burgers' ], [ 'Coffee & Tea', 'coffee' ], [ 'Delis', 'delis' ], [ 'Italian', 'italian' ], [ 'Japanese', 'japanese' ], [ 'Live/Raw Food', 'raw_food' ], [ 'Mediterranean', 'mediterranean' ], [ 'Pizza', 'pizza' ], [ 'Salad', 'salad' ], [ 'Tapas/Small Plates', 'tapasmallplates' ], [ 'Wine Bars', 'wine_bars' ] ]);
 
 // counter object
 var counter = {}
+
+// poll object
+var poll = {
+  questions: []
+}
+
 
 // a pair of buttons with category labels
 class CategoryPair extends React.Component {
@@ -20,11 +28,12 @@ class CategoryPair extends React.Component {
     console.log('you chose', e.target.value);
     counter[e.target.value][0]++
     console.log(counter);
+    // show the next pair of buttons
   }
 
   render(){
     return(
-      <p>
+      <div>
         <button
           type='submit'
           className='btn col-md-7 center-block'
@@ -42,7 +51,7 @@ class CategoryPair extends React.Component {
           {this.props.category2[0]}
         </button>
         <br />
-      </p>
+      </div>
     )
   }
 }
@@ -81,11 +90,16 @@ class Categories extends React.Component {
       } else {
         counter[category2[1]] = [ 0, 1 ]
       }
+      
+      poll.questions.push({category1: category1, category2: category2})
 
       return(
         <CategoryPair key={category} category1={category1} category2={category2} />
       )
     })
+
+    console.log('poll:', poll);
+
     return(
       <div>
         {categoryButtons}
