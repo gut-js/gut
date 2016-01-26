@@ -5,8 +5,7 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import configureStore from './store/configureStore';
 
-//React-Router stuff:
-import { Router, browserHistory } from 'react-router';
+//Router stuff:
 import routes from './routes';
 
 //Containers
@@ -16,9 +15,7 @@ const store = configureStore();
 
 render(
   <Provider store={store}>
-    <div>
-      <Router history={browserHistory} routes={routes} />
-    </div>
+    {routes}
   </Provider>,
   document.getElementById('root')
 );

@@ -29,7 +29,6 @@ class SignIn extends React.Component {
         Either the username or password you entered is incorrect.
       </p>) : null;
 
-    console.log('props in signin', this.props);
     return(
       <Modal show={this.props.showSignInModal} onHide={this.props.closeSignIn}>
         <Modal.Header closeButton>
