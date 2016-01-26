@@ -36,7 +36,11 @@ const store = finalCreateStore(reducer);
 render(
   <Provider store={store}>
     <div>
+<<<<<<< a4f2f81cb22d853f1ff40f4fe0d3f93e669c5ae5
       {routes}
+=======
+      <Router routes={routes} />
+>>>>>>> [fix] removes browserHistory
     </div>
   </Provider>,
   document.getElementById('root')
