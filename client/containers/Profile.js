@@ -6,8 +6,11 @@ import { connect } from 'react-redux';
 import * as authActions from './../actions/authActions';
 import * as searchActions from './../actions/searchActions';
 
-// Components
+//Components
 import RestaurantList from './../components/RestaurantList';
+
+//Containers
+import Poll from './../containers/Poll';
 
 class Profile extends React.Component {
   render(){
@@ -15,6 +18,7 @@ class Profile extends React.Component {
     return(
       <div>
         THIS IS YOUR PROFILE!
+        <Poll />
         <RestaurantList
         {...this.props}/>
       </div>

@@ -23,7 +23,7 @@ class Poll extends React.Component {
   render(){
     return (
       <div>
-       <PollCategory data={this.state.data} />
+       <PollCategory pollActions={this.props.pollActions} data={this.state.data} username={this.props.username} />
       </div>
     )
   }
@@ -33,7 +33,7 @@ const mapStateToProps = (state) => {
   return {
     selected: state.pollReducer.selected,
     unselected: state.pollReducer.unselected,
-    username: state.pollReducer.username,
+    username: state.authReducer.username,
     isSubmitting: state.pollReducer.isSubmitting,
     pollErrorMessage: state.pollReducer.pollErrorMessage
   }
