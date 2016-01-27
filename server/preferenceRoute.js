@@ -22,12 +22,10 @@ router.put('/',function(req,res){
         selected.forEach(function(item){
         	var categoryName = item[1];
         	if (user.categories[categoryName]){
-        		console.log('found category:',categoryName);
         		user.categories[categoryName][0]+=1;
         		user.categories[categoryName][1]+=1;
         	}
         	else {
-        		console.log("DIDN'T FIND category:",categoryName);
         		user.categories[categoryName] = [1,1];
         	}
         });
@@ -35,11 +33,9 @@ router.put('/',function(req,res){
         unselected.forEach(function(item){
         	var categoryName = item[1];
         	if (user.categories[categoryName]){
-        		console.log('found category:',categoryName);
         		user.categories[categoryName][1]+=1;
         	}
         	else {
-        		console.log("DIDN'T FIND category:",categoryName);
         		user.categories[categoryName] = [0,1];
         	}
         });
