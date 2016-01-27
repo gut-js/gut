@@ -19,8 +19,6 @@
 * [React Bootstrap](https://react-bootstrap.github.io/)
 * [Yelp API](https://www.yelp.com/developers/documentation/v2/overview)
 
-//TODO
-
 #### To start contributing to the Gut codebase:
 1. Fork the repo
 2. Clone your fork locally
