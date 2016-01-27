@@ -1,3 +1,5 @@
+import { routeActions } from 'react-router-redux';
+
 export const REGISTER_REQUEST = 'REGISTER_REQUEST';
 export const REGISTER_ERROR = 'REGISTER_ERROR';
 export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
@@ -65,7 +67,7 @@ const registerSuccess = (user) => {
   }
 }
 
-// Main Login Function
+// Main Sign in Function
 export const signinUser = (credentials) => {
   return dispatch => {
     dispatch(signinRequest(credentials));
@@ -88,6 +90,7 @@ export const signinUser = (credentials) => {
       try {
         if(response.success){
           dispatch(signinSuccess(response));
+          dispatch(routeActions.push('/profile'))
         } else {
           if(response === 'InvalidPassword'){
             dispatch(signinErrorPassword(response));
