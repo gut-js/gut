@@ -27,7 +27,7 @@ class Register extends React.Component {
   }
 
   render(){
-    let errorMsg = this.props.errorMessage.message ? (
+    let errorMsg = this.props.authErrorMsg.message ? (
       <p>
         Sorry, this username has been taken. Please try another one.
       </p>) : null;
