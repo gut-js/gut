@@ -20,12 +20,13 @@ class PollCategory extends React.Component {
     const response = {
       selected: selected,
       unselected: unselected,
-      username: this.props.username
+      username: this.props.username.username
     }
     sendPollChoices(response);
   }
 
   render(){
+    console.log('this.props:', this.props);
     return (
       <div>
         <img src={this.props.data.businesses[0].image_url} alt='choice1' onClick={this.selectImage} />
