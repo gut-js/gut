@@ -18,7 +18,37 @@ router.put('/',function(req,res){
       }
       else {
         console.log('found user', user);
-        res.json('found user');
+
+        selected.forEach(function(item){
+        	var categoryName = item[1];
+        	if (user.categories[categoryName]){
+        		console.log('found category:',categoryName);
+        		user.categories[categoryName][0]+=1;
+        		user.categories[categoryName][1]+=1;
+        	}
+        	else {
+        		console.log("DIDN'T FIND category:",categoryName);
+        		user.categories[categoryName] = [1,1];
+        	}
+        });
+
+        unselected.forEach(function(item){
+        	var categoryName = item[1];
+        	if (user.categories[categoryName]){
+        		console.log('found category:',categoryName);
+        		user.categories[categoryName][1]+=1;
+        	}
+        	else {
+        		console.log("DIDN'T FIND category:",categoryName);
+        		user.categories[categoryName] = [0,1];
+        	}
+        });
+
+        user.markModified('categories');
+        user.save(function(err,user){
+        	console.log('updated user:',user);
+        	res.json(user);
+        });
       }
     });
 
