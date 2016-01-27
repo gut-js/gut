@@ -5,3 +5,6 @@ node_modules
 
 #Webpack Bundle
 client/dist/
+
+#Config File (API Keys)
+server/config.js

@@ -9,6 +9,7 @@ $(document).ready(function(){
           success: function(data){
             //console.log('yelp location sent');
             var parsed = JSON.parse(data);
+            console.log(parsed);
             //console.log('full business detail sample:',parsed.businesses[0]);
             var businesses = parsed.businesses.map(function(item){
               //imageUrl = item.image_url;
@@ -37,11 +38,11 @@ $(document).ready(function(){
             $('#survey').append('<img class="logo" id="business2" src='+business2.image_url+'>');
 
             $('#business1').click(function(){
-              recommend(business1);
+              recommend(business1,business2);
             });
 
             $('#business2').click(function(){
-              recommend(business2);
+              recommend(business2,business1);
             })
 
           },
@@ -51,10 +52,32 @@ $(document).ready(function(){
         });
     });
 
-    function recommend(business){
+    function recommend(selected,unselected){
+      console.log('YEA',selected.categories);
+      console.log('nah',unselected.categories);
+      data = {
+        username: 'shin',
+        selected: selected.categories,
+        unselected: unselected.categories
+      }
+      $.ajax({
+        url: '/preference',
+        type: 'PUT',
+        data: JSON.stringify(data),
+        contentType: 'application/json',
+        success: function(data){
+          console.log('success');
+        },
+        error: function(err){
+          console.log('err',err);
+        }
+
+      })
+      /*
       $('#survey').html('');
       $('#survey').append('You should go to:');
       $('#survey').append('<h1>'+business.name+'</h1>');
+      */
     }
 
     $('#signupForm').submit(function(e){
