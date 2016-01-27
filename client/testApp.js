@@ -56,7 +56,7 @@ $(document).ready(function(){
       console.log('YEA',selected.categories);
       console.log('nah',unselected.categories);
       data = {
-        username: 'shin',
+        username: 'shin5',
         selected: selected.categories,
         unselected: unselected.categories
       }
