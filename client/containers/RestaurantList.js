@@ -7,11 +7,11 @@ import Restaurant from '../components/Restaurant';
 class RestaurantList extends Component {
  	constructor(props) {
  		super(props);
-
- 		this.state = { term: '' };
-
- 		this.onInputChange = this.onInputChange.bind(this);
- 		this.onFormSubmit = this.onFormSubmit.bind(this);
+    this.onInputChange = this.onInputChange.bind(this);
+    this.onFormSubmit = this.onFormSubmit.bind(this);
+ 		this.state = {
+      term: ''
+    };
  	}
 
  	onInputChange(event) {
@@ -20,21 +20,25 @@ class RestaurantList extends Component {
 
  	onFormSubmit(event) {
  		event.preventDefault();
+    const { fetchRestaurants } = this.props.searchActions;
 
- 		//fetch restaurant data
- 		this.props.searchActions.fetchRestaurants(this.state.term);
+ 		fetchRestaurants(this.state.term);
+
  		this.setState({ term: '' });
-
-
  	}
 
  	render() {
- 		let restaurant = this.props.restaurants.map(function(restaurant) {
+ 		let restaurant = this.props.restaurants.map(restaurant => {
  			return (
  				<Restaurant name={restaurant.name}/>
  			)
  		})
- 		console.log('this.props in restaurantlist: ', this.props);
+
+    let searchError = this.props.searchErrorMsg ? (
+      <p>
+        No Restaurants Found!
+      </p>) : null;
+
  		return (
  			<div>
 		 		<form onSubmit={this.onFormSubmit} className='input-group'>
@@ -47,14 +51,19 @@ class RestaurantList extends Component {
 		 				<button type="submit" className="btn btn-secondary">Submit</button>
 		 			</span>
 		 		</form>
+        {searchError}
 		 		{restaurant}
 	 		</div>
  		)
  	}
  }
+
  function mapStateToProps(state){
- 	console.log('restaurantlist state: ', state);
-   return { restaurants: state.searchReducer };
+   console.log('state in map', state);
+   return {
+     restaurants: state.searchReducer.businesses,
+     searchErrorMsg: state.searchReducer.searchErrorMsg
+   };
  }
 
  function mapDispatchToProps(dispatch) {

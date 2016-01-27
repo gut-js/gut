@@ -1,34 +1,44 @@
-export const FETCH_RESTAURANTS = 'FETCH_RESTAURANTS';
+export const FETCH_RES_SUCCESS = 'FETCH_RES_SUCCESS';
+export const FETCH_RES_ERR = 'FETCH_RES_ERR';
 
-export function fetchRestaurants(location) {
-	console.log('fetchRestaurants location: ', location)
+// Fetches restaurants on searchbar
+export const fetchRestaurants = (location) => {
 	return dispatch => {
-		return fetch('http://localhost:5679/yelp?location='+ location, {
+		return fetch('http://localhost:5679/yelp?location=' + location, {
 			method: 'GET',
 			headers: {
 				'Accept': 'application/json',
 				'Content-Type': 'application/json'
 			}
-
 		})
 		.then(response => {
 			return response.json();
 		})
 		.then(response => {
-			console.log('response: ', response)
-			dispatch(restaurantFetchSucess(response));
-			// try{
-			// 	if(response.success) {
-			// 		dispatch(restaurantFetchSucess)
-			// 	}
-			// }
+			console.log(response);
+			try{
+				if(!response.error){
+					dispatch(restaurantFetchSucess(response));
+				} else {
+					dispatch(restaurantFetchError(response.error));
+				}
+			} catch(e){
+				dispatch(restaurantFetchError(response.error));
+      }
 		})
 	}
 }
 
 const restaurantFetchSucess = (info) => {
 	return {
-		type: FETCH_RESTAURANTS,
+		type: FETCH_RES_SUCCESS,
 		info
+	}
+}
+
+const restaurantFetchError = (err) => {
+	return {
+		type: FETCH_RES_ERR,
+		err
 	}
 }

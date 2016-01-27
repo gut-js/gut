@@ -10,6 +10,7 @@ import RestaurantList from './RestaurantList';
 
 class Profile extends React.Component {
   render(){
+    console.log(this.props);
     return(
       <div>
         THIS IS YOUR PROFILE!
@@ -20,7 +21,7 @@ class Profile extends React.Component {
   }
 }
 
-function mapStateToProps(state){
+const mapStateToProps = (state) => {
   return {
     username: state.authReducer.username,
     isLoggedIn: state.authReducer.isLoggedIn,
@@ -29,7 +30,7 @@ function mapStateToProps(state){
   }
 }
 
-function mapDispatchToProps(dispatch){
+const mapDispatchToProps = (dispatch) => {
   return {
     authActions: bindActionCreators(authActions, dispatch)
   }
