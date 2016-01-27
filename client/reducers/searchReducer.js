@@ -1,10 +1,23 @@
-import { FETCH_RESTAURANTS } from '../actions/searchActions';
+import {
+  FETCH_RES_SUCCESS,
+  FETCH_RES_ERR
+ } from '../actions/searchActions';
 
-export default function searchReducer(state = [], action) {
+ const initialState = {
+   businesses: [],
+   searchErrorMsg: ''
+ }
+
+export default function searchReducer(state = initialState, action) {
  	switch(action.type) {
- 	case FETCH_RESTAURANTS:
- 		let newState = state.concat(action.info.businesses);
- 		return newState;
+ 	case FETCH_RES_SUCCESS:
+    return Object.assign({}, state, {
+      businesses: action.info.businesses,
+    })
+  case FETCH_RES_ERR:
+ 		return Object.assign({}, state, {
+      searchErrorMsg: action.err.id
+    })
  	default:
  		return state;
  	}

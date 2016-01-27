@@ -50,8 +50,6 @@ class HomePage extends React.Component {
   render(){
     let isLoggedIn = this.props.isLoggedIn ? <p>Logged In</p> : <p>NOT Logged In</p>
 
-    console.log('homepage props', this.props);
-
     return (
       <div className='row'>
         <button
@@ -80,7 +78,7 @@ class HomePage extends React.Component {
   }
 }
 
-function mapStateToProps(state){
+const mapStateToProps = (state) => {
   return {
     username: state.authReducer.username,
     isLoggedIn: state.authReducer.isLoggedIn,
@@ -89,7 +87,7 @@ function mapStateToProps(state){
   }
 }
 
-function mapDispatchToProps(dispatch){
+const mapDispatchToProps = (dispatch) => {
   return {
     authActions: bindActionCreators(authActions, dispatch)
   }
