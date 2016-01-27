@@ -1,9 +1,14 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
-import thunk from 'redux-thunk';
+import { syncHistory, routeReducer } from 'react-router-redux';
+import createHistory from 'history/lib/createHashHistory';
 import configureStore from './store/configureStore';
+import thunk from 'redux-thunk';
+
+import authReducer from './reducers/authReducer';
+import searchReducer from './reducers/searchReducer';
 
 //Router stuff:
 import routes from './routes';
@@ -11,7 +16,22 @@ import routes from './routes';
 //Containers
 import HomePage from './containers/HomePage'
 
-const store = configureStore();
+const history = createHistory();
+const thunkMid = applyMiddleware(thunk)
+const histMid = applyMiddleware(syncHistory(history));
+const reducer = combineReducers({
+  authReducer,
+  searchReducer,
+  routing: routeReducer
+})
+
+const finalCreateStore = compose(
+  thunkMid,
+  histMid
+)(createStore);
+
+const store = finalCreateStore(reducer);
+// middleware.listenForReplays(store);
 
 render(
   <Provider store={store}>
