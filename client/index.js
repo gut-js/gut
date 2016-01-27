@@ -9,6 +9,7 @@ import thunk from 'redux-thunk';
 
 import authReducer from './reducers/authReducer';
 import searchReducer from './reducers/searchReducer';
+import pollReducer from './reducers/pollReducer';
 
 //Router stuff:
 import routes from './routes';
@@ -22,6 +23,7 @@ const histMid = applyMiddleware(syncHistory(history));
 const reducer = combineReducers({
   authReducer,
   searchReducer,
+  pollReducer,
   routing: routeReducer
 })
 
