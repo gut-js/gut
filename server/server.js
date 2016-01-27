@@ -24,6 +24,7 @@ app.use(bodyParser.json());
 app.use('/login', require('./loginRoute'));
 app.use('/signup', require('./signupRoute'));
 app.use('/yelp', require('./yelpRoute'));
+app.use('/preference', require('./preferenceRoute'));
 
 var port = process.env.PORT || 5679;
 
