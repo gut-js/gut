@@ -9,7 +9,7 @@ $(document).ready(function(){
           success: function(data){
             //console.log('yelp location sent');
             var parsed = JSON.parse(data);
-            console.log(parsed);
+            //console.log(parsed);
             //console.log('full business detail sample:',parsed.businesses[0]);
             var businesses = parsed.businesses.map(function(item){
               //imageUrl = item.image_url;
@@ -27,7 +27,7 @@ $(document).ready(function(){
             var business1 = businesses.splice(random1,1)[0];
             var random2 = Math.floor(Math.random()*businesses.length);
             var business2 = businesses.splice(random2,1)[0];
-            console.log('business1',business1);
+            //console.log('business1',business1);
 
             var category1 = JSON.stringify(business1.categories);
             var category2 = JSON.stringify(business2.categories);
