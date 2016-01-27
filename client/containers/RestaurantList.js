@@ -28,9 +28,11 @@ class RestaurantList extends Component {
  	}
 
  	render() {
- 		let restaurant = this.props.restaurants.map(restaurant => {
+ 		let restaurant = this.props.restaurants.map((restaurant, index) => {
  			return (
- 				<Restaurant name={restaurant.name}/>
+ 				<Restaurant
+          name={restaurant.name}
+          key={index} />
  			)
  		})
 
