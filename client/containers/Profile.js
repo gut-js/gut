@@ -4,9 +4,10 @@ import { connect } from 'react-redux';
 
 //Actions
 import * as authActions from './../actions/authActions';
+import * as searchActions from './../actions/searchActions';
 
-// Containers
-import RestaurantList from './RestaurantList';
+// Components
+import RestaurantList from './../components/RestaurantList';
 
 class Profile extends React.Component {
   render(){
@@ -27,13 +28,16 @@ const mapStateToProps = (state) => {
     isLoggedIn: state.authReducer.isLoggedIn,
     isFetching: state.authReducer.isFetching,
     errorMessage: state.authReducer.errorMessage,
-    showPoll: state.authReducer.showPoll
+    showPoll: state.authReducer.showPoll,
+    restaurants: state.searchReducer.businesses,
+    searchErrorMsg: state.searchReducer.searchErrorMsg
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    authActions: bindActionCreators(authActions, dispatch)
+    authActions: bindActionCreators(authActions, dispatch),
+    searchActions: bindActionCreators(searchActions, dispatch)
   }
 }
 

@@ -8,7 +8,6 @@ import * as authActions from './../actions/authActions';
 //Components
 import SignIn from './../components/SignIn';
 import Register from './../components/Register';
-import RestaurantList from './RestaurantList';
 
 class HomePage extends React.Component {
   constructor(){
