@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import * as searchActions from '../actions/searchActions';
-import Restaurant from '../components/Restaurant';
+import Restaurant from './Restaurant';
 
 class RestaurantList extends Component {
  	constructor(props) {
@@ -10,27 +7,29 @@ class RestaurantList extends Component {
     this.onInputChange = this.onInputChange.bind(this);
     this.onFormSubmit = this.onFormSubmit.bind(this);
  		this.state = {
-      term: ''
+      searchInput: ''
     };
  	}
 
  	onInputChange(event) {
- 		this.setState({ term: event.target.value });
+ 		this.setState({ searchInput: event.target.value });
  	}
 
  	onFormSubmit(event) {
  		event.preventDefault();
     const { fetchRestaurants } = this.props.searchActions;
 
- 		fetchRestaurants(this.state.term);
+ 		fetchRestaurants(this.state.searchInput);
 
- 		this.setState({ term: '' });
+ 		this.setState({ searchInput: '' });
  	}
 
  	render() {
- 		let restaurant = this.props.restaurants.map(restaurant => {
+ 		let restaurant = this.props.restaurants.map((restaurant, index) => {
  			return (
- 				<Restaurant name={restaurant.name}/>
+ 				<Restaurant
+          name={restaurant.name}
+          key={index} />
  			)
  		})
 
@@ -39,13 +38,14 @@ class RestaurantList extends Component {
         No Restaurants Found!
       </p>) : null;
 
+      console.log('props in restaurant list', this.props);
  		return (
  			<div>
 		 		<form onSubmit={this.onFormSubmit} className='input-group'>
 		 			<input
 		 				placeholder="Find a restaurant in your favorite city"
 		 				className="form-control"
-		 				value={this.state.term}
+		 				value={this.state.searchInput}
 		 				onChange={this.onInputChange}/>
 		 			<span className="input-group-btn">
 		 				<button type="submit" className="btn btn-secondary">Submit</button>
@@ -58,18 +58,4 @@ class RestaurantList extends Component {
  	}
  }
 
- function mapStateToProps(state){
-   console.log('state in map', state);
-   return {
-     restaurants: state.searchReducer.businesses,
-     searchErrorMsg: state.searchReducer.searchErrorMsg
-   };
- }
-
- function mapDispatchToProps(dispatch) {
- 	return {
- 		searchActions: bindActionCreators(searchActions, dispatch)
- 	};
- }
-
- export default connect(mapStateToProps, mapDispatchToProps)(RestaurantList);
+ export default RestaurantList;

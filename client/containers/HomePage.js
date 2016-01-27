@@ -8,7 +8,6 @@ import * as authActions from './../actions/authActions';
 //Components
 import SignIn from './../components/SignIn';
 import Register from './../components/Register';
-import RestaurantList from './RestaurantList';
 
 class HomePage extends React.Component {
   constructor(){
@@ -83,7 +82,8 @@ const mapStateToProps = (state) => {
     username: state.authReducer.username,
     isLoggedIn: state.authReducer.isLoggedIn,
     isFetching: state.authReducer.isFetching,
-    errorMessage: state.authReducer.errorMessage,
+    authErrorMsg: state.authReducer.authErrorMsg,
+    showPoll: state.authReducer.showPoll
   }
 }
 

@@ -12,7 +12,8 @@ const initialState = {
   isFetching: false,
   isLoggedIn: false,
   username: '',
-  errorMessage: ''
+  authErrorMsg: '',
+  showPoll: false
 }
 
 export default function authReducer(state = initialState, action){
@@ -27,13 +28,14 @@ export default function authReducer(state = initialState, action){
       return Object.assign({}, state, {
         isFetching: false,
         isLoggedIn: false,
-        errorMessage: action.err
+        authErrorMsg: action.err
       })
     case REGISTER_SUCCESS:
       return Object.assign({}, state, {
         isFetching: false,
         isLoggedIn: true,
-        errorMessage: ''
+        authErrorMsg: '',
+        showPoll: true
       })
     case SIGNIN_REQUEST:
       return Object.assign({}, state, {
@@ -45,13 +47,13 @@ export default function authReducer(state = initialState, action){
       return Object.assign({}, state, {
         isFetching: false,
         isLoggedIn: false,
-        errorMessage: action.err
+        authErrorMsg: action.err
       })
     case SIGNIN_ERROR_USER:
       return Object.assign({}, state, {
         isFetching: false,
         isLoggedIn: false,
-        errorMessage: action.err
+        authErrorMsg: action.err
       })
     case SIGNIN_SUCCESS:
       return Object.assign({}, state, {

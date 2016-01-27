@@ -31,7 +31,7 @@ class SignIn extends React.Component {
   }
 
   render(){
-    let errorMsg = this.props.errorMessage ? (
+    let errorMsg = this.props.authErrorMsg ? (
       <p>
         Either the username or password you entered is incorrect.
       </p>) : null;

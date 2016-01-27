@@ -35,6 +35,7 @@ export const registerUser = (credentials) => {
         console.log('response in register', response);
         if(response.success){
           dispatch(registerSuccess(response));
+          dispatch(routeActions.push('/profile'))
         } else {
           dispatch(registerError(response));
         }
