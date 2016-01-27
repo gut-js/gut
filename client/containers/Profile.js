@@ -27,6 +27,7 @@ const mapStateToProps = (state) => {
     isLoggedIn: state.authReducer.isLoggedIn,
     isFetching: state.authReducer.isFetching,
     errorMessage: state.authReducer.errorMessage,
+    showPoll: state.authReducer.showPoll
   }
 }
 
