@@ -68,7 +68,6 @@ class HomePage extends React.Component {
           showRegisterModal={this.state.showRegisterModal}
           closeRegister={this.closeRegister} />
           <div className='col-md-12 center-block'>
-            {isLoggedIn}
           </div>
       </div>
     )
