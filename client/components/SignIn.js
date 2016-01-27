@@ -1,7 +1,9 @@
 import React, { PropTypes } from 'react';
 import { Modal, Button } from 'react-bootstrap';
+import { routeActions } from 'react-router-redux';
 
 class SignIn extends React.Component {
+
   constructor(){
     super();
     this.handleClick = this.handleClick.bind(this);
@@ -17,7 +19,12 @@ class SignIn extends React.Component {
       password: password.value
     };
 
-    signinUser(userInfo);
+    signinUser(userInfo)
+      .then(()=>{
+        //user has signed in, navigate them to profile
+        console.log('CHANGING ROUTE!');
+        routeActions.push('/profile');
+      })
 
     username.value = '';
     password.value = '';

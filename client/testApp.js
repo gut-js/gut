@@ -7,14 +7,55 @@ $(document).ready(function(){
           type: 'GET',
           data: {location:location},
           success: function(data){
-            console.log('yelp location sent');
-            console.log(data);
+            //console.log('yelp location sent');
+            var parsed = JSON.parse(data);
+            //console.log('full business detail sample:',parsed.businesses[0]);
+            var businesses = parsed.businesses.map(function(item){
+              //imageUrl = item.image_url;
+              //imageUrl=imageUrl.slice(0,-6)+'o.jpg';
+              var keep = {
+                id: item.id,
+                name: item.name,
+                image_url: item.image_url.slice(0,-6)+'o.jpg',
+                categories: item.categories
+              };
+              return keep;
+            })
+            //console.log(businesses);
+            var random1 = Math.floor(Math.random()*businesses.length);
+            var business1 = businesses.splice(random1,1)[0];
+            var random2 = Math.floor(Math.random()*businesses.length);
+            var business2 = businesses.splice(random2,1)[0];
+            console.log('business1',business1);
+
+            var category1 = JSON.stringify(business1.categories);
+            var category2 = JSON.stringify(business2.categories);
+
+            $('#survey').html('');
+            $('#survey').append('<h1>Which do you prefer?</h1>');
+            $('#survey').append('<img class="logo" id="business1" src='+business1.image_url+'>');
+            $('#survey').append('<img class="logo" id="business2" src='+business2.image_url+'>');
+
+            $('#business1').click(function(){
+              recommend(business1);
+            });
+
+            $('#business2').click(function(){
+              recommend(business2);
+            })
+
           },
           error: function(err){
             console.log('error',err);
           }
         });
     });
+
+    function recommend(business){
+      $('#survey').html('');
+      $('#survey').append('You should go to:');
+      $('#survey').append('<h1>'+business.name+'</h1>');
+    }
 
     $('#signupForm').submit(function(e){
         e.preventDefault();
