@@ -11,6 +11,7 @@ db.Schema = mongoose.Schema;
 db.userSchema = new db.Schema ({
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true },
+  categories: db.Schema.Types.Mixed,
   loginMessage: { type: String },
   address: { type: String }
 });
