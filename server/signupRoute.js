@@ -18,8 +18,11 @@ router.post('/', function(req, res) {
       //store user info
       var user = new db.User({
         username: username,
-        password: hash
+        password: hash,
+        categories: {test:'test'}
       });
+
+      user.markModified('categories');
 
       console.log('user', user);
 
