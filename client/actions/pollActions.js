@@ -3,6 +3,7 @@ import { routeActions } from 'react-router-redux';
 export const SEND_POLL_REQUEST = 'SEND_POLL_REQUEST';
 export const SEND_POLL_SUCCESS = 'SEND_POLL_SUCCESS';
 export const SEND_POLL_ERROR = 'SEND_POLL_ERROR';
+export const UPDATE_POLL = 'UPDATE_POLL';
 
 export const sendPollChoices = (choices) => {
   return dispatch => {
@@ -30,6 +31,7 @@ export const sendPollChoices = (choices) => {
   }
 }
 
+
 const sendPollRequest = (info) => {
   return {
     type: SEND_POLL_REQUEST,
@@ -49,4 +51,21 @@ const sendPollError = (err) => {
     type: SEND_POLL_ERROR,
     err
   }
+}
+
+export const updatePoll = (info) => {
+  let results = shortenPoll(info);
+  return {
+    type: UPDATE_POLL,
+    results
+  }
+}
+
+const shortenPoll = (info) => {
+  console.log('info:', info);
+  let results = info;
+  if (info.length > 0) {
+    results = info.slice(2);
+  }
+  return results;
 }
