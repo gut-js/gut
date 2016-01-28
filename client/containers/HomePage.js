@@ -1,6 +1,7 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { Button } from 'react-bootstrap';
 
 //Actions
 import * as authActions from './../actions/authActions';
@@ -47,22 +48,30 @@ class HomePage extends React.Component {
   }
 
   render(){
+    const wellStyles = {maxWidth: 400, margin: '0 auto 10px'};
+
+    console.log('this.props in homepage', this.props);
+
     return (
-      <div className='row'>
-        <button
+      <div className='well' style={wellStyles}>
+        <Button
+          bsStyle='primary'
+          bsSize='large'
           type='button'
-          className='btn col-md-7 center-block'
+          block
           onClick={this.openSignIn}>SIGN IN
-        </button>
+        </Button>
         <SignIn
           {...this.props}
           showSignInModal={this.state.showSignInModal}
           closeSignIn={this.closeSignIn} />
-        <button
+        <Button
+          bsStyle='primary'
+          bsSize='large'
           type='button'
-          className='btn col-md-7 center-block'
+          block
           onClick={this.openRegister}>REGISTER
-        </button>
+        </Button>
         <Register
           {...this.props}
           showRegisterModal={this.state.showRegisterModal}
