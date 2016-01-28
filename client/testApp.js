@@ -1,4 +1,23 @@
 $(document).ready(function(){
+    $('#eatForm').submit(function(e){
+      e.preventDefault();
+      var location = $('#eatLocation').val();
+      $.ajax({
+        url: '/eat',
+        type: 'GET',
+        data: {
+          username: 'shin20',
+          location: location
+        },
+        success: function(data){
+          console.log('success',data);
+        },
+        error: function(err){
+          console.log('error',err);
+        }
+      })
+    })
+
     $('#locationForm').submit(function(e){
         e.preventDefault();
         var location = $('#location').val();
