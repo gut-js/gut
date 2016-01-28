@@ -14,7 +14,6 @@ router.get('/',function(req,res){
 			console.log('err finding user');
 			res.send(err);
 		}
-		console.log('found user: ',user);
 
 		request_yelp({location:location},function(yelpErr,yelpRes,yelpBody){
 			if (yelpErr){
@@ -38,20 +37,36 @@ router.get('/',function(req,res){
 						sum+=0.5;
 					}
 				})
-				var weight = Math.pow(sum/categories.length+1,2);
-
+				var weight = Math.pow(sum/categories.length+1,4);
 				business.weight = weight;
 			});
 
+			var totalWeight = 0;
 			businesses.forEach(function(business){
+				totalWeight += business.weight;
+			});
+
+			var recommendations = [];
+			while (businesses.length) {
+				var index = Math.random()*totalWeight;
+				var current = 0;
+				for (var i=0; i<businesses.length; i++){
+					current+=businesses[i].weight;
+					if (current>index) {
+						//var chosen = busineeses[i];
+						break;
+					}
+				}
+				totalWeight -= businesses[i].weight;
+				recommendations.push(businesses.splice(i,1)[0]);
+			};
+
+			console.log('recommended order:');
+			recommendations.forEach(function(business){
 				console.log(business.name,business.weight);
 			});
-			// for (var i=0; i<businesses.length; i++){
-			// 	console.log(businesses[i].name);
-			// }
 
-
-			res.end();
+			res.json(recommendations);
 		})
 
 
