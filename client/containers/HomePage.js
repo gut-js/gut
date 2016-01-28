@@ -1,7 +1,8 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Button } from 'react-bootstrap';
+import { Navbar, Nav, NavItem } from 'react-bootstrap';
+import { Link } from 'react-router';
 
 //Actions
 import * as authActions from './../actions/authActions';
@@ -48,36 +49,34 @@ class HomePage extends React.Component {
   }
 
   render(){
-    const wellStyles = {maxWidth: 400, margin: '0 auto 10px'};
-
-    console.log('this.props in homepage', this.props);
-
     return (
-      <div className='well' style={wellStyles}>
-        <Button
-          bsStyle='primary'
-          bsSize='large'
-          type='button'
-          block
-          onClick={this.openSignIn}>SIGN IN
-        </Button>
-        <SignIn
-          {...this.props}
-          showSignInModal={this.state.showSignInModal}
-          closeSignIn={this.closeSignIn} />
-        <Button
-          bsStyle='primary'
-          bsSize='large'
-          type='button'
-          block
-          onClick={this.openRegister}>REGISTER
-        </Button>
-        <Register
-          {...this.props}
-          showRegisterModal={this.state.showRegisterModal}
-          closeRegister={this.closeRegister} />
-          <div className='col-md-12 center-block'>
-          </div>
+      <div>
+        <Navbar>
+        <Navbar.Header>
+          <Navbar.Brand>
+            <Link to='/'>snapPea</Link>
+          </Navbar.Brand>
+          <Navbar.Toggle />
+        </Navbar.Header>
+        <Navbar.Collapse>
+          <Nav pullRight>
+            <NavItem eventKey={1} href='#' onClick={this.openSignIn}>
+              Sign In
+              <SignIn
+                {...this.props}
+                showSignInModal={this.state.showSignInModal}
+                closeSignIn={this.closeSignIn} />
+            </NavItem>
+            <NavItem eventKey={2} href='#' onClick={this.openRegister}>
+              Register
+              <Register
+                {...this.props}
+                showRegisterModal={this.state.showRegisterModal}
+                closeRegister={this.closeRegister} />
+            </NavItem>
+          </Nav>
+        </Navbar.Collapse>
+        </Navbar>
       </div>
     )
   }
