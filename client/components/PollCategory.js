@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
+import { Grid, Row, Col } from 'react-bootstrap';
 
 class PollCategory extends React.Component {
   constructor(){
@@ -29,10 +29,21 @@ class PollCategory extends React.Component {
   render(){
     let poll = this.props.data.length > 0 ? (
         <div>
-          <img src={this.props.data[0].image_url} alt='choice1' onClick={this.selectImage} />
-          <img src={this.props.data[1].image_url} alt='choice2' onClick={this.selectImage} />
+          <img
+            src={this.props.data[0].image_url}
+            alt='choice1'
+            height='500px'
+            width='500px'
+            onClick={this.selectImage} />
+          <img
+          src={this.props.data[1].image_url}
+          alt='choice2'
+          height='500px'
+          width='500px'
+          onClick={this.selectImage} />
         </div>
       ) : null;
+
     return (
       <div>
         {poll}
