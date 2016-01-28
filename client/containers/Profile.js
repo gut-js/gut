@@ -9,6 +9,7 @@ import * as searchActions from './../actions/searchActions';
 
 //Components
 import RestaurantList from './../components/RestaurantList';
+import Menu from './../components/Menu';
 
 //Containers
 import Poll from './../containers/Poll';
@@ -27,13 +28,28 @@ class Profile extends React.Component {
   }
 
   render(){
+    const { username } = this.props.username;
+    let displayProfile;
+
+    displayProfile = this.props.showPoll ? (
+      <Poll /> ) : (
+      <div>
+        <RestaurantList {...this.props} />
+        <Menu />
+      </div> );
+
     return(
       <div>
-        THIS IS YOUR PROFILE!
-        <Poll />
-        <RestaurantList
-        {...this.props}/>
-        <button className="btn btn-default" onClick={this.logOut}>Log out</button>
+        <h1>Welcome {username} !</h1>
+        <div>
+          <button
+            className="btn btn-default"
+            onClick={this.logOut}>Log out
+          </button>
+        </div>
+        <div>
+          {displayProfile}
+        </div>
       </div>
     )
   }

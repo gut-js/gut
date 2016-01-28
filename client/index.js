@@ -33,7 +33,6 @@ const finalCreateStore = compose(
 )(createStore);
 
 const store = finalCreateStore(reducer);
-// middleware.listenForReplays(store);
 
 render(
   <Provider store={store}>
