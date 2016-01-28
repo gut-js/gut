@@ -7,17 +7,12 @@ $(document).ready(function(){
           type: 'GET',
           data: {location:location},
           success: function(data){
-            //console.log('yelp location sent');
-            var parsed = JSON.parse(data);
-            //console.log(parsed);
-            //console.log('full business detail sample:',parsed.businesses[0]);
-            var businesses = parsed.businesses.map(function(item){
-              //imageUrl = item.image_url;
-              //imageUrl=imageUrl.slice(0,-6)+'o.jpg';
+            console.log('data',data);
+            var businesses = data.map(function(item){
               var keep = {
                 id: item.id,
                 name: item.name,
-                image_url: item.image_url.slice(0,-6)+'o.jpg',
+                image_url: item.image_url,
                 categories: item.categories
               };
               return keep;
