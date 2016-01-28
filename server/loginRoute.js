@@ -4,6 +4,7 @@ var bcrypt = require('bcrypt');
 var jwt = require('jsonwebtoken');
 var mongoose = require('mongoose');
 var db = require('./db');
+var app = require('./server');
 
 //log into account
 router.post('/', function(req, res){
@@ -34,15 +35,16 @@ router.post('/', function(req, res){
 
           bcrypt.compare(password, user.password, function(err, loggedin) {
             if (loggedin) {
-              // var token = jwt.sign(user, router.get('superSecret'), {
-              //   expiresIn: 86400 // expires in 24 hours
-              // });
+              var token = jwt.sign(user, app.get('superSecret'), {
+                expiresIn: 1400 // expires in 24 hours
+              });
+              console.log('token in login: ', token)
 
               // return the information including token as JSON
               res.json({
                 success: true,
                 message: 'Enjoy your token!',
-                // token: token,
+                token: token,
                 username: username,
                 loginMessage: loginMessage
               });

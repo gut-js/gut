@@ -4,6 +4,7 @@ var bcrypt = require('bcrypt');
 var jwt = require('jsonwebtoken');
 var mongoose = require('mongoose');
 var db = require('./db');
+var app = require('./server');
 
 //sign up for account
 router.post('/', function(req, res) {
@@ -35,13 +36,13 @@ router.post('/', function(req, res) {
         else {
           console.log('user was saved:', user);
           //create token - this causes an error (TypeError: secret must be a string or buffer)
-          // var token = jwt.sign(user, router.get('superSecret'), { expiresInminutes:1440 });
+          var token = jwt.sign(user, app.get('superSecret'), { expiresInminutes:1440 });
           
           //send token
           res.json({
             success: true,
             message: 'Enjoy your token!',
-            // token: token,
+            token: token,
             username: user.username,
             password: user.password
           });

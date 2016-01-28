@@ -2,6 +2,7 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
+
 //Actions
 import * as authActions from './../actions/authActions';
 import * as searchActions from './../actions/searchActions';
@@ -13,6 +14,12 @@ import RestaurantList from './../components/RestaurantList';
 import Poll from './../containers/Poll';
 
 class Profile extends React.Component {
+
+  logOut(){
+    console.log('logout!', localStorage.token);
+    localStorage.removeItem('token');
+  }
+
   render(){
     console.log(this.props);
     return(
@@ -21,6 +28,7 @@ class Profile extends React.Component {
         <Poll />
         <RestaurantList
         {...this.props}/>
+        <button className="btn btn-default" onClick={this.logOut}>Log out</button>
       </div>
     )
   }
