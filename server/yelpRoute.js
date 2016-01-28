@@ -5,7 +5,7 @@ var request_yelp = require('./request_yelp');
 
 router.get('/', function(req, res) {
 
-  // // calling yelp api
+  // // calling yelp api (commented out for now, replaced with hardcoded businesses below)
   // request_yelp({location: req.query.location}, function (error, response, body) {
   //   if (error) {
   //     console.error(error);
