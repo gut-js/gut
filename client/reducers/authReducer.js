@@ -64,7 +64,8 @@ export default function authReducer(state = initialState, action){
     case LOGOUT_SUCCESS:
       return Object.assign({}, state, {
         isLoggedIn: false,
-        username: ''
+        username: '',
+        showPoll: false
       })
     default:
       return state;
