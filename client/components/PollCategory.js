@@ -8,14 +8,14 @@ class PollCategory extends React.Component {
   }
 
   selectImage(e){
-    const {sendPollChoices} = this.props.pollActions;
+    const {sendPollChoices, updatePoll} = this.props.pollActions;
     let selected, unselected;
     if (e.target.alt === 'choice1') {
-      selected = this.props.data.businesses[0].categories;
-      unselected = this.props.data.businesses[1].categories;
+      selected = this.props.data[0].categories;
+      unselected = this.props.data[1].categories;
     } else if (e.target.alt === 'choice2') {
-      selected = this.props.data.businesses[1].categories;
-      unselected = this.props.data.businesses[0].categories;
+      selected = this.props.data[1].categories;
+      unselected = this.props.data[0].categories;
     }
     const response = {
       selected: selected,
@@ -23,14 +23,15 @@ class PollCategory extends React.Component {
       username: this.props.username.username
     }
     sendPollChoices(response);
+    updatePoll(this.props.data);
   }
 
   render(){
     console.log('this.props:', this.props);
     return (
       <div>
-        <img src={this.props.data.businesses[0].image_url} alt='choice1' onClick={this.selectImage} />
-        <img src={this.props.data.businesses[1].image_url} alt='choice2' onClick={this.selectImage} />
+        <img src={this.props.data[0].image_url} alt='choice1' onClick={this.selectImage} />
+        <img src={this.props.data[1].image_url} alt='choice2' onClick={this.selectImage} />
       </div>
     )
   }
