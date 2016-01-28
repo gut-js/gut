@@ -3,13 +3,15 @@ var router = express.Router();
 var bcrypt = require('bcrypt');
 var jwt = require('jsonwebtoken');
 var mongoose = require('mongoose');
+
 var db = require('./db');
 var app = require('./server');
+var getGeolocationData = require('./getGeolocationData');
+var request_yelp = require('./request_yelp');
 
 //sign up for account
 router.post('/', function(req, res) {
   console.log('inside signup route');
-  console.log('req.body:', req.body);
   var username = req.body.username;
   var password = req.body.password;
 
@@ -25,8 +27,6 @@ router.post('/', function(req, res) {
 
       user.markModified('categories');
 
-      console.log('user', user);
-
       user.save(function(err, user) {
         console.log('inside user.save');
         if (err) {
@@ -34,17 +34,42 @@ router.post('/', function(req, res) {
           res.send(err);
         }
         else {
-          console.log('user was saved:', user);
+          console.log('user was saved:', user.username);
           var token = jwt.sign(user, app.get('superSecret'), { expiresInminutes:1440 });
           
-          // serve token to client
-          res.json({
-            success: true,
-            message: 'Enjoy your token!',
-            token: token,
-            username: user.username,
-            password: user.password
-          });
+          getGeolocationData().then(function(data){
+            var latitude = data.location.lat;
+            var longitude = data.location.lng;
+
+            console.log('latitude',latitude);
+            console.log('longitude',longitude);
+
+            console.log(latitude+','+longitude);
+
+            request_yelp({ll:latitude+','+longitude},function(yelpErr,yelpRes,yelpBody){
+                if (yelpErr) {
+                  console.error(yelpErr);
+                }
+                var parsed = JSON.parse(yelpBody);
+                var businesses = parsed.businesses;
+
+                for (var i=0; i<businesses.length; i++) {
+                  console.log(businesses[i].image_url);
+                  businesses[i].image_url = businesses[i].image_url.slice(0,-6)+'o.jpg';
+                }
+
+                // serve token to client
+                res.json({
+                  success: true,
+                  message: 'Enjoy your token!',
+                  token: token,
+                  username: user.username,
+                  password: user.password,
+                  businesses:businesses
+                });
+            })
+
+          })
         }
       });
 
