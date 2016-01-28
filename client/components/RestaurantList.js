@@ -25,13 +25,13 @@ class RestaurantList extends Component {
  	}
 
  	render() {
- 		let restaurant = this.props.restaurants.map((restaurant, index) => {
+ 		let restaurant = this.props.restaurant ? this.props.restaurant.map((restaurant, index) => {
  			return (
  				<Restaurant
           name={restaurant.name}
           key={index} />
  			)
- 		})
+ 		}) : null;
 
     let searchError = this.props.searchErrorMsg ? (
       <p>
