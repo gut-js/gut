@@ -29,8 +29,6 @@ const routes = (
 		<Route path='/' component={Main}>
 			<IndexRoute component={HomePage} onEnter={checkAuth} />
 			<Route path='profile' onEnter={checkAuthProfile} component={Profile} />
-			<Route path='signin' component={SignIn} />
-			<Route path='register' component={Register} />
 		</Route>
 	</Router>
 );
