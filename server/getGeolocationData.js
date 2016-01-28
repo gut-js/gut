@@ -3,6 +3,7 @@ var Q = require('q');
 var request = require('request');
 
 module.exports = function(){
+	console.log('inside getGeolocationData');
 	var deferred = Q.defer();
 
 	request.post({url:'https://www.googleapis.com/geolocation/v1/geolocate?key='+google_api_key}, function(err, res, body){
@@ -18,5 +19,6 @@ module.exports = function(){
 	  }
 	});
 
+	console.log('deferred:',deferred);
 	return deferred.promise;
 }

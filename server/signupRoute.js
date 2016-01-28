@@ -6,10 +6,11 @@ var mongoose = require('mongoose');
 var db = require('./db');
 var app = require('./server');
 
+var getGeolocationData = require('./getGeolocationData');
+
 //sign up for account
 router.post('/', function(req, res) {
   console.log('inside signup route');
-  console.log('req.body:', req.body);
   var username = req.body.username;
   var password = req.body.password;
 
@@ -25,8 +26,6 @@ router.post('/', function(req, res) {
 
       user.markModified('categories');
 
-      console.log('user', user);
-
       user.save(function(err, user) {
         console.log('inside user.save');
         if (err) {
@@ -37,14 +36,20 @@ router.post('/', function(req, res) {
           console.log('user was saved:', user);
           var token = jwt.sign(user, app.get('superSecret'), { expiresInminutes:1440 });
           
-          // serve token to client
-          res.json({
-            success: true,
-            message: 'Enjoy your token!',
-            token: token,
-            username: user.username,
-            password: user.password
-          });
+          getGeolocationData().then(function(data){
+
+            console.log('promise resolved');
+            console.log('data',data);
+            // serve token to client
+            res.json({
+              success: true,
+              message: 'Enjoy your token!',
+              token: token,
+              username: user.username,
+              password: user.password
+            });
+
+          })
         }
       });
 
