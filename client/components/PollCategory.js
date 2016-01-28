@@ -7,10 +7,6 @@ class PollCategory extends React.Component {
     this.selectImage = this.selectImage.bind(this);
   }
 
-  componentWillMount(){
-    console.log('regulators.. mount up');
-  }
-
   selectImage(e){
     const {sendPollChoices, updatePoll} = this.props.pollActions;
     let selected, unselected;
