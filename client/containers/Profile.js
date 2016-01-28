@@ -27,7 +27,6 @@ class Profile extends React.Component {
   }
 
   render(){
-    console.log('props in profile', this.props);
     return(
       <div>
         THIS IS YOUR PROFILE!

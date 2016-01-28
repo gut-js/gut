@@ -38,7 +38,6 @@ class RestaurantList extends Component {
         No Restaurants Found!
       </p>) : null;
 
-      console.log('props in restaurant list', this.props);
  		return (
  			<div>
 		 		<form onSubmit={this.onFormSubmit} className='input-group'>
