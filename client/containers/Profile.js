@@ -30,33 +30,36 @@ class Profile extends React.Component {
 
   render(){
     const { username } = this.props.username;
-    let displayProfile;
 
-    displayProfile = this.props.showPoll ? (
+    let displayProfile = this.props.showPoll ? (
       <Poll /> ) : (
       <div>
-        <RestaurantList {...this.props} />
         <Menu />
+        <RestaurantList {...this.props} />
       </div> );
+
+    let nav = (
+      <Navbar>
+        <Navbar.Header>
+          <Navbar.Brand>
+            <Link to='/profile'>snapPea</Link>
+          </Navbar.Brand>
+          <Navbar.Toggle />
+        </Navbar.Header>
+        <Navbar.Collapse>
+          <Nav pullRight>
+            <NavItem eventKey={1} href='#' onClick={this.logOut}>
+              Log out
+            </NavItem>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
+    );
 
     return(
       <div>
-        <Navbar>
-          <Navbar.Header>
-            <Navbar.Brand>
-              <Link to='/profile'>snapPea</Link>
-            </Navbar.Brand>
-            <Navbar.Toggle />
-          </Navbar.Header>
-          <Navbar.Collapse>
-            <Nav pullRight>
-              <NavItem eventKey={1} href='#' onClick={this.logOut}>
-                Log out
-              </NavItem>
-            </Nav>
-          </Navbar.Collapse>
-        </Navbar>
-        <h1>Welcome {username} !</h1>
+        {nav}
+        <h1>Welcome {username}</h1>
         <div>
           {displayProfile}
         </div>

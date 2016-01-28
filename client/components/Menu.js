@@ -5,13 +5,10 @@ class Menu extends React.Component {
   render(){
     return(
       <div>
-        <h1>MENU</h1>
-        <div>
-          <ButtonGroup vertical block>
-            <Button>Lets Eat!</Button>
-            <Button>Add Friend</Button>
-          </ButtonGroup>
-        </div>
+        <ButtonGroup vertical block>
+          <Button>Lets Eat!</Button>
+          <Button>Add Friend</Button>
+        </ButtonGroup>
       </div>
     )
   }
