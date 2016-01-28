@@ -7,6 +7,10 @@ class PollCategory extends React.Component {
     this.selectImage = this.selectImage.bind(this);
   }
 
+  componentWillMount(){
+    console.log('regulators.. mount up');
+  }
+
   selectImage(e){
     const {sendPollChoices, updatePoll} = this.props.pollActions;
     let selected, unselected;
@@ -27,10 +31,15 @@ class PollCategory extends React.Component {
   }
 
   render(){
+    let poll = this.props.data.length > 0 ? (
+        <div>
+          <img src={this.props.data[0].image_url} alt='choice1' onClick={this.selectImage} />
+          <img src={this.props.data[1].image_url} alt='choice2' onClick={this.selectImage} />
+        </div>
+      ) : null;
     return (
       <div>
-        <img src={this.props.data[0].image_url} alt='choice1' onClick={this.selectImage} />
-        <img src={this.props.data[1].image_url} alt='choice2' onClick={this.selectImage} />
+        {poll}
       </div>
     )
   }

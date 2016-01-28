@@ -2,7 +2,8 @@ import {
   SEND_POLL_REQUEST,
   SEND_POLL_SUCCESS,
   SEND_POLL_ERROR,
-  UPDATE_POLL
+  UPDATE_POLL,
+  LOAD_YELP_DATA
 } from './../actions/pollActions';
 
 const initialState = {
@@ -36,6 +37,10 @@ export default function pollReducer(state = initialState, action){
     case UPDATE_POLL:
       return Object.assign({}, state, {
         data: action.results
+      })
+    case LOAD_YELP_DATA:
+      return Object.assign({}, state, {
+        data: action.info
       })
     default:
       return state;

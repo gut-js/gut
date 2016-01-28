@@ -4,6 +4,34 @@ export const SEND_POLL_REQUEST = 'SEND_POLL_REQUEST';
 export const SEND_POLL_SUCCESS = 'SEND_POLL_SUCCESS';
 export const SEND_POLL_ERROR = 'SEND_POLL_ERROR';
 export const UPDATE_POLL = 'UPDATE_POLL';
+export const LOAD_YELP_DATA = 'LOAD_YELP_DATA';
+
+export const fetchYelpData = () => {
+  return dispatch => {
+
+    return fetch('http://localhost:5679/yelp?location=' + 'seattle', {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => {
+      return response.json();
+    })
+    .then(response => {
+      console.log('response:', response);
+      dispatch(loadYelpData(response));
+    })
+  }
+}
+
+const loadYelpData = (info) => {
+  return {
+    type: LOAD_YELP_DATA,
+    info
+  }
+}
 
 export const sendPollChoices = (choices) => {
   return dispatch => {
@@ -25,12 +53,11 @@ export const sendPollChoices = (choices) => {
     .then(response => {
       return response.json();
     })
-    .then(response => {
+      .then(response => {
       console.log('response:', response);
     })
   }
 }
-
 
 const sendPollRequest = (info) => {
   return {

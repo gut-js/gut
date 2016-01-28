@@ -14,7 +14,13 @@ class Poll extends React.Component {
     super();
   }
 
+  componentWillMount(){
+    const {fetchYelpData} = this.props.pollActions;
+    fetchYelpData();
+  }
+
   render(){
+    console.log('this.props:', this.props);
     return (
       <div>
        <PollCategory pollActions={this.props.pollActions} data={this.props.data} username={this.props.username} />
