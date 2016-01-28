@@ -47,6 +47,7 @@ class HomePage extends React.Component {
   }
 
   render(){
+    console.log('props on homepage', this.props)
     return (
       <div className='row'>
         <button
