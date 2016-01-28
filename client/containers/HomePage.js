@@ -2,6 +2,7 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
+import { Link } from 'react-router';
 
 //Actions
 import * as authActions from './../actions/authActions';
@@ -53,7 +54,7 @@ class HomePage extends React.Component {
         <Navbar>
         <Navbar.Header>
           <Navbar.Brand>
-            <a href='#'>snapPea</a>
+            <Link to='/'>snapPea</Link>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
