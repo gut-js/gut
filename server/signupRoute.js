@@ -35,10 +35,9 @@ router.post('/', function(req, res) {
         }
         else {
           console.log('user was saved:', user);
-          //create token - this causes an error (TypeError: secret must be a string or buffer)
           var token = jwt.sign(user, app.get('superSecret'), { expiresInminutes:1440 });
           
-          //send token
+          // serve token to client
           res.json({
             success: true,
             message: 'Enjoy your token!',

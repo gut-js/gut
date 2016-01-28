@@ -39,7 +39,7 @@ router.post('/', function(req, res){
                 expiresIn: 1400 // expires in 24 hours
               });
               console.log('token in login: ', token)
-
+              // serve token to client
               res.json({
                 success: true,
                 message: 'Enjoy your token!',

@@ -36,6 +36,7 @@ export const registerUser = (credentials) => {
 
         if(response.success){
           console.log('token in register: ', response.token)
+          //save token
           localStorage.token = response.token;
           dispatch(registerSuccess(response));
           dispatch(routeActions.push('/profile'))
@@ -93,6 +94,7 @@ export const signinUser = (credentials) => {
     .then(response => {
       try {
         if(response.success){
+          //save token
           localStorage.token = response.token;
           dispatch(signinSuccess(response));
           dispatch(routeActions.push('/profile'))
