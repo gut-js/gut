@@ -1,7 +1,8 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-
+import { Navbar, Nav, NavItem } from 'react-bootstrap';
+import { Link } from 'react-router';
 
 //Actions
 import * as authActions from './../actions/authActions';
@@ -40,13 +41,22 @@ class Profile extends React.Component {
 
     return(
       <div>
+        <Navbar>
+          <Navbar.Header>
+            <Navbar.Brand>
+              <Link to='/profile'>snapPea</Link>
+            </Navbar.Brand>
+            <Navbar.Toggle />
+          </Navbar.Header>
+          <Navbar.Collapse>
+            <Nav pullRight>
+              <NavItem eventKey={1} href='#' onClick={this.logOut}>
+                Log out
+              </NavItem>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
         <h1>Welcome {username} !</h1>
-        <div>
-          <button
-            className="btn btn-default"
-            onClick={this.logOut}>Log out
-          </button>
-        </div>
         <div>
           {displayProfile}
         </div>
