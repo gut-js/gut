@@ -14,14 +14,19 @@ import RestaurantList from './../components/RestaurantList';
 import Poll from './../containers/Poll';
 
 class Profile extends React.Component {
+  constructor(){
+    super();
+    this.logOut = this.logOut.bind(this);
+  }
 
   logOut(){
-    console.log('logout!', localStorage.token);
+    const { logoutUser } = this.props.authActions;
+
     localStorage.removeItem('token');
+    logoutUser();
   }
 
   render(){
-    console.log(this.props);
     return(
       <div>
         THIS IS YOUR PROFILE!

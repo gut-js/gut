@@ -27,7 +27,6 @@ class PollCategory extends React.Component {
   }
 
   render(){
-    console.log('this.props:', this.props);
     return (
       <div>
         <img src={this.props.data[0].image_url} alt='choice1' onClick={this.selectImage} />

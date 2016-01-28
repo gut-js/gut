@@ -20,11 +20,6 @@ class SignIn extends React.Component {
     };
 
     signinUser(userInfo)
-      .then(()=>{
-        //user has signed in, navigate them to profile
-        console.log('CHANGING ROUTE!');
-        routeActions.push('/profile');
-      })
 
     username.value = '';
     password.value = '';

@@ -47,8 +47,6 @@ class HomePage extends React.Component {
   }
 
   render(){
-    let isLoggedIn = this.props.isLoggedIn ? <p>Logged In</p> : <p>NOT Logged In</p>
-
     return (
       <div className='row'>
         <button
@@ -70,7 +68,6 @@ class HomePage extends React.Component {
           showRegisterModal={this.state.showRegisterModal}
           closeRegister={this.closeRegister} />
           <div className='col-md-12 center-block'>
-            {isLoggedIn}
           </div>
       </div>
     )

@@ -6,6 +6,7 @@ import {
   SIGNIN_ERROR_PW,
   SIGNIN_ERROR_USER,
   SIGNIN_SUCCESS,
+  LOGOUT_SUCCESS
 } from './../actions/authActions';
 
 const initialState = {
@@ -59,6 +60,11 @@ export default function authReducer(state = initialState, action){
       return Object.assign({}, state, {
         isFetching: false,
         isLoggedIn: true,
+      })
+    case LOGOUT_SUCCESS:
+      return Object.assign({}, state, {
+        isLoggedIn: false,
+        username: ''
       })
     default:
       return state;

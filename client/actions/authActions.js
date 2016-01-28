@@ -7,9 +7,7 @@ export const SIGNIN_REQUEST = 'SIGNIN_REQUEST';
 export const SIGNIN_ERROR_PW = 'SIGNIN_ERROR_PW';
 export const SIGNIN_ERROR_USER = 'SIGNIN_ERROR_USER';
 export const SIGNIN_SUCCESS = 'SIGNIN_SUCCESS';
-// export const LOGOUT_REQUEST = 'LOGOUT_REQUEST';
-// export const LOGOUT_ERROR = 'LOGOUT_ERROR';
-// export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
+export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
 
 // Main Register Function
 export const registerUser = (credentials) => {
@@ -138,5 +136,19 @@ const signinSuccess = (user) => {
   return {
     type: SIGNIN_SUCCESS,
     user
+  }
+}
+
+// Main Logout Function
+export const logoutUser = () => {
+  return dispatch => {
+    dispatch(logoutSuccess());
+    dispatch(routeActions.push('/'))
+  }
+}
+
+const logoutSuccess = () => {
+  return {
+    type: LOGOUT_SUCCESS
   }
 }
