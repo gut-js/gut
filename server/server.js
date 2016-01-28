@@ -5,11 +5,17 @@ var uniqueValidator = require('mongoose-unique-validator');
 var app = express();
 var port = process.env.PORT || 5679;
 
+//auth
+var jwtSecret = 'thupers3crT$14';
+app.set('superSecret', jwtSecret);
+
 app.use(function(req, res, next){
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   next();
 });
+
+module.exports = app;
 
 //serving static files
 app.use('/', express.static( __dirname + '/../client' ));
@@ -20,6 +26,7 @@ app.get('/', function(req, res){
 
 app.use(bodyParser.json());
 
+
 // routes
 app.use('/login', require('./loginRoute'));
 app.use('/signup', require('./signupRoute'));
@@ -27,10 +34,6 @@ app.use('/yelp', require('./yelpRoute'));
 app.use('/preference', require('./preferenceRoute'));
 
 var port = process.env.PORT || 5679;
-
-//auth
-var jwtSecret = 'thupers3crT$14';
-app.set('superSecret', jwtSecret);
 
 //middleware
 function authenticate(req, res, next){
@@ -74,3 +77,5 @@ app.post('/authenticate', function(req, res) {
 app.listen(port, function(){
 	console.log('listening on port ' + port);
 });
+
+
