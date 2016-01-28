@@ -40,7 +40,6 @@ router.post('/', function(req, res){
               });
               console.log('token in login: ', token)
 
-              // return the information including token as JSON
               res.json({
                 success: true,
                 message: 'Enjoy your token!',
