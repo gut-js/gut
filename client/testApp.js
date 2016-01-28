@@ -61,7 +61,7 @@ $(document).ready(function(){
         data: JSON.stringify(data),
         contentType: 'application/json',
         success: function(data){
-          console.log('success');
+          console.log('success',data);
         },
         error: function(err){
           console.log('err',err);
