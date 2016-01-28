@@ -68,9 +68,6 @@ class Register extends React.Component {
                   className='btn btn-block'
                   onClick={this.handleClick}>Register
                 </button>
-                <div>
-                  Have an account? Click <a>here</a> to log in.
-                </div>
               </div>
             </form>
           </Modal.Body>
