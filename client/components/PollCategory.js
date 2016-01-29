@@ -11,6 +11,7 @@ class PollCategory extends React.Component {
     const { sendPollChoices, updatePoll } = this.props.pollActions;
     const { username } = this.props;
     let selected, unselected;
+
     if (e.target.alt === 'choice1') {
       selected = this.props.data[0].categories;
       unselected = this.props.data[1].categories;
@@ -18,6 +19,7 @@ class PollCategory extends React.Component {
       selected = this.props.data[1].categories;
       unselected = this.props.data[0].categories;
     }
+
     const response = {
       selected: selected,
       unselected: unselected,

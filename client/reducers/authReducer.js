@@ -35,6 +35,7 @@ export default function authReducer(state = initialState, action){
       return Object.assign({}, state, {
         isFetching: false,
         isLoggedIn: true,
+        username: action.info.username,
         authErrorMsg: '',
         showPoll: true
       })

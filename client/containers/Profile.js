@@ -21,6 +21,10 @@ class Profile extends React.Component {
     this.logOut = this.logOut.bind(this);
   }
 
+  componentWillMount(){
+    console.log('props in profile', this.props);
+  }
+
   logOut(){
     const { logoutUser } = this.props.authActions;
 
@@ -29,12 +33,14 @@ class Profile extends React.Component {
   }
 
   render(){
-    console.log("props in profile", this.props);
     const { username } = this.props.username;
 
     let displayProfile = this.props.showPoll && this.props.isSubmitting ? (
-      <Poll /> ) : (
+      <Poll
+        username={this.props.username}
+        isSubmitting={this.props.isSubmitting} /> ) : (
       <div>
+        <h1>PROFILE</h1>
         <Menu />
         <RestaurantList {...this.props} />
       </div> );
@@ -60,7 +66,6 @@ class Profile extends React.Component {
     return(
       <div>
         {nav}
-        <h1>Welcome {username}</h1>
         <div>
           {displayProfile}
         </div>
@@ -78,7 +83,7 @@ const mapStateToProps = (state) => {
     showPoll: state.authReducer.showPoll,
     restaurants: state.searchReducer.businesses,
     searchErrorMsg: state.searchReducer.searchErrorMsg,
-    isSubmitting: state.pollReducer.isSubmitting,
+    isSubmitting: state.pollReducer.isSubmitting
   }
 }
 

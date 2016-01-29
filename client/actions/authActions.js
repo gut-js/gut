@@ -1,4 +1,5 @@
 import { routeActions } from 'react-router-redux';
+import { syncPoll } from './../actions/pollActions';
 
 export const REGISTER_REQUEST = 'REGISTER_REQUEST';
 export const REGISTER_ERROR = 'REGISTER_ERROR';
@@ -33,6 +34,7 @@ export const registerUser = (credentials) => {
         if(response.success){
           localStorage.token = response.token;
           dispatch(registerSuccess(response));
+          dispatch(syncPoll(response.businesses, response.username));
           dispatch(routeActions.push('/profile'))
         } else {
           dispatch(registerError(response));
@@ -59,10 +61,10 @@ const registerError = (err) => {
   }
 }
 
-const registerSuccess = (user) => {
+const registerSuccess = (info) => {
   return {
     type: REGISTER_SUCCESS,
-    user
+    info
   }
 }
 
