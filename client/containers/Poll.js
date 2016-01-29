@@ -20,6 +20,7 @@ class Poll extends React.Component {
   }
 
   render(){
+    console.log('props on poll', this.props);
     return (
       <div>
        <PollCategory pollActions={this.props.pollActions} data={this.props.data} username={this.props.username} />

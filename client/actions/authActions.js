@@ -30,11 +30,7 @@ export const registerUser = (credentials) => {
     })
     .then(response => {
       try {
-        console.log('response in register', response);
-
         if(response.success){
-          console.log('token in register: ', response.token)
-          //save token
           localStorage.token = response.token;
           dispatch(registerSuccess(response));
           dispatch(routeActions.push('/profile'))
