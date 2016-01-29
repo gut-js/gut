@@ -1,4 +1,22 @@
 $(document).ready(function(){
+    $('#eatNear').submit(function(e){
+      e.preventDefault();
+      console.log('eat near called');
+      $.ajax({
+        url: '/eat',
+        type: 'GET',
+        data: {
+          username: 'shin20'
+        },
+        success: function(data){
+          console.log('success',data);
+        },
+        error: function(err){
+          console.log('error',err);
+        }
+      });
+    });
+
     $('#eatForm').submit(function(e){
       e.preventDefault();
       var location = $('#eatLocation').val();
