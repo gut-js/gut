@@ -65,14 +65,16 @@ class HomePage extends React.Component {
               <SignIn
                 {...this.props}
                 showSignInModal={this.state.showSignInModal}
-                closeSignIn={this.closeSignIn} />
+                closeSignIn={this.closeSignIn}
+                openRegister={this.openRegister} />
             </NavItem>
             <NavItem eventKey={2} href='#' onClick={this.openRegister}>
               Register
               <Register
                 {...this.props}
                 showRegisterModal={this.state.showRegisterModal}
-                closeRegister={this.closeRegister} />
+                closeRegister={this.closeRegister}
+                openSignIn={this.openSignIn} />
             </NavItem>
           </Nav>
         </Navbar.Collapse>

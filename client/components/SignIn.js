@@ -7,6 +7,7 @@ class SignIn extends React.Component {
   constructor(){
     super();
     this.handleClick = this.handleClick.bind(this);
+    this.switch = this.switch.bind(this);
   }
 
   handleClick(e){
@@ -23,6 +24,11 @@ class SignIn extends React.Component {
 
     username.value = '';
     password.value = '';
+  }
+
+  switch(){
+    this.props.closeSignIn();
+    this.props.openRegister();
   }
 
   render(){
@@ -62,6 +68,9 @@ class SignIn extends React.Component {
                 onClick={this.handleClick}>
                 Sign in
               </button>
+            </div>
+            <div>
+              {"Don't"} have an account? Click <a href="#" onClick={this.switch}>here</a> to register.
             </div>
           </form>
         </Modal.Body>
