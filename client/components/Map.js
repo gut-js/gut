@@ -1,12 +1,9 @@
 import React, {PropTypes, Component} from 'react';
-import shouldPureComponentUpdate from 'react-pure-render/function';
 
 import GoogleMap from 'google-map-react';
 import Marker from './Marker';
 
 export default class Map extends Component {
-
-  // shouldComponentUpdate = shouldPureComponentUpdate;
 
   constructor(props) {
     super(props);

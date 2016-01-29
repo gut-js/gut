@@ -1,5 +1,4 @@
 import React, {PropTypes, Component} from 'react';
-import shouldPureComponentUpdate from 'react-pure-render/function';
 
 const K_WIDTH = 15;
 const K_HEIGHT = 15;
@@ -24,9 +23,6 @@ const greatPlaceStyle = {
 };
 
 export default class Marker extends Component {
-  
-
-  // shouldComponentUpdate = shouldPureComponentUpdate;
 
   constructor(props) {
     super(props);
