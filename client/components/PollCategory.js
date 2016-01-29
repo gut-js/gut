@@ -8,7 +8,8 @@ class PollCategory extends React.Component {
   }
 
   selectImage(e){
-    const {sendPollChoices, updatePoll} = this.props.pollActions;
+    const { sendPollChoices, updatePoll } = this.props.pollActions;
+    const { username } = this.props;
     let selected, unselected;
     if (e.target.alt === 'choice1') {
       selected = this.props.data[0].categories;
@@ -20,10 +21,11 @@ class PollCategory extends React.Component {
     const response = {
       selected: selected,
       unselected: unselected,
-      username: this.props.username.username
+      username: username
     }
+
     sendPollChoices(response);
-    updatePoll(this.props.data);
+    updatePoll(this.props.data, username);
   }
 
   render(){

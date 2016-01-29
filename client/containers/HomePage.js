@@ -90,7 +90,8 @@ const mapStateToProps = (state) => {
     isLoggedIn: state.authReducer.isLoggedIn,
     isFetching: state.authReducer.isFetching,
     authErrorMsg: state.authReducer.authErrorMsg,
-    showPoll: state.authReducer.showPoll
+    showPoll: state.authReducer.showPoll,
+    isSubmitting: state.pollReducer.isSubmitting,
   }
 }
 
