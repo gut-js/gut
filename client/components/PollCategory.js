@@ -11,13 +11,15 @@ class PollCategory extends React.Component {
     const { sendPollChoices, updatePoll } = this.props.pollActions;
     const { username } = this.props;
     let selected, unselected;
+
     if (e.target.alt === 'choice1') {
-      selected = this.props.data[0].categories;
-      unselected = this.props.data[1].categories;
+      selected = this.props.businesses[0].categories;
+      unselected = this.props.businesses[1].categories;
     } else if (e.target.alt === 'choice2') {
-      selected = this.props.data[1].categories;
-      unselected = this.props.data[0].categories;
+      selected = this.props.businesses[1].categories;
+      unselected = this.props.businesses[0].categories;
     }
+
     const response = {
       selected: selected,
       unselected: unselected,
@@ -25,20 +27,21 @@ class PollCategory extends React.Component {
     }
 
     sendPollChoices(response);
-    updatePoll(this.props.data, username);
+    updatePoll(this.props.businesses, username);
   }
 
   render(){
-    let poll = this.props.data.length > 0 ? (
+    console.log('this.props in pollcat', this.props);
+    let poll = this.props.businesses.length > 0 ? (
         <div>
           <img
-            src={this.props.data[0].image_url}
+            src={this.props.businesses[0].image_url}
             alt='choice1'
             height='500px'
             width='500px'
             onClick={this.selectImage} />
           <img
-          src={this.props.data[1].image_url}
+          src={this.props.businesses[1].image_url}
           alt='choice2'
           height='500px'
           width='500px'

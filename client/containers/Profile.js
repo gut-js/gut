@@ -29,10 +29,12 @@ class Profile extends React.Component {
   }
 
   render(){
-    const { username } = this.props.username;
+    const { username } = this.props;
 
     let displayProfile = this.props.showPoll && this.props.isSubmitting ? (
-      <Poll /> ) : (
+      <Poll
+        username={this.props.username}
+        isSubmitting={this.props.isSubmitting} /> ) : (
       <div>
         <Menu />
         <RestaurantList {...this.props} />
@@ -77,7 +79,7 @@ const mapStateToProps = (state) => {
     showPoll: state.authReducer.showPoll,
     restaurants: state.searchReducer.businesses,
     searchErrorMsg: state.searchReducer.searchErrorMsg,
-    isSubmitting: state.pollReducer.isSubmitting,
+    isSubmitting: state.pollReducer.isSubmitting
   }
 }
 

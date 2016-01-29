@@ -14,7 +14,8 @@ const initialState = {
   isLoggedIn: false,
   username: '',
   authErrorMsg: '',
-  showPoll: false
+  showPoll: false,
+  businesses: []
 }
 
 export default function authReducer(state = initialState, action){
@@ -35,8 +36,10 @@ export default function authReducer(state = initialState, action){
       return Object.assign({}, state, {
         isFetching: false,
         isLoggedIn: true,
+        username: action.info.username,
         authErrorMsg: '',
-        showPoll: true
+        showPoll: true,
+        businesses: action.info.businesses
       })
     case SIGNIN_REQUEST:
       return Object.assign({}, state, {

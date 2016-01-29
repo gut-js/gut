@@ -59,10 +59,10 @@ const registerError = (err) => {
   }
 }
 
-const registerSuccess = (user) => {
+const registerSuccess = (info) => {
   return {
     type: REGISTER_SUCCESS,
-    user
+    info
   }
 }
 

@@ -21,6 +21,7 @@ export const fetchYelpData = () => {
       return response.json();
     })
     .then(response => {
+      console.log('response in fetchyelp data', response);
       dispatch(loadYelpData(response));
     })
   }
@@ -36,7 +37,7 @@ const loadYelpData = (info) => {
 export const sendPollChoices = (choices) => {
   return dispatch => {
     dispatch(sendPollRequest(choices));
-    
+
     return fetch('http://localhost:5679/preference', {
       method: 'PUT',
       headers: {
@@ -44,7 +45,7 @@ export const sendPollChoices = (choices) => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        username: choices.username.username,
+        username: choices.username,
         selected: choices.selected,
         unselected: choices.unselected
       })
@@ -52,7 +53,7 @@ export const sendPollChoices = (choices) => {
     .then(response => {
       return response.json();
     })
-      .then(response => {
+    .then(response => {
       console.log('response:', response);
     })
   }
@@ -97,8 +98,11 @@ const endPoll = (userInfo) => {
 const shortenPoll = (info, username) => {
   let results = info;
 
+  console.log('results in shortenpoll', results);
+
   if (info.length > 0) {
     results = info.slice(2);
+    console.log('results after slice', results);
   } else {
     dispatch(routeActions.push('/profile'))
     dispatch(endPoll(username));
