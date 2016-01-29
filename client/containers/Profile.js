@@ -21,10 +21,6 @@ class Profile extends React.Component {
     this.logOut = this.logOut.bind(this);
   }
 
-  componentWillMount(){
-    console.log('props in profile', this.props);
-  }
-
   logOut(){
     const { logoutUser } = this.props.authActions;
 

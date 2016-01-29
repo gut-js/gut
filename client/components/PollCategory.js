@@ -8,7 +8,7 @@ class PollCategory extends React.Component {
   }
 
   selectImage(e){
-    const { sendPollChoices, updatePoll } = this.props.pollActions;
+    const { sendPollChoices, updatePoll, endPoll } = this.props.pollActions;
     const { username } = this.props;
     let selected, unselected;
 
@@ -26,12 +26,15 @@ class PollCategory extends React.Component {
       username: username
     }
 
-    sendPollChoices(response);
-    updatePoll(this.props.data, username);
+    if(this.props.data.length === 2){
+      endPoll(username);
+    } else {
+      sendPollChoices(response);
+      updatePoll(this.props.data, username);
+    }
   }
 
   render(){
-    console.log('props in pollcat', this.props);
     let poll = this.props.data.length > 1 ? (
         <div>
           <img
