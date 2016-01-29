@@ -3,6 +3,7 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var db = require('./db');
 var request_yelp = require('./request_yelp');
+var getGeolocationData = require('./getGeolocaionData');
 var getRecommendation = require('./getRecommendation');
 
 router.get('/',function(req,res){
@@ -18,13 +19,15 @@ router.get('/',function(req,res){
 
 		if (location){
 			console.log('location provided');
-			requestObj = {location:location};
+			var requestObj = {location:location};
 			getRecommendation(requestObj,res,user);
 		}
 
 		else {
 			console.log('location not provided');
-			
+			getGeolocationData().then(function(data){
+				
+			})
 		}
 
 	})
