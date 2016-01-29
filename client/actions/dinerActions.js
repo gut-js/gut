@@ -12,6 +12,7 @@ export const fetchSnapPeaData = (diners, location) => {
       }
     })
     .then(response => {
+      console.log('firstresponse ', response)
       return response.json();
     })
     .then(response => {

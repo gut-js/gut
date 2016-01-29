@@ -16,6 +16,7 @@ export default function dinerReducer(state = initialState, action){
         recommendations: action.info
       })
     default:
+    console.log('defaultirving: ', state)
       return state;
   }
 }
