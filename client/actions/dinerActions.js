@@ -1,4 +1,5 @@
 import { routeActions } from 'react-router-redux';
+
 export const LOAD_SNAPPEA_DATA = 'LOAD_SNAPPEA_DATA';
 
 export const fetchSnapPeaData = (diners, location) => {
@@ -12,7 +13,6 @@ export const fetchSnapPeaData = (diners, location) => {
       }
     })
     .then(response => {
-      console.log('firstresponse ', response)
       return response.json();
     })
     .then(response => {

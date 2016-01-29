@@ -11,12 +11,11 @@ const initialState = {
 export default function dinerReducer(state = initialState, action){
   switch(action.type){
     case LOAD_SNAPPEA_DATA:
-    console.log('loadsnappeadatadinerreducer: ', state)
+    console.log('loadsnappeadata diner reducer: ', state)
       return Object.assign({}, state, {
         recommendations: action.info
       })
     default:
-    console.log('defaultirving: ', state)
       return state;
   }
 }
