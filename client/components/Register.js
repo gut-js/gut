@@ -5,6 +5,7 @@ class Register extends React.Component {
   constructor(){
     super();
     this.handleClick = this.handleClick.bind(this);
+    this.switch = this.switch.bind(this);
   }
 
   handleClick(e){
@@ -24,6 +25,12 @@ class Register extends React.Component {
     username.value = '';
     password.value = '';
     email.value = '';
+  }
+
+  switch(e){
+    e.preventDefault();
+    this.props.closeRegister();
+    this.props.openSignIn();
   }
 
   render(){
@@ -65,6 +72,9 @@ class Register extends React.Component {
               className='btn btn-block'
               onClick={this.handleClick}>Register
             </button>
+          </div>
+          <div>
+            Already have an account? Click <a href="#" onClick={this.switch}>here</a> to sign in.
           </div>
         </form>
       );
