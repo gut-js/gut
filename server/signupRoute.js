@@ -8,6 +8,7 @@ var db = require('./db');
 var app = require('./server');
 var getGeolocationData = require('./getGeolocationData');
 var request_yelp = require('./request_yelp');
+var _ = require('lodash');
 
 //sign up for account
 router.post('/', function(req, res) {
@@ -52,7 +53,7 @@ router.post('/', function(req, res) {
           //       }
           //       var parsed = JSON.parse(yelpBody);
           //       var businesses = parsed.businesses;
-
+          //       businesses = _.shuffle(businesses);
           //       for (var i=0; i<businesses.length; i++) {
           //         console.log(businesses[i].image_url);
           //         businesses[i].image_url = businesses[i].image_url.slice(0,-6)+'o.jpg';
@@ -72,6 +73,9 @@ router.post('/', function(req, res) {
           // })   
 
           var businesses = (require('./businesses'));
+          //shuffle poll
+          businesses = _.shuffle(businesses);
+
           res.json({
             success: true,
             message: 'Enjoy your token!',
@@ -80,7 +84,6 @@ router.post('/', function(req, res) {
             password: user.password,
             businesses: businesses
           });
-
         }
       });
 
