@@ -51,12 +51,6 @@ export const sendPollChoices = (choices) => {
         unselected: choices.unselected
       })
     })
-    .then(response => {
-      return response.json();
-    })
-    .then(response => {
-      console.log('response:', response);
-    })
   }
 }
 
@@ -85,7 +79,8 @@ export const updatePoll = (info, username) => {
   let results = shortenPoll(info, username);
   return {
     type: UPDATE_POLL,
-    results
+    results,
+    username
   }
 }
 
@@ -97,21 +92,15 @@ export const syncPoll = (info, username) => {
   }
 }
 
-const endPoll = (userInfo) => {
+export const endPoll = (userInfo) => {
   return {
     type: END_POLL,
     userInfo
   }
 }
 
-const shortenPoll = (info, username) => {
-  let results = info;
+const shortenPoll = (info) => {
+  let results = info.slice(2);
 
-  if (info.length > 0) {
-    results = info.slice(2);
-  } else {
-    dispatch(routeActions.push('/profile'))
-    dispatch(endPoll(username));
-  }
   return results;
 }
