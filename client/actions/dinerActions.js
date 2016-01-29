@@ -1,9 +1,10 @@
 import { routeActions } from 'react-router-redux';
+export const LOAD_SNAPPEA_DATA = 'LOAD_SNAPPEA_DATA';
 
 export const fetchSnapPeaData = (diners, location) => {
   return dispatch => {
 
-    return fetch('http://localhost:5679/eat?username=' + diners[0] + 'location=' + location, {
+    return fetch('http://localhost:5679/eat?username=' + "qwer" + '&' + 'location=' + "seattle", {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
@@ -11,10 +12,13 @@ export const fetchSnapPeaData = (diners, location) => {
       }
     })
     .then(response => {
+      console.log('firstresponse ', response)
       return response.json();
     })
     .then(response => {
-      dispatch(loadSnapPeaData(response));
+      console.log('dineractions response ', response);
+      console.log('dineractions loadspdata ', loadSnapPeaData);
+      return dispatch(loadSnapPeaData(response));
     })
   }
 }
