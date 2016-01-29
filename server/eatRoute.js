@@ -3,7 +3,7 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var db = require('./db');
 var request_yelp = require('./request_yelp');
-var getGeolocationData = require('./getGeolocaionData');
+var getGeolocationData = require('./getGeolocationData');
 var getRecommendation = require('./getRecommendation');
 
 router.get('/',function(req,res){
