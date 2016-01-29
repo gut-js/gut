@@ -26,7 +26,10 @@ router.get('/',function(req,res){
 		else {
 			console.log('location not provided');
 			getGeolocationData().then(function(data){
-				
+				var latitude = data.location.lat;
+				var longitude = data.location.lng;
+				var requestObj = {ll:latitude+','+longitude};
+				getRecommendation(requestObj,res,user);
 			})
 		}
 
