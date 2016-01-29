@@ -104,14 +104,18 @@ const endPoll = (userInfo) => {
   }
 }
 
-const shortenPoll = (info, username) => {
+export const shortenPoll = (info, username) => {
   let results = info;
 
-  if (info.length > 0) {
+  if (info.length > 2) {
     results = info.slice(2);
   } else {
-    dispatch(routeActions.push('/profile'))
-    dispatch(endPoll(username));
+    console.log('inside shortenpoll');
+    return dispatch => {
+      console.log('inside else of shorten poll');
+      dispatch(routeActions.push('/profile'))
+      dispatch(endPoll(username));
+    }
   }
   return results;
 }
