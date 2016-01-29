@@ -10,6 +10,7 @@ import thunk from 'redux-thunk';
 import authReducer from './reducers/authReducer';
 import searchReducer from './reducers/searchReducer';
 import pollReducer from './reducers/pollReducer';
+import dinerReducer from './reducers/dinerReducer';
 
 //Router stuff:
 import routes from './routes';
@@ -24,13 +25,16 @@ const reducer = combineReducers({
   authReducer,
   searchReducer,
   pollReducer,
+  dinerReducer,
   routing: routeReducer
 })
 
 const finalCreateStore = compose(
   thunkMid,
-  histMid
+  histMid, 
+  window.devToolsExtension ? window.devToolsExtension() : f => f
 )(createStore);
+
 
 const store = finalCreateStore(reducer);
 
