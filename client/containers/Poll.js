@@ -14,15 +14,14 @@ class Poll extends React.Component {
     super();
   }
 
-  componentWillMount(){
-    const {fetchYelpData} = this.props.pollActions;
-    fetchYelpData();
-  }
-
   render(){
+    console.log('props in poll', this.props);
     return (
       <div>
-       <PollCategory pollActions={this.props.pollActions} data={this.props.data} username={this.props.username} />
+       <PollCategory
+        pollActions={this.props.pollActions}
+        businesses={this.props.businesses}
+        username={this.props.username} />
       </div>
     )
   }
@@ -32,10 +31,8 @@ const mapStateToProps = (state) => {
   return {
     selected: state.pollReducer.selected,
     unselected: state.pollReducer.unselected,
-    username: state.authReducer.username,
-    isSubmitting: state.pollReducer.isSubmitting,
     pollErrorMessage: state.pollReducer.pollErrorMessage,
-    data: state.pollReducer.data
+    businesses: state.authReducer.businesses
   }
 }
 
