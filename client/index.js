@@ -31,10 +31,8 @@ const reducer = combineReducers({
 
 const finalCreateStore = compose(
   thunkMid,
-  histMid, 
-  window.devToolsExtension ? window.devToolsExtension() : f => f
+  histMid
 )(createStore);
-
 
 const store = finalCreateStore(reducer);
 
