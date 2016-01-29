@@ -29,9 +29,10 @@ class Profile extends React.Component {
   }
 
   render(){
+    console.log("props in profile", this.props);
     const { username } = this.props.username;
 
-    let displayProfile = this.props.showPoll ? (
+    let displayProfile = this.props.showPoll && this.props.isSubmitting ? (
       <Poll /> ) : (
       <div>
         <Menu />
@@ -76,7 +77,8 @@ const mapStateToProps = (state) => {
     errorMessage: state.authReducer.errorMessage,
     showPoll: state.authReducer.showPoll,
     restaurants: state.searchReducer.businesses,
-    searchErrorMsg: state.searchReducer.searchErrorMsg
+    searchErrorMsg: state.searchReducer.searchErrorMsg,
+    isSubmitting: state.pollReducer.isSubmitting,
   }
 }
 
