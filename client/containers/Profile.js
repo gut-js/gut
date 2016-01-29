@@ -29,7 +29,6 @@ class Profile extends React.Component {
   }
 
   render(){
-    console.log("props in profile", this.props);
     const { username } = this.props.username;
 
     let displayProfile = this.props.showPoll && this.props.isSubmitting ? (
