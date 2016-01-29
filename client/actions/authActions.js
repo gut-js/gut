@@ -30,7 +30,6 @@ export const registerUser = (credentials) => {
       return response.json();
     })
     .then(response => {
-      console.log('in auth', response)
       try {
         if(response.success){
           localStorage.token = response.token;

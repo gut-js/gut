@@ -82,8 +82,6 @@ const sendPollError = (err) => {
 }
 
 export const updatePoll = (info, username) => {
-  console.log('info in update', info);
-  console.log('username in update', username);
   let results = shortenPoll(info, username);
   return {
     type: UPDATE_POLL,
@@ -109,11 +107,8 @@ const endPoll = (userInfo) => {
 const shortenPoll = (info, username) => {
   let results = info;
 
-  console.log('results in shortenpoll', results);
-
   if (info.length > 0) {
     results = info.slice(2);
-    console.log('results after slice', results);
   } else {
     dispatch(routeActions.push('/profile'))
     dispatch(endPoll(username));

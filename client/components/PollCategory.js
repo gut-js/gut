@@ -31,7 +31,6 @@ class PollCategory extends React.Component {
   }
 
   render(){
-    console.log('this.props in pollcat', this.props);
     let poll = this.props.data.length > 0 ? (
         <div>
           <img
