@@ -62,9 +62,6 @@ class SignIn extends React.Component {
                 onClick={this.handleClick}>
                 Sign in
               </button>
-              <div>
-                Dont have an account? Click <a>here</a> to register.
-              </div>
             </div>
           </form>
         </Modal.Body>
