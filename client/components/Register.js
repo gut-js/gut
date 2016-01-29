@@ -32,6 +32,43 @@ class Register extends React.Component {
         Sorry, this username has been taken. Please try another one.
       </p>) : null;
 
+    let infoBox = this.props.isFetching ? (
+      <div>
+        <image src='./../assets/spinner.gif' />
+      </div> ) : (
+        <form>
+          <div className='form-group'>
+            <input
+              type='text'
+              className='form-control'
+              placeholder='Username'
+              ref='username' />
+          </div>
+          {errorMsg}
+          <div className='form-group'>
+            <input
+              type='password'
+              className='form-control'
+              placeholder='Password'
+              ref='password' />
+          </div>
+          <div className='form-group'>
+            <input
+              type='email'
+              className='form-control'
+              placeholder='Email'
+              ref='email' />
+          </div>
+          <div className='form-group'>
+            <button
+              type='submit'
+              className='btn btn-block'
+              onClick={this.handleClick}>Register
+            </button>
+          </div>
+        </form>
+      );
+
     return(
       <Modal show={this.props.showRegisterModal} onHide={this.props.closeRegister}>
         <Modal.Header closeButton>
@@ -39,37 +76,7 @@ class Register extends React.Component {
             Register
           </Modal.Title>
           <Modal.Body>
-            <form>
-              <div className='form-group'>
-                <input
-                  type='text'
-                  className='form-control'
-                  placeholder='Username'
-                  ref='username' />
-              </div>
-              {errorMsg}
-              <div className='form-group'>
-                <input
-                  type='password'
-                  className='form-control'
-                  placeholder='Password'
-                  ref='password' />
-              </div>
-              <div className='form-group'>
-                <input
-                  type='email'
-                  className='form-control'
-                  placeholder='Email'
-                  ref='email' />
-              </div>
-              <div className='form-group'>
-                <button
-                  type='submit'
-                  className='btn btn-block'
-                  onClick={this.handleClick}>Register
-                </button>
-              </div>
-            </form>
+            {infoBox}
           </Modal.Body>
         </Modal.Header>
       </Modal>
