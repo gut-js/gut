@@ -7,6 +7,7 @@ import HomePage from './containers/HomePage';
 import Profile from './containers/Profile';
 import SignIn from './components/SignIn';
 import Register from './components/Register';
+import Restaurant from './components/Restaurant';
 
 const checkAuth = (nextState, replace) => {
 	if(localStorage.getItem('token')){
@@ -29,6 +30,8 @@ const routes = (
 		<Route path='/' component={Main}>
 			<IndexRoute component={HomePage} onEnter={checkAuth} />
 			<Route path='profile' onEnter={checkAuthProfile} component={Profile} />
+			<Route path='restaurant' component={Restaurant} />
+
 		</Route>
 	</Router>
 );
