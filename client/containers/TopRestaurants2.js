@@ -5,9 +5,9 @@ import { connect } from 'react-redux';
 import * as dinerActions from './../actions/dinerActions'
 
 //Components
-import Restaurant from './../components/Restaurant';
+import Restaurant2 from './../components/Restaurant2';
 
-class TopRestaurants extends React.Component {
+class TopRestaurants2 extends React.Component {
   constructor(){
     super();
   }
@@ -20,7 +20,7 @@ class TopRestaurants extends React.Component {
   render(){
     return (
       <div>
-       <Restaurant dinerActions={this.props.dinerActions} diners={this.props.diners} recommendations={this.props.recommendations} username={this.props.username} topRestaurant={this.props.topRestaurant} index={this.props.index} />
+       <Restaurant2 dinerActions={this.props.dinerActions} diners={this.props.diners} recommendations={this.props.recommendations} username={this.props.username} topRestaurant={this.props.topRestaurant} index={this.props.index} />
       </div>
     )
   }
@@ -43,4 +43,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TopRestaurants);
+export default connect(mapStateToProps, mapDispatchToProps)(TopRestaurants2);

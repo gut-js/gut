@@ -2,11 +2,13 @@ import { routeActions } from 'react-router-redux';
 
 export const LOAD_SNAPPEA_DATA = 'LOAD_SNAPPEA_DATA';
 export const SET_TOP_RESTAURANT = 'SET_TOP_RESTAURANT';
+export const CHANGE_TOP_RESTAURANT = 'CHANGE_TOP_RESTAURANT';
+export const UPDATE_DINERS = 'UPDATE_DINERS';
 
 export const fetchSnapPeaData = (diners, location) => {
   return dispatch => {
 
-    return fetch('http://localhost:5679/eat?username=' + diners[0] + '&' + 'location=' + "seattle", {
+     return fetch('http://localhost:5679/eat?username=' + 'hhh' + '&' + 'location=' + "seattle", {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
@@ -21,18 +23,29 @@ export const fetchSnapPeaData = (diners, location) => {
       console.log('response inside 3rd .then', response);
       try {
         dispatch(setTopRestaurant(response[0]));
-        dispatch(routeActions.push('/toprestaurants'))
+        dispatch(routeActions.push('/toprestaurant'))
         
       } catch(e){
         console.log('logging catch')      
       }
     })
   }
-}
+}    
 
 export const updateTopRestaurant = () => {
   return dispatch => {
-    dispatch(setTopRestaurant())
+    console.log('inTOP RESTARANT!');
+    dispatch(changeTopRestaurant());
+    dispatch(routeActions.push('/toprestaurant2'))
+  }
+}
+
+// temp hacky fix to routing prob
+export const updateTopRestaurant2 = () => {
+  return dispatch => {
+    console.log('inTOP RESTARANT!');
+    dispatch(changeTopRestaurant());
+    dispatch(routeActions.push('/toprestaurant'))
   }
 }
 
@@ -40,6 +53,12 @@ const loadSnapPeaData = (info) => {
   return {
     type: LOAD_SNAPPEA_DATA,
     info
+  }
+}
+
+export const loadTopRestaurant = () => {
+  return dispatch => {
+    dispatch(setTopRestaurant());
   }
 }
 
@@ -53,5 +72,20 @@ const setTopRestaurant = (restaurant) => {
 const changeTopRestaurant = () => {
   return {
     type: CHANGE_TOP_RESTAURANT
+  }
+}
+
+// adds self or friends to diners array in redux state
+export const addToDiners = (username) => {
+  return dispatch => {
+    dispatch(updateDiners(username));
+    dispatch(routeActions.push('/diners'))
+  }
+}
+
+const updateDiners = (diner) => {
+  return {
+    type: UPDATE_DINERS,
+    diner
   }
 }
