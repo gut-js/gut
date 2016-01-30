@@ -24,7 +24,7 @@ router.post('/', function(req, res) {
         username: username,
         password: hash,
         categories: {test:'test'},
-        friends: {test:'test'}
+        friends: {test:false}
       });
 
       user.markModified('categories');
