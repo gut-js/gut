@@ -1,7 +1,15 @@
+function addFriend(name){
+  console.log('adding: ',name);
+}
+
+
 $(document).ready(function(){
+
     function drawPeople(people){
+      $('#people').html('');
       people.forEach(function(person){
-        console.log(person.username,person._id);
+        $('#people').append('<div>'+person.username+'</div>');
+        $('#people').append('<button onclick="addFriend(this.id)" id="'+person.username+'">Add</button>');
       });
     }
 
@@ -10,6 +18,7 @@ $(document).ready(function(){
       $.ajax({
         url: '/users',
         type: 'GET',
+        data: {username: 'shin'},
         success: function(data){
           console.log('success',data);
           drawPeople(data);
