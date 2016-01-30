@@ -1,4 +1,10 @@
 $(document).ready(function(){
+    function drawPeople(people){
+      people.forEach(function(person){
+        console.log(person.username,person._id);
+      });
+    }
+
     $('#searchPeople').submit(function(e){
       e.preventDefault();
       $.ajax({
@@ -6,6 +12,7 @@ $(document).ready(function(){
         type: 'GET',
         success: function(data){
           console.log('success',data);
+          drawPeople(data);
         },
         error: function(err){
           console.log('error',err);
