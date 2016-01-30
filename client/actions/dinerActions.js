@@ -6,7 +6,7 @@ export const SET_TOP_RESTAURANT = 'SET_TOP_RESTAURANT';
 export const fetchSnapPeaData = (diners, location) => {
   return dispatch => {
 
-    return fetch('http://localhost:5679/eat?username=' + "jtjt" + '&' + 'location=' + "seattle", {
+    return fetch('http://localhost:5679/eat?username=' + diners[0] + '&' + 'location=' + "seattle", {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
