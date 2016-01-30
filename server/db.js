@@ -12,6 +12,7 @@ db.userSchema = new db.Schema ({
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   categories: {},
+  friends: {},
   loginMessage: { type: String },
   address: { type: String }
 });

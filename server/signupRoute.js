@@ -23,7 +23,8 @@ router.post('/', function(req, res) {
       var user = new db.User({
         username: username,
         password: hash,
-        categories: {test:'test'}
+        categories: {test:'test'},
+        friends: {test:false}
       });
 
       user.markModified('categories');

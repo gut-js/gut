@@ -1,11 +1,39 @@
+function addFriend(name){
+  console.log('adding: ',name);
+  $.ajax({
+    url: '/addfriend',
+    type: 'PUT',
+    data: JSON.stringify({username:'shin',friendname:name}),
+    contentType: 'application/json',
+    success: function(data){
+      console.log('success',data);
+    },
+    error: function(err){
+      console.log('error',err);
+    }
+  })
+}
+
+
 $(document).ready(function(){
+
+    function drawPeople(people){
+      $('#people').html('');
+      people.forEach(function(person){
+        $('#people').append('<div>'+person.username+'</div>');
+        $('#people').append('<button onclick="addFriend(this.id)" id="'+person.username+'">Add</button>');
+      });
+    }
+
     $('#searchPeople').submit(function(e){
       e.preventDefault();
       $.ajax({
         url: '/users',
         type: 'GET',
+        data: {username: 'shin'},
         success: function(data){
           console.log('success',data);
+          drawPeople(data);
         },
         error: function(err){
           console.log('error',err);
