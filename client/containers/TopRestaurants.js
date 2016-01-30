@@ -1,26 +1,29 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import {fetchSnapPeaData} from './../actions/dinerActions'
 
 //Actions
 import * as dinerActions from './../actions/dinerActions'
 
 //Components
-import DinersPage from './../components/DinersPage';
+import Restaurant from './../components/Restaurant';
 
-class Diners extends React.Component {
+class TopRestaurants extends React.Component {
   constructor(){
     super();
   }
 
   componentWillMount(){
     console.log('componentwillmount: ', this.props)
+    console.log('fetch', fetchSnapPeaData);
+    fetchSnapPeaData();
   }
 
   render(){
     return (
       <div>
-       <DinersPage dinerActions={this.props.dinerActions} diners={this.props.diners} recommendations={this.props.recommendations} username={this.props.username} topRestaurant={this.props.topRestaurant} index={this.props.index} />
+       <Restaurant dinerActions={this.props.dinerActions} diners={this.props.diners} recommendations={this.props.recommendations} username={this.props.username} topRestaurant={this.props.topRestaurant} index={this.props.index} />
       </div>
     )
   }
@@ -43,4 +46,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Diners);
+export default connect(mapStateToProps, mapDispatchToProps)(TopRestaurants);
