@@ -16,7 +16,10 @@ import dinerReducer from './reducers/dinerReducer';
 import routes from './routes';
 
 //Containers
-import HomePage from './containers/HomePage'
+import HomePage from './containers/HomePage';
+
+//Styling
+import './static/styles/styles.scss';
 
 const history = createHistory();
 const thunkMid = applyMiddleware(thunk)
@@ -31,7 +34,7 @@ const reducer = combineReducers({
 
 const finalCreateStore = compose(
   thunkMid,
-  histMid, 
+  histMid,
   window.devToolsExtension ? window.devToolsExtension() : f => f
 )(createStore);
 
