@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Map from './Map';
 import {Button} from 'react-bootstrap';
 
-class Restaurant extends Component {
+class Restaurant2 extends Component {
   constructor(){
     super();
     this.getTopRestaurant = this.getTopRestaurant.bind(this);
@@ -17,8 +17,8 @@ class Restaurant extends Component {
   handleClick(e){
     e.preventDefault();
     console.log('this.props in handleClick ', this.props)
-    const {updateTopRestaurant} = this.props.dinerActions;
-    updateTopRestaurant();
+    const {updateTopRestaurant2} = this.props.dinerActions;
+    updateTopRestaurant2();
     // need to rerender component somehow?
   }
 
@@ -42,4 +42,4 @@ class Restaurant extends Component {
   }
 }
 
-export default Restaurant;
+export default Restaurant2;

@@ -7,6 +7,7 @@ import { Link } from 'react-router';
 //Actions
 import * as authActions from './../actions/authActions';
 import * as searchActions from './../actions/searchActions';
+import * as dinerActions from './../actions/dinerActions';
 
 //Components
 import RestaurantList from './../components/RestaurantList';
@@ -37,7 +38,7 @@ class Profile extends React.Component {
         isSubmitting={this.props.isSubmitting} /> ) : (
       <div>
         <h1>PROFILE</h1>
-        <Menu />
+        <Menu {...this.props} />
         <RestaurantList {...this.props} />
       </div> );
 
@@ -86,7 +87,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     authActions: bindActionCreators(authActions, dispatch),
-    searchActions: bindActionCreators(searchActions, dispatch)
+    searchActions: bindActionCreators(searchActions, dispatch),
+    dinerActions: bindActionCreators(dinerActions, dispatch)
   }
 }
 
