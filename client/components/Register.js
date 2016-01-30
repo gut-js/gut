@@ -41,7 +41,7 @@ class Register extends React.Component {
 
     let infoBox = this.props.isFetching ? (
       <div>
-        <image src='./../assets/spinner.gif' />
+        <image src='./../static/assets/spinner.gif' />
       </div> ) : (
         <form>
           <div className='form-group'>
