@@ -27,8 +27,9 @@ export default function dinerReducer(state = initialState, action){
     case CHANGE_TOP_RESTAURANT:
       console.log('inside CHANGE_TOP_RESTAURANT');
       if (state.index < 20) {
+        state.index = state.index + 1;
         return Object.assign({}, state, {
-          index: state.index++
+          index: state.index
         })
       } else {
         return Object.assign({}, state, {

@@ -6,9 +6,17 @@ class Restaurant extends Component {
   constructor(){
     super();
     this.getTopRestaurant = this.getTopRestaurant.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   getTopRestaurant(){
+    const {updateTopRestaurant} = this.props.dinerActions;
+    updateTopRestaurant();
+  }
+
+  handleClick(e){
+    e.preventDefault();
+    console.log('this.props in handleClick ', this.props)
     const {updateTopRestaurant} = this.props.dinerActions;
     updateTopRestaurant();
   }
@@ -28,7 +36,7 @@ class Restaurant extends Component {
     		<Map lat={this.props.topRestaurant.location.coordinate.latitude} lng={this.props.topRestaurant.location.coordinate.longitude}/>
         	</div>
         <Button>Peas get directions!</Button>
-      	<Button>Next restaurant</Button>
+      	<Button onClick={this.handleClick}>Next restaurant</Button>
 	 	</div>
  	)
   }

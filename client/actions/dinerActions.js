@@ -2,11 +2,12 @@ import { routeActions } from 'react-router-redux';
 
 export const LOAD_SNAPPEA_DATA = 'LOAD_SNAPPEA_DATA';
 export const SET_TOP_RESTAURANT = 'SET_TOP_RESTAURANT';
+export const CHANGE_TOP_RESTAURANT = 'CHANGE_TOP_RESTAURANT';
 
 export const fetchSnapPeaData = (diners, location) => {
   return dispatch => {
 
-    return fetch('http://localhost:5679/eat?username=' + diners[0] + '&' + 'location=' + "seattle", {
+    return fetch('http://localhost:5679/eat?username=' + 'hhh' + '&' + 'location=' + "seattle", {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
@@ -32,7 +33,9 @@ export const fetchSnapPeaData = (diners, location) => {
 
 export const updateTopRestaurant = () => {
   return dispatch => {
-    dispatch(setTopRestaurant())
+    console.log('inTOP RESTARANT!');
+    dispatch(changeTopRestaurant());
+    dispatch(routeActions.push('/toprestaurants'))
   }
 }
 
