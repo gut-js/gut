@@ -13,6 +13,8 @@ class DinersPage extends React.Component {
     e.preventDefault();
     const {fetchSnapPeaData} = this.props.dinerActions;
     const diners = this.props.diners;
+    const username = this.props.username;
+    diners.push(username);
     fetchSnapPeaData(diners);
   }
 
