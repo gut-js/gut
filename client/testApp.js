@@ -1,5 +1,17 @@
 function addFriend(name){
   console.log('adding: ',name);
+  $.ajax({
+    url: '/addfriend',
+    type: 'PUT',
+    data: JSON.stringify({username1:'shin',username2:name}),
+    contentType: 'application/json',
+    success: function(data){
+      console.log('success',data);
+    },
+    error: function(err){
+      console.log('error',err);
+    }
+  })
 }
 
 
