@@ -22,7 +22,6 @@ export const fetchYelpData = () => {
       return response.json();
     })
     .then(response => {
-      console.log('response in fetchyelp data', response);
       dispatch(loadYelpData(response));
     })
   }

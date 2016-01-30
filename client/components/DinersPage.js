@@ -1,10 +1,19 @@
 import React from 'react';
 import { Grid, Row, Col, Button } from 'react-bootstrap';
+import { Link } from 'react-router';
 
 class DinersPage extends React.Component {
   constructor(){
     super();
     this.getRecommendations = this.getRecommendations.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(e){
+    e.preventDefault();
+    const {fetchSnapPeaData} = this.props.dinerActions;
+    const diners = this.props.diners;
+    fetchSnapPeaData(diners);
   }
 
   getRecommendations(){
@@ -17,7 +26,7 @@ class DinersPage extends React.Component {
   render(){
     return (
       <div>
-        <Button onClick={this.getRecommendations}>Eat alone :)</Button>
+        <Button onClick={this.handleClick}>Eat alone :)</Button>
       </div>
     )
   }
