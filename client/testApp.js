@@ -3,7 +3,7 @@ function addFriend(name){
   $.ajax({
     url: '/addfriend',
     type: 'PUT',
-    data: JSON.stringify({username1:'shin',username2:name}),
+    data: JSON.stringify({username:'shin',friendname:name}),
     contentType: 'application/json',
     success: function(data){
       console.log('success',data);
