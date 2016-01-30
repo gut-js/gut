@@ -1,4 +1,18 @@
 $(document).ready(function(){
+    $('#searchPeople').submit(function(e){
+      e.preventDefault();
+      $.ajax({
+        url: '/users',
+        type: 'GET',
+        success: function(data){
+          console.log('success',data);
+        },
+        error: function(err){
+          console.log('error',err);
+        }
+      });
+    });
+
     $('#eatNear').submit(function(e){
       e.preventDefault();
       console.log('eat near called');
