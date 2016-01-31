@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Restaurant from './Restaurant';
 
-class RestaurantList extends Component {
+class Search extends Component {
  	constructor(props) {
  		super(props);
     this.onInputChange = this.onInputChange.bind(this);
@@ -57,4 +57,4 @@ class RestaurantList extends Component {
  	}
  }
 
- export default RestaurantList;
+ export default Search;
