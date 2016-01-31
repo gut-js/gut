@@ -31,7 +31,6 @@ class Profile extends React.Component {
         <Poll {...this.props} />
       ) : (
         <div>
-          <h1>Welcome {username}!</h1>
           <ProfileMenu {...this.props} />
         </div>
       );

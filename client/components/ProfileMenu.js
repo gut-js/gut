@@ -16,12 +16,22 @@ class ProfileMenu extends React.Component {
   }
 
   render(){
+    console.log('profilemenu props', this.props);
     return(
-      <div>
-        <ButtonGroup vertical block>
-          <Button onClick={this.handleClick}>Lets Eat!</Button>
-          <Button>Add Friend</Button>
-        </ButtonGroup>
+      <div className='row'>
+        <div className='col-md-6'>
+          <h1>Lets Eat</h1>
+          <img
+            src='./../static/assets/placeholder.jpeg'
+            alt='letseat'
+            onClick={this.handleClick} />
+        </div>
+        <div className='col-md-6'>
+          <h1>Add Friends</h1>
+          <img
+            src='./../static/assets/placeholder.jpeg'
+            alt='addfriends' />
+        </div>
       </div>
     )
   }
