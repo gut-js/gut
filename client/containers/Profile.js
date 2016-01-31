@@ -11,7 +11,6 @@ import * as pollActions from './../actions/pollActions';
 //Components
 import Navigation from './../components/Navigation';
 import Menu from './../components/Menu';
-import RestaurantList from './../components/RestaurantList';
 import Poll from './../components/Poll';
 
 class Profile extends React.Component {
@@ -34,7 +33,6 @@ class Profile extends React.Component {
         <div>
           <h1>Welcome {username}!</h1>
           <Menu {...this.props} />
-          <RestaurantList {...this.props} />
         </div>
       );
 
