@@ -4,7 +4,6 @@ import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import { syncHistory, routeReducer } from 'react-router-redux';
 import createHistory from 'history/lib/createHashHistory';
-import configureStore from './store/configureStore';
 import thunk from 'redux-thunk';
 
 import authReducer from './reducers/authReducer';
