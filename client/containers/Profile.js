@@ -1,68 +1,40 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Navbar, Nav, NavItem } from 'react-bootstrap';
-import { Link } from 'react-router';
 
 //Actions
 import * as authActions from './../actions/authActions';
 import * as searchActions from './../actions/searchActions';
 import * as dinerActions from './../actions/dinerActions';
+import * as pollActions from './../actions/pollActions';
 
 //Components
-import RestaurantList from './../components/RestaurantList';
+import Navigation from './../components/Navigation';
 import Menu from './../components/Menu';
-
-//Containers
-import Poll from './../containers/Poll';
+import RestaurantList from './../components/RestaurantList';
+import Poll from './../components/Poll';
 
 class Profile extends React.Component {
   constructor(){
     super();
-    this.logOut = this.logOut.bind(this);
-  }
-
-  logOut(){
-    const { logoutUser } = this.props.authActions;
-
-    localStorage.removeItem('token');
-    logoutUser();
   }
 
   render(){
     const { username } = this.props.username;
 
     let displayProfile = this.props.showPoll && this.props.isSubmitting ? (
-      <Poll
-        username={this.props.username}
-        isSubmitting={this.props.isSubmitting} /> ) : (
-      <div>
-        <h1>PROFILE</h1>
-        <Menu {...this.props} />
-        <RestaurantList {...this.props} />
-      </div> );
-
-    let nav = (
-      <Navbar>
-        <Navbar.Header>
-          <Navbar.Brand>
-            <Link to='/profile'>snapPea</Link>
-          </Navbar.Brand>
-          <Navbar.Toggle />
-        </Navbar.Header>
-        <Navbar.Collapse>
-          <Nav pullRight>
-            <NavItem eventKey={1} href='#' onClick={this.logOut}>
-              Log out
-            </NavItem>
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
-    );
+        <Poll {...this.props} />
+      ) : (
+        <div>
+          <h1>PROFILE</h1>
+          <Menu {...this.props} />
+          <RestaurantList {...this.props} />
+        </div>
+      );
 
     return(
       <div>
-        {nav}
+        <Navigation {...this.props} />
         <div>
           {displayProfile}
         </div>
@@ -76,11 +48,15 @@ const mapStateToProps = (state) => {
     username: state.authReducer.username,
     isLoggedIn: state.authReducer.isLoggedIn,
     isFetching: state.authReducer.isFetching,
-    errorMessage: state.authReducer.errorMessage,
+    authErrorMsg: state.authReducer.authErrorMsg,
     showPoll: state.authReducer.showPoll,
     restaurants: state.searchReducer.businesses,
     searchErrorMsg: state.searchReducer.searchErrorMsg,
-    isSubmitting: state.pollReducer.isSubmitting
+    isSubmitting: state.pollReducer.isSubmitting,
+    selected: state.pollReducer.selected,
+    unselected: state.pollReducer.unselected,
+    pollErrorMessage: state.pollReducer.pollErrorMessage,
+    data: state.pollReducer.data
   }
 }
 
@@ -88,7 +64,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     authActions: bindActionCreators(authActions, dispatch),
     searchActions: bindActionCreators(searchActions, dispatch),
-    dinerActions: bindActionCreators(dinerActions, dispatch)
+    dinerActions: bindActionCreators(dinerActions, dispatch),
+    pollActions: bindActionCreators(pollActions, dispatch)
   }
 }
 
