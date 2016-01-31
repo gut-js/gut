@@ -20,7 +20,13 @@ class Diners extends React.Component {
   render(){
     return (
       <div>
-       <DinersPage dinerActions={this.props.dinerActions} diners={this.props.diners} recommendations={this.props.recommendations} username={this.props.username} topRestaurant={this.props.topRestaurant} index={this.props.index} />
+        <DinersPage
+          dinerActions={this.props.dinerActions}
+          diners={this.props.diners}
+          recommendations={this.props.recommendations}
+          username={this.props.username}
+          topRestaurant={this.props.topRestaurant}
+          index={this.props.index} />
       </div>
     )
   }

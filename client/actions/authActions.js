@@ -4,6 +4,9 @@ import { syncPoll } from './../actions/pollActions';
 export const REGISTER_REQUEST = 'REGISTER_REQUEST';
 export const REGISTER_ERROR = 'REGISTER_ERROR';
 export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
+export const AUTHENTICATE_REQUEST = 'AUTHENTICATE_REQUEST';
+export const AUTHENTICATE_ERROR = 'AUTHENTICATE_ERROR';
+export const AUTHENTICATE_SUCCESS = 'AUTHENTICATE_SUCCESS';
 export const SIGNIN_REQUEST = 'SIGNIN_REQUEST';
 export const SIGNIN_ERROR_PW = 'SIGNIN_ERROR_PW';
 export const SIGNIN_ERROR_USER = 'SIGNIN_ERROR_USER';
@@ -64,6 +67,60 @@ const registerError = (err) => {
 const registerSuccess = (info) => {
   return {
     type: REGISTER_SUCCESS,
+    info
+  }
+}
+
+// Main Authentication Function
+export const authenticateUser = (token) => {
+  return dispatch => {
+    dispatch(registerRequest);
+
+    return fetch('http://localhost:5679/authenticate', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        token: token
+      })
+    })
+    .then(response => {
+      return response.json();
+    })
+    .then(response => {
+      try {
+        if(response.username){
+          dispatch(authenticateSuccess(response.username));
+          dispatch(routeActions.push('/profile'))
+        } else {
+          dispatch(authenticateError(response));
+        }
+      } catch(e){
+        dispatch(authenticateError(response.error));
+      }
+    })
+    .catch(err => console.error('Error in Authenticating User:', err));
+  }
+}
+
+const authenticateRequest = () => {
+  return {
+    type: AUTHENTICATE_REQUEST
+  }
+}
+
+const authenticateError = (err) => {
+  return {
+    type: AUTHENTICATE_ERROR,
+    err
+  }
+}
+
+const authenticateSuccess = (info) => {
+  return {
+    type: AUTHENTICATE_SUCCESS,
     info
   }
 }

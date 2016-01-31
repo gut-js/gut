@@ -10,14 +10,15 @@ class Restaurant2 extends Component {
   }
 
   getTopRestaurant(){
-    const {updateTopRestaurant} = this.props.dinerActions;
+    const { updateTopRestaurant } = this.props.dinerActions;
     updateTopRestaurant();
   }
 
   handleClick(e){
     e.preventDefault();
     console.log('this.props in handleClick ', this.props)
-    const {updateTopRestaurant2} = this.props.dinerActions;
+    const { updateTopRestaurant2 } = this.props.dinerActions;
+    
     updateTopRestaurant2();
     // need to rerender component somehow?
   }

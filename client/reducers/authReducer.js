@@ -2,6 +2,9 @@ import {
   REGISTER_REQUEST,
   REGISTER_ERROR,
   REGISTER_SUCCESS,
+  AUTHENTICATE_REQUEST,
+  AUTHENTICATE_ERROR,
+  AUTHENTICATE_SUCCESS,
   SIGNIN_REQUEST,
   SIGNIN_ERROR_PW,
   SIGNIN_ERROR_USER,
@@ -23,7 +26,6 @@ export default function authReducer(state = initialState, action){
       return Object.assign({}, state, {
         isFetching: true,
         isLoggedIn: false,
-        username: action.info
       })
     case REGISTER_ERROR:
       return Object.assign({}, state, {
@@ -39,11 +41,27 @@ export default function authReducer(state = initialState, action){
         authErrorMsg: '',
         showPoll: true
       })
+    case AUTHENTICATE_REQUEST:
+      return Object.assign({}, state, {
+        isFetching: true,
+        isLoggedIn: false,
+      })
+    case AUTHENTICATE_ERROR:
+      return Object.assign({}, state, {
+        isFetching: false,
+        isLoggedIn: false,
+        authErrorMsg: action.err
+      })
+    case AUTHENTICATE_SUCCESS:
+      return Object.assign({}, state, {
+        isFetching: false,
+        isLoggedIn: true,
+        username: action.info.username
+      })
     case SIGNIN_REQUEST:
       return Object.assign({}, state, {
         isFetching: true,
         isLoggedIn: false,
-        username: action.info
       })
     case SIGNIN_ERROR_PW:
       return Object.assign({}, state, {
@@ -61,6 +79,7 @@ export default function authReducer(state = initialState, action){
       return Object.assign({}, state, {
         isFetching: false,
         isLoggedIn: true,
+        username: action.user.username
       })
     case LOGOUT_SUCCESS:
       return Object.assign({}, state, {
