@@ -10,7 +10,7 @@ import * as pollActions from './../actions/pollActions';
 
 //Components
 import Navigation from './../components/Navigation';
-import Menu from './../components/Menu';
+import ProfileMenu from './../components/ProfileMenu';
 import Poll from './../components/Poll';
 
 class Profile extends React.Component {
@@ -32,7 +32,7 @@ class Profile extends React.Component {
       ) : (
         <div>
           <h1>Welcome {username}!</h1>
-          <Menu {...this.props} />
+          <ProfileMenu {...this.props} />
         </div>
       );
 

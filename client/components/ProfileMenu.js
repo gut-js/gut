@@ -1,7 +1,7 @@
 import React from 'react';
 import { ButtonGroup, Button } from 'react-bootstrap';
 
-class Menu extends React.Component {
+class ProfileMenu extends React.Component {
   constructor(){
     super();
     this.handleClick = this.handleClick.bind(this);
@@ -27,4 +27,4 @@ class Menu extends React.Component {
   }
 }
 
-export default Menu;
+export default ProfileMenu;
