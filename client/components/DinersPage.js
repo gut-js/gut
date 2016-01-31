@@ -10,17 +10,19 @@ class DinersPage extends React.Component {
 
   handleClick(e){
     e.preventDefault();
-    const {fetchSnapPeaData} = this.props.dinerActions;
-    const diners = this.props.diners;
-    const username = this.props.username;
-    fetchSnapPeaData(diners); 
+    const { fetchSnapPeaData } = this.props.dinerActions;
+    const { diners, username } = this.props;
+
+    fetchSnapPeaData(diners);
   }
 
   getRecommendations(){
     console.log('inside getRecommendations');
     console.log('not receiving props yet.. need to map dispatchToProps in container diner.js', this.props);
-    const {fetchSnapPeaData} = this.props.dinerActions;
-    fetchSnapPeaData(this.props.diners, this.props.location);
+    const { fetchSnapPeaData } = this.props.dinerActions;
+    const { diners, location } = this.props;
+    
+    fetchSnapPeaData(diners, location);
   }
 
   render(){

@@ -30,6 +30,7 @@ app.use(bodyParser.json());
 // routes
 app.use('/login', require('./loginRoute'));
 app.use('/signup', require('./signupRoute'));
+app.use('/authenticate', require('./authenticationRoute'));
 app.use('/yelp', require('./yelpRoute'));
 app.use('/preference', require('./preferenceRoute'));
 app.use('/eat', require('./eatRoute'));
@@ -81,5 +82,3 @@ app.post('/authenticate', function(req, res) {
 app.listen(port, function(){
 	console.log('listening on port ' + port);
 });
-
-

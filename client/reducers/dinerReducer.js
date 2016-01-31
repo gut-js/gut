@@ -20,18 +20,13 @@ export default function dinerReducer(state = initialState, action){
         recommendations: action.info
       })
     case SET_TOP_RESTAURANT:
-      console.log('inside SET_TOP_RESTAURANT');
-      console.log('state.recommendations', state);
       let newTopRestaurant = state.recommendations[state.index]
-      console.log('NUDE TOP RESTAURANT', newTopRestaurant)
       return Object.assign({}, state, {
         topRestaurant: newTopRestaurant
       })
     case CHANGE_TOP_RESTAURANT:
-      console.log('index, ', state.index)
       if (state.index < 19) {
         let newIndex = state.index + 1;
-        console.log('newIndex, ', newIndex)
         return Object.assign({}, state, {
           index: newIndex
         })

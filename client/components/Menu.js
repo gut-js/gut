@@ -8,10 +8,11 @@ class Menu extends React.Component {
   }
 
   handleClick(e){
-    console.log('inside handleClick. these are the props', this.props)
     e.preventDefault();
-    const {addToDiners} = this.props.dinerActions;
-    addToDiners(this.props.username);
+    const { addToDiners } = this.props.dinerActions;
+    const { username } = this.props;
+
+    addToDiners(username);
   }
 
   render(){

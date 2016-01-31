@@ -19,14 +19,20 @@ class Profile extends React.Component {
     super();
   }
 
+  componentWillMount(){
+    const { authenticateUser } = this.props.authActions;
+
+    authenticateUser(localStorage.token);
+  }
+
   render(){
-    const { username } = this.props.username;
+    const { username } = this.props;
 
     let displayProfile = this.props.showPoll && this.props.isSubmitting ? (
         <Poll {...this.props} />
       ) : (
         <div>
-          <h1>PROFILE</h1>
+          <h1>Welcome {username}!</h1>
           <Menu {...this.props} />
           <RestaurantList {...this.props} />
         </div>
