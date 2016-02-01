@@ -28,15 +28,15 @@ app.use(bodyParser.json());
 
 
 // routes
-app.use('/login', require('./loginRoute'));
-app.use('/signup', require('./signupRoute'));
-app.use('/authenticate', require('./authenticationRoute'));
-app.use('/yelp', require('./yelpRoute'));
-app.use('/preference', require('./preferenceRoute'));
-app.use('/eat', require('./eatRoute'));
-app.use('/users', require('./usersRoute'));
-app.use('/addfriend', require('./addfriendRoute'));
-app.use('/friends', require('./friendsRoute'));
+app.use('/login', require('./routes/loginRoute'));
+app.use('/signup', require('./routes/signupRoute'));
+app.use('/authenticate', require('./routes/authenticationRoute'));
+app.use('/yelp', require('./routes/yelpRoute'));
+app.use('/preference', require('./routes/preferenceRoute'));
+app.use('/eat', require('./routes/eatRoute'));
+app.use('/users', require('./routes/usersRoute'));
+app.use('/addfriend', require('./routes/addfriendRoute'));
+app.use('/friends', require('./routes/friendsRoute'));
 
 var port = process.env.PORT || 5679;
 

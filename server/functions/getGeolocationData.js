@@ -1,4 +1,4 @@
-var google_api_key = require('./config.js').google_api_key;
+var google_api_key = require('../config.js').google_api_key;
 var Q = require('q');
 var request = require('request');
 

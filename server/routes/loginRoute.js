@@ -3,8 +3,8 @@ var router = express.Router();
 var bcrypt = require('bcrypt');
 var jwt = require('jsonwebtoken');
 var mongoose = require('mongoose');
-var db = require('./db');
-var app = require('./server');
+var db = require('../db');
+var app = require('../server');
 
 //log into account
 router.post('/', function(req, res){

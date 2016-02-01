@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var _ = require('lodash');
-var db = require('./db');
+var db = require('../db');
 
 router.get('/',function(req,res){
 	var filterName = req.query.username;
