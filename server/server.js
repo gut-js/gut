@@ -36,7 +36,7 @@ app.use('/preference', require('./routes/preferenceRoute'));
 app.use('/eat', require('./eatRoute'));
 app.use('/users', require('./routes/usersRoute'));
 app.use('/addfriend', require('./addfriendRoute'));
-app.use('/friends', require('./friendsRoute'));
+app.use('/friends', require('./routes/friendsRoute'));
 
 var port = process.env.PORT || 5679;
 
