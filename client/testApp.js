@@ -1,3 +1,5 @@
+var currentUsername;
+
 function addFriend(name){
   console.log('adding: ',name);
   $.ajax({
@@ -215,6 +217,7 @@ $(document).ready(function(){
       success: function(data){
         console.log('success');
         console.log('data', data);
+        currentUsername = username;
       },
       error: function(err){
         console.log('error',err);
