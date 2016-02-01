@@ -20,7 +20,7 @@ router.post('/', function(req, res){
         res.send(err);
       }
       else {
-        console.log('found user', user);
+        console.log('found user', user.username);
         callback(err, user);
       }
     });
@@ -38,7 +38,7 @@ router.post('/', function(req, res){
               var token = jwt.sign(user, app.get('superSecret'), {
                 expiresIn: 1400 // expires in 24 hours
               });
-              console.log('token in login: ', token)
+              //console.log('token in login: ', token)
               // serve token to client
               res.json({
                 success: true,
