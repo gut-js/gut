@@ -1,8 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
-var db = require('./db');
-var addEdge = require('./addEdge');
+var db = require('../db');
 
 router.put('/',function(req,res){
 	console.log('inside addfriendRoute');
