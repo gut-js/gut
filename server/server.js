@@ -32,7 +32,7 @@ app.use('/login', require('./routes/loginRoute'));
 app.use('/signup', require('./routes/signupRoute'));
 app.use('/authenticate', require('./authenticationRoute'));
 app.use('/yelp', require('./yelpRoute'));
-app.use('/preference', require('./preferenceRoute'));
+app.use('/preference', require('./routes/preferenceRoute'));
 app.use('/eat', require('./eatRoute'));
 app.use('/users', require('./usersRoute'));
 app.use('/addfriend', require('./addfriendRoute'));
