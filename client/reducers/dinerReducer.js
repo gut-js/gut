@@ -46,7 +46,8 @@ export default function dinerReducer(state = initialState, action){
       })
     case LOADING_RESULTS:
       return Object.assign({}, state, {
-        isLoadingResults: true
+        isLoadingResults: true,
+        topRestaurant: {}
       })
     default:
       return state;

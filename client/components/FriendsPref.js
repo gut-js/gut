@@ -4,7 +4,6 @@ import { Grid, Row, Col, Button } from 'react-bootstrap';
 class FriendsPref extends React.Component {
   constructor(){
     super();
-    this.getRecommendations = this.getRecommendations.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -13,15 +12,6 @@ class FriendsPref extends React.Component {
     const { displayResults } = this.props.viewActions;
 
     displayResults();
-  }
-
-  getRecommendations(){
-    console.log('inside getRecommendations');
-    console.log('not receiving props yet.. need to map dispatchToProps in container diner.js', this.props);
-    const { fetchSnapPeaData } = this.props.dinerActions;
-    const { diners, location } = this.props;
-
-    fetchSnapPeaData(diners, location);
   }
 
   render(){
