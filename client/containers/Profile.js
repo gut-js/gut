@@ -16,6 +16,7 @@ import Poll from './../components/Poll';
 class Profile extends React.Component {
   constructor(){
     super();
+    this.displayProfile = this.displayProfile.bind(this);
   }
 
   componentWillMount(){
@@ -24,22 +25,26 @@ class Profile extends React.Component {
     authenticateUser(localStorage.token);
   }
 
-  render(){
-    const { username } = this.props;
-
-    let displayProfile = this.props.showPoll && this.props.isSubmitting ? (
+  displayProfile(){
+    if(this.props.showPoll && this.props.isSubmitting){
+      return(
         <Poll {...this.props} />
-      ) : (
+      )
+    } else {
+      return (
         <div>
           <ProfileMenu {...this.props} />
         </div>
-      );
+      )
+    }
+  }
 
+  render(){
     return(
       <div>
         <Navigation {...this.props} />
         <div>
-          {displayProfile}
+          {this.displayProfile()}
         </div>
       </div>
     )
