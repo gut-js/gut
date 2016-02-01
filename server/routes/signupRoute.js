@@ -7,8 +7,8 @@ var _ = require('lodash');
 
 var db = require('../db');
 var app = require('../server');
-var getGeolocationData = require('../getGeolocationData');
-var request_yelp = require('../request_yelp');
+var getGeolocationData = require('../functions/getGeolocationData');
+var request_yelp = require('../functions/request_yelp');
 
 //sign up for account
 router.post('/', function(req, res) {

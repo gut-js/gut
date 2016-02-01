@@ -31,7 +31,7 @@ app.use(bodyParser.json());
 app.use('/login', require('./routes/loginRoute'));
 app.use('/signup', require('./routes/signupRoute'));
 app.use('/authenticate', require('./routes/authenticationRoute'));
-app.use('/yelp', require('./yelpRoute'));
+app.use('/yelp', require('./routes/yelpRoute'));
 app.use('/preference', require('./routes/preferenceRoute'));
 app.use('/eat', require('./routes/eatRoute'));
 app.use('/users', require('./routes/usersRoute'));

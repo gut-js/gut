@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var request_yelp = require('./request_yelp');
+var request_yelp = require('../functions/request_yelp');
 
 router.get('/', function(req, res) {
 
