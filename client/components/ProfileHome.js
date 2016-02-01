@@ -5,7 +5,7 @@ import ProfileMenu from './ProfileMenu';
 import FriendsPref from './FriendsPref';
 import AddFriends from './AddFriends';
 import LocationPref from './LocationPref';
-import Restaurant from './Restaurant';
+import RestaurantPref from './RestaurantPref';
 
 class ProfileHome extends React.Component {
   constructor(){
@@ -39,7 +39,7 @@ class ProfileHome extends React.Component {
   displayResults(){
     if(this.props.displayResults){
       return(
-        <Restaurant {...this.props} />
+        <RestaurantPref {...this.props} />
       )
     } else {
       return null;

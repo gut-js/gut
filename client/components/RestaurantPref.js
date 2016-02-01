@@ -4,7 +4,7 @@ import { Button } from 'react-bootstrap';
 //Components
 import Map from './Map';
 
-class Restaurant extends React.Component {
+class RestaurantPref extends React.Component {
   constructor(){
     super();
     this.getTopRestaurant = this.getTopRestaurant.bind(this);
@@ -79,4 +79,4 @@ class Restaurant extends React.Component {
   }
 }
 
-export default Restaurant;
+export default RestaurantPref;
