@@ -15,6 +15,7 @@ class FriendsPref extends React.Component {
   }
 
   render(){
+    console.log('props in friends pref', this.props);
     return (
       <div className='row'>
         <h1>Select who youd like to eat with</h1>

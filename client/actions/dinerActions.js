@@ -9,8 +9,9 @@ export const LOADING_RESULTS = 'LOADING_RESULTS';
 export const fetchSnapPeaData = (diners, location) => {
   return dispatch => {
     dispatch(loadingResults());
+    let dinersString = JSON.stringify(diners);
 
-     return fetch('http://localhost:5679/eat?username=' + 'hhh' + '&' + 'location=' + "seattle", {
+     return fetch('http://localhost:5679/eat?diners=' + dinersString + '&' + 'location=' + "seattle", {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
