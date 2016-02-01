@@ -10,11 +10,8 @@ class FriendsPref extends React.Component {
 
   handleClick(e){
     e.preventDefault();
-    const { fetchSnapPeaData } = this.props.dinerActions;
-    const { diners, username } = this.props;
     const { displayResults } = this.props.viewActions;
 
-    fetchSnapPeaData(diners);
     displayResults();
   }
 
