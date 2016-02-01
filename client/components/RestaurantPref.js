@@ -7,8 +7,7 @@ import Map from './Map';
 class RestaurantPref extends React.Component {
   constructor(){
     super();
-    this.getTopRestaurant = this.getTopRestaurant.bind(this);
-    this.handleClick = this.handleClick.bind(this);
+    this.selectNext = this.selectNext.bind(this);
     this.displayLoadingSpinner = this.displayLoadingSpinner.bind(this);
     this.displayTopRestaurant = this.displayTopRestaurant.bind(this);
   }
@@ -20,15 +19,10 @@ class RestaurantPref extends React.Component {
     fetchSnapPeaData(diners);
   }
 
-  getTopRestaurant(){
-    const { updateTopRestaurant } = this.props.dinerActions;
-
-    updateTopRestaurant();
-  }
-
-  handleClick(e){
+  selectNext(e){
     e.preventDefault();
     const { updateTopRestaurant } = this.props.dinerActions;
+    const { recommendations } = this.props;
 
     updateTopRestaurant();
   }
@@ -60,7 +54,7 @@ class RestaurantPref extends React.Component {
             <Map lat={this.props.topRestaurant.location.coordinate.latitude} lng={this.props.topRestaurant.location.coordinate.longitude}/>
           </div>
           <Button>Peas get directions!</Button>
-          <Button onClick={this.handleClick}>Next restaurant</Button>
+          <Button onClick={this.selectNext}>Next restaurant</Button>
         </div>
       )
     } else {
@@ -69,6 +63,7 @@ class RestaurantPref extends React.Component {
   }
 
   render(){
+    console.log('props in res pref', this.props);
   	return (
   	 	<div>
         <h1>Results</h1>

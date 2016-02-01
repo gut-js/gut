@@ -2,7 +2,7 @@ import { routeActions } from 'react-router-redux';
 
 export const LOAD_SNAPPEA_DATA = 'LOAD_SNAPPEA_DATA';
 export const SET_TOP_RESTAURANT = 'SET_TOP_RESTAURANT';
-export const CHANGE_TOP_RESTAURANT = 'CHANGE_TOP_RESTAURANT';
+export const UPDATE_TOP_RESTAURANT = 'UPDATE_TOP_RESTAURANT';
 export const UPDATE_DINERS = 'UPDATE_DINERS';
 export const LOADING_RESULTS = 'LOADING_RESULTS';
 
@@ -21,31 +21,14 @@ export const fetchSnapPeaData = (diners, location) => {
       return response.json();
     })
     .then(response => {
-      dispatch(loadSnapPeaData(response));
+      console.log('response inside fetchSnapPeaData', response)
       try {
+        dispatch(loadSnapPeaData(response));
         dispatch(setTopRestaurant(response[0]));
-        // dispatch(routeActions.push('/toprestaurant'));
       } catch(e){
         console.log('logging catch')
       }
     })
-  }
-}
-
-export const updateTopRestaurant = () => {
-  return dispatch => {
-    console.log('inTOP RESTARANT!');
-    dispatch(changeTopRestaurant());
-    // dispatch(routeActions.push('/toprestaurant2'))
-  }
-}
-
-// temp hacky fix to routing prob
-export const updateTopRestaurant2 = () => {
-  return dispatch => {
-    console.log('inTOP RESTARANT!');
-    dispatch(changeTopRestaurant());
-    // dispatch(routeActions.push('/toprestaurant'))
   }
 }
 
@@ -56,12 +39,6 @@ const loadSnapPeaData = (info) => {
   }
 }
 
-export const loadTopRestaurant = () => {
-  return dispatch => {
-    dispatch(setTopRestaurant());
-  }
-}
-
 const setTopRestaurant = (restaurant) => {
   return {
     type: SET_TOP_RESTAURANT,
@@ -69,9 +46,15 @@ const setTopRestaurant = (restaurant) => {
   }
 }
 
-const changeTopRestaurant = () => {
+export const loadTopRestaurant = () => {
+  return dispatch => {
+    dispatch(setTopRestaurant());
+  }
+}
+
+export const updateTopRestaurant = () => {
   return {
-    type: CHANGE_TOP_RESTAURANT
+    type: UPDATE_TOP_RESTAURANT
   }
 }
 

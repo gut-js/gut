@@ -1,7 +1,7 @@
 import {
   LOAD_SNAPPEA_DATA,
   SET_TOP_RESTAURANT,
-  CHANGE_TOP_RESTAURANT,
+  UPDATE_TOP_RESTAURANT,
   UPDATE_DINERS,
   LOADING_RESULTS
 } from './../actions/dinerActions';
@@ -12,7 +12,7 @@ const initialState = {
   dinerErrorMessage: '',
   topRestaurant: {},
   isLoadingResults: false,
-  index: 0
+  index: 1
 }
 
 export default function dinerReducer(state = initialState, action){
@@ -23,19 +23,19 @@ export default function dinerReducer(state = initialState, action){
         isLoadingResults: false
       })
     case SET_TOP_RESTAURANT:
-      let newTopRestaurant = state.recommendations[state.index]
       return Object.assign({}, state, {
-        topRestaurant: newTopRestaurant
+        topRestaurant: action.restaurant
       })
-    case CHANGE_TOP_RESTAURANT:
-      if (state.index < 19) {
-        let newIndex = state.index + 1;
+    case UPDATE_TOP_RESTAURANT:
+      if (state.index === 19) {
         return Object.assign({}, state, {
-          topRestaurant: recommendations[newIndex]
+          index: 0,
+          topRestaurant: state.recommendations[state.index]
         })
       } else {
         return Object.assign({}, state, {
-          index: 0
+          index: state.index + 1,
+          topRestaurant: state.recommendations[state.index]
         })
       }
     case UPDATE_DINERS:

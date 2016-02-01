@@ -78,8 +78,7 @@ export const updatePoll = (info, username) => {
   let results = shortenPoll(info, username);
   return {
     type: UPDATE_POLL,
-    results,
-    username
+    results
   }
 }
 

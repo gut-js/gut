@@ -30,7 +30,7 @@ class PollCategory extends React.Component {
       endPoll(username);
     } else {
       sendPollChoices(response);
-      updatePoll(this.props.data, username);
+      updatePoll(this.props.data);
     }
   }
 
