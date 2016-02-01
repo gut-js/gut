@@ -3,12 +3,12 @@ var router = express.Router();
 var bcrypt = require('bcrypt');
 var jwt = require('jsonwebtoken');
 var mongoose = require('mongoose');
-
-var db = require('./db');
-var app = require('./server');
-var getGeolocationData = require('./getGeolocationData');
-var request_yelp = require('./request_yelp');
 var _ = require('lodash');
+
+var db = require('../db');
+var app = require('../server');
+var getGeolocationData = require('../getGeolocationData');
+var request_yelp = require('../request_yelp');
 
 //sign up for account
 router.post('/', function(req, res) {
@@ -73,7 +73,7 @@ router.post('/', function(req, res) {
 
           // })   
 
-          var businesses = (require('./businesses'));
+          var businesses = (require('../businesses'));
           //shuffle poll
           businesses = _.shuffle(businesses);
 
