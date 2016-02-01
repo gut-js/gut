@@ -9,6 +9,10 @@ class FriendsPref extends React.Component {
 
   handleClick(e){
     e.preventDefault();
+    let username = this.props.username;
+    console.log('this.props: ', this.props);
+    const { addToDiners } = this.props.dinerActions;
+    addToDiners(username);
     const { displayResults } = this.props.viewActions;
 
     displayResults();
@@ -18,7 +22,7 @@ class FriendsPref extends React.Component {
     return (
       <div className='row'>
         <h1>Select who youd like to eat with</h1>
-        <Button onClick={this.handleClick}>Eat with Hoon</Button>
+        <Button onClick={this.handleClick}>Eat with Self</Button>
       </div>
     )
   }
