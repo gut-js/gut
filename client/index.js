@@ -10,6 +10,7 @@ import authReducer from './reducers/authReducer';
 import searchReducer from './reducers/searchReducer';
 import pollReducer from './reducers/pollReducer';
 import dinerReducer from './reducers/dinerReducer';
+import viewReducer from './reducers/viewReducer';
 
 //Router stuff:
 import routes from './routes';
@@ -28,6 +29,7 @@ const reducer = combineReducers({
   searchReducer,
   pollReducer,
   dinerReducer,
+  viewReducer,
   routing: routeReducer
 })
 
