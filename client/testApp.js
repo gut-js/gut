@@ -6,7 +6,7 @@ function addFriend(name){
   $.ajax({
     url: '/addfriend',
     type: 'PUT',
-    data: JSON.stringify({username:'shin',friendname:name}),
+    data: JSON.stringify({username:currentUsername,friendname:name}),
     contentType: 'application/json',
     success: function(data){
       console.log('success',data);
@@ -26,6 +26,21 @@ function selectFriend(name){
 
 
 $(document).ready(function(){
+
+  $('#eatWithFriends').submit(function(e){
+    e.preventDefault();
+    $.ajax({
+      url: '/eat',
+      type: 'GET',
+      data: {diners:JSON.stringify(eatingPeople), location:'vancouver'},
+      success: function(data){
+        console.log('success',data);
+      },
+      error: function(err){
+        console.log('error',err);
+      }
+    })
+  })
 
   function drawFriends(friends){
     $('#friends').html('');
