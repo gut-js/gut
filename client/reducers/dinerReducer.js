@@ -40,10 +40,14 @@ export default function dinerReducer(state = initialState, action){
       }
     case UPDATE_DINERS:
       let newDiners = state.diners.slice(0);
-      newDiners.push(action.diner);
-      return Object.assign({}, state, {
-        diners: newDiners
-      })
+      if(action.diner === newDiners[0]){
+        return state
+      } else {
+        newDiners.push(action.diner);
+        return Object.assign({}, state, {
+          diners: newDiners
+        })
+      }
     case LOADING_RESULTS:
       return Object.assign({}, state, {
         isLoadingResults: true,
