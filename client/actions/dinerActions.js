@@ -7,9 +7,10 @@ export const UPDATE_DINERS = 'UPDATE_DINERS';
 export const LOADING_RESULTS = 'LOADING_RESULTS';
 
 export const fetchSnapPeaData = (diners, location) => {
+  let dinersString = JSON.stringify(diners);
+
   return dispatch => {
     dispatch(loadingResults());
-    let dinersString = JSON.stringify(diners);
 
     if(!location){
       return fetch('http://localhost:5679/eat?diners=' + dinersString, {
@@ -27,6 +28,7 @@ export const fetchSnapPeaData = (diners, location) => {
          dispatch(loadSnapPeaData(response));
          dispatch(setTopRestaurant(response[0]));
        } catch(e){
+         console.log('Error in fetching', e);
        }
      })
    } else {
@@ -46,11 +48,11 @@ export const fetchSnapPeaData = (diners, location) => {
          dispatch(loadSnapPeaData(response));
          dispatch(setTopRestaurant(response[0]));
        } catch(e){
-         console.log('logging catch')
+         console.log('Error in fetching', e);
        }
      })
    }
-  }
+ }
 }
 
 const loadSnapPeaData = (info) => {
@@ -77,7 +79,6 @@ export const updateTopRestaurant = () => {
 export const addToDiners = (username) => {
   return dispatch => {
     dispatch(updateDiners(username));
-    // dispatch(routeActions.push('/diners'))
   }
 }
 

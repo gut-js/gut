@@ -1,13 +1,13 @@
 import React from 'react';
-import { Grid, Row, Col, Button } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 
 class FriendsPref extends React.Component {
   constructor(){
     super();
-    this.handleClick = this.handleClick.bind(this);
+    this.displayRestaurantResults = this.displayRestaurantResults.bind(this);
   }
 
-  handleClick(e){
+  displayRestaurantResults(e){
     e.preventDefault();
     const { displayResults } = this.props.viewActions;
 
@@ -15,11 +15,10 @@ class FriendsPref extends React.Component {
   }
 
   render(){
-    console.log('props in friends pref', this.props);
     return (
       <div className='row'>
         <h1>Select who youd like to eat with</h1>
-        <Button onClick={this.handleClick}>Eat with Hoon</Button>
+        <Button onClick={this.displayRestaurantResults}>Eat with Hoon</Button>
       </div>
     )
   }
