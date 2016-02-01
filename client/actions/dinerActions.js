@@ -23,14 +23,13 @@ export const fetchSnapPeaData = (diners, location) => {
       console.log('response inside 3rd .then', response);
       try {
         dispatch(setTopRestaurant(response[0]));
-        dispatch(routeActions.push('/toprestaurant'))
-        
+        dispatch(routeActions.push('/toprestaurant'));
       } catch(e){
-        console.log('logging catch')      
+        console.log('logging catch')
       }
     })
   }
-}    
+}
 
 export const updateTopRestaurant = () => {
   return dispatch => {
@@ -79,7 +78,7 @@ const changeTopRestaurant = () => {
 export const addToDiners = (username) => {
   return dispatch => {
     dispatch(updateDiners(username));
-    dispatch(routeActions.push('/diners'))
+    // dispatch(routeActions.push('/diners'))
   }
 }
 

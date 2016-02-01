@@ -12,8 +12,10 @@ class DinersPage extends React.Component {
     e.preventDefault();
     const { fetchSnapPeaData } = this.props.dinerActions;
     const { diners, username } = this.props;
+    const { displayResults } = this.props.viewActions;
 
     fetchSnapPeaData(diners);
+    displayResults();
   }
 
   getRecommendations(){
@@ -21,13 +23,14 @@ class DinersPage extends React.Component {
     console.log('not receiving props yet.. need to map dispatchToProps in container diner.js', this.props);
     const { fetchSnapPeaData } = this.props.dinerActions;
     const { diners, location } = this.props;
-    
+
     fetchSnapPeaData(diners, location);
   }
 
   render(){
+    console.log('props in dinerspage', this.props);
     return (
-      <div>
+      <div className='row'>
         <Button onClick={this.handleClick}>Eat alone :)</Button>
       </div>
     )
@@ -35,5 +38,3 @@ class DinersPage extends React.Component {
 }
 
 export default DinersPage;
-
-// we dont know what to put inside Button onClick to take it to the restaurant component
