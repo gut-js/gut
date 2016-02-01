@@ -1,3 +1,6 @@
+var currentUsername;
+var eatingPeople = [];
+
 function addFriend(name){
   console.log('adding: ',name);
   $.ajax({
@@ -14,6 +17,13 @@ function addFriend(name){
   })
 }
 
+function selectFriend(name){
+  if (eatingPeople.indexOf(name)===-1){
+    eatingPeople.push(name);
+  };
+  console.log('eatingPeople',eatingPeople);
+}
+
 
 $(document).ready(function(){
 
@@ -21,17 +31,16 @@ $(document).ready(function(){
     $('#friends').html('');
     friends.forEach(function(friend){
       $('#friends').append('<div>'+friend+'</div>');
+      $('#friends').append('<button onclick="selectFriend(this.id)" id="'+friend+'">Select</button>');
     })
   }
 
   $('#searchFriends').submit(function(e){
     e.preventDefault();
-    var searchTerm = $('#friendText').val();
-    console.log('searchTerm',searchTerm);
     $.ajax({
       url: '/friends',
       type: 'GET',
-      data: {username: 'shin', searchTerm: searchTerm},
+      data: {username: currentUsername},
       success: function(data){
         console.log('data',data);
         drawFriends(data);
@@ -215,6 +224,9 @@ $(document).ready(function(){
       success: function(data){
         console.log('success');
         console.log('data', data);
+        currentUsername = username;
+        eatingPeople.push(currentUsername);
+        console.log('eatingPeople',eatingPeople);
       },
       error: function(err){
         console.log('error',err);
