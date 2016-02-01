@@ -31,7 +31,7 @@ export default function dinerReducer(state = initialState, action){
       if (state.index < 19) {
         let newIndex = state.index + 1;
         return Object.assign({}, state, {
-          index: newIndex
+          topRestaurant: recommendations[newIndex]
         })
       } else {
         return Object.assign({}, state, {
