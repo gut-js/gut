@@ -17,14 +17,24 @@ function addFriend(name){
 
 $(document).ready(function(){
 
+  function drawFriends(friends){
+    $('#friends').html('');
+    friends.forEach(function(friend){
+      $('#friends').append('<div>'+friend+'</div>');
+    })
+  }
+
   $('#searchFriends').submit(function(e){
     e.preventDefault();
+    var searchTerm = $('#friendText').val();
+    console.log('searchTerm',searchTerm);
     $.ajax({
       url: '/friends',
       type: 'GET',
-      data: {username: 'shin'},
+      data: {username: 'shin', searchTerm: searchTerm},
       success: function(data){
         console.log('data',data);
+        drawFriends(data);
       },
       error: function(err){
         console.log('error',err);
@@ -42,10 +52,12 @@ $(document).ready(function(){
 
   $('#searchPeople').submit(function(e){
     e.preventDefault();
+    var searchTerm = $('#peopleText').val();
+    console.log('searchTerm',searchTerm);
     $.ajax({
       url: '/users',
       type: 'GET',
-      data: {username: 'shin'},
+      data: {username: 'shin', searchTerm:searchTerm},
       success: function(data){
         console.log('success',data);
         drawPeople(data);
