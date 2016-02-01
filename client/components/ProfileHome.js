@@ -57,7 +57,6 @@ class ProfileHome extends React.Component {
   }
 
   render(){
-    console.log('props on profile', this.props);
     return(
       <div>
         <ProfileMenu {...this.props} />
