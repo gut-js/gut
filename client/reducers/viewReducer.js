@@ -14,14 +14,14 @@ const initialState = {
 
 export default function viewReducer(state = initialState, action){
   switch(action.type){
+    case DISPLAY_LOCATION_CHOICE:
+    return Object.assign({}, state, {
+      displayAddFriends: false,
+      displayLocationChoice: true
+    })
     case DISPLAY_FRIENDS_CHOICE:
       return Object.assign({}, state, {
         displayFriendsChoice: true,
-        displayAddFriends: false
-      })
-    case DISPLAY_LOCATION_CHOICE:
-      return Object.assign({}, state, {
-        displayLocationChoice: true
       })
     case DISPLAY_RESULTS:
       return Object.assign({}, state, {

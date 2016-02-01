@@ -2,8 +2,9 @@ import React from 'react';
 
 //Components
 import ProfileMenu from './ProfileMenu';
-import DinersPage from './DinersPage';
+import FriendsPref from './FriendsPref';
 import AddFriends from './AddFriends';
+import LocationPref from './LocationPref';
 
 //containers
 import TopRestaurants from './../containers/TopRestaurants';
@@ -20,7 +21,7 @@ class ProfileHome extends React.Component {
   displayFriendsChoice(){
     if(this.props.displayFriendsChoice){
       return(
-        <DinersPage {...this.props} />
+        <FriendsPref {...this.props} />
       )
     } else {
       return null;
@@ -28,7 +29,13 @@ class ProfileHome extends React.Component {
   }
 
   displayLocationChoice(){
-
+    if(this.props.displayLocationChoice){
+      return(
+        <LocationPref {...this.props} />
+      )
+    } else {
+      return null;
+    }
   }
 
   displayResults(){
@@ -52,12 +59,14 @@ class ProfileHome extends React.Component {
   }
 
   render(){
+    console.log('props on profile', this.props);
     return(
       <div>
         <ProfileMenu {...this.props} />
+        {this.displayAddFriends()}
+        {this.displayLocationChoice()}
         {this.displayFriendsChoice()}
         {this.displayResults()}
-        {this.displayAddFriends()}
       </div>
     )
   }

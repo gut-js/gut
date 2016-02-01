@@ -4,18 +4,15 @@ import { ButtonGroup, Button } from 'react-bootstrap';
 class ProfileMenu extends React.Component {
   constructor(){
     super();
-    this.displayEatOptions = this.displayEatOptions.bind(this);
+    this.displayLocationChoice = this.displayLocationChoice.bind(this);
     this.displayFriends = this.displayFriends.bind(this);
   }
 
-  displayEatOptions(e){
+  displayLocationChoice(e){
     e.preventDefault();
-    const { addToDiners } = this.props.dinerActions;
-    const { username } = this.props;
-    const { displayFriendsChoice } = this.props.viewActions;
+    const { displayLocationChoice } = this.props.viewActions;
 
-    addToDiners(username);
-    displayFriendsChoice();
+    displayLocationChoice();
   }
 
   displayFriends(){
@@ -32,7 +29,7 @@ class ProfileMenu extends React.Component {
           <img
             src='./../static/assets/placeholder.jpeg'
             alt='letseat'
-            onClick={this.displayEatOptions} />
+            onClick={this.displayLocationChoice} />
         </div>
         <div className='col-md-6'>
           <h1>Add Friends</h1>

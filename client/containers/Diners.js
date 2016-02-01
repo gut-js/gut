@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import * as dinerActions from './../actions/dinerActions'
 
 //Components
-import DinersPage from './../components/DinersPage';
+import FriendsPref from './../components/FriendsPref';
 
 class Diners extends React.Component {
   constructor(){
@@ -20,7 +20,7 @@ class Diners extends React.Component {
   render(){
     return (
       <div>
-        <DinersPage
+        <FriendsPref
           dinerActions={this.props.dinerActions}
           diners={this.props.diners}
           recommendations={this.props.recommendations}
