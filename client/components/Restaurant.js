@@ -9,6 +9,7 @@ class Restaurant extends React.Component {
     super();
     this.getTopRestaurant = this.getTopRestaurant.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.displayLoadingSpinner = this.displayLoadingSpinner.bind(this);
     this.displayTopRestaurant = this.displayTopRestaurant.bind(this);
   }
 
@@ -30,6 +31,19 @@ class Restaurant extends React.Component {
     const { updateTopRestaurant } = this.props.dinerActions;
 
     updateTopRestaurant();
+  }
+
+  displayLoadingSpinner(){
+    if(this.props.isLoadingResults){
+      return (
+        <div>
+          <h1>Our algorithm is crunching numbers. Your recommendation will be ready in snap!</h1>
+          <image src='./../static/assets/spinner.gif' />
+        </div>
+      )
+    } else {
+      return null;
+    }
   }
 
   displayTopRestaurant(){
@@ -55,17 +69,10 @@ class Restaurant extends React.Component {
   }
 
   render(){
-    let isFetching = this.props.isLoadingResults ? (
-      <div>
-        <h1>Our algorithm is crunching numbers. Your recommendation will be ready in snap!</h1>
-        <image src='./../static/assets/spinner.gif' />
-      </div>
-    ) : null;
-
   	return (
   	 	<div>
         <h1>Results</h1>
-        {isFetching}
+        {this.displayLoadingSpinner()}
         {this.displayTopRestaurant()}
   	 	</div>
  	  )
