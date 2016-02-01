@@ -4,9 +4,11 @@ export const LOAD_SNAPPEA_DATA = 'LOAD_SNAPPEA_DATA';
 export const SET_TOP_RESTAURANT = 'SET_TOP_RESTAURANT';
 export const CHANGE_TOP_RESTAURANT = 'CHANGE_TOP_RESTAURANT';
 export const UPDATE_DINERS = 'UPDATE_DINERS';
+export const LOADING_RESULTS = 'LOADING_RESULTS';
 
 export const fetchSnapPeaData = (diners, location) => {
   return dispatch => {
+    dispatch(loadingResults());
 
      return fetch('http://localhost:5679/eat?username=' + 'hhh' + '&' + 'location=' + "seattle", {
       method: 'GET',
@@ -85,5 +87,11 @@ const updateDiners = (diner) => {
   return {
     type: UPDATE_DINERS,
     diner
+  }
+}
+
+const loadingResults = () => {
+  return {
+    type: LOADING_RESULTS
   }
 }

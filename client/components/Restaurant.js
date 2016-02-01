@@ -1,8 +1,10 @@
-import React, { Component } from 'react';
-import Map from './Map';
+import React from 'react';
 import { Button } from 'react-bootstrap';
 
-class Restaurant extends Component {
+//Components
+import Map from './Map';
+
+class Restaurant extends React.Component {
   constructor(){
     super();
     this.getTopRestaurant = this.getTopRestaurant.bind(this);
@@ -53,9 +55,17 @@ class Restaurant extends Component {
   }
 
   render(){
+    let isFetching = this.props.isLoadingResults ? (
+      <div>
+        <h1>Our algorithm is crunching numbers. Your recommendation will be ready in snap!</h1>
+        <image src='./../static/assets/spinner.gif' />
+      </div>
+    ) : null;
+
   	return (
   	 	<div>
         <h1>Results</h1>
+        {isFetching}
         {this.displayTopRestaurant()}
   	 	</div>
  	  )
