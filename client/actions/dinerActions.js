@@ -11,25 +11,45 @@ export const fetchSnapPeaData = (diners, location) => {
     dispatch(loadingResults());
     let dinersString = JSON.stringify(diners);
 
+    if(!location){
+      return fetch('http://localhost:5679/eat?diners=' + dinersString, {
+       method: 'GET',
+       headers: {
+         'Accept': 'application/json',
+         'Content-Type': 'application/json'
+       }
+     })
+     .then(response => {
+       return response.json();
+     })
+     .then(response => {
+       try {
+         dispatch(loadSnapPeaData(response));
+         dispatch(setTopRestaurant(response[0]));
+       } catch(e){
+       }
+     })
+   } else {
      return fetch('http://localhost:5679/eat?diners=' + dinersString + '&' + 'location=' + "seattle", {
-      method: 'GET',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      }
-    })
-    .then(response => {
-      return response.json();
-    })
-    .then(response => {
-      console.log('response inside fetchSnapPeaData', response)
-      try {
-        dispatch(loadSnapPeaData(response));
-        dispatch(setTopRestaurant(response[0]));
-      } catch(e){
-        console.log('logging catch')
-      }
-    })
+       method: 'GET',
+       headers: {
+         'Accept': 'application/json',
+         'Content-Type': 'application/json'
+       }
+     })
+     .then(response => {
+       return response.json();
+     })
+     .then(response => {
+       console.log('response inside fetchSnapPeaData', response)
+       try {
+         dispatch(loadSnapPeaData(response));
+         dispatch(setTopRestaurant(response[0]));
+       } catch(e){
+         console.log('logging catch')
+       }
+     })
+   }
   }
 }
 
@@ -44,12 +64,6 @@ const setTopRestaurant = (restaurant) => {
   return {
     type: SET_TOP_RESTAURANT,
     restaurant
-  }
-}
-
-export const loadTopRestaurant = () => {
-  return dispatch => {
-    dispatch(setTopRestaurant());
   }
 }
 

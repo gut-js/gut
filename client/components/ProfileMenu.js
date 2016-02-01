@@ -11,7 +11,10 @@ class ProfileMenu extends React.Component {
   displayLocationChoice(e){
     e.preventDefault();
     const { displayLocationChoice } = this.props.viewActions;
+    const { username } = this.props;
+    const { addToDiners } = this.props.dinerActions;
 
+    addToDiners(username);
     displayLocationChoice();
   }
 
