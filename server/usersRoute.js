@@ -6,7 +6,15 @@ var db = require('./db');
 
 router.get('/',function(req,res){
 	var filterName = req.query.username;
-	db.User.find({},function(err,users){
+	var searchTerm = req.query.searchTerm;
+	console.log('searchTerm',searchTerm);
+	if (searchTerm){
+		var searchObj = {username: new RegExp(searchTerm,'i')};
+	}
+	else{
+		var seasrchObj = {};
+	}
+	db.User.find(searchObj,function(err,users){
 		users = users.filter(function(user){
 			return user.username!==filterName;
 		});
