@@ -41,6 +41,7 @@ export default function dinerReducer(state = initialState, action){
     case UPDATE_DINERS:
       let newDiners = state.diners.slice(0);
       newDiners.push(action.diner);
+      console.log('newDiners: ', newDiners);
       return Object.assign({}, state, {
         diners: newDiners
       })

@@ -11,6 +11,7 @@ router.get('/',function(req,res){
 	var location = req.query.location;
 	var diners = JSON.parse(req.query.diners)
 	console.log('parsed diners: ', diners); //['daisy', 'sss']
+	console.log('req.query.location: ', location)
 	
 	db.User.find({
     'username': { $in: diners }

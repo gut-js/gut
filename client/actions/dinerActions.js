@@ -9,26 +9,49 @@ export const LOADING_RESULTS = 'LOADING_RESULTS';
 export const fetchSnapPeaData = (diners, location) => {
   return dispatch => {
     dispatch(loadingResults());
-
-     return fetch('http://localhost:5679/eat?username=' + 'hhh' + '&' + 'location=' + "seattle", {
-      method: 'GET',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      }
-    })
-    .then(response => {
-      return response.json();
-    })
-    .then(response => {
-      dispatch(loadSnapPeaData(response));
-      try {
-        dispatch(setTopRestaurant(response[0]));
-        // dispatch(routeActions.push('/toprestaurant'));
-      } catch(e){
-        console.log('logging catch')
-      }
-    })
+    console.log('location in FSPD: ', location);
+    if (!location) {
+      return fetch('http://localhost:5679/eat?username=' + diners[0], {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(response => {
+        return response.json();
+      })
+      .then(response => {
+        dispatch(loadSnapPeaData(response));
+        try {
+          dispatch(setTopRestaurant(response[0]));
+          // dispatch(routeActions.push('/toprestaurant'));
+        } catch(e){
+          console.log('logging catch')
+        }
+      })
+    }
+    if (location) {
+      return fetch('http://localhost:5679/eat?username=' + diners[0] + '&' + 'location=' + location, {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(response => {
+        return response.json();
+      })
+      .then(response => {
+        dispatch(loadSnapPeaData(response));
+        try {
+          dispatch(setTopRestaurant(response[0]));
+          // dispatch(routeActions.push('/toprestaurant'));
+        } catch(e){
+          console.log('logging catch')
+        }
+      })
+    }
   }
 }
 
