@@ -34,7 +34,7 @@ app.use('/authenticate', require('./authenticationRoute'));
 app.use('/yelp', require('./yelpRoute'));
 app.use('/preference', require('./routes/preferenceRoute'));
 app.use('/eat', require('./eatRoute'));
-app.use('/users', require('./usersRoute'));
+app.use('/users', require('./routes/usersRoute'));
 app.use('/addfriend', require('./addfriendRoute'));
 app.use('/friends', require('./friendsRoute'));
 
