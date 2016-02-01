@@ -23,7 +23,7 @@ export const fetchSnapPeaData = (diners, location) => {
       console.log('response inside 3rd .then', response);
       try {
         dispatch(setTopRestaurant(response[0]));
-        // dispatch(routeActions.push('/toprestaurant')
+        dispatch(routeActions.push('/toprestaurant'));
       } catch(e){
         console.log('logging catch')
       }
@@ -35,7 +35,7 @@ export const updateTopRestaurant = () => {
   return dispatch => {
     console.log('inTOP RESTARANT!');
     dispatch(changeTopRestaurant());
-    // dispatch(routeActions.push('/toprestaurant2'))
+    dispatch(routeActions.push('/toprestaurant2'))
   }
 }
 
@@ -44,7 +44,7 @@ export const updateTopRestaurant2 = () => {
   return dispatch => {
     console.log('inTOP RESTARANT!');
     dispatch(changeTopRestaurant());
-    // dispatch(routeActions.push('/toprestaurant'))
+    dispatch(routeActions.push('/toprestaurant'))
   }
 }
 

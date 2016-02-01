@@ -12,8 +12,10 @@ class DinersPage extends React.Component {
     e.preventDefault();
     const { fetchSnapPeaData } = this.props.dinerActions;
     const { diners, username } = this.props;
+    const { displayResults } = this.props.viewActions;
 
     fetchSnapPeaData(diners);
+    displayResults();
   }
 
   getRecommendations(){
@@ -26,6 +28,7 @@ class DinersPage extends React.Component {
   }
 
   render(){
+    console.log('props in dinerspage', this.props);
     return (
       <div className='row'>
         <Button onClick={this.handleClick}>Eat alone :)</Button>

@@ -5,6 +5,9 @@ import ProfileMenu from './ProfileMenu';
 import DinersPage from './DinersPage';
 import AddFriends from './AddFriends';
 
+//containers
+import TopRestaurants from './../containers/TopRestaurants';
+
 class ProfileHome extends React.Component {
   constructor(){
     super();
@@ -29,7 +32,13 @@ class ProfileHome extends React.Component {
   }
 
   displayResults(){
-
+    // if(this.props.displayResults){
+    //   return(
+    //     <TopRestaurants {...this.props} />
+    //   )
+    // } else {
+    //   return null;
+    // }
   }
 
   displayAddFriends(){
@@ -46,8 +55,9 @@ class ProfileHome extends React.Component {
     return(
       <div>
         <ProfileMenu {...this.props} />
-        {this.displayAddFriends()}
         {this.displayFriendsChoice()}
+        {this.displayResults()}
+        {this.displayAddFriends()}
       </div>
     )
   }
