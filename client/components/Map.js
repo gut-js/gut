@@ -10,7 +10,6 @@ export default class Map extends Component {
   }
 
   render() {
-    console.log("simplemappage this.props: ", this.props)
     return (
        <GoogleMap
         center={[this.props.lat, this.props.lng]}
