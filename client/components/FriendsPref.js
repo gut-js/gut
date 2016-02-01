@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Row, Col, Button } from 'react-bootstrap';
 
-class DinersPage extends React.Component {
+class FriendsPref extends React.Component {
   constructor(){
     super();
     this.getRecommendations = this.getRecommendations.bind(this);
@@ -28,13 +28,13 @@ class DinersPage extends React.Component {
   }
 
   render(){
-    console.log('props in dinerspage', this.props);
     return (
       <div className='row'>
-        <Button onClick={this.handleClick}>Eat alone :)</Button>
+        <h1>Select who youd like to eat with</h1>
+        <Button onClick={this.handleClick}>Eat with Hoon</Button>
       </div>
     )
   }
 }
 
-export default DinersPage;
+export default FriendsPref;
