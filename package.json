@@ -28,6 +28,7 @@
     "history": "^1.17.0",
     "jsonwebtoken": "^5.5.4",
     "lodash": "^4.0.1",
+    "magellan-coords": "^1.1.0",
     "mongoose": "^4.3.7",
     "mongoose-unique-validator": "^0.6.2",
     "nonce": "^1.0.3",
