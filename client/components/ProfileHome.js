@@ -3,7 +3,7 @@ import React from 'react';
 //Components
 import ProfileMenu from './ProfileMenu';
 import FriendsPref from './FriendsPref';
-import AddFriends from './AddFriends';
+import Friends from './Friends';
 import LocationPref from './LocationPref';
 import RestaurantPref from './RestaurantPref';
 
@@ -13,7 +13,7 @@ class ProfileHome extends React.Component {
     this.displayFriendsChoice = this.displayFriendsChoice.bind(this);
     this.displayLocationChoice = this.displayLocationChoice.bind(this);
     this.displayResults = this.displayResults.bind(this);
-    this.displayAddFriends = this.displayAddFriends.bind(this);
+    this.displayFriends = this.displayFriends.bind(this);
   }
 
   displayFriendsChoice(){
@@ -46,10 +46,10 @@ class ProfileHome extends React.Component {
     }
   }
 
-  displayAddFriends(){
+  displayFriends(){
     if(this.props.displayAddFriends){
       return(
-        <AddFriends {...this.props} />
+        <Friends {...this.props} />
       )
     } else {
       return null;
@@ -60,7 +60,7 @@ class ProfileHome extends React.Component {
     return(
       <div>
         <ProfileMenu {...this.props} />
-        {this.displayAddFriends()}
+        {this.displayFriends()}
         {this.displayLocationChoice()}
         {this.displayFriendsChoice()}
         {this.displayResults()}

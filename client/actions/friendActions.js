@@ -57,8 +57,29 @@ const searchError = (err) => {
 }
 
 // Main add friend function
-export const addFriend = () => {
-  // ajax call
+export const addFriend = (credentials) => {
+  return dispatch => {
+    dispatch(addRequest());
+
+    return fetch('http://localhost:5679/addfriend', {
+      method: 'PUT',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        username: credentials.username,
+        friendname: credentials.friendname
+      })
+    })
+    .then(response => {
+      return response.json();
+    })
+    .then(response => {
+      console.log('res back from add', response);
+    })
+    .catch(err => console.error('Error in Add Friend:', err));
+  }
 }
 
 const addRequest = () => {

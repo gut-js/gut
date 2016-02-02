@@ -35,7 +35,7 @@ class ProfileMenu extends React.Component {
             onClick={this.displayLocationChoice} />
         </div>
         <div className='col-md-6'>
-          <h1>Add Friends</h1>
+          <h1>Friends</h1>
           <img
             src='./../static/assets/placeholder.jpeg'
             alt='addfriends'
