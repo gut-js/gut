@@ -1,0 +1,12 @@
+.home {
+  .jumbo {
+    background-image: require("./home_jumbotron.jpg");
+
+    padding: 30px;
+
+    .container {
+      text-align: center;
+    }
+
+  }
+}
