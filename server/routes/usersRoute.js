@@ -15,13 +15,19 @@ router.get('/',function(req,res){
 		var seasrchObj = {};
 	}
 	db.User.find(searchObj,function(err,users){
-		users = users.filter(function(user){
-			return user.username!==filterName;
-		});
-		var mappedUsers = users.map(function(user){
-			return {_id: user._id, username:user.username}
-		});
-		res.send(_.shuffle(mappedUsers));
+		
+		db.User.findOne({username:filterName},function(err,owner){
+
+			users = users.filter(function(user){
+				return (user.username!==filterName && !owner.friends[user.username]);
+			});
+			var mappedUsers = users.map(function(user){
+				return {_id: user._id, username:user.username}
+			});
+
+			res.send(_.shuffle(mappedUsers));
+
+		})
 	});
 })
 
