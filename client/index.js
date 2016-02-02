@@ -11,6 +11,7 @@ import searchReducer from './reducers/searchReducer';
 import pollReducer from './reducers/pollReducer';
 import dinerReducer from './reducers/dinerReducer';
 import viewReducer from './reducers/viewReducer';
+import friendReducer from './reducers/friendReducer';
 
 //Router stuff:
 import routes from './routes';
@@ -30,6 +31,7 @@ const reducer = combineReducers({
   pollReducer,
   dinerReducer,
   viewReducer,
+  friendReducer,
   routing: routeReducer
 })
 
