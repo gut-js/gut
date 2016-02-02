@@ -4,11 +4,11 @@ import { Button } from 'react-bootstrap';
 //Components
 import Map from './Map';
 
-class Restaurant extends React.Component {
+class RestaurantPref extends React.Component {
   constructor(){
     super();
-    this.getTopRestaurant = this.getTopRestaurant.bind(this);
-    this.handleClick = this.handleClick.bind(this);
+    this.selectNext = this.selectNext.bind(this);
+    this.displayLoadingSpinner = this.displayLoadingSpinner.bind(this);
     this.displayTopRestaurant = this.displayTopRestaurant.bind(this);
   }
 
@@ -19,17 +19,25 @@ class Restaurant extends React.Component {
     fetchSnapPeaData(diners);
   }
 
-  getTopRestaurant(){
+  selectNext(e){
+    e.preventDefault();
     const { updateTopRestaurant } = this.props.dinerActions;
+    const { recommendations } = this.props;
 
     updateTopRestaurant();
   }
 
-  handleClick(e){
-    e.preventDefault();
-    const { updateTopRestaurant } = this.props.dinerActions;
-
-    updateTopRestaurant();
+  displayLoadingSpinner(){
+    if(this.props.isLoadingResults){
+      return (
+        <div>
+          <h1>Our algorithm is crunching numbers. Your recommendation will be ready in snap!</h1>
+          <image src='./../static/assets/spinner.gif' />
+        </div>
+      )
+    } else {
+      return null;
+    }
   }
 
   displayTopRestaurant(){
@@ -46,7 +54,7 @@ class Restaurant extends React.Component {
             <Map lat={this.props.topRestaurant.location.coordinate.latitude} lng={this.props.topRestaurant.location.coordinate.longitude}/>
           </div>
           <Button>Peas get directions!</Button>
-          <Button onClick={this.handleClick}>Next restaurant</Button>
+          <Button onClick={this.selectNext}>Next restaurant</Button>
         </div>
       )
     } else {
@@ -55,21 +63,14 @@ class Restaurant extends React.Component {
   }
 
   render(){
-    let isFetching = this.props.isLoadingResults ? (
-      <div>
-        <h1>Our algorithm is crunching numbers. Your recommendation will be ready in snap!</h1>
-        <image src='./../static/assets/spinner.gif' />
-      </div>
-    ) : null;
-
   	return (
   	 	<div>
         <h1>Results</h1>
-        {isFetching}
+        {this.displayLoadingSpinner()}
         {this.displayTopRestaurant()}
   	 	</div>
  	  )
   }
 }
 
-export default Restaurant;
+export default RestaurantPref;

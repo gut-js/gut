@@ -85,7 +85,9 @@ class Navigation extends React.Component {
       <Navbar>
         <Navbar.Header>
           <Navbar.Brand>
-            <Link to='/'>snapPea</Link>
+            <img
+              src='./../static/assets/snap_pea_logo.png'
+              alt='snap_pea_logo' />
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>

@@ -5,9 +5,6 @@ import { Router, Route, IndexRoute, browserHistory, hashHistory } from 'react-ro
 import Main from './containers/Main';
 import HomePage from './containers/HomePage';
 import Profile from './containers/Profile';
-import SignIn from './components/SignIn';
-import Register from './components/Register';
-import Diners from './containers/Diners';
 
 const checkAuth = (nextState, replace) => {
 	if(localStorage.getItem('token')){

@@ -2,63 +2,63 @@ import { routeActions } from 'react-router-redux';
 
 export const LOAD_SNAPPEA_DATA = 'LOAD_SNAPPEA_DATA';
 export const SET_TOP_RESTAURANT = 'SET_TOP_RESTAURANT';
-export const CHANGE_TOP_RESTAURANT = 'CHANGE_TOP_RESTAURANT';
+export const UPDATE_TOP_RESTAURANT = 'UPDATE_TOP_RESTAURANT';
 export const UPDATE_DINERS = 'UPDATE_DINERS';
 export const LOADING_RESULTS = 'LOADING_RESULTS';
 
 export const fetchSnapPeaData = (diners, location) => {
+  let dinersString = JSON.stringify(diners);
+
   return dispatch => {
     dispatch(loadingResults());
 
-     return fetch('http://localhost:5679/eat?username=' + 'hhh' + '&' + 'location=' + "seattle", {
-      method: 'GET',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      }
-    })
-    .then(response => {
-      return response.json();
-    })
-    .then(response => {
-      dispatch(loadSnapPeaData(response));
-      try {
-        dispatch(setTopRestaurant(response[0]));
-        // dispatch(routeActions.push('/toprestaurant'));
-      } catch(e){
-        console.log('logging catch')
-      }
-    })
-  }
-}
-
-export const updateTopRestaurant = () => {
-  return dispatch => {
-    console.log('inTOP RESTARANT!');
-    dispatch(changeTopRestaurant());
-    // dispatch(routeActions.push('/toprestaurant2'))
-  }
-}
-
-// temp hacky fix to routing prob
-export const updateTopRestaurant2 = () => {
-  return dispatch => {
-    console.log('inTOP RESTARANT!');
-    dispatch(changeTopRestaurant());
-    // dispatch(routeActions.push('/toprestaurant'))
-  }
+    if(!location){
+      return fetch('http://localhost:5679/eat?diners=' + dinersString, {
+       method: 'GET',
+       headers: {
+         'Accept': 'application/json',
+         'Content-Type': 'application/json'
+       }
+     })
+     .then(response => {
+       return response.json();
+     })
+     .then(response => {
+       try {
+         dispatch(loadSnapPeaData(response));
+         dispatch(setTopRestaurant(response[0]));
+       } catch(e){
+         console.log('Error in fetching', e);
+       }
+     })
+   } else {
+     return fetch('http://localhost:5679/eat?diners=' + dinersString + '&' + 'location=' + "seattle", {
+       method: 'GET',
+       headers: {
+         'Accept': 'application/json',
+         'Content-Type': 'application/json'
+       }
+     })
+     .then(response => {
+       return response.json();
+     })
+     .then(response => {
+       console.log('response inside fetchSnapPeaData', response)
+       try {
+         dispatch(loadSnapPeaData(response));
+         dispatch(setTopRestaurant(response[0]));
+       } catch(e){
+         console.log('Error in fetching', e);
+       }
+     })
+   }
+ }
 }
 
 const loadSnapPeaData = (info) => {
   return {
     type: LOAD_SNAPPEA_DATA,
     info
-  }
-}
-
-export const loadTopRestaurant = () => {
-  return dispatch => {
-    dispatch(setTopRestaurant());
   }
 }
 
@@ -69,9 +69,9 @@ const setTopRestaurant = (restaurant) => {
   }
 }
 
-const changeTopRestaurant = () => {
+export const updateTopRestaurant = () => {
   return {
-    type: CHANGE_TOP_RESTAURANT
+    type: UPDATE_TOP_RESTAURANT
   }
 }
 
@@ -79,7 +79,6 @@ const changeTopRestaurant = () => {
 export const addToDiners = (username) => {
   return dispatch => {
     dispatch(updateDiners(username));
-    // dispatch(routeActions.push('/diners'))
   }
 }
 
