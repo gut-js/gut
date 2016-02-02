@@ -82,6 +82,7 @@ const mapStateToProps = (state) => {
     //friend state
     friendSearchQuery: state.friendReducer.friendSearchQuery,
     searchResults: state.friendReducer.searchResults,
+    friendsErrorMsg: state.friendReducer.friendsErrorMsg,
     isSearching: state.friendReducer.isSearching,
     addCheck: state.friendReducer.addCheck,
     removeCheck: state.friendReducer.removeCheck
