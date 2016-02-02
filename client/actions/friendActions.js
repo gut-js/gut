@@ -113,7 +113,7 @@ export const addFriend = (credentials) => {
       return response.json();
     })
     .then(response => {
-      console.log('res back from add', response);
+      dispatch(loadSuccess(response));
     })
     .catch(err => console.error('Error in Add Friend:', err));
   }
@@ -132,19 +132,39 @@ const addSuccess = () => {
 }
 
 // Main remove friend Function
-export const removeFriend = () => {
-  // ajax call
+export const removeFriend = (credentials) => {
+  return dispatch => {
+    dispatch(removeRequest());
+
+    return fetch('http://localhost:5679/removefriend', {
+      method: 'DELETE',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        username: credentials.username,
+        friendname: credentials.friendname
+      })
+    })
+    .then(response => {
+      return response.json();
+    })
+    .then(response => {
+      console.log('res back from deletion', response);
+      dispatch(loadSuccess(response));
+    })
+    .catch(err => console.error('Error in Add Friend:', err));
+  }
 }
 
 const removeRequest = () => {
-  // triggers are you sure you want to delete them
   return {
     type: REMOVE_REQUEST
   }
 }
 
 const removeSuccess = () => {
-  // removes them, shows them off your friends list
   return {
     type: REMOVE_SUCCESS
   }

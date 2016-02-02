@@ -4,7 +4,6 @@ var mongoose = require('mongoose');
 var db = require('../db');
 
 router.delete('/',function(req,res){
-	console.log('inside removefriendRoute, req.body= ',req.body);
 	var username = req.body.username;
 	var friendname = req.body.friendname;
 
@@ -12,8 +11,10 @@ router.delete('/',function(req,res){
 		delete user.friends[friendname];
 		user.markModified('friends');
 		user.save(function(err,user){
-			console.log('updated friendlist after REMOVE:',user.friends);
-			res.send(friendname);
+			var friendNames = Object.keys(user.friends);
+			db.User.find({'username':{$in:friendNames}},function(err,friends){
+				res.send(friends);
+			});
 		});
 	})
 });
