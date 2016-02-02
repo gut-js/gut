@@ -48,9 +48,21 @@ export default function friendReducer(state = initialState, action){
         isSearching: false
       })
     case ADD_REQUEST:
+      return Object.assign({}, state, {
+        addCheck: true
+      })
     case ADD_SUCCESS:
+      return Object.assign({}, state, {
+        addCheck: false
+      })
     case REMOVE_REQUEST:
+      return Object.assign({}, state, {
+        removeCheck: true
+      })
     case REMOVE_SUCCESS:
+      return Object.assign({}, state, {
+        removeCheck: false
+      })
     default:
       return state;
   }

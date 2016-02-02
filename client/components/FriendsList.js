@@ -10,15 +10,18 @@ class FriendsList extends React.Component {
   }
 
   displayFriends(){
-    const { userFriends } = this.props;
+    const { userFriends, username } = this.props;
+    const { removeFriend } = this.props.friendActions;
 
     if(userFriends.length > 0){
       return userFriends.map((friend, ind) => {
         return (
           <Friend
-          username={friend.username}
-          categories={friend.categories}
-          key={ind} />
+            username={username}
+            friendName={friend.username}
+            categories={friend.categories}
+            removeFriend={removeFriend}
+            key={ind} />
         )
       })
     } else {
