@@ -31,7 +31,3 @@ class AddFriends extends React.Component {
 }
 
 export default AddFriends;
-
-
-// Todo:
-// remove button if friends already

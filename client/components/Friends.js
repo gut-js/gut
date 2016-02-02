@@ -2,6 +2,7 @@ import React from 'react';
 
 //Components
 import AddFriends from './AddFriends';
+import FriendsList from './FriendsList';
 
 class Friends extends React.Component {
   constructor(){
@@ -59,6 +60,9 @@ class Friends extends React.Component {
         <ul className='list-group'>
           {this.displaySearchResults()}
         </ul>
+        <div>
+          <FriendsList {...this.props} />
+        </div>
       </div>
     )
   }
