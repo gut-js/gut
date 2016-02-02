@@ -11,6 +11,13 @@ class Friends extends React.Component {
     this.displaySearchResults = this.displaySearchResults.bind(this);
   }
 
+  componentWillMount(){
+    const { username } = this.props;
+    const { loadFriends } = this.props.friendActions;
+
+      loadFriends(username);
+  }
+
   sendQuery(){
     const { findFriends } = this.props.friendActions;
     const { username } = this.props;

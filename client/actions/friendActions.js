@@ -1,3 +1,5 @@
+export const LOAD_REQUEST = 'LOAD_REQUEST';
+export const LOAD_SUCCESS = 'LOAD_SUCCESS';
 export const SEARCH_REQUEST = 'SEARCH_REQUEST';
 export const SEARCH_SUCCESS = 'SEARCH_SUCCESS';
 export const SEARCH_ERROR = 'SEARCH_ERROR';
@@ -5,6 +7,42 @@ export const ADD_REQUEST = 'ADD_REQUEST';
 export const ADD_SUCCESS = 'ADD_SUCCESS';
 export const REMOVE_REQUEST = 'REMOVE_REQUEST';
 export const REMOVE_SUCCESS = 'REMOVE_SUCCESS';
+
+// Main load friends function
+export const loadFriends = (user) => {
+  console.log('username in action', user);
+  return dispatch => {
+    dispatch(loadRequest());
+
+    return fetch('http://localhost:5679/friends?username=' + user, {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => {
+      return response.json();
+    })
+    .then(response => {
+      console.log(response)
+    })
+    .catch(err => console.error('Error in Friend Load:', err));
+  }
+}
+
+const loadRequest = () => {
+  return {
+    type: LOAD_REQUEST
+  }
+}
+
+const loadSuccess = (loadResults) => {
+  return {
+    type: LOAD_SUCCESS,
+    loadResults
+  }
+}
 
 // Main search function
 export const findFriends = (query, user) => {

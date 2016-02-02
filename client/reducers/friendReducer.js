@@ -1,4 +1,6 @@
 import {
+  LOAD_REQUEST,
+  LOAD_SUCCESS,
   SEARCH_REQUEST,
   SEARCH_SUCCESS,
   SEARCH_ERROR,
@@ -9,6 +11,7 @@ import {
 } from './../actions/friendActions';
 
 const initialState = {
+  userFriends: [],
   friendSearchQuery: '',
   searchResults: [],
   friendsErrorMsg: '',
