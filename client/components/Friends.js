@@ -1,13 +1,21 @@
 import React from 'react';
 
 //Components
-import AddFriends from './AddFriends';
+import AddFriend from './AddFriend';
+import FriendsList from './FriendsList';
 
 class Friends extends React.Component {
   constructor(){
     super();
     this.sendQuery = this.sendQuery.bind(this);
     this.displaySearchResults = this.displaySearchResults.bind(this);
+  }
+
+  componentWillMount(){
+    const { username } = this.props;
+    const { loadFriends } = this.props.friendActions;
+
+    loadFriends(username);
   }
 
   sendQuery(){
@@ -27,7 +35,7 @@ class Friends extends React.Component {
     } else if(searchResults.length > 0){
       return searchResults.map((friend, ind) => {
         return(
-          <AddFriends
+          <AddFriend
             username={username}
             friendName={friend.username}
             addFriend={addFriend}
@@ -59,6 +67,9 @@ class Friends extends React.Component {
         <ul className='list-group'>
           {this.displaySearchResults()}
         </ul>
+        <div>
+          <FriendsList {...this.props} />
+        </div>
       </div>
     )
   }

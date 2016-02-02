@@ -80,12 +80,14 @@ const mapStateToProps = (state) => {
     displayResults: state.viewReducer.displayResults,
     displayAddFriends: state.viewReducer.displayAddFriends,
     //friend state
+    userFriends: state.friendReducer.userFriends,
     friendSearchQuery: state.friendReducer.friendSearchQuery,
     searchResults: state.friendReducer.searchResults,
     friendsErrorMsg: state.friendReducer.friendsErrorMsg,
     isSearching: state.friendReducer.isSearching,
     addCheck: state.friendReducer.addCheck,
-    removeCheck: state.friendReducer.removeCheck
+    removeCheck: state.friendReducer.removeCheck,
+    isLoadingFriends: state.friendReducer.isLoadingFriends
   }
 }
 
