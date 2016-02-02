@@ -113,7 +113,7 @@ export const addFriend = (credentials) => {
       return response.json();
     })
     .then(response => {
-      console.log('res back from add', response);
+      dispatch(loadSuccess(response));
     })
     .catch(err => console.error('Error in Add Friend:', err));
   }
