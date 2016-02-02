@@ -74,8 +74,10 @@ router.post('/', function(req, res) {
           // })   
 
           var businesses = (require('../businesses'));
+          console.log('businesses before shuffle',businesses);
           //shuffle poll
           businesses = _.shuffle(businesses);
+          console.log('businesses after shuffle',businesses);
 
           res.json({
             success: true,
@@ -83,7 +85,7 @@ router.post('/', function(req, res) {
             token: token,
             username: user.username,
             password: user.password,
-            businesses: businesses
+            businesses: businesses.slice(0,20)
           });
         }
       });

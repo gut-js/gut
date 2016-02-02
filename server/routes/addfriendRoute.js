@@ -20,9 +20,9 @@ router.put('/',function(req,res){
 		user.friends[friendname]=true;
 		user.markModified('friends');
 		user.save(function(err,user){
-			console.log('updated friendlist:',user.friends)
-		})
-		res.json(user.friends);
+			console.log('updated friendlist:',user.friends);
+		});
+		//res.json(user.friends);
 	})
 });
 

@@ -44,6 +44,22 @@ function removeFriend(name){
 
 $(document).ready(function(){
 
+  $('#restaurantSearchForm').submit(function(e){
+    e.preventDefault();
+    console.log('restaurant search');
+    $.ajax({
+      url: '/yelp',
+      type: 'GET',
+      data: {location:$('#cityName').val()},
+      success: function(data){
+        console.log('success',data);
+      },
+      error: function(err){
+        console.log('error',err);
+      }
+    })
+  })
+
   $('#eatWithFriends').submit(function(e){
     e.preventDefault();
     $.ajax({
