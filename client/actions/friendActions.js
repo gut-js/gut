@@ -7,15 +7,14 @@ export const REMOVE_REQUEST = 'REMOVE_REQUEST';
 export const REMOVE_SUCCESS = 'REMOVE_SUCCESS';
 
 // Main search function
-export const findFriends = (query) => {
-  // grab query and pass it in below
-  // pass in your own username as username
-  // pass in searchterm after searchterm
+export const findFriends = (query, user) => {
+  let username = user;
+  let searchTerm = query;
 
   return dispatch => {
     dispatch(searchRequest(query));
 
-    return fetch('http://localhost:5679/users?username=String&searchTerm=String', {
+    return fetch('http://localhost:5679/users?username=' + username + '&searchTerm=' + searchTerm, {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
@@ -26,14 +25,17 @@ export const findFriends = (query) => {
       return response.json();
     })
     .then(response => {
-      // fill this out
+      try {
+        dispatch(searchSuccess(response));
+      } catch(e){
+        dispatch(searchError(e))
+      }
     })
     .catch(err => console.error('Error in Friend Search:', err));
   }
 }
 
 const searchRequest = (query) => {
-  // spinner when typing name in
   return {
     type: SEARCH_REQUEST,
     query
@@ -41,7 +43,6 @@ const searchRequest = (query) => {
 }
 
 const searchSuccess = (searchResults) => {
-  // return info from database and updates state
   return {
     type: SEARCH_SUCCESS,
     searchResults
@@ -49,7 +50,6 @@ const searchSuccess = (searchResults) => {
 }
 
 const searchError = (err) => {
-  // if no users, trigger something on frontend
   return {
     type: SEARCH_ERROR,
     err
