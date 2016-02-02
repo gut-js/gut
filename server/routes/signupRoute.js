@@ -83,7 +83,7 @@ router.post('/', function(req, res) {
             token: token,
             username: user.username,
             password: user.password,
-            businesses: businesses
+            businesses: businesses.slice(0,20)
           });
         }
       });

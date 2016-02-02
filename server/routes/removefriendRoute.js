@@ -9,11 +9,10 @@ router.delete('/',function(req,res){
 	var friendname = req.body.friendname;
 
 	db.User.findOne({username:username},function(err,user){
-		console.log('friends',user.friends);
 		delete user.friends[friendname];
 		user.markModified('friends');
 		user.save(function(err,user){
-			console.log('updated friendlist:',user.friends);
+			console.log('updated friendlist after REMOVE:',user.friends);
 			res.send(friendname);
 		});
 	})

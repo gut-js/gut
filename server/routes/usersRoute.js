@@ -5,6 +5,7 @@ var _ = require('lodash');
 var db = require('../db');
 
 router.get('/',function(req,res){
+	console.log('inside usersRoute');
 	var filterName = req.query.username;
 	var searchTerm = req.query.searchTerm;
 	if (searchTerm){
