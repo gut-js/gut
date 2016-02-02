@@ -62,9 +62,10 @@ $(document).ready(function(){
   function drawFriends(friends){
     $('#friends').html('');
     friends.forEach(function(friend){
-      $('#friends').append('<div>'+friend+'</div>');
-      $('#friends').append('<button onclick="selectFriend(this.id)" id="'+friend+'">Select</button>');
-      $('#friends').append('<button onclick="removeFriend(this.id)" id="0'+friend+'">Remove</button>');
+      var username = friend.username;
+      $('#friends').append('<div>'+username+'</div>');
+      $('#friends').append('<button onclick="selectFriend(this.id)" id="'+username+'">Select</button>');
+      $('#friends').append('<button onclick="removeFriend(this.id)" id="0'+username+'">Remove</button>');
     })
   }
 

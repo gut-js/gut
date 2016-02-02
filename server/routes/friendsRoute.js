@@ -11,7 +11,13 @@ router.get('/',function(req,res){
 		if (err){
 			console.log('error finding user: ',err);
 		}
-		res.json(_.shuffle(Object.keys(user.friends)));
+		var friendNames = Object.keys(user.friends);
+		console.log('friendNames',friendNames);
+		db.User.find({'username':{$in:friendNames}},function(err,friends){
+			console.log('friends',friends);
+			res.send(friends);
+		})
+		//res.json(_.shuffle(Object.keys(user.friends)));
 	})
 })
 
