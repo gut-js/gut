@@ -1,60 +1,37 @@
 import React from 'react';
 
-//Components
-import FriendResult from './FriendResult';
-
 class AddFriends extends React.Component {
   constructor(){
     super();
-    this.sendQuery = this.sendQuery.bind(this);
-    this.displayFriends = this.displayFriends.bind(this);
+    this.addFriend = this.addFriend.bind(this);
   }
 
-  sendQuery(){
-    const { findFriends } = this.props.friendActions;
-    const { username } = this.props;
-    let searchTerm = this.refs.friendQuery.value;
-
-    findFriends(searchTerm, username);
-  }
-
-  displayFriends(){
-    const { searchResults, friendSearchQuery } = this.props;
-
-    if(friendSearchQuery === ''){
-      return null;
-    } else if(searchResults.length > 0){
-      return searchResults.map((friend, ind) => {
-        return (<FriendResult key={ind} username={friend.username} />)
-      }).slice(0, 6);
-    } else {
-      return(
-        <div>
-          Sorry, no peas in this pod.
-        </div>
-      )
+  addFriend(){
+    const { username, friendName, addFriend } = this.props;
+    const addFriendInfo = {
+      username: username,
+      friendname: friendName
     }
+
+    addFriend(addFriendInfo);
   }
 
   render(){
+    const { friendName } = this.props;
+
     return(
-      <div>
-        <h1>Add Friends</h1>
-        <div className='input-group'>
-          <span className='input-group-addon'>@</span>
-          <input
-            className='form-control'
-            type='text'
-            placeholder='Enter a username'
-            ref='friendQuery'
-            onChange={this.sendQuery} />
-        </div>
-        <ul className='list-group'>
-          {this.displayFriends()}
-        </ul>
-      </div>
+      <li className='list-group-item' ref='friendUsername'>
+        {friendName}
+        <button className='badge' onClick={this.addFriend}>
+        <span className='glyphicon glyphicon-plus'>Add</span>
+        </button>
+      </li>
     )
   }
 }
 
 export default AddFriends;
+
+
+// Todo:
+// remove button if friends already

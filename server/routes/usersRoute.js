@@ -14,7 +14,7 @@ router.get('/',function(req,res){
 		var searchObj = {};
 	}
 	db.User.find(searchObj,function(err,users){
-		
+
 		db.User.findOne({username:filterName},function(err,owner){
 
 			users = users.filter(function(user){
