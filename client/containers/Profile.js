@@ -8,6 +8,7 @@ import * as searchActions from './../actions/searchActions';
 import * as dinerActions from './../actions/dinerActions';
 import * as pollActions from './../actions/pollActions';
 import * as viewActions from './../actions/viewActions';
+import * as friendActions from './../actions/friendActions';
 
 //Components
 import Navigation from './../components/Navigation';
@@ -77,7 +78,13 @@ const mapStateToProps = (state) => {
     displayFriendsChoice: state.viewReducer.displayFriendsChoice,
     displayLocationChoice: state.viewReducer.displayLocationChoice,
     displayResults: state.viewReducer.displayResults,
-    displayAddFriends: state.viewReducer.displayAddFriends
+    displayAddFriends: state.viewReducer.displayAddFriends,
+    //friend state
+    friendSearchQuery: state.friendReducer.friendSearchQuery,
+    searchResults: state.friendReducer.searchResults,
+    isSearching: state.friendReducer.isSearching,
+    addCheck: state.friendReducer.addCheck,
+    removeCheck: state.friendReducer.removeCheck
   }
 }
 
@@ -87,7 +94,8 @@ const mapDispatchToProps = (dispatch) => {
     searchActions: bindActionCreators(searchActions, dispatch),
     dinerActions: bindActionCreators(dinerActions, dispatch),
     pollActions: bindActionCreators(pollActions, dispatch),
-    viewActions: bindActionCreators(viewActions, dispatch)
+    viewActions: bindActionCreators(viewActions, dispatch),
+    friendActions: bindActionCreators(friendActions, dispatch)
   }
 }
 
