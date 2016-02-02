@@ -83,14 +83,12 @@ export const addFriend = (credentials) => {
 }
 
 const addRequest = () => {
-  // triggers are you sure you want to add them
   return {
     type: ADD_REQUEST
   }
 }
 
 const addSuccess = () => {
-  // adds them, shows check mark
   return {
     type: ADD_SUCCESS
   }
