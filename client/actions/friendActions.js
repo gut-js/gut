@@ -10,7 +10,6 @@ export const REMOVE_SUCCESS = 'REMOVE_SUCCESS';
 
 // Main load friends function
 export const loadFriends = (user) => {
-  console.log('username in action', user);
   return dispatch => {
     dispatch(loadRequest());
 
@@ -25,7 +24,7 @@ export const loadFriends = (user) => {
       return response.json();
     })
     .then(response => {
-      console.log(response)
+      dispatch(loadSuccess(response));
     })
     .catch(err => console.error('Error in Friend Load:', err));
   }

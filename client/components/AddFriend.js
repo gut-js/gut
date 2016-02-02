@@ -1,6 +1,6 @@
 import React from 'react';
 
-class AddFriends extends React.Component {
+class AddFriend extends React.Component {
   constructor(){
     super();
     this.addFriend = this.addFriend.bind(this);
@@ -30,4 +30,4 @@ class AddFriends extends React.Component {
   }
 }
 
-export default AddFriends;
+export default AddFriend;

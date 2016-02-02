@@ -1,7 +1,7 @@
 import React from 'react';
 
 //Components
-import AddFriends from './AddFriends';
+import AddFriend from './AddFriend';
 import FriendsList from './FriendsList';
 
 class Friends extends React.Component {
@@ -15,7 +15,7 @@ class Friends extends React.Component {
     const { username } = this.props;
     const { loadFriends } = this.props.friendActions;
 
-      loadFriends(username);
+    loadFriends(username);
   }
 
   sendQuery(){
@@ -35,7 +35,7 @@ class Friends extends React.Component {
     } else if(searchResults.length > 0){
       return searchResults.map((friend, ind) => {
         return(
-          <AddFriends
+          <AddFriend
             username={username}
             friendName={friend.username}
             addFriend={addFriend}
