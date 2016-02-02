@@ -38,6 +38,7 @@ app.use('/users', require('./routes/usersRoute'));
 app.use('/addfriend', require('./routes/addfriendRoute'));
 app.use('/removefriend', require('./routes/removefriendRoute'));
 app.use('/friends', require('./routes/friendsRoute'));
+app.use('/uber', require('./routes/uberRoute'));
 
 var port = process.env.PORT || 5679;
 
