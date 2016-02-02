@@ -1,16 +1,56 @@
 import React from 'react';
 
+//Components
+import FriendResult from './FriendResult';
+
 class AddFriends extends React.Component {
+  constructor(){
+    super();
+    this.sendQuery = this.sendQuery.bind(this);
+    this.displayFriends = this.displayFriends.bind(this);
+  }
+
+  sendQuery(){
+    const { findFriends } = this.props.friendActions;
+    const { username } = this.props;
+    let searchTerm = this.refs.friendQuery.value;
+
+    findFriends(searchTerm, username);
+  }
+
+  displayFriends(){
+    const { searchResults } = this.props;
+
+    if(searchResults.length > 0){
+      return searchResults.map(friend => {
+        return (<FriendResult username={friend.username} />)
+      }).slice(0, 6);
+    } else {
+      return(
+        <div>
+          Sorry, no peas in this pod.
+        </div>
+      )
+    }
+  }
+
   render(){
+    console.log('props in addfriend', this.props);
     return(
       <div>
         <h1>Add Friends</h1>
         <div className='input-group'>
-          <input className='form-control' type='text'  placeholder='Enter a username' />
-          <span className='input-group-btn'>
-            <button className='btn btn-default' type='button'>Search</button>
-          </span>
+          <span className='input-group-addon'>@</span>
+          <input
+            className='form-control'
+            type='text'
+            placeholder='Enter a username'
+            ref='friendQuery'
+            onChange={this.sendQuery} />
         </div>
+        <ul className='list-group'>
+          {this.displayFriends()}
+        </ul>
       </div>
     )
   }
