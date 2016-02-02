@@ -11,12 +11,7 @@ router.get('/',function(req,res){
 		if (err){
 			console.log('error finding user: ',err);
 		}
-		var friends = [];
-		console.log('friends:',user.friends);
-		for (var key in user.friends) {
-			friends.push(key);
-		}
-		res.json(_.shuffle(friends));
+		res.json(_.shuffle(Object.keys(user.friends)));
 	})
 })
 

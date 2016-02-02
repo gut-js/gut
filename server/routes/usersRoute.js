@@ -12,7 +12,7 @@ router.get('/',function(req,res){
 		var searchObj = {username: new RegExp(searchTerm,'i')};
 	}
 	else{
-		var seasrchObj = {};
+		var searchObj = {};
 	}
 	db.User.find(searchObj,function(err,users){
 		

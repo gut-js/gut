@@ -24,6 +24,23 @@ function selectFriend(name){
   console.log('eatingPeople',eatingPeople);
 }
 
+function removeFriend(name){
+  name = name.slice(1);
+  console.log('removing ',name);
+  $.ajax({
+    url: '/removefriend',
+    type: 'DELETE',
+    data: JSON.stringify({username:currentUsername,friendname:name}),
+    contentType: 'application/json',
+    success: function(data){
+      console.log('success',data);
+    },
+    error: function(err){
+      console.log('error',err);
+    }
+  })
+}
+
 
 $(document).ready(function(){
 
@@ -47,6 +64,7 @@ $(document).ready(function(){
     friends.forEach(function(friend){
       $('#friends').append('<div>'+friend+'</div>');
       $('#friends').append('<button onclick="selectFriend(this.id)" id="'+friend+'">Select</button>');
+      $('#friends').append('<button onclick="removeFriend(this.id)" id="0'+friend+'">Remove</button>');
     })
   }
 
