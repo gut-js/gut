@@ -19,6 +19,5 @@ module.exports = function(){
 	  }
 	});
 
-	console.log('deferred:',deferred);
 	return deferred.promise;
 }
