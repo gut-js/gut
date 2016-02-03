@@ -8,7 +8,7 @@ import {
 } from './../actions/dinerActions';
 
 const initialState = {
-  diners:['hhh'],
+  diners:[],
   recommendations:[],
   dinerErrorMessage: '',
   topRestaurant: {},

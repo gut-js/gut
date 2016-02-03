@@ -9,6 +9,7 @@ export const LOAD_UBER_DATA = 'LOAD_UBER_DATA';
 
 export const fetchSnapPeaData = (diners, location) => {
   let dinersString = JSON.stringify(diners);
+  console.log(dinersString);
 
   return dispatch => {
     dispatch(loadingResults());
@@ -44,7 +45,6 @@ export const fetchSnapPeaData = (diners, location) => {
        return response.json();
      })
      .then(response => {
-       console.log('response inside fetchSnapPeaData', response)
        try {
          dispatch(loadSnapPeaData(response));
          dispatch(setTopRestaurant(response[0]));

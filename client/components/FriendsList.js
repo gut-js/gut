@@ -1,7 +1,7 @@
 import React from 'react';
 
 //Components
-import Friend from './Friend';
+import FriendEntry from './FriendEntry';
 
 class FriendsList extends React.Component {
   constructor(){
@@ -10,17 +10,20 @@ class FriendsList extends React.Component {
   }
 
   displayFriends(){
-    const { userFriends, username } = this.props;
+    const { userFriends, username, displayFriendsChoice } = this.props;
     const { removeFriend } = this.props.friendActions;
+    const { addToDiners } = this.props.dinerActions;
 
     if(userFriends.length > 0){
       return userFriends.map((friend, ind) => {
         return (
-          <Friend
+          <FriendEntry
             username={username}
+            removeFriend={removeFriend}
+            displayFriendsChoice={displayFriendsChoice}
+            addToDiners={addToDiners}
             friendName={friend.username}
             categories={friend.categories}
-            removeFriend={removeFriend}
             key={ind} />
         )
       })
@@ -34,6 +37,7 @@ class FriendsList extends React.Component {
   }
 
   render(){
+    console.log('props in list', this.props);
     return(
       <div>
         <h2>Your Friends</h2>
