@@ -53,8 +53,9 @@ export default function dinerReducer(state = initialState, action){
       let removeDiners = state.diners.filter(username => {
         return username !== action.diner;
       });
+      console.log('in reducer', removeDiners)
       return Object.assign({}, state, {
-        diner: removeDiners
+        diners: removeDiners
       });
     case LOADING_RESULTS:
       return Object.assign({}, state, {

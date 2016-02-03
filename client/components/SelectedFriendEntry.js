@@ -9,7 +9,7 @@ class SelectedFriendEntry extends React.Component {
   unselectDiner(){
     const { diner, removeFromDiners } = this.props;
 
-    console.log('remove this person:', diner);
+    removeFromDiners(diner);
   }
 
   render(){

@@ -4,6 +4,7 @@ export const LOAD_SNAPPEA_DATA = 'LOAD_SNAPPEA_DATA';
 export const SET_TOP_RESTAURANT = 'SET_TOP_RESTAURANT';
 export const UPDATE_TOP_RESTAURANT = 'UPDATE_TOP_RESTAURANT';
 export const ADD_DINER = 'ADD_DINER';
+export const REMOVE_DINER ='REMOVE_DINER';
 export const LOADING_RESULTS = 'LOADING_RESULTS';
 
 export const fetchSnapPeaData = (diners, location) => {
