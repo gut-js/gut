@@ -4,12 +4,29 @@ import { Button } from 'react-bootstrap';
 class LocationPref extends React.Component{
   constructor(){
     super();
-    this.displayFriendsChoice = this.displayFriendsChoice.bind(this);
+    this.useCurrentLocation = this.useCurrentLocation.bind(this);
+    this.useCustomLocation = this.useCustomLocation.bind(this);
   }
 
-  displayFriendsChoice(){
+  componentDidMount(){
+    const input = this.refs.startLocation;
+    const autocomplete = new google.maps.places.Autocomplete(input);
+  }
+
+  useCurrentLocation(){
     const { displayFriendsChoice } = this.props.viewActions;
 
+    displayFriendsChoice();
+  }
+
+  useCustomLocation(e){
+    e.preventDefault();
+    const { setUserLocation } = this.props.dinerActions;
+    const { displayFriendsChoice } = this.props.viewActions;
+    const location = this.refs.startLocation.value;
+
+    setUserLocation(location);
+    this.refs.startLocation.value = '';
     displayFriendsChoice();
   }
 
@@ -17,8 +34,27 @@ class LocationPref extends React.Component{
     return(
       <div>
         <h1>Please Choose Your Location</h1>
-        <Button onClick={this.displayFriendsChoice}>Current Location
-        </Button>
+        <button
+          type='submit'
+          className='btn btn-block'
+          onClick={this.useCurrentLocation}>
+          Current Location
+        </button>
+        <form>
+          <div className='form-group'>
+            <input
+              type='text'
+              className='form-control'
+              ref='startLocation'
+              placeholder='Enter a location' />
+            <button
+              type='submit'
+              className='btn btn-block'
+              onClick={this.useCustomLocation}>
+              Submit
+            </button>
+          </div>
+        </form>
       </div>
     )
   }

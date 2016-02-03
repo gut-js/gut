@@ -1,5 +1,6 @@
 import {
   LOAD_SNAPPEA_DATA,
+  SET_LOCATION,
   SET_TOP_RESTAURANT,
   UPDATE_TOP_RESTAURANT,
   LOAD_UBER_DATA,
@@ -10,6 +11,7 @@ import {
 
 const initialState = {
   diners:[],
+  location: '',
   recommendations:[],
   dinerErrorMessage: '',
   topRestaurant: {},
@@ -24,6 +26,10 @@ export default function dinerReducer(state = initialState, action){
       return Object.assign({}, state, {
         recommendations: action.info,
         isLoadingResults: false
+      })
+    case SET_LOCATION:
+      return Object.assign({}, state, {
+        location: action.location
       })
     case SET_TOP_RESTAURANT:
       return Object.assign({}, state, {
