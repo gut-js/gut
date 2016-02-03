@@ -6,7 +6,8 @@ export const SET_LOCATION = 'SET_LOCATION';
 export const SET_TOP_RESTAURANT = 'SET_TOP_RESTAURANT';
 export const UPDATE_TOP_RESTAURANT = 'UPDATE_TOP_RESTAURANT';
 export const ADD_DINER = 'ADD_DINER';
-export const REMOVE_DINER ='REMOVE_DINER';
+export const REMOVE_DINER = 'REMOVE_DINER';
+export const CLEAR_DINERS = 'CLEAR_DINERS';
 export const LOADING_RESULTS = 'LOADING_RESULTS';
 export const LOADING_UBER_DATA = 'LOADING_UBER_DATA';
 export const CLEAR_UBER_DATA = 'CLEAR_UBER_DATA';
@@ -58,51 +59,6 @@ export const fetchSnapPeaData = (diners, location) => {
      })
    }
  }
-}
-
-export const fetchUberData = (bizLatitude, bizLongitude) => {
-  let userLatitude;
-  let userLongitude;
-  return dispatch => {
-    dispatch(loadingUberData());
-    navigator.geolocation.getCurrentPosition(function(position) {
-      console.log(position);
-      userLatitude = position.coords.latitude;
-      userLongitude = position.coords.longitude;
-      let coord = JSON.stringify({
-        userLatitude: userLatitude,
-        userLongitude: userLongitude,
-        bizLatitude: bizLatitude,
-        bizLongitude: bizLongitude
-      })
-      console.log('userlat: ', userLatitude);
-      console.log('userlong: ', userLongitude);
-      return fetch('http://localhost:5679/uber?' + "coord=" + coord, {
-         method: 'GET',
-         headers: {
-           'Accept': 'application/json',
-           'Content-Type': 'application/json'
-         }
-       })
-       .then(response => {
-         return response.json();
-       })
-       .then(response => {
-         try {
-           dispatch(loadUberData(response));
-         } catch(e){
-           console.log('Error in fetching', e);
-         }
-      })
-    })
-  }
-}
-
-const loadUberData = (data) => {
-  return {
-    type: LOAD_UBER_DATA,
-    data
-  }
 }
 
 const loadSnapPeaData = (info) => {
@@ -170,9 +126,55 @@ const loadingResults = () => {
   }
 }
 
+export const clearDiners = () => {
+  return dispatch => {
+    dispatch({
+      type: CLEAR_DINERS
+    })
+  }
+}
+
 const loadingUberData = () => {
   return {
     type: LOADING_UBER_DATA
+  }
+}
+
+export const fetchUberData = (bizLatitude, bizLongitude) => {
+  let userLatitude;
+  let userLongitude;
+  return dispatch => {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      console.log(position);
+      userLatitude = position.coords.latitude;
+      userLongitude = position.coords.longitude;
+      let coord = JSON.stringify({
+        userLatitude: userLatitude,
+        userLongitude: userLongitude,
+        bizLatitude: bizLatitude,
+        bizLongitude: bizLongitude
+      })
+      console.log('userlat: ', userLatitude);
+      console.log('userlong: ', userLongitude);
+      return fetch('http://localhost:5679/uber?' + "coord=" + coord, {
+         method: 'GET',
+         headers: {
+           'Accept': 'application/json',
+           'Content-Type': 'application/json'
+         }
+       })
+       .then(response => {
+         return response.json();
+       })
+       .then(response => {
+         console.log('response inside fetchUberData', response)
+         try {
+           dispatch(loadUberData(response));
+         } catch(e){
+           console.log('Error in fetching', e);
+         }
+      })
+    })
   }
 }
 
