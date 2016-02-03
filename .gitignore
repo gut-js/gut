@@ -8,3 +8,6 @@ client/dist/
 
 #Config File (API Keys)
 server/config.js
+
+#NPM Debug Log
+npm-debug.log.*
