@@ -13,16 +13,22 @@ class ProfileMenu extends React.Component {
     const { displayLocationChoice } = this.props.viewActions;
     const { username } = this.props;
     const { addToDiners } = this.props.dinerActions;
+    const { clearDiners } = this.props.dinerActions;
     const { clearFriends } = this.props.friendActions;
 
     addToDiners(username);
+    clearDiners();
     clearFriends();
     displayLocationChoice();
   }
 
   displayFriends(){
     const { displayAddFriends } = this.props.viewActions;
+    const { clearDiners } = this.props.dinerActions;
+    const { clearFriends } = this.props.friendActions;
 
+    clearDiners();
+    clearFriends();
     displayAddFriends();
   }
 

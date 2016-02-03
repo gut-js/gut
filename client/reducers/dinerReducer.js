@@ -3,10 +3,11 @@ import {
   SET_LOCATION,
   SET_TOP_RESTAURANT,
   UPDATE_TOP_RESTAURANT,
-  LOAD_UBER_DATA,
   ADD_DINER,
   REMOVE_DINER,
-  LOADING_RESULTS
+  CLEAR_DINERS,
+  LOADING_RESULTS,
+  LOAD_UBER_DATA
 } from './../actions/dinerActions';
 
 const initialState = {
@@ -63,6 +64,10 @@ export default function dinerReducer(state = initialState, action){
       });
       return Object.assign({}, state, {
         diners: removeDiners
+      });
+    case CLEAR_DINERS:
+      return Object.assign({}, state, {
+        diners: []
       });
     case LOADING_RESULTS:
       return Object.assign({}, state, {

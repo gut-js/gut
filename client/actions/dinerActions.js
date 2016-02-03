@@ -5,7 +5,8 @@ export const SET_LOCATION = 'SET_LOCATION';
 export const SET_TOP_RESTAURANT = 'SET_TOP_RESTAURANT';
 export const UPDATE_TOP_RESTAURANT = 'UPDATE_TOP_RESTAURANT';
 export const ADD_DINER = 'ADD_DINER';
-export const REMOVE_DINER ='REMOVE_DINER';
+export const REMOVE_DINER = 'REMOVE_DINER';
+export const CLEAR_DINERS = 'CLEAR_DINERS';
 export const LOADING_RESULTS = 'LOADING_RESULTS';
 export const LOAD_UBER_DATA = 'LOAD_UBER_DATA';
 
@@ -121,6 +122,14 @@ const removeDiner = (diner) => {
 const loadingResults = () => {
   return {
     type: LOADING_RESULTS
+  }
+}
+
+export const clearDiners = () => {
+  return dispatch => {
+    dispatch({
+      type: CLEAR_DINERS
+    })
   }
 }
 
