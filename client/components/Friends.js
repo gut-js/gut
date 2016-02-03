@@ -27,13 +27,19 @@ class Friends extends React.Component {
   }
 
   displaySearchResults(){
-    const { searchResults, friendSearchQuery, username } = this.props;
+    const { searchResults, friendSearchQuery, username, userFriends } = this.props;
     const { addFriend } = this.props.friendActions;
+    const friendNameArr = userFriends.map(user => {
+      return user.username;
+    });
 
     if(friendSearchQuery === ''){
       return null;
     } else if(searchResults.length > 0){
-      return searchResults.map((friend, ind) => {
+      return searchResults.filter(query => {
+        return friendNameArr.indexOf(query.username) === -1
+      })
+      .map((friend, ind) => {
         return(
           <AddFriend
             username={username}
@@ -41,7 +47,8 @@ class Friends extends React.Component {
             addFriend={addFriend}
             key={ind} />
         )
-      }).slice(0, 6);
+      })
+      .slice(0,6);
     } else {
       return(
         <div>
