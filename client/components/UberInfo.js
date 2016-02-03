@@ -56,6 +56,7 @@ class UberInfo extends React.Component {
     if(this.props.uberData.prices){
       console.log('hello daisy')
       console.log(this.props.uberData)
+
       let fareInfo = this.props.uberData.prices.map(function(price) {
         return (
           <div>
@@ -63,11 +64,14 @@ class UberInfo extends React.Component {
           </div>
         )
       })
+
+      let uberUrl = 'https://m.uber.com/sign-up?client_id=EKD_tcp67WQOa3TsUj0ZmTnjohbVQW5n';
+
       return (
         <div>
           <h6>Fare estimates:</h6>
           {fareInfo}
-          <Button>Request Uber Ride</Button>
+          <a href={uberUrl}><Button>Request Uber Ride</Button></a>
         </div>
       )
     } else {

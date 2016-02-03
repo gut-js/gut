@@ -94,26 +94,7 @@ class RestaurantPref extends React.Component {
     let startLoc = startLat + ',' + startLng;
 
     let directionsUrl = 'https://www.google.com/maps/dir/' + startLoc + '/' + destination;
-
-    // Format Uber URL
-
-    let pickupLat = '34.019383',
-        pickupLng = '-118.494491';
-
-    var dropoffDisplay = destination.replace(/'+'/g, ' ')
-
-    // deep link to m.uber.com
-
-    // client_id is public
-    // let uberUrl = 'https://m.uber.com/sign-up?client_id=EKD_tcp67WQOa3TsUj0ZmTnjohbVQW5n' + 
-    //   '&pickup_latitude=' + pickupLat +
-    //   '&pickup_longitude' + pickupLng + 
-    //   '&dropoff_latitude=' + this.props.topRestaurant.location.coordinate.latitude + 
-    //   '&dropoff_longtitude=' + this.props.topRestaurant.location.coordinate.longitude + 
-    //   '&dropoff_address=' + dropoffDisplay;
-
-    // console.log(uberUrl)
-
+    
       return (
         <div>
           <h2>This is the best restaurant for you!</h2>
