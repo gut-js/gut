@@ -1,6 +1,5 @@
 import { routeActions } from 'react-router-redux';
 
-export const LOAD_UBER_DATA = 'LOAD_UBER_DATA';
 export const LOAD_SNAPPEA_DATA = 'LOAD_SNAPPEA_DATA';
 export const SET_LOCATION = 'SET_LOCATION';
 export const SET_TOP_RESTAURANT = 'SET_TOP_RESTAURANT';
@@ -9,6 +8,7 @@ export const ADD_DINER = 'ADD_DINER';
 export const REMOVE_DINER = 'REMOVE_DINER';
 export const CLEAR_DINERS = 'CLEAR_DINERS';
 export const LOADING_RESULTS = 'LOADING_RESULTS';
+export const LOAD_UBER_DATA = 'LOAD_UBER_DATA';
 export const LOADING_UBER_DATA = 'LOADING_UBER_DATA';
 export const CLEAR_UBER_DATA = 'CLEAR_UBER_DATA';
 
@@ -169,6 +169,13 @@ export const fetchUberData = (bizLatitude, bizLongitude) => {
          }
       })
     })
+  }
+}
+
+const loadUberData = (data) => {
+  return {
+    type: LOAD_UBER_DATA,
+    data
   }
 }
 
