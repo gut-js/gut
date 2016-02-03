@@ -1,9 +1,11 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
+import { Modal, Button } from 'react-bootstrap';
 import magellan from 'magellan-coords';
+import config from '../config.js';
 
 //Components
 import Map from './Map';
+import UberInfo from './UberInfo';
 
 class RestaurantPref extends React.Component {
   constructor(){
@@ -12,6 +14,12 @@ class RestaurantPref extends React.Component {
     this.displayLoadingSpinner = this.displayLoadingSpinner.bind(this);
     this.displayTopRestaurant = this.displayTopRestaurant.bind(this);
     this.getUber = this.getUber.bind(this);
+    this.openUberModal = this.openUberModal.bind(this);
+    this.closeUberModal = this.closeUberModal.bind(this);
+    this.state = {
+      showSignInModal: false,
+      showRegisterModal: false
+    }
   }
 
   componentWillMount(){
@@ -19,6 +27,18 @@ class RestaurantPref extends React.Component {
     const { diners, location } = this.props;
 
     fetchSnapPeaData(diners, location);
+  }
+
+  openUberModal(){
+    this.setState({
+      showUberModal: true
+    })
+  }
+
+  closeUberModal(){
+    this.setState({
+      showUberModal: false
+    })
   }
 
   selectNext(e){
@@ -49,7 +69,6 @@ class RestaurantPref extends React.Component {
       return null;
     }
   }
-
 
   displayTopRestaurant(){
     if (this.props.topRestaurant.name) {
@@ -85,6 +104,25 @@ class RestaurantPref extends React.Component {
 
     let directionsUrl = 'https://www.google.com/maps/dir/' + startLoc + '/' + destination;
 
+    // Format Uber URL
+
+    let pickupLat = '34.019383',
+        pickupLng = '-118.494491';
+
+    var dropoffDisplay = destination.replace(/'+'/g, ' ')
+
+    // deep link to m.uber.com
+
+    // client_id is public
+    // let uberUrl = 'https://m.uber.com/sign-up?client_id=EKD_tcp67WQOa3TsUj0ZmTnjohbVQW5n' + 
+    //   '&pickup_latitude=' + pickupLat +
+    //   '&pickup_longitude' + pickupLng + 
+    //   '&dropoff_latitude=' + this.props.topRestaurant.location.coordinate.latitude + 
+    //   '&dropoff_longtitude=' + this.props.topRestaurant.location.coordinate.longitude + 
+    //   '&dropoff_address=' + dropoffDisplay;
+
+    // console.log(uberUrl)
+
       return (
         <div>
           <h2>This is the best restaurant for you!</h2>
@@ -99,7 +137,13 @@ class RestaurantPref extends React.Component {
           <div style={{width:300, height:300}}>
             <Map lat={this.props.topRestaurant.location.coordinate.latitude} lng={this.props.topRestaurant.location.coordinate.longitude}/>
           </div>
-          <Button onClick={this.getUber}>Get me a ride</Button>
+          <Button onClick={this.openUberModal}>
+            Get Uber Info 
+            <UberInfo 
+              {...this.props}
+              showUberModal={this.state.showUberModal}
+              closeUber={this.closeUberModal}/>
+          </Button>
           <Button onClick={this.selectNext}>Next restaurant</Button>
         </div>
       )
