@@ -120,12 +120,6 @@ const removeDiner = (diner) => {
   }
 }
 
-const loadingResults = () => {
-  return {
-    type: LOADING_RESULTS
-  }
-}
-
 export const clearDiners = () => {
   return dispatch => {
     dispatch({
@@ -134,9 +128,9 @@ export const clearDiners = () => {
   }
 }
 
-const loadingUberData = () => {
+const loadingResults = () => {
   return {
-    type: LOADING_UBER_DATA
+    type: LOADING_RESULTS
   }
 }
 
@@ -175,6 +169,12 @@ export const fetchUberData = (bizLatitude, bizLongitude) => {
          }
       })
     })
+  }
+}
+
+const loadingUberData = () => {
+  return {
+    type: LOADING_UBER_DATA
   }
 }
 

@@ -7,8 +7,12 @@ import {
   REMOVE_DINER,
   CLEAR_DINERS,
   LOADING_RESULTS,
+<<<<<<< HEAD
   LOAD_UBER_DATA,
   CLEAR_UBER_DATA
+=======
+  LOAD_UBER_DATA
+>>>>>>> 5802542961cc9e773f9151d090899c6d5e0ef207
 } from './../actions/dinerActions';
 
 const initialState = {
