@@ -17,6 +17,8 @@ export default function viewReducer(state = initialState, action){
     case DISPLAY_LOCATION_CHOICE:
     return Object.assign({}, state, {
       displayAddFriends: false,
+      displayFriendsChoice: false,
+      displayResults: false,
       displayLocationChoice: true
     })
     case DISPLAY_FRIENDS_CHOICE:
