@@ -10,12 +10,15 @@ class FriendsList extends React.Component {
   }
 
   displayFriends(){
-    const { userFriends, username, displayFriendsChoice } = this.props;
+    const { userFriends, username, displayFriendsChoice, diners } = this.props;
     const { removeFriend } = this.props.friendActions;
     const { addToDiners, removeFromDiners } = this.props.dinerActions;
 
     if(userFriends.length > 0){
-      return userFriends.map((friend, ind) => {
+      return userFriends.filter(friend => {
+        return diners.indexOf(friend.username) === -1
+      })
+      .map((friend, ind) => {
         return (
           <FriendEntry
             username={username}
@@ -38,6 +41,7 @@ class FriendsList extends React.Component {
   }
 
   render(){
+    console.log('frenz in frenz list', this.props);
     return(
       <div>
         <h2>Your Friends</h2>
