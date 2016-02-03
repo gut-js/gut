@@ -10,8 +10,6 @@ module.exports = function(requestObj,res,diners){ //account for multiple diners
 		var parsed = JSON.parse(yelpBody);
 		var businesses = parsed.businesses;
 
-		console.log('parsed businesses: ', businesses);
-
 		businesses.forEach(function(business) {
 			business.weight = 0;
 		})
@@ -22,11 +20,11 @@ module.exports = function(requestObj,res,diners){ //account for multiple diners
 				var sum = 0;
 				categories.forEach(function(category){ //for each cat
 					//second item in cat e.g. japanese vs. category[0] which is Japanese
-					var categoryName = category[1]; 
+					var categoryName = category[1];
 					// for each user {categories: {<categoryoffood>: [<num of times selected>, <num of times seen>]}
-					if (diners[i].categories[categoryName]){ 
-						var numerator = diners[i].categories[categoryName][0]; 
-						var denominator = diners[i].categories[categoryName][1]; 
+					if (diners[i].categories[categoryName]){
+						var numerator = diners[i].categories[categoryName][0];
+						var denominator = diners[i].categories[categoryName][1];
 						sum+=numerator/denominator;
 					}
 					else {

@@ -1,10 +1,21 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 
+//Components
+import FriendsList from './FriendsList';
+import SelectedFriends from './SelectedFriends';
+
 class FriendsPref extends React.Component {
   constructor(){
     super();
     this.displayRestaurantResults = this.displayRestaurantResults.bind(this);
+  }
+
+  componentWillMount(){
+    const { username } = this.props;
+    const { loadFriends } = this.props.friendActions;
+
+    loadFriends(username);
   }
 
   displayRestaurantResults(e){
@@ -18,7 +29,9 @@ class FriendsPref extends React.Component {
     return (
       <div className='row'>
         <h1>Select who youd like to eat with</h1>
-        <Button onClick={this.displayRestaurantResults}>Eat with Hoon</Button>
+        <Button onClick={this.displayRestaurantResults}>Dining Alone</Button>
+        <SelectedFriends {...this.props} />
+        <FriendsList {...this.props} />
       </div>
     )
   }

@@ -3,7 +3,8 @@ import { routeActions } from 'react-router-redux';
 export const LOAD_SNAPPEA_DATA = 'LOAD_SNAPPEA_DATA';
 export const SET_TOP_RESTAURANT = 'SET_TOP_RESTAURANT';
 export const UPDATE_TOP_RESTAURANT = 'UPDATE_TOP_RESTAURANT';
-export const UPDATE_DINERS = 'UPDATE_DINERS';
+export const ADD_DINER = 'ADD_DINER';
+export const REMOVE_DINER ='REMOVE_DINER';
 export const LOADING_RESULTS = 'LOADING_RESULTS';
 export const LOAD_UBER_DATA = 'LOAD_UBER_DATA';
 
@@ -44,7 +45,6 @@ export const fetchSnapPeaData = (diners, location) => {
        return response.json();
      })
      .then(response => {
-       console.log('response inside fetchSnapPeaData', response)
        try {
          dispatch(loadSnapPeaData(response));
          dispatch(setTopRestaurant(response[0]));
@@ -64,8 +64,8 @@ export const fetchUberData = (bizLatitude, bizLongitude) => {
       console.log(position);
       userLatitude = position.coords.latitude;
       userLongitude = position.coords.longitude;
-      let coord = JSON.stringify({ 
-        userLatitude: userLatitude, 
+      let coord = JSON.stringify({
+        userLatitude: userLatitude,
         userLongitude: userLongitude,
         bizLatitude: bizLatitude,
         bizLongitude: bizLongitude
@@ -93,7 +93,7 @@ export const fetchUberData = (bizLatitude, bizLongitude) => {
     })
   }
 }
- 
+
 const loadUberData = (data) => {
   return {
     type: LOAD_UBER_DATA,
@@ -121,16 +121,28 @@ export const updateTopRestaurant = () => {
   }
 }
 
-// adds self or friends to diners array in redux state
 export const addToDiners = (username) => {
   return dispatch => {
-    dispatch(updateDiners(username));
+    dispatch(addDiner(username));
   }
 }
 
-const updateDiners = (diner) => {
+const addDiner = (diner) => {
   return {
-    type: UPDATE_DINERS,
+    type: ADD_DINER,
+    diner
+  }
+}
+
+export const removeFromDiners = (username) => {
+  return dispatch => {
+    dispatch(removeDiner(username));
+  }
+}
+
+const removeDiner = (diner) => {
+  return {
+    type: REMOVE_DINER,
     diner
   }
 }
