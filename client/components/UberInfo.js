@@ -1,6 +1,16 @@
 import React, { PropTypes } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 
+class Fare extends React.Component {
+  render(){
+    return(
+      <div>
+        <p>{this.props.price.display_name} - {this.props.price.estimate}</p>
+      </div>
+    )
+  }
+}
+
 class UberInfo extends React.Component {
   constructor(){
     super();
@@ -34,16 +44,13 @@ class UberInfo extends React.Component {
   }
 
   componentDidUpdate(){
-    console.log('i am being called after uber data is received', this.props.uberData);
   }
 
   displayUberSpinner(){
-    console.log('displayUberSpinner outside if', this.props.isLoadingUberData)
     if(this.props.isLoadingUberData){
-      console.log('YOU SHOULD SEE displayUberSpinner')
       return (
         <div>
-          <h1>Retrieving real-time Uber info...</h1>
+          <h3>Retrieving real-time fare estimates from Uber...</h3>
           <image src='./../static/assets/spinner.gif' />
         </div>
       )
@@ -54,14 +61,12 @@ class UberInfo extends React.Component {
 
   displayUberInfo(){
     if(this.props.uberData.prices){
-      console.log('hello daisy')
-      console.log(this.props.uberData)
 
-      let fareInfo = this.props.uberData.prices.map(function(price) {
+      let fares = this.props.uberData.prices.map(function(price) {
         return (
-          <div>
-            {price.display_name} - {price.estimate}
-          </div>
+          <Fare
+            price={price}
+            key={price.product_id}/>
         )
       })
 
@@ -69,9 +74,12 @@ class UberInfo extends React.Component {
 
       return (
         <div>
-          <h6>Fare estimates:</h6>
-          {fareInfo}
-          <a href={uberUrl}><Button>Request Uber Ride</Button></a>
+          {fares}
+          <div>
+            <a href={uberUrl}>
+              <Button><img src='./../static/assets/UBER_API_Badges_1x_22px.png' />    Ride there with Uber</Button>
+            </a>
+          </div>
         </div>
       )
     } else {

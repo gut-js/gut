@@ -9,6 +9,7 @@ export const ADD_DINER = 'ADD_DINER';
 export const REMOVE_DINER ='REMOVE_DINER';
 export const LOADING_RESULTS = 'LOADING_RESULTS';
 export const LOADING_UBER_DATA = 'LOADING_UBER_DATA';
+export const CLEAR_UBER_DATA = 'CLEAR_UBER_DATA';
 
 export const fetchSnapPeaData = (diners, location) => {
   let dinersString = JSON.stringify(diners);
@@ -87,7 +88,6 @@ export const fetchUberData = (bizLatitude, bizLongitude) => {
          return response.json();
        })
        .then(response => {
-         console.log('response inside fetchUberData', response)
          try {
            dispatch(loadUberData(response));
          } catch(e){
@@ -173,5 +173,11 @@ const loadingResults = () => {
 const loadingUberData = () => {
   return {
     type: LOADING_UBER_DATA
+  }
+}
+
+export const clearUberData = () => {
+  return {
+    type: CLEAR_UBER_DATA
   }
 }

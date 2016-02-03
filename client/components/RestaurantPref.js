@@ -43,9 +43,17 @@ class RestaurantPref extends React.Component {
   selectNext(e){
     e.preventDefault();
     const { updateTopRestaurant } = this.props.dinerActions;
-    const { recommendations } = this.props;
+    const { fetchUberData } = this.props.dinerActions;
+    const { clearUberData } = this.props.dinerActions;
+
+    this.setState({
+      isFetchingUberData: true
+    })
+
 
     updateTopRestaurant();
+    clearUberData();
+    fetchUberData(this.props.topRestaurant.location.coordinate.latitude, this.props.topRestaurant.location.coordinate.longitude)
   }
 
   displayLoadingSpinner(){
@@ -110,11 +118,11 @@ class RestaurantPref extends React.Component {
             <Map lat={this.props.topRestaurant.location.coordinate.latitude} lng={this.props.topRestaurant.location.coordinate.longitude}/>
           </div>
           <Button onClick={this.openUberModal}>
-            Get Uber Info 
+            <img src='./../static/assets/UBER_API_Badges_1x_22px.png' />    Ride there with Uber
             <UberInfo 
               {...this.props}
               showUberModal={this.state.showUberModal}
-              closeUberModal={this.closeUberModal}/>
+              closeUberModal={this.closeUberModal} />
           </Button>
           <Button onClick={this.selectNext}>Next restaurant</Button>
         </div>
