@@ -1,7 +1,7 @@
 import React from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import magellan from 'magellan-coords';
-import config from '../config.js';
+import config from './../../server/config.js';
 
 //Components
 import Map from './Map';
