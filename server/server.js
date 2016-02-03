@@ -40,6 +40,7 @@ app.use('/removefriend', require('./routes/removefriendRoute'));
 app.use('/friends', require('./routes/friendsRoute'));
 app.use('/uber', require('./routes/uberRoute'));
 app.use('/photo', require('./routes/photoRoute'));
+app.use('/poll', require('./routes/pollRoute'));
 
 var port = process.env.PORT || 5679;
 
