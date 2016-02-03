@@ -13,7 +13,6 @@ class RestaurantPref extends React.Component {
     this.selectNext = this.selectNext.bind(this);
     this.displayLoadingSpinner = this.displayLoadingSpinner.bind(this);
     this.displayTopRestaurant = this.displayTopRestaurant.bind(this);
-    this.getUber = this.getUber.bind(this);
     this.openUberModal = this.openUberModal.bind(this);
     this.closeUberModal = this.closeUberModal.bind(this);
     this.state = {
@@ -47,14 +46,6 @@ class RestaurantPref extends React.Component {
     const { recommendations } = this.props;
 
     updateTopRestaurant();
-  }
-
-  getUber(e){
-    e.preventDefault();
-    const { fetchUberData } = this.props.dinerActions;
-    const { uberData } = this.props; //{}
-    console.log('in getUber restaurant prefs:', uberData);
-    fetchUberData(this.props.topRestaurant.location.coordinate.latitude, this.props.topRestaurant.location.coordinate.longitude);
   }
 
   displayLoadingSpinner(){
@@ -142,7 +133,7 @@ class RestaurantPref extends React.Component {
             <UberInfo 
               {...this.props}
               showUberModal={this.state.showUberModal}
-              closeUber={this.closeUberModal}/>
+              closeUberModal={this.closeUberModal}/>
           </Button>
           <Button onClick={this.selectNext}>Next restaurant</Button>
         </div>

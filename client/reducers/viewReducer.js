@@ -2,14 +2,16 @@ import {
   DISPLAY_FRIENDS_CHOICE,
   DISPLAY_LOCATION_CHOICE,
   DISPLAY_RESULTS,
-  DISPLAY_ADD_FRIENDS
+  DISPLAY_ADD_FRIENDS,
+  DISPLAY_UBER_INFO
 } from './../actions/viewActions';
 
 const initialState = {
   displayFriendsChoice: false,
   displayLocationChoice: false,
   displayResults: false,
-  displayAddFriends: false
+  displayAddFriends: false,
+  displayUberInfo: false
 }
 
 export default function viewReducer(state = initialState, action){
@@ -33,6 +35,10 @@ export default function viewReducer(state = initialState, action){
         displayLocationChoice: false,
         displayResults: false,
         displayAddFriends: true
+      })
+      case DISPLAY_UBER_INFO:
+      return Object.assign({}, state, {
+        displayUberInfo: true
       })
     default:
       return state;
