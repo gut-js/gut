@@ -10,7 +10,6 @@ export const LOAD_UBER_DATA = 'LOAD_UBER_DATA';
 
 export const fetchSnapPeaData = (diners, location) => {
   let dinersString = JSON.stringify(diners);
-  console.log(dinersString);
 
   return dispatch => {
     dispatch(loadingResults());
@@ -65,8 +64,8 @@ export const fetchUberData = (bizLatitude, bizLongitude) => {
       console.log(position);
       userLatitude = position.coords.latitude;
       userLongitude = position.coords.longitude;
-      let coord = JSON.stringify({ 
-        userLatitude: userLatitude, 
+      let coord = JSON.stringify({
+        userLatitude: userLatitude,
         userLongitude: userLongitude,
         bizLatitude: bizLatitude,
         bizLongitude: bizLongitude
@@ -94,7 +93,7 @@ export const fetchUberData = (bizLatitude, bizLongitude) => {
     })
   }
 }
- 
+
 const loadUberData = (data) => {
   return {
     type: LOAD_UBER_DATA,
