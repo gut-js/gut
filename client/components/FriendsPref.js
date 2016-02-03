@@ -3,6 +3,7 @@ import { Button } from 'react-bootstrap';
 
 //Components
 import FriendsList from './FriendsList';
+import SelectedFriends from './SelectedFriends';
 
 class FriendsPref extends React.Component {
   constructor(){
@@ -29,7 +30,8 @@ class FriendsPref extends React.Component {
       <div className='row'>
         <h1>Select who youd like to eat with</h1>
         <Button onClick={this.displayRestaurantResults}>Dining Alone</Button>
-        <FriendsList {...this.props}/>
+        <SelectedFriends {...this.props} />
+        <FriendsList {...this.props} />
       </div>
     )
   }

@@ -12,7 +12,7 @@ class FriendsList extends React.Component {
   displayFriends(){
     const { userFriends, username, displayFriendsChoice } = this.props;
     const { removeFriend } = this.props.friendActions;
-    const { addToDiners } = this.props.dinerActions;
+    const { addToDiners, removeFromDiners } = this.props.dinerActions;
 
     if(userFriends.length > 0){
       return userFriends.map((friend, ind) => {
@@ -22,6 +22,7 @@ class FriendsList extends React.Component {
             removeFriend={removeFriend}
             displayFriendsChoice={displayFriendsChoice}
             addToDiners={addToDiners}
+            removeFromDiners={removeFromDiners}
             friendName={friend.username}
             categories={friend.categories}
             key={ind} />
@@ -37,7 +38,6 @@ class FriendsList extends React.Component {
   }
 
   render(){
-    console.log('props in list', this.props);
     return(
       <div>
         <h2>Your Friends</h2>

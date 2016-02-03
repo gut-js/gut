@@ -2,7 +2,8 @@ import {
   LOAD_SNAPPEA_DATA,
   SET_TOP_RESTAURANT,
   UPDATE_TOP_RESTAURANT,
-  UPDATE_DINERS,
+  ADD_DINER,
+  REMOVE_DINER,
   LOADING_RESULTS
 } from './../actions/dinerActions';
 
@@ -38,16 +39,23 @@ export default function dinerReducer(state = initialState, action){
           topRestaurant: state.recommendations[state.index]
         })
       }
-    case UPDATE_DINERS:
-      let newDiners = state.diners.slice(0);
-      if(action.diner === newDiners[0]){
+    case ADD_DINER:
+      let addDiners = state.diners.slice(0);
+      if(action.diner === addDiners[0]){
         return state
       } else {
-        newDiners.push(action.diner);
+        addDiners.push(action.diner);
         return Object.assign({}, state, {
-          diners: newDiners
+          diners: addDiners
         })
       }
+    case REMOVE_DINER:
+      let removeDiners = state.diners.filter(username => {
+        return username !== action.diner;
+      });
+      return Object.assign({}, state, {
+        diner: removeDiners
+      });
     case LOADING_RESULTS:
       return Object.assign({}, state, {
         isLoadingResults: true,
