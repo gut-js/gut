@@ -11,3 +11,6 @@ server/config.js
 
 #NPM Debug Log
 npm-debug.log.*
+
+#User Avatars
+uploads/
