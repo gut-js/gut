@@ -4,8 +4,8 @@ import { Button } from 'react-bootstrap';
 class LocationPref extends React.Component{
   constructor(){
     super();
-    this.displayFriendsChoice = this.displayFriendsChoice.bind(this);
-    this.handleClick = this.handleClick.bind(this);
+    this.useCurrentLocation = this.useCurrentLocation.bind(this);
+    this.useCustomLocation = this.useCustomLocation.bind(this);
   }
 
   componentDidMount(){
@@ -13,17 +13,21 @@ class LocationPref extends React.Component{
     const autocomplete = new google.maps.places.Autocomplete(input);
   }
 
-  displayFriendsChoice(){
+  useCurrentLocation(){
     const { displayFriendsChoice } = this.props.viewActions;
 
     displayFriendsChoice();
   }
 
-  handleClick(e){
+  useCustomLocation(e){
     e.preventDefault();
+    const { setUserLocation } = this.props.dinerActions;
+    const { displayFriendsChoice } = this.props.viewActions;
     const location = this.refs.startLocation.value;
 
-    console.log(location);
+    setUserLocation(location);
+    this.refs.startLocation.value = '';
+    displayFriendsChoice();
   }
 
   render(){
@@ -33,7 +37,7 @@ class LocationPref extends React.Component{
         <button
           type='submit'
           className='btn btn-block'
-          onClick={this.displayFriendsChoice}>
+          onClick={this.useCurrentLocation}>
           Current Location
         </button>
         <form>
@@ -46,7 +50,7 @@ class LocationPref extends React.Component{
             <button
               type='submit'
               className='btn btn-block'
-              onClick={this.handleClick}>
+              onClick={this.useCustomLocation}>
               Submit
             </button>
           </div>

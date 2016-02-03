@@ -70,6 +70,7 @@ const mapStateToProps = (state) => {
     data: state.pollReducer.data,
     //diner state
     diners: state.dinerReducer.diners,
+    location: state.dinerReducer.location,
     recommendations: state.dinerReducer.recommendations,
     topRestaurant: state.dinerReducer.topRestaurant,
     index: state.dinerReducer.index,

@@ -1,6 +1,7 @@
 import { routeActions } from 'react-router-redux';
 
 export const LOAD_SNAPPEA_DATA = 'LOAD_SNAPPEA_DATA';
+export const SET_LOCATION = 'SET_LOCATION';
 export const SET_TOP_RESTAURANT = 'SET_TOP_RESTAURANT';
 export const UPDATE_TOP_RESTAURANT = 'UPDATE_TOP_RESTAURANT';
 export const ADD_DINER = 'ADD_DINER';
@@ -10,6 +11,7 @@ export const LOAD_UBER_DATA = 'LOAD_UBER_DATA';
 
 export const fetchSnapPeaData = (diners, location) => {
   let dinersString = JSON.stringify(diners);
+  let locationString = JSON.stringify(location);
 
   return dispatch => {
     dispatch(loadingResults());
@@ -34,7 +36,7 @@ export const fetchSnapPeaData = (diners, location) => {
        }
      })
    } else {
-     return fetch('http://localhost:5679/eat?diners=' + dinersString + '&' + 'location=' + "seattle", {
+     return fetch('http://localhost:5679/eat?diners=' + dinersString + '&location=' + locationString, {
        method: 'GET',
        headers: {
          'Accept': 'application/json',
@@ -56,55 +58,24 @@ export const fetchSnapPeaData = (diners, location) => {
  }
 }
 
-export const fetchUberData = (bizLatitude, bizLongitude) => {
-  let userLatitude;
-  let userLongitude;
-  return dispatch => {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      console.log(position);
-      userLatitude = position.coords.latitude;
-      userLongitude = position.coords.longitude;
-      let coord = JSON.stringify({
-        userLatitude: userLatitude,
-        userLongitude: userLongitude,
-        bizLatitude: bizLatitude,
-        bizLongitude: bizLongitude
-      })
-      console.log('userlat: ', userLatitude);
-      console.log('userlong: ', userLongitude);
-      return fetch('http://localhost:5679/uber?' + "coord=" + coord, {
-         method: 'GET',
-         headers: {
-           'Accept': 'application/json',
-           'Content-Type': 'application/json'
-         }
-       })
-       .then(response => {
-         return response.json();
-       })
-       .then(response => {
-         console.log('response inside fetchUberData', response)
-         try {
-           dispatch(loadUberData(response));
-         } catch(e){
-           console.log('Error in fetching', e);
-         }
-      })
-    })
-  }
-}
-
-const loadUberData = (data) => {
-  return {
-    type: LOAD_UBER_DATA,
-    data
-  }
-}
 
 const loadSnapPeaData = (info) => {
   return {
     type: LOAD_SNAPPEA_DATA,
     info
+  }
+}
+
+export const setUserLocation = (location) => {
+  return dispatch => {
+    dispatch(setLocation(location));
+  }
+}
+
+const setLocation = (location) => {
+  return {
+    type: SET_LOCATION,
+    location
   }
 }
 
@@ -150,5 +121,50 @@ const removeDiner = (diner) => {
 const loadingResults = () => {
   return {
     type: LOADING_RESULTS
+  }
+}
+
+export const fetchUberData = (bizLatitude, bizLongitude) => {
+  let userLatitude;
+  let userLongitude;
+  return dispatch => {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      console.log(position);
+      userLatitude = position.coords.latitude;
+      userLongitude = position.coords.longitude;
+      let coord = JSON.stringify({
+        userLatitude: userLatitude,
+        userLongitude: userLongitude,
+        bizLatitude: bizLatitude,
+        bizLongitude: bizLongitude
+      })
+      console.log('userlat: ', userLatitude);
+      console.log('userlong: ', userLongitude);
+      return fetch('http://localhost:5679/uber?' + "coord=" + coord, {
+         method: 'GET',
+         headers: {
+           'Accept': 'application/json',
+           'Content-Type': 'application/json'
+         }
+       })
+       .then(response => {
+         return response.json();
+       })
+       .then(response => {
+         console.log('response inside fetchUberData', response)
+         try {
+           dispatch(loadUberData(response));
+         } catch(e){
+           console.log('Error in fetching', e);
+         }
+      })
+    })
+  }
+}
+
+const loadUberData = (data) => {
+  return {
+    type: LOAD_UBER_DATA,
+    data
   }
 }
