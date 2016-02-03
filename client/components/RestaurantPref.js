@@ -1,9 +1,11 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
+import { Modal, Button } from 'react-bootstrap';
 import magellan from 'magellan-coords';
+import config from './../../server/config.js';
 
 //Components
 import Map from './Map';
+import UberInfo from './UberInfo';
 
 class RestaurantPref extends React.Component {
   constructor(){
@@ -11,7 +13,12 @@ class RestaurantPref extends React.Component {
     this.selectNext = this.selectNext.bind(this);
     this.displayLoadingSpinner = this.displayLoadingSpinner.bind(this);
     this.displayTopRestaurant = this.displayTopRestaurant.bind(this);
-    this.getUber = this.getUber.bind(this);
+    this.openUberModal = this.openUberModal.bind(this);
+    this.closeUberModal = this.closeUberModal.bind(this);
+    this.state = {
+      showSignInModal: false,
+      showRegisterModal: false
+    }
   }
 
   componentWillMount(){
@@ -21,20 +28,32 @@ class RestaurantPref extends React.Component {
     fetchSnapPeaData(diners, location);
   }
 
+  openUberModal(){
+    this.setState({
+      showUberModal: true
+    })
+  }
+
+  closeUberModal(){
+    this.setState({
+      showUberModal: false
+    })
+  }
+
   selectNext(e){
     e.preventDefault();
     const { updateTopRestaurant } = this.props.dinerActions;
-    const { recommendations } = this.props;
+    const { fetchUberData } = this.props.dinerActions;
+    const { clearUberData } = this.props.dinerActions;
+
+    this.setState({
+      isFetchingUberData: true
+    })
+
 
     updateTopRestaurant();
-  }
-
-  getUber(e){
-    e.preventDefault();
-    const { fetchUberData } = this.props.dinerActions;
-    const { uberData } = this.props; //{}
-    console.log('in getUber restaurant prefs:', uberData);
-    fetchUberData(this.props.topRestaurant.location.coordinate.latitude, this.props.topRestaurant.location.coordinate.longitude);
+    clearUberData();
+    fetchUberData(this.props.topRestaurant.location.coordinate.latitude, this.props.topRestaurant.location.coordinate.longitude)
   }
 
   displayLoadingSpinner(){
@@ -49,7 +68,6 @@ class RestaurantPref extends React.Component {
       return null;
     }
   }
-
 
   displayTopRestaurant(){
     if (this.props.topRestaurant.name) {
@@ -84,7 +102,7 @@ class RestaurantPref extends React.Component {
     let startLoc = startLat + ',' + startLng;
 
     let directionsUrl = 'https://www.google.com/maps/dir/' + startLoc + '/' + destination;
-
+    
       return (
         <div>
           <h2>This is the best restaurant for you!</h2>
@@ -99,7 +117,13 @@ class RestaurantPref extends React.Component {
           <div style={{width:300, height:300}}>
             <Map lat={this.props.topRestaurant.location.coordinate.latitude} lng={this.props.topRestaurant.location.coordinate.longitude}/>
           </div>
-          <Button onClick={this.getUber}>Get me a ride</Button>
+          <Button onClick={this.openUberModal}>
+            <img src='./../static/assets/UBER_API_Badges_1x_22px.png' />    Ride there with Uber
+            <UberInfo 
+              {...this.props}
+              showUberModal={this.state.showUberModal}
+              closeUberModal={this.closeUberModal} />
+          </Button>
           <Button onClick={this.selectNext}>Next restaurant</Button>
         </div>
       )

@@ -6,7 +6,9 @@ import {
   LOAD_UBER_DATA,
   ADD_DINER,
   REMOVE_DINER,
-  LOADING_RESULTS
+  LOADING_RESULTS,
+  LOADING_UBER_DATA,
+  CLEAR_UBER_DATA
 } from './../actions/dinerActions';
 
 const initialState = {
@@ -17,7 +19,8 @@ const initialState = {
   topRestaurant: {},
   isLoadingResults: false,
   index: 1,
-  uberData: {}
+  uberData: {},
+  isLoadingUberData: false
 }
 
 export default function dinerReducer(state = initialState, action){
@@ -72,7 +75,16 @@ export default function dinerReducer(state = initialState, action){
       })
     case LOAD_UBER_DATA:
       return Object.assign({}, state, {
-        uberData: action.data
+        uberData: action.data,
+        isLoadingUberData: false
+      })
+    case LOADING_UBER_DATA:
+      return Object.assign({}, state, {
+        isLoadingUberData: true
+      })
+    case CLEAR_UBER_DATA:
+      return Object.assign({}, state, {
+        uberData: {}
       })
     default:
       return state;
