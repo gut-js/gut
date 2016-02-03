@@ -16,9 +16,9 @@ class RestaurantPref extends React.Component {
 
   componentWillMount(){
     const { fetchSnapPeaData } = this.props.dinerActions;
-    const { diners } = this.props;
+    const { diners, location } = this.props;
 
-    fetchSnapPeaData(diners);
+    fetchSnapPeaData(diners, location);
   }
 
   selectNext(e){
@@ -29,7 +29,7 @@ class RestaurantPref extends React.Component {
     updateTopRestaurant();
   }
 
-  getUber(e){ 
+  getUber(e){
     e.preventDefault();
     const { fetchUberData } = this.props.dinerActions;
     const { uberData } = this.props; //{}
@@ -109,7 +109,6 @@ class RestaurantPref extends React.Component {
   }
 
   render(){
-    console.log('props in res pref', this.props);
   	return (
   	 	<div>
         <h1>Results</h1>
