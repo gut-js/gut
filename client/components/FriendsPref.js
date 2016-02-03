@@ -9,6 +9,7 @@ class FriendsPref extends React.Component {
   constructor(){
     super();
     this.displayRestaurantResults = this.displayRestaurantResults.bind(this);
+    this.displayButton = this.displayButton.bind(this);
   }
 
   componentWillMount(){
@@ -25,13 +26,28 @@ class FriendsPref extends React.Component {
     displayResults();
   }
 
+  displayButton(){
+    const { diners } = this.props;
+
+    if(diners.length > 1){
+      return(
+        <Button onClick={this.displayRestaurantResults}>Find us a restaurant!</Button>
+      )
+    } else {
+      return(
+        <Button onClick={this.displayRestaurantResults}>Table for one, please!</Button>
+      )
+    }
+  }
+
   render(){
+    console.log('props in frenz pref', this.props);
     return (
       <div className='row'>
-        <h1>Select who youd like to eat with</h1>
-        <Button onClick={this.displayRestaurantResults}>Dining Alone</Button>
+        <h1>Are you dining with anyone else?</h1>
         <SelectedFriends {...this.props} />
         <FriendsList {...this.props} />
+        {this.displayButton()}
       </div>
     )
   }
