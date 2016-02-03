@@ -7,6 +7,7 @@ export const ADD_REQUEST = 'ADD_REQUEST';
 export const ADD_SUCCESS = 'ADD_SUCCESS';
 export const REMOVE_REQUEST = 'REMOVE_REQUEST';
 export const REMOVE_SUCCESS = 'REMOVE_SUCCESS';
+export const CLEAR_FRIENDS = 'CLEAR_FRIENDS';
 
 // Main load friends function
 export const loadFriends = (user) => {
@@ -167,5 +168,13 @@ const removeRequest = () => {
 const removeSuccess = () => {
   return {
     type: REMOVE_SUCCESS
+  }
+}
+
+export const clearFriends = () => {
+  return dispatch => {
+    dispatch({
+      type: CLEAR_FRIENDS
+    });
   }
 }

@@ -13,8 +13,10 @@ class ProfileMenu extends React.Component {
     const { displayLocationChoice } = this.props.viewActions;
     const { username } = this.props;
     const { addToDiners } = this.props.dinerActions;
+    const { clearFriends } = this.props.friendActions;
 
     addToDiners(username);
+    clearFriends();
     displayLocationChoice();
   }
 
@@ -25,6 +27,7 @@ class ProfileMenu extends React.Component {
   }
 
   render(){
+    console.log('props in profile menu', this.props);
     return(
       <div className='row'>
         <div className='col-md-6'>

@@ -133,6 +133,7 @@ class RestaurantPref extends React.Component {
   }
 
   render(){
+    console.log('props in pref', this.props);
   	return (
   	 	<div>
         <h1>Results</h1>
