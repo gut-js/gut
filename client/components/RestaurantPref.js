@@ -11,6 +11,7 @@ class RestaurantPref extends React.Component {
     this.selectNext = this.selectNext.bind(this);
     this.displayLoadingSpinner = this.displayLoadingSpinner.bind(this);
     this.displayTopRestaurant = this.displayTopRestaurant.bind(this);
+    this.getUber = this.getUber.bind(this);
   }
 
   componentWillMount(){
@@ -28,11 +29,19 @@ class RestaurantPref extends React.Component {
     updateTopRestaurant();
   }
 
+  getUber(e){ 
+    e.preventDefault();
+    const { fetchUberData } = this.props.dinerActions;
+    const { uberData } = this.props; //{}
+    console.log('in getUber restaurant prefs:', uberData);
+    fetchUberData(this.props.topRestaurant.location.coordinate.latitude, this.props.topRestaurant.location.coordinate.longitude);
+  }
+
   displayLoadingSpinner(){
     if(this.props.isLoadingResults){
       return (
         <div>
-          <h1>Our algorithm is crunching numbers. Your recommendation will be ready in snap!</h1>
+          <h1>Our algorithm is crunching numbers. Your recommendation will be ready in a snap!</h1>
           <image src='./../static/assets/spinner.gif' />
         </div>
       )
@@ -40,6 +49,7 @@ class RestaurantPref extends React.Component {
       return null;
     }
   }
+
 
   displayTopRestaurant(){
     if (this.props.topRestaurant.name) {
@@ -82,13 +92,14 @@ class RestaurantPref extends React.Component {
           <p>{this.props.topRestaurant.location.display_address[0]}</p>
           <p>{this.props.topRestaurant.location.display_address[1]}</p>
           <p>{this.props.topRestaurant.location.display_address[2]}</p>
+          <a href={directionsUrl} target='_blank'>
+            Peas get directions!
+          </a>
           <p>{this.props.topRestaurant.display_phone}</p>
           <div style={{width:300, height:300}}>
             <Map lat={this.props.topRestaurant.location.coordinate.latitude} lng={this.props.topRestaurant.location.coordinate.longitude}/>
           </div>
-          <a href={directionsUrl} target='_blank'>
-            <Button>Peas get directions!</Button>
-          </a>
+          <Button onClick={this.getUber}>Get me a ride</Button>
           <Button onClick={this.selectNext}>Next restaurant</Button>
         </div>
       )

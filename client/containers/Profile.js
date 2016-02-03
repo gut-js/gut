@@ -74,6 +74,7 @@ const mapStateToProps = (state) => {
     topRestaurant: state.dinerReducer.topRestaurant,
     index: state.dinerReducer.index,
     isLoadingResults: state.dinerReducer.isLoadingResults,
+    uberData: state.dinerReducer.uberData,
     //view state
     displayFriendsChoice: state.viewReducer.displayFriendsChoice,
     displayLocationChoice: state.viewReducer.displayLocationChoice,

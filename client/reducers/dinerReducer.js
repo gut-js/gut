@@ -3,7 +3,8 @@ import {
   SET_TOP_RESTAURANT,
   UPDATE_TOP_RESTAURANT,
   UPDATE_DINERS,
-  LOADING_RESULTS
+  LOADING_RESULTS,
+  LOAD_UBER_DATA
 } from './../actions/dinerActions';
 
 const initialState = {
@@ -12,7 +13,8 @@ const initialState = {
   dinerErrorMessage: '',
   topRestaurant: {},
   isLoadingResults: false,
-  index: 1
+  index: 1,
+  uberData: {}
 }
 
 export default function dinerReducer(state = initialState, action){
@@ -52,6 +54,10 @@ export default function dinerReducer(state = initialState, action){
       return Object.assign({}, state, {
         isLoadingResults: true,
         topRestaurant: {}
+      })
+    case LOAD_UBER_DATA:
+      return Object.assign({}, state, {
+        uberData: action.data
       })
     default:
       return state;
