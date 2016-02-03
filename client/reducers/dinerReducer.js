@@ -44,14 +44,14 @@ export default function dinerReducer(state = initialState, action){
       }
     case ADD_DINER:
       let addDiners = state.diners.slice(0);
-      if(action.diner === addDiners[0]){
-        return state
+      if(action.diner === addDiners[0] || addDiners.indexOf(action.diner) !== -1){
+        return state;
       } else {
         addDiners.push(action.diner);
-        return Object.assign({}, state, {
-          diners: addDiners
-        })
       }
+      return Object.assign({}, state, {
+        diners: addDiners
+      })
     case REMOVE_DINER:
       let removeDiners = state.diners.filter(username => {
         return username !== action.diner;
