@@ -30,7 +30,7 @@ class FriendsList extends React.Component {
             categories={friend.categories}
             key={ind} />
         )
-      })
+      });
     } else {
       return(
         <div>
@@ -41,7 +41,6 @@ class FriendsList extends React.Component {
   }
 
   render(){
-    console.log('frenz in frenz list', this.props);
     return(
       <div>
         <h2>Your Friends</h2>
