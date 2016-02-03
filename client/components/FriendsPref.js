@@ -41,7 +41,6 @@ class FriendsPref extends React.Component {
   }
 
   render(){
-    console.log('props in frenz pref', this.props);
     return (
       <div className='row'>
         <h1>Are you dining with anyone else?</h1>
