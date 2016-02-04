@@ -68,6 +68,7 @@ class ProfileHome extends React.Component {
   }
 
   render(){
+    console.log('props in this marg', this.props);
     return(
       <div>
         {this.displayLocationChoice()}

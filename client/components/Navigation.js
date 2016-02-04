@@ -61,10 +61,11 @@ class Navigation extends React.Component {
     const { displayLocationChoice } = this.props.viewActions;
     const { username } = this.props;
     const { addToDiners } = this.props.dinerActions;
-    const { clearDiners } = this.props.dinerActions;
+    const { clearDiners, clearLocation } = this.props.dinerActions;
     const { clearFriends } = this.props.friendActions;
 
     clearDiners();
+    clearLocation();
     clearFriends();
     addToDiners(username);
     displayLocationChoice();
@@ -72,20 +73,22 @@ class Navigation extends React.Component {
 
   displayPreferences(){
     const { displayMorePreferences } = this.props.viewActions;
-    const { clearDiners } = this.props.dinerActions;
+    const { clearDiners, clearLocation } = this.props.dinerActions;
     const { clearFriends } = this.props.friendActions;
 
     clearDiners();
+    clearLocation();
     clearFriends();
     displayMorePreferences();
   }
 
   displayFriends(){
     const { displayAddFriends } = this.props.viewActions;
-    const { clearDiners } = this.props.dinerActions;
+    const { clearDiners, clearLocation } = this.props.dinerActions;
     const { clearFriends } = this.props.friendActions;
 
     clearDiners();
+    clearLocation();
     clearFriends();
     displayAddFriends();
   }
