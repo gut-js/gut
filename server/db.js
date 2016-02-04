@@ -14,7 +14,9 @@ db.userSchema = new db.Schema ({
   categories: {},
   friends: {},
   loginMessage: { type: String },
-  address: { type: String }
+  email: { type: String },
+  gravatarURL: { type: String }
+
 });
 db.userSchema.plugin(uniqueValidator);
 db.User = mongoose.model('User', db.userSchema);
