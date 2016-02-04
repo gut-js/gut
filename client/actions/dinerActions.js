@@ -11,6 +11,7 @@ export const LOADING_RESULTS = 'LOADING_RESULTS';
 export const LOAD_UBER_DATA = 'LOAD_UBER_DATA';
 export const LOADING_UBER_DATA = 'LOADING_UBER_DATA';
 export const CLEAR_UBER_DATA = 'CLEAR_UBER_DATA';
+export const SET_PICKUP_LOCATION = 'SET_PICKUP_LOCATION';
 
 export const fetchSnapPeaData = (diners, location) => {
   let dinersString = JSON.stringify(diners);
@@ -159,7 +160,8 @@ export const fetchUberData = (bizLatitude, bizLongitude) => {
          }
        })
        .then(response => {
-         return response.json();
+          dispatch(setPickupLocation([userLatitude, userLongitude]));
+          return response.json();
        })
        .then(response => {
          console.log('response inside fetchUberData', response)
@@ -189,5 +191,12 @@ const loadingUberData = () => {
 export const clearUberData = () => {
   return {
     type: CLEAR_UBER_DATA
+  }
+}
+
+const setPickupLocation = (location) => {
+  return {
+    type: SET_PICKUP_LOCATION,
+    location
   }
 }
