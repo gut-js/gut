@@ -42,7 +42,7 @@ router.post('/', function(req, res) {
           res.send(err);
         }
         else {
-          console.log('user was saved:', user.username);
+          console.log('user was saved:', user);
           var token = jwt.sign(user, app.get('superSecret'), { expiresInminutes:1440 });
           // // Below is commented out to keep from abusing the Google API during the development phase!
           // getGeolocationData().then(function(data){
