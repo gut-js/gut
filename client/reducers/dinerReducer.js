@@ -22,7 +22,8 @@ const initialState = {
   isLoadingResults: false,
   index: 1,
   uberData: {},
-  isLoadingUberData: false
+  isLoadingUberData: false,
+  pickupLocation: []
 }
 
 export default function dinerReducer(state = initialState, action){

@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import { Modal, Button } from 'react-bootstrap';
 
 class Fare extends React.Component {
@@ -70,7 +70,7 @@ class UberInfo extends React.Component {
         )
       })
 
-      let uberUrl = 'https://m.uber.com/sign-up?client_id=EKD_tcp67WQOa3TsUj0ZmTnjohbVQW5n&pickup_latitude=' + this.props.pickupLocation[0] + '&pickup_longitude=' + pickupLocation[1];
+      let uberUrl = 'https://m.uber.com/sign-up?client_id=EKD_tcp67WQOa3TsUj0ZmTnjohbVQW5n&pickup_latitude=' + this.props.pickupLocation[0] + '&pickup_longitude=' + this.props.pickupLocation[1];
 
       return (
         <div>

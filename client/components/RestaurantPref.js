@@ -102,7 +102,6 @@ class RestaurantPref extends React.Component {
     let startLoc = startLat + ',' + startLng;
 
     let directionsUrl = 'https://www.google.com/maps/dir/' + startLoc + '/' + destination;
-      console.log(this.props.topRestaurant)
       let categories = this.props.topRestaurant.categories.map(function(cat){
         return cat[0];
       }).join(', ')
@@ -139,7 +138,6 @@ class RestaurantPref extends React.Component {
   }
 
   render(){
-    console.log('props in pref', this.props);
   	return (
   	 	<div>
         <h1>Results</h1>
