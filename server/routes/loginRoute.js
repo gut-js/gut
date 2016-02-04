@@ -20,7 +20,6 @@ router.post('/', function(req, res){
         res.send(err);
       }
       else {
-        console.log('found user', user.username);
         callback(err, user);
       }
     });
@@ -28,7 +27,6 @@ router.post('/', function(req, res){
 
   authenticateUser(username, password, function(err, user){
       if (user) {
-
         var loginMessage = user.loginMessage;
         user.loginMessage = '';
         user.save(function(){});
