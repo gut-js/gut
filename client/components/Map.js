@@ -13,7 +13,7 @@ export default class Map extends Component {
     return (
        <GoogleMap
         center={[this.props.lat, this.props.lng]}
-        defaultZoom={14}>
+        defaultZoom={16}>
         <Marker lat={this.props.lat} lng={this.props.lng} text={''} />
 
       </GoogleMap>
