@@ -59,7 +59,6 @@ class Friends extends React.Component {
   }
 
   render(){
-    console.log('props in frenz', this.props);
     return(
       <div>
         <h1>Add Friends</h1>

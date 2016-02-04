@@ -33,7 +33,6 @@ class ProfileMenu extends React.Component {
   }
 
   render(){
-    console.log('props in profile menu', this.props);
     return(
       <div className='row'>
         <div className='col-md-6'>

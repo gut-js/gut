@@ -3,6 +3,7 @@ export const DISPLAY_LOCATION_CHOICE = 'DISPLAY_LOCATION_CHOICE';
 export const DISPLAY_RESULTS = 'DISPLAY_RESULTS';
 export const DISPLAY_ADD_FRIENDS = 'DISPLAY_ADD_FRIENDS';
 export const DISPLAY_UBER_INFO = 'DISPLAY_UBER_INFO';
+export const CLEAR_VIEWS = 'CLEAR_VIEWS';
 
 export const displayFriendsChoice = () => {
   return dispatch => {
@@ -41,5 +42,13 @@ export const displayUberInfo = () => {
     dispatch({
       type: DISPLAY_UBER_INFO
     });
+  }
+}
+
+export const clearViews = () => {
+  return dispatch => {
+    dispatch({
+      type: CLEAR_VIEWS
+    })
   }
 }
