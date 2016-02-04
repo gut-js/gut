@@ -3,10 +3,11 @@ import {
   SET_LOCATION,
   SET_TOP_RESTAURANT,
   UPDATE_TOP_RESTAURANT,
-  LOAD_UBER_DATA,
   ADD_DINER,
   REMOVE_DINER,
+  CLEAR_DINERS,
   LOADING_RESULTS,
+  LOAD_UBER_DATA,
   LOADING_UBER_DATA,
   CLEAR_UBER_DATA
 } from './../actions/dinerActions';
@@ -64,9 +65,12 @@ export default function dinerReducer(state = initialState, action){
       let removeDiners = state.diners.filter(username => {
         return username !== action.diner;
       });
-      console.log('in reducer', removeDiners)
       return Object.assign({}, state, {
         diners: removeDiners
+      });
+    case CLEAR_DINERS:
+      return Object.assign({}, state, {
+        diners: []
       });
     case LOADING_RESULTS:
       return Object.assign({}, state, {

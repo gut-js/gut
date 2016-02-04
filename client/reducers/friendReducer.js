@@ -7,7 +7,8 @@ import {
   ADD_REQUEST,
   ADD_SUCCESS,
   REMOVE_REQUEST,
-  REMOVE_SUCCESS
+  REMOVE_SUCCESS,
+  CLEAR_FRIENDS
 } from './../actions/friendActions';
 
 const initialState = {
@@ -62,6 +63,10 @@ export default function friendReducer(state = initialState, action){
     case REMOVE_SUCCESS:
       return Object.assign({}, state, {
         removeCheck: false
+      })
+    case CLEAR_FRIENDS:
+      return Object.assign({}, state, {
+        searchResults: []
       })
     default:
       return state;

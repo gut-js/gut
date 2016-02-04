@@ -46,7 +46,10 @@ class Navigation extends React.Component {
 
   logOut(){
     const { logoutUser } = this.props.authActions;
+    const { clearViews } = this.props.viewActions;
+
     localStorage.removeItem('token');
+    clearViews();
     logoutUser();
   }
 
