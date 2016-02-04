@@ -14,6 +14,9 @@ class Navigation extends React.Component {
     this.openRegister = this.openRegister.bind(this);
     this.closeRegister = this.closeRegister.bind(this);
     this.logOut = this.logOut.bind(this);
+    this.displayLocationChoice = this.displayLocationChoice.bind(this);
+    this.displayPreferences = this.displayPreferences.bind(this);
+    this.displayFriends = this.displayFriends.bind(this);
     this.state = {
       showSignInModal: false,
       showRegisterModal: false
@@ -53,19 +56,78 @@ class Navigation extends React.Component {
     logoutUser();
   }
 
+  displayLocationChoice(e){
+    e.preventDefault();
+    const { displayLocationChoice } = this.props.viewActions;
+    const { username } = this.props;
+    const { addToDiners } = this.props.dinerActions;
+    const { clearDiners } = this.props.dinerActions;
+    const { clearFriends } = this.props.friendActions;
+
+    clearDiners();
+    clearFriends();
+    addToDiners(username);
+    displayLocationChoice();
+  }
+
+  displayPreferences(){
+    const { displayMorePreferences } = this.props.viewActions;
+    const { clearDiners } = this.props.dinerActions;
+    const { clearFriends } = this.props.friendActions;
+
+    clearDiners();
+    clearFriends();
+    displayMorePreferences();
+  }
+
+  displayFriends(){
+    const { displayAddFriends } = this.props.viewActions;
+    const { clearDiners } = this.props.dinerActions;
+    const { clearFriends } = this.props.friendActions;
+
+    clearDiners();
+    clearFriends();
+    displayAddFriends();
+  }
+
   render(){
     let menu = this.props.isLoggedIn ? (
       <Nav pullRight>
-        <NavItem eventKey={1}>
-          Welcome {this.props.username} !
+        <NavItem
+        eventKey={1}>
+        Welcome {this.props.username} !
         </NavItem>
-        <NavItem eventKey={2} href='#' onClick={this.logOut}>
-          Log out
+        <NavItem
+          eventKey={2}
+          href='#'
+          onClick={this.displayLocationChoice}>
+          Lets Eat
+        </NavItem>
+        <NavItem
+          eventKey={3}
+          href='#'
+          onClick={this.displayPreferences}>
+          Refine your Preferences
+        </NavItem>
+        <NavItem
+          eventKey={4}
+          href='#'
+          onClick={this.displayFriends}>
+          Friends
+        </NavItem>
+        <NavItem
+          eventKey={5}
+          href='#'
+          onClick={this.logOut}>
+        Log out
         </NavItem>
       </Nav>
       ) : (
       <Nav pullRight>
-        <NavItem eventKey={1} href='#' onClick={this.openSignIn}>
+        <NavItem
+          eventKey={1}
+          href='#'
+          onClick={this.openSignIn}>
           Sign In
           <SignIn
             {...this.props}
@@ -73,7 +135,10 @@ class Navigation extends React.Component {
             closeSignIn={this.closeSignIn}
             openRegister={this.openRegister} />
         </NavItem>
-        <NavItem eventKey={2} href='#' onClick={this.openRegister}>
+        <NavItem
+          eventKey={2}
+          href='#'
+          onClick={this.openRegister}>
           Register
           <Register
             {...this.props}
