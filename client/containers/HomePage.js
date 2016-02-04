@@ -1,6 +1,7 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import Gravatar from 'react-gravatar';
 
 //Actions
 import * as authActions from './../actions/authActions';

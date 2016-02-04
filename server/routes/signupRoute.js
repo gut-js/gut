@@ -4,6 +4,7 @@ var bcrypt = require('bcrypt');
 var jwt = require('jsonwebtoken');
 var mongoose = require('mongoose');
 var _ = require('lodash');
+var gravatar = require('gravatar');
 
 var db = require('../db');
 var app = require('../server');
@@ -12,9 +13,11 @@ var request_yelp = require('../functions/request_yelp');
 
 //sign up for account
 router.post('/', function(req, res) {
-  console.log('inside signup route');
   var username = req.body.username;
   var password = req.body.password;
+  var email = req.body.email;
+
+  var gravatarUrl = 'http:'+gravatar.url(email, {s: '200'});
 
   //hash password
   bcrypt.genSalt(10, function(err, salt) {
@@ -23,9 +26,12 @@ router.post('/', function(req, res) {
       var user = new db.User({
         username: username,
         password: hash,
+        email: email,
         categories: {test:'test'},
-        friends: {test:false}
+        friends: {test:false},
+        gravatarUrl: gravatarUrl
       });
+
 
       user.markModified('categories');
 
@@ -36,7 +42,7 @@ router.post('/', function(req, res) {
           res.send(err);
         }
         else {
-          console.log('user was saved:', user.username);
+          console.log('user was saved:', user);
           var token = jwt.sign(user, app.get('superSecret'), { expiresInminutes:1440 });
           // // Below is commented out to keep from abusing the Google API during the development phase!
           // getGeolocationData().then(function(data){
@@ -83,7 +89,8 @@ router.post('/', function(req, res) {
             token: token,
             username: user.username,
             password: user.password,
-            businesses: businesses.slice(0,20)
+            businesses: businesses.slice(0,20),
+            gravatarUrl: user.gravatarUrl
           });
         }
       });
