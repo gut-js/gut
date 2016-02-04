@@ -13,6 +13,7 @@ var request_yelp = require('../functions/request_yelp');
 //sign up for account
 router.post('/', function(req, res) {
   console.log('inside signup route');
+  console.log('req.body',req.body);
   var username = req.body.username;
   var password = req.body.password;
 

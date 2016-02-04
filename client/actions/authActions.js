@@ -26,7 +26,8 @@ export const registerUser = (credentials) => {
       },
       body: JSON.stringify({
         username: credentials.username,
-        password: credentials.password
+        password: credentials.password,
+        email: credentials.email
       })
     })
     .then(response => {
