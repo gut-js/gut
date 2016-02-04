@@ -72,14 +72,10 @@ const loadSnapPeaData = (info) => {
 
 export const setUserLocation = (location) => {
   return dispatch => {
-    dispatch(setLocation(location));
-  }
-}
-
-const setLocation = (location) => {
-  return {
-    type: SET_LOCATION,
-    location
+    dispatch({
+      type: SET_LOCATION,
+      location
+    });
   }
 }
 
@@ -104,29 +100,21 @@ export const updateTopRestaurant = () => {
   }
 }
 
-export const addToDiners = (username) => {
+export const addToDiners = (diner) => {
   return dispatch => {
-    dispatch(addDiner(username));
+    dispatch({
+      type: ADD_DINER,
+      diner
+    });
   }
 }
 
-const addDiner = (diner) => {
-  return {
-    type: ADD_DINER,
-    diner
-  }
-}
-
-export const removeFromDiners = (username) => {
+export const removeFromDiners = (diner) => {
   return dispatch => {
-    dispatch(removeDiner(username));
-  }
-}
-
-const removeDiner = (diner) => {
-  return {
-    type: REMOVE_DINER,
-    diner
+    dispatch({
+      type: REMOVE_DINER,
+      diner
+    });
   }
 }
 
