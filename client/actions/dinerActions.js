@@ -138,6 +138,7 @@ export const fetchUberData = (bizLatitude, bizLongitude) => {
   let userLatitude;
   let userLongitude;
   return dispatch => {
+    dispatch(loadingUberData());
     navigator.geolocation.getCurrentPosition(function(position) {
       console.log(position);
       userLatitude = position.coords.latitude;

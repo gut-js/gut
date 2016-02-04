@@ -49,8 +49,8 @@ class UberInfo extends React.Component {
   displayUberSpinner(){
     if(this.props.isLoadingUberData){
       return (
-        <div>
-          <h3>Retrieving real-time fare estimates from Uber...</h3>
+        <div className='uberSpinner'>
+          <h3>Getting Uber fare estimates...</h3>
           <image src='./../static/assets/spinner.gif' />
         </div>
       )
@@ -77,7 +77,7 @@ class UberInfo extends React.Component {
           {fares}
           <div>
             <a href={uberUrl}>
-              <Button><img src='./../static/assets/UBER_API_Badges_1x_22px.png' />    Ride there with Uber</Button>
+              <Button><img src='./../static/assets/UBER_API_Badges_1x_22px.png' />    Request a Ride</Button>
             </a>
           </div>
         </div>
@@ -101,7 +101,7 @@ class UberInfo extends React.Component {
       <Modal show={this.props.showUberModal} onHide={this.props.closeUberModal}>
         <Modal.Header closebutton>
           <Modal.Title>
-            <p>Uber info</p>
+            <p>Fare Estimates</p>
           </Modal.Title>
           <Modal.Body>
             {this.displayUberSpinner()}

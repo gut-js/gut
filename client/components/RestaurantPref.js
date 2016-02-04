@@ -102,18 +102,24 @@ class RestaurantPref extends React.Component {
     let startLoc = startLat + ',' + startLng;
 
     let directionsUrl = 'https://www.google.com/maps/dir/' + startLoc + '/' + destination;
-    
+      console.log(this.props.topRestaurant)
+      let categories = this.props.topRestaurant.categories.map(function(cat){
+        return cat[0];
+      }).join(', ')
       return (
         <div>
-          <h2>This is the best restaurant for you!</h2>
+          <h3>Based on your input, we think you'll really like eating at...</h3>
           <h3>{this.props.topRestaurant.name}</h3>
-          <p>{this.props.topRestaurant.location.display_address[0]}</p>
-          <p>{this.props.topRestaurant.location.display_address[1]}</p>
-          <p>{this.props.topRestaurant.location.display_address[2]}</p>
+          <p>{categories}</p>
+          <p>{this.props.topRestaurant.display_phone}</p>
+          <p>
+            {this.props.topRestaurant.location.display_address[0]}<br/>
+            {this.props.topRestaurant.location.display_address[1]}<br/>
+            {this.props.topRestaurant.location.display_address[2]}
+          </p>
           <a href={directionsUrl} target='_blank'>
             Peas get directions!
           </a>
-          <p>{this.props.topRestaurant.display_phone}</p>
           <div style={{width:300, height:300}}>
             <Map lat={this.props.topRestaurant.location.coordinate.latitude} lng={this.props.topRestaurant.location.coordinate.longitude}/>
           </div>
