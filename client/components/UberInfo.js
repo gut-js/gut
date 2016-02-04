@@ -43,9 +43,6 @@ class UberInfo extends React.Component {
     displayUberInfo();
   }
 
-  componentDidUpdate(){
-  }
-
   displayUberSpinner(){
     if(this.props.isLoadingUberData){
       return (
@@ -61,7 +58,6 @@ class UberInfo extends React.Component {
 
   displayUberInfo(){
     if(this.props.uberData.prices){
-
       let fares = this.props.uberData.prices.map(function(price) {
         return (
           <Fare
