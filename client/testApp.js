@@ -44,6 +44,20 @@ function removeFriend(name){
 
 $(document).ready(function(){
 
+  $('#pollButton').click(function(){
+    console.log('poll button');
+    $.ajax({
+      url: '/poll',
+      type: 'GET',
+      success: function(data){
+        console.log('success',data);
+      },
+      error: function(err){
+        console.log('error',err);
+      }
+    })
+  })
+
   $('#restaurantSearchForm').submit(function(e){
     e.preventDefault();
     console.log('restaurant search');
