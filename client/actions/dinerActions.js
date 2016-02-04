@@ -2,6 +2,7 @@ import { routeActions } from 'react-router-redux';
 
 export const LOAD_SNAPPEA_DATA = 'LOAD_SNAPPEA_DATA';
 export const SET_LOCATION = 'SET_LOCATION';
+export const CLEAR_LOCATION = 'CLEAR_LOCATION';
 export const SET_TOP_RESTAURANT = 'SET_TOP_RESTAURANT';
 export const UPDATE_TOP_RESTAURANT = 'UPDATE_TOP_RESTAURANT';
 export const ADD_DINER = 'ADD_DINER';
@@ -71,14 +72,18 @@ const loadSnapPeaData = (info) => {
 
 export const setUserLocation = (location) => {
   return dispatch => {
-    dispatch(setLocation(location));
+    dispatch({
+      type: SET_LOCATION,
+      location
+    });
   }
 }
 
-const setLocation = (location) => {
-  return {
-    type: SET_LOCATION,
-    location
+export const clearLocation = () => {
+  return dispatch => {
+    dispatch({
+      type: CLEAR_LOCATION
+    })
   }
 }
 
@@ -95,29 +100,21 @@ export const updateTopRestaurant = () => {
   }
 }
 
-export const addToDiners = (username) => {
+export const addToDiners = (diner) => {
   return dispatch => {
-    dispatch(addDiner(username));
+    dispatch({
+      type: ADD_DINER,
+      diner
+    });
   }
 }
 
-const addDiner = (diner) => {
-  return {
-    type: ADD_DINER,
-    diner
-  }
-}
-
-export const removeFromDiners = (username) => {
+export const removeFromDiners = (diner) => {
   return dispatch => {
-    dispatch(removeDiner(username));
-  }
-}
-
-const removeDiner = (diner) => {
-  return {
-    type: REMOVE_DINER,
-    diner
+    dispatch({
+      type: REMOVE_DINER,
+      diner
+    });
   }
 }
 
@@ -141,7 +138,6 @@ export const fetchUberData = (bizLatitude, bizLongitude) => {
   return dispatch => {
     dispatch(loadingUberData());
     navigator.geolocation.getCurrentPosition(function(position) {
-      console.log(position);
       userLatitude = position.coords.latitude;
       userLongitude = position.coords.longitude;
       let coord = JSON.stringify({
@@ -150,8 +146,6 @@ export const fetchUberData = (bizLatitude, bizLongitude) => {
         bizLatitude: bizLatitude,
         bizLongitude: bizLongitude
       })
-      console.log('userlat: ', userLatitude);
-      console.log('userlong: ', userLongitude);
       return fetch('http://localhost:5679/uber?' + "coord=" + coord, {
          method: 'GET',
          headers: {
@@ -164,7 +158,6 @@ export const fetchUberData = (bizLatitude, bizLongitude) => {
           return response.json();
        })
        .then(response => {
-         console.log('response inside fetchUberData', response)
          try {
            dispatch(loadUberData(response));
          } catch(e){
