@@ -18,6 +18,7 @@ router.get('/', function(req, res) {
       businesses[i].image_url = businesses[i].image_url.slice(0,-6)+'o.jpg';
     }
 
+    console.log(JSON.stringify(businesses));
     res.json(businesses);
   })
 
