@@ -9,7 +9,8 @@ import {
   LOADING_RESULTS,
   LOAD_UBER_DATA,
   LOADING_UBER_DATA,
-  CLEAR_UBER_DATA
+  CLEAR_UBER_DATA,
+  SET_PICKUP_LOCATION
 } from './../actions/dinerActions';
 
 const initialState = {
@@ -89,6 +90,11 @@ export default function dinerReducer(state = initialState, action){
     case CLEAR_UBER_DATA:
       return Object.assign({}, state, {
         uberData: {}
+      })
+    case SET_PICKUP_LOCATION:
+      return Object.assign({}, state, {
+        pickupLocationLat: action.location[0],
+        pickupLocationLng: action.location[1]
       })
     default:
       return state;
