@@ -1,7 +1,6 @@
 import React from 'react';
 
 //Components
-import ProfileMenu from './ProfileMenu';
 import FriendsPref from './FriendsPref';
 import Friends from './Friends';
 import LocationPref from './LocationPref';
@@ -71,7 +70,6 @@ class ProfileHome extends React.Component {
   render(){
     return(
       <div>
-        <ProfileMenu {...this.props} />
         {this.displayLocationChoice()}
         {this.displayFriendsChoice()}
         {this.displayResults()}
