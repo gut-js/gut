@@ -6,6 +6,7 @@ import FriendsPref from './FriendsPref';
 import Friends from './Friends';
 import LocationPref from './LocationPref';
 import RestaurantPref from './RestaurantPref';
+import Repoll from './Repoll'
 
 class ProfileHome extends React.Component {
   constructor(){
@@ -14,6 +15,7 @@ class ProfileHome extends React.Component {
     this.displayLocationChoice = this.displayLocationChoice.bind(this);
     this.displayResults = this.displayResults.bind(this);
     this.displayFriends = this.displayFriends.bind(this);
+    this.displayPreferences = this.displayPreferences.bind(this);
   }
 
   displayFriendsChoice(){
@@ -56,14 +58,25 @@ class ProfileHome extends React.Component {
     }
   }
 
+  displayPreferences(){
+    if(this.props.displayPreferences){
+      return(
+        <Repoll {...this.props} />
+      )
+    } else {
+      return null;
+    }
+  }
+
   render(){
     return(
       <div>
         <ProfileMenu {...this.props} />
-        {this.displayFriends()}
         {this.displayLocationChoice()}
         {this.displayFriendsChoice()}
         {this.displayResults()}
+        {this.displayFriends()}
+        {this.displayPreferences()}
       </div>
     )
   }
