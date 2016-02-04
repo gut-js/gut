@@ -6,6 +6,7 @@ class ProfileMenu extends React.Component {
     super();
     this.displayLocationChoice = this.displayLocationChoice.bind(this);
     this.displayFriends = this.displayFriends.bind(this);
+    this.displayPreferences = this.displayPreferences.bind(this);
   }
 
   displayLocationChoice(e){
@@ -32,22 +33,39 @@ class ProfileMenu extends React.Component {
     displayAddFriends();
   }
 
+  displayPreferences(){
+    const { displayMorePreferences } = this.props.viewActions;
+    const { clearDiners } = this.props.dinerActions;
+    const { clearFriends } = this.props.friendActions;
+
+    clearDiners();
+    clearFriends();
+    displayMorePreferences();
+  }
+
   render(){
     return(
       <div className='row'>
-        <div className='col-md-6'>
+        <div className='col-md-4'>
           <h1>Lets Eat</h1>
           <img
             src='./../static/assets/placeholder.jpeg'
             alt='letseat'
             onClick={this.displayLocationChoice} />
         </div>
-        <div className='col-md-6'>
+        <div className='col-md-4'>
           <h1>Friends</h1>
           <img
             src='./../static/assets/placeholder.jpeg'
             alt='addfriends'
             onClick={this.displayFriends} />
+        </div>
+        <div className ='col-md-4'>
+          <h1>Repoll</h1>
+          <img
+            src='./../static/assets/placeholder.jpeg'
+            alt='setpref'
+            onClick={this.displayPreferences} />
         </div>
       </div>
     )
