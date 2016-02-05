@@ -44,6 +44,22 @@ function removeFriend(name){
 
 $(document).ready(function(){
 
+  $('#deletePreference').click(function(){
+    console.log('delete preference clicked');
+    $.ajax({
+      url: '/preference',
+      type: 'DELETE',
+      data: JSON.stringify({username:currentUsername}),
+      contentType: 'application/json',
+      success: function(data){
+        console.log('success',data);
+      },
+      error: function(err){
+        console.log('error',err);
+      }
+    })
+  })
+
   $('#pollButton').click(function(){
     console.log('poll button');
     $.ajax({
