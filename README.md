@@ -31,6 +31,59 @@
 
 ## Front-End
 ### Client Application Information
+SnapPea was built using React for our views and Redux for our state container and data flow management. Because of this, our client folder is broken down as follows:
+
+```
+client
+├── actions
+│   ├── authActions.js
+│   ├── dinerActions.js
+│   ├── friendActions.js
+│   ├── pollActions.js
+│   └── viewActions.js
+│   
+├── components
+│   ├── AddFriend.js
+│   ├── DeletePref.js
+│   ├── FriendEntry.js
+│   ├── Friends.js
+│   ├── FriendsList.js
+│   ├── FriendsPref.js
+│   ├── LocationPref.js
+│   ├── Map.js
+│   ├── Marker.js
+│   ├── Navigation.js
+│   ├── Poll.js
+│   ├── PollCategory.js
+│   ├── ProfileHome.js
+│   ├── RefinePref.js
+│   ├── Register.js
+│   ├── RestaurantPref.js
+│   ├── SelectedFriendEntry.js
+│   ├── SelectedFriends.js
+│   ├── Signin.js
+│   └── UberInfo.js
+│   
+├── containers
+│   ├── HomePage.js
+│   ├── Main.js
+│   └── Profile.js
+│  
+├── reducers
+│   ├── authReducer.js
+│   ├── dinerReducer.js
+│   ├── friendReducer.js
+│   ├── pollReducer.js
+│   └── viewReducer.js
+│  
+├── static
+│   ├── assets
+│   └── styles
+│  
+├── index.html
+├── index.js
+└── routes.js
+```
 
 ### General
 
