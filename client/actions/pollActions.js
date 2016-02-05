@@ -113,7 +113,6 @@ export const clearPoll = () => {
   }
 }
 
-export const RESET_REQUEST = 'RESET_REQUEST';
 export const RESET_SUCCESS = 'RESET_SUCCESS';
 
 //Clears previous preferences and
@@ -136,13 +135,7 @@ export const resetPoll = (credentials) => {
     .then(response => {
       dispatch(resetSuccess());
     })
-    .catch(err => console.error('Error in Register User:', err));
-  }
-}
-
-export const resetRequest = () => {
-  return {
-    type: RESET_REQUEST
+    .catch(err => console.error('Error in Reset Poll:', err));
   }
 }
 
