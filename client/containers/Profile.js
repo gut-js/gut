@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 
 //Actions
 import * as authActions from './../actions/authActions';
-import * as searchActions from './../actions/searchActions';
 import * as dinerActions from './../actions/dinerActions';
 import * as pollActions from './../actions/pollActions';
 import * as viewActions from './../actions/viewActions';
@@ -59,9 +58,7 @@ const mapStateToProps = (state) => {
     isFetching: state.authReducer.isFetching,
     authErrorMsg: state.authReducer.authErrorMsg,
     showPoll: state.authReducer.showPoll,
-    //search state
-    restaurants: state.searchReducer.businesses,
-    searchErrorMsg: state.searchReducer.searchErrorMsg,
+
     //poll state
     isSubmitting: state.pollReducer.isSubmitting,
     selected: state.pollReducer.selected,
@@ -69,6 +66,7 @@ const mapStateToProps = (state) => {
     pollErrorMessage: state.pollReducer.pollErrorMessage,
     data: state.pollReducer.data,
     resetCheck: state.pollReducer.resetCheck,
+
     //diner state
     diners: state.dinerReducer.diners,
     location: state.dinerReducer.location,
@@ -79,6 +77,7 @@ const mapStateToProps = (state) => {
     uberData: state.dinerReducer.uberData,
     isLoadingUberData: state.dinerReducer.isLoadingUberData,
     pickupLocation: state.dinerReducer.pickupLocation,
+
     //view state
     displayFriendsChoice: state.viewReducer.displayFriendsChoice,
     displayLocationChoice: state.viewReducer.displayLocationChoice,
@@ -86,6 +85,7 @@ const mapStateToProps = (state) => {
     displayAddFriends: state.viewReducer.displayAddFriends,
     displayUberInfo: state.viewReducer.displayUberInfo,
     displayPreferences: state.viewReducer.displayPreferences,
+
     //friend state
     userFriends: state.friendReducer.userFriends,
     friendSearchQuery: state.friendReducer.friendSearchQuery,
@@ -101,7 +101,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     authActions: bindActionCreators(authActions, dispatch),
-    searchActions: bindActionCreators(searchActions, dispatch),
     dinerActions: bindActionCreators(dinerActions, dispatch),
     pollActions: bindActionCreators(pollActions, dispatch),
     viewActions: bindActionCreators(viewActions, dispatch),

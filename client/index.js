@@ -7,7 +7,6 @@ import createHistory from 'history/lib/createHashHistory';
 import thunk from 'redux-thunk';
 
 import authReducer from './reducers/authReducer';
-import searchReducer from './reducers/searchReducer';
 import pollReducer from './reducers/pollReducer';
 import dinerReducer from './reducers/dinerReducer';
 import viewReducer from './reducers/viewReducer';
@@ -27,7 +26,6 @@ const thunkMid = applyMiddleware(thunk)
 const histMid = applyMiddleware(syncHistory(history));
 const reducer = combineReducers({
   authReducer,
-  searchReducer,
   pollReducer,
   dinerReducer,
   viewReducer,
