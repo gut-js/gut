@@ -6,8 +6,7 @@ const initialState = {
   username: '',
   isSubmitting: true,
   pollErrorMessage: '',
-  data: [],
-  resetCheck: true
+  data: []
 }
 
 export default function pollReducer(state = initialState, action){
@@ -53,15 +52,10 @@ export default function pollReducer(state = initialState, action){
         pollErrorMessage: '',
         data: []
       })
-    case ActionTypes.RESET_REQUEST:
-      return Object.assign({}, state, {
-        resetCheck: false
-      })
     case ActionTypes.RESET_SUCCESS:
       return Object.assign({}, state, {
         isSubmitting: true,
-        pollErrorMessage: '',
-        resetCheck: true
+        pollErrorMessage: ''
       })
     default:
       return state;

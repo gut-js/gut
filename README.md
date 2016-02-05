@@ -1,4 +1,4 @@
-# Gut
+# SnapPea
 
 #### Follow your gut.
 
@@ -25,10 +25,9 @@
 3. Ensure MongoDB is installed. If not, 'brew install mongod' > install MongoDB globally
 4. 'mongod' > start a MongoDB instance
 5. 'npm install' > server and client dependencies
-6. 'npm run build-css' > generates stylesheet
 7. 'webpack -w' > generates bundle.js file and compiles ES6 syntax using Babel
 8. 'npm start' > runs the app on a local server
-9. Visit http://localhost:5679/ on your browser for the login/register page
+9. Visit http://localhost:5679/ on your browser for the landing page
 
 ## Front-End
 ### Client Application Information
