@@ -134,7 +134,6 @@ class HomePage extends React.Component {
               <h4 className="works-description">Step 3: Get Custom-Tailored Recommendations</h4>
             </span>
           </div>
-          
         </div>
         
 <<<<<<< efcef5c7a70c8a56c73ff5569d01e0fdd9e45e77
@@ -143,6 +142,7 @@ class HomePage extends React.Component {
 <<<<<<< 1956e168ccdfd4efda267c5b6650339b3419981d
 >>>>>>> [style] adds 'how it works' and 'meet the team' to /homepage
         <div className="container team text-center">
+<<<<<<< 388512835776cbb4fe810b53f714149eb4e4f990
           <h1 className="team-title">Meet the SnapPea Team</h1>
 =======
         <div className="container team text-center">
@@ -156,13 +156,20 @@ class HomePage extends React.Component {
         <div className="container team text-center">
           <h1 className="team-title">Meet the SnapPea Team</h1>
 >>>>>>> [style] adds 'how it works' and 'meet the team' to /homepage
+<<<<<<< 281a0bcc38e2ff1ed7d79533cd844285be53d878
 <<<<<<< efcef5c7a70c8a56c73ff5569d01e0fdd9e45e77
 =======
 >>>>>>> [style] sets up meet the team section on /homepage
 =======
 >>>>>>> [style] adds 'how it works' and 'meet the team' to /homepage
+=======
+=======
+          <h1 className="about-title">Meet the SnapPea Team</h1>
+>>>>>>> [style] sets up meet the team section on /homepage
+>>>>>>> [style] sets up meet the team section on /homepage
           <div className="snappers">
             <div className="row">
+
               <span className="team-member col-md-3">
                 <image className="img-circle" height="135px" src="https://avatars3.githubusercontent.com/u/9559638?v=3&s=400"/>
                 <h3 className="member-name" >Daisy Tsao</h3>
@@ -180,6 +187,7 @@ class HomePage extends React.Component {
                 <a href="https://github.com/madcurie" target="_blank"><i className="fa fa-github-square fa-2x"></i></a>
                 <h5>Likes React, Redux, and enforcing chores.</h5>
               </span>
+
               <span className="team-member col-md-3">
                 <image className="img-circle" height="135px" src="https://avatars3.githubusercontent.com/u/9559638?v=3&s=400"/>
                 <h3 className="member-name" >Carl Bernardo</h3>
@@ -187,6 +195,7 @@ class HomePage extends React.Component {
                 <a href="https://github.com/carlbernardo" target="_blank"><i className="fa fa-github-square fa-2x"></i></a>
                 <h5>Likes React, Redux, and hipster coffee joints.</h5>
               </span>
+
               <span className="team-member col-md-3">
                 <image className="img-circle" height="135px" src="https://avatars3.githubusercontent.com/u/9559638?v=3&s=400"/>
                 <h3 className="member-name" >Justin Tan</h3>
@@ -253,6 +262,7 @@ class HomePage extends React.Component {
 >>>>>>> [style] adds 'how it works' and 'meet the team' to /homepage
                 <h5>Likes React, Redux, and paying half price for everything.</h5>
               </span>
+
               <span className="team-member col-md-3">
                 <image className="img-circle" height="135px" src="https://avatars3.githubusercontent.com/u/9559638?v=3&s=400"/>
                 <h3 className="member-name" >Shin Adachi</h3>
@@ -291,6 +301,7 @@ class HomePage extends React.Component {
 >>>>>>> [style] adds 'how it works' and 'meet the team' to /homepage
                 <h5>Likes React, Redux, and NPR podcasts.</h5>
               </span>
+              
             </div>
           </div>
         </div>
