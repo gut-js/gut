@@ -60,13 +60,13 @@
       right: 0;
       left: 0;
   }
+
   .team {
     background-color: $white;
   }
   .team-member {
     text-align: center;
   }
-
   .about-title {
     padding: 15px;
     /*font-family: 'Amatic SC', cursive;*/
@@ -75,24 +75,29 @@
     font-weight: bold;
     /*background-color: $white;*/
   }
+
+  .works-description {
+    padding: 30px;
+  }
+
+  .how {
+    padding: 30px;
+  }
+
   .team-title{
     /*color: ;*/
     font-family: 'Karla', sans-serif;
     font-size: 50px;
     font-weight: bold;
   }
-  /*.team-member2 {
-    text-align: center;
-    padding-top: 50px;
-  }*/
-  .works-description {
-    padding: 30px;
-  }
+
+  
 
   .team-member {
     padding: 50px;
     text-align: center;
   }
+
   .member-name {
     /*background-color: $green;*/
     color: $green;
