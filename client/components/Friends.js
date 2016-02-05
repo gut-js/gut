@@ -83,7 +83,3 @@ class Friends extends React.Component {
 }
 
 export default Friends;
-
-// todo:
-// show current friends somewhere
-// remove button for friends

@@ -1,16 +1,8 @@
 import { routeActions } from 'react-router-redux';
 
 export const LOAD_YELP_DATA = 'LOAD_YELP_DATA';
-export const SEND_POLL_REQUEST = 'SEND_POLL_REQUEST';
-export const SEND_POLL_SUCCESS = 'SEND_POLL_SUCCESS';
-export const SEND_POLL_ERROR = 'SEND_POLL_ERROR';
-export const UPDATE_POLL = 'UPDATE_POLL';
-export const SYNC_POLL = 'SYNC_POLL';
-export const END_POLL = 'END_POLL';
-export const CLEAR_POLL = 'CLEAR_POLL';
-export const RESET_REQUEST = 'RESET_REQUEST';
-export const RESET_SUCCESS = 'RESET_SUCCESS';
 
+// Fetches restaurants to be used in poll
 export const fetchYelpData = () => {
   return dispatch => {
 
@@ -37,6 +29,15 @@ const loadYelpData = (info) => {
   }
 }
 
+export const SEND_POLL_REQUEST = 'SEND_POLL_REQUEST';
+export const SEND_POLL_SUCCESS = 'SEND_POLL_SUCCESS';
+export const SEND_POLL_ERROR = 'SEND_POLL_ERROR';
+export const UPDATE_POLL = 'UPDATE_POLL';
+export const SYNC_POLL = 'SYNC_POLL';
+export const END_POLL = 'END_POLL';
+export const CLEAR_POLL = 'CLEAR_POLL';
+
+// Sends poll responses to backend
 export const sendPollChoices = (choices) => {
   return dispatch => {
     dispatch(sendPollRequest(choices));
@@ -112,6 +113,11 @@ export const clearPoll = () => {
   }
 }
 
+export const RESET_REQUEST = 'RESET_REQUEST';
+export const RESET_SUCCESS = 'RESET_SUCCESS';
+
+//Clears previous preferences and
+//allows user to start with clean slate
 export const resetPoll = (credentials) => {
   return dispatch => {
     return fetch('http://localhost:5679/preference', {

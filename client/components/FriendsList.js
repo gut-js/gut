@@ -19,7 +19,7 @@ class FriendsList extends React.Component {
         return diners.indexOf(friend.username) === -1
       })
       .map((friend, ind) => {
-        return (
+        return(
           <FriendEntry
             username={username}
             removeFriend={removeFriend}

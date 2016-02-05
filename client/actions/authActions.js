@@ -4,14 +4,6 @@ import { syncPoll } from './../actions/pollActions';
 export const REGISTER_REQUEST = 'REGISTER_REQUEST';
 export const REGISTER_ERROR = 'REGISTER_ERROR';
 export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
-export const AUTHENTICATE_REQUEST = 'AUTHENTICATE_REQUEST';
-export const AUTHENTICATE_ERROR = 'AUTHENTICATE_ERROR';
-export const AUTHENTICATE_SUCCESS = 'AUTHENTICATE_SUCCESS';
-export const SIGNIN_REQUEST = 'SIGNIN_REQUEST';
-export const SIGNIN_ERROR_PW = 'SIGNIN_ERROR_PW';
-export const SIGNIN_ERROR_USER = 'SIGNIN_ERROR_USER';
-export const SIGNIN_SUCCESS = 'SIGNIN_SUCCESS';
-export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
 
 // Main Register Function
 export const registerUser = (credentials) => {
@@ -72,6 +64,10 @@ const registerSuccess = (info) => {
   }
 }
 
+export const AUTHENTICATE_REQUEST = 'AUTHENTICATE_REQUEST';
+export const AUTHENTICATE_ERROR = 'AUTHENTICATE_ERROR';
+export const AUTHENTICATE_SUCCESS = 'AUTHENTICATE_SUCCESS';
+
 // Main Authentication Function
 export const authenticateUser = (token) => {
   return dispatch => {
@@ -125,6 +121,11 @@ const authenticateSuccess = (info) => {
     info
   }
 }
+
+export const SIGNIN_REQUEST = 'SIGNIN_REQUEST';
+export const SIGNIN_ERROR_PW = 'SIGNIN_ERROR_PW';
+export const SIGNIN_ERROR_USER = 'SIGNIN_ERROR_USER';
+export const SIGNIN_SUCCESS = 'SIGNIN_SUCCESS';
 
 // Main Sign in Function
 export const signinUser = (credentials) => {
@@ -194,6 +195,8 @@ const signinSuccess = (user) => {
     user
   }
 }
+
+export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
 
 // Main Logout Function
 export const logoutUser = () => {

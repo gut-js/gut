@@ -6,6 +6,8 @@ export const DISPLAY_PREFERENCES = 'DISPLAY_PREFERENCES';
 export const DISPLAY_UBER_INFO = 'DISPLAY_UBER_INFO';
 export const CLEAR_VIEWS = 'CLEAR_VIEWS';
 
+
+// Renders different views on profile page
 export const displayFriendsChoice = () => {
   return dispatch => {
     dispatch({

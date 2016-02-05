@@ -1,15 +1,4 @@
-import {
-  LOAD_REQUEST,
-  LOAD_SUCCESS,
-  SEARCH_REQUEST,
-  SEARCH_SUCCESS,
-  SEARCH_ERROR,
-  ADD_REQUEST,
-  ADD_SUCCESS,
-  REMOVE_REQUEST,
-  REMOVE_SUCCESS,
-  CLEAR_FRIENDS
-} from './../actions/friendActions';
+import * as ActionTypes from './../actions/friendActions';
 
 const initialState = {
   userFriends: [],
@@ -24,47 +13,47 @@ const initialState = {
 
 export default function friendReducer(state = initialState, action){
   switch(action.type){
-    case LOAD_REQUEST:
+    case ActionTypes.LOAD_REQUEST:
       return Object.assign({}, state, {
         isLoadingFriends: true
       })
-    case LOAD_SUCCESS:
+    case ActionTypes.LOAD_SUCCESS:
       return Object.assign({}, state, {
         userFriends: action.loadResults,
         isLoadingFriends: false
       })
-    case SEARCH_REQUEST:
+    case ActionTypes.SEARCH_REQUEST:
       return Object.assign({}, state, {
         friendSearchQuery: action.query,
         isSearching: true
       })
-    case SEARCH_SUCCESS:
+    case ActionTypes.SEARCH_SUCCESS:
       return Object.assign({}, state, {
         searchResults: action.searchResults,
         isSearching: false
       })
-    case SEARCH_ERROR:
+    case ActionTypes.SEARCH_ERROR:
       return Object.assign({}, state, {
         friendsErrorMsg: action.err,
         isSearching: false
       })
-    case ADD_REQUEST:
+    case ActionTypes.ADD_REQUEST:
       return Object.assign({}, state, {
         addCheck: true
       })
-    case ADD_SUCCESS:
+    case ActionTypes.ADD_SUCCESS:
       return Object.assign({}, state, {
         addCheck: false
       })
-    case REMOVE_REQUEST:
+    case ActionTypes.REMOVE_REQUEST:
       return Object.assign({}, state, {
         removeCheck: true
       })
-    case REMOVE_SUCCESS:
+    case ActionTypes.REMOVE_SUCCESS:
       return Object.assign({}, state, {
         removeCheck: false
       })
-    case CLEAR_FRIENDS:
+    case ActionTypes.CLEAR_FRIENDS:
       return Object.assign({}, state, {
         searchResults: []
       })

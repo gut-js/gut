@@ -1,10 +1,10 @@
 import React from 'react';
-import { Grid, Row, Col } from 'react-bootstrap';
 
 class PollCategory extends React.Component {
   constructor(){
     super();
     this.selectImage = this.selectImage.bind(this);
+    this.displayPoll = this.displayPoll.bind(this);
   }
 
   selectImage(e){
@@ -12,7 +12,7 @@ class PollCategory extends React.Component {
     const { username } = this.props;
     let selected, unselected;
 
-    if (e.target.alt === 'choice1') {
+    if(e.target.alt === 'choice1') {
       selected = this.props.data[0].categories;
       unselected = this.props.data[1].categories;
     } else if (e.target.alt === 'choice2') {
@@ -34,8 +34,9 @@ class PollCategory extends React.Component {
     }
   }
 
-  render(){
-    let poll = this.props.data.length > 1 ? (
+  displayPoll(){
+    if(this.props.data.length > 1){
+      return(
         <div>
           <img
             src={this.props.data[0].image_url}
@@ -50,11 +51,16 @@ class PollCategory extends React.Component {
           width='500px'
           onClick={this.selectImage} />
         </div>
-      ) : null;
+      )
+    } else {
+      return null;
+    }
+  }
 
+  render(){
     return (
       <div>
-        {poll}
+        {this.displayPoll()}
       </div>
     )
   }

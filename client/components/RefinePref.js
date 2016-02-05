@@ -70,7 +70,6 @@ class RefinePref extends React.Component {
   }
 
   render(){
-    console.log('props in refine pref', this.props);
     return(
       <div>
         <h1>Refine your Preferences.</h1>

@@ -8,6 +8,7 @@ class SignIn extends React.Component {
     super();
     this.handleClick = this.handleClick.bind(this);
     this.switch = this.switch.bind(this);
+    this.displayError = this.displayError.bind(this);
   }
 
   handleClick(e){
@@ -31,12 +32,19 @@ class SignIn extends React.Component {
     this.props.openRegister();
   }
 
-  render(){
-    let errorMsg = this.props.authErrorMsg ? (
-      <p>
-        Either the username or password you entered is incorrect.
-      </p>) : null;
+  displayError(){
+    if(this.props.authErrorMsg){
+      return(
+        <p>
+          Either the username or password you entered is incorrect.
+        </p>
+      )
+    } else {
+      return null;
+    }
+  }
 
+  render(){
     return(
       <Modal show={this.props.showSignInModal} onHide={this.props.closeSignIn}>
         <Modal.Header closeButton>
@@ -61,7 +69,7 @@ class SignIn extends React.Component {
                 ref='password' />
             </div>
             <div className='form-group'>
-              {errorMsg}
+              {this.displayError()}
               <button
                 type='submit'
                 className='btn btn-block'
