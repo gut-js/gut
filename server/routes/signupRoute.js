@@ -10,6 +10,7 @@ var db = require('../db');
 var app = require('../server');
 var getGeolocationData = require('../functions/getGeolocationData');
 var request_yelp = require('../functions/request_yelp');
+var cities = require('../cities');
 
 //sign up for account
 router.post('/', function(req, res) {
@@ -44,57 +45,29 @@ router.post('/', function(req, res) {
         else {
           console.log('user was saved:', user);
           var token = jwt.sign(user, app.get('superSecret'), { expiresInminutes:1440 });
-          // // Below is commented out to keep from abusing the Google API during the development phase!
-          // getGeolocationData().then(function(data){
-          //   var latitude = data.location.lat;
-          //   var longitude = data.location.lng;
 
-          //   console.log('latitude',latitude);
-          //   console.log('longitude',longitude);
-
-          //   console.log(latitude+','+longitude);
-
-          //   request_yelp({ll:latitude+','+longitude},function(yelpErr,yelpRes,yelpBody){
-          //       if (yelpErr) {
-          //         console.error(yelpErr);
-          //       }
-          //       var parsed = JSON.parse(yelpBody);
-          //       var businesses = parsed.businesses;
-          //       businesses = _.shuffle(businesses);
-          //       for (var i=0; i<businesses.length; i++) {
-          //         console.log(businesses[i].image_url);
-          //         businesses[i].image_url = businesses[i].image_url.slice(0,-6)+'o.jpg';
-          //       }
-
-          //       // serve token to client
-          //       res.json({
-          //         success: true,
-          //         message: 'Enjoy your token!',
-          //         token: token,
-          //         username: user.username,
-          //         password: user.password,
-          //         businesses:businesses
-          //       });
-          //   })
-
-          // })   
-
-          var businesses = (require('../businesses'));
-          //shuffle poll
-          businesses = _.shuffle(businesses);
-
-          res.json({
-            success: true,
-            message: 'Enjoy your token!',
-            token: token,
-            username: user.username,
-            password: user.password,
-            businesses: businesses.slice(0,20),
-            gravatarUrl: user.gravatarUrl
-          });
-        }
-      });
-
+          var city = _.shuffle(cities).pop();
+          console.log('city',city);
+          request_yelp({location:city},function(yelpErr,yelpRes,yelpBody){
+            var parsed = JSON.parse(yelpBody);
+            console.log('parsed',parsed);
+            var businesses = parsed.businesses;
+                businesses = _.shuffle(businesses);
+                console.log('businesses',businesses);
+                for (var i=0; i<businesses.length; i++) {
+                  console.log(businesses[i].image_url);
+                  businesses[i].image_url = businesses[i].image_url.slice(0,-6)+'o.jpg';
+                }
+                res.json({
+                  success: true,
+                  message: 'Enjoy your token!',
+                  token: token,
+                  username: user.username,
+                  businesses:businesses
+                });//end of res.json
+          })//end of request_yelp
+        }//end of else
+      })//end of user.save
     });
   });
 });
