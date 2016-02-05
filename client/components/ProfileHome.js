@@ -5,7 +5,7 @@ import FriendsPref from './FriendsPref';
 import Friends from './Friends';
 import LocationPref from './LocationPref';
 import RestaurantPref from './RestaurantPref';
-import Repoll from './Repoll'
+import RefinePref from './RefinePref'
 
 class ProfileHome extends React.Component {
   constructor(){
@@ -60,7 +60,7 @@ class ProfileHome extends React.Component {
   displayPreferences(){
     if(this.props.displayPreferences){
       return(
-        <Repoll {...this.props} />
+        <RefinePref {...this.props} />
       )
     } else {
       return null;
@@ -68,7 +68,6 @@ class ProfileHome extends React.Component {
   }
 
   render(){
-    console.log('props in this marg', this.props);
     return(
       <div>
         {this.displayLocationChoice()}

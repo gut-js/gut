@@ -1,17 +1,18 @@
 import { routeActions } from 'react-router-redux';
 
+export const LOAD_YELP_DATA = 'LOAD_YELP_DATA';
 export const SEND_POLL_REQUEST = 'SEND_POLL_REQUEST';
 export const SEND_POLL_SUCCESS = 'SEND_POLL_SUCCESS';
 export const SEND_POLL_ERROR = 'SEND_POLL_ERROR';
 export const UPDATE_POLL = 'UPDATE_POLL';
 export const SYNC_POLL = 'SYNC_POLL';
 export const END_POLL = 'END_POLL';
-export const LOAD_YELP_DATA = 'LOAD_YELP_DATA';
+export const CLEAR_POLL = 'CLEAR_POLL';
 
 export const fetchYelpData = () => {
   return dispatch => {
 
-    return fetch('http://localhost:5679/yelp?location=' + 'seattle', {
+    return fetch('http://localhost:5679/poll', {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
@@ -82,6 +83,12 @@ export const updatePoll = (info, username) => {
   }
 }
 
+const shortenPoll = (info) => {
+  let results = info.slice(2);
+
+  return results;
+}
+
 export const syncPoll = (info, username) => {
   return {
     type: SYNC_POLL,
@@ -97,8 +104,8 @@ export const endPoll = (userInfo) => {
   }
 }
 
-const shortenPoll = (info) => {
-  let results = info.slice(2);
-
-  return results;
+export const clearPoll = () => {
+  return {
+    type: CLEAR_POLL
+  }
 }
