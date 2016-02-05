@@ -8,6 +8,8 @@ export const UPDATE_POLL = 'UPDATE_POLL';
 export const SYNC_POLL = 'SYNC_POLL';
 export const END_POLL = 'END_POLL';
 export const CLEAR_POLL = 'CLEAR_POLL';
+export const RESET_REQUEST = 'RESET_REQUEST';
+export const RESET_SUCCESS = 'RESET_SUCCESS';
 
 export const fetchYelpData = () => {
   return dispatch => {
@@ -107,5 +109,39 @@ export const endPoll = (userInfo) => {
 export const clearPoll = () => {
   return {
     type: CLEAR_POLL
+  }
+}
+
+export const resetPoll = (credentials) => {
+  return dispatch => {
+    return fetch('http://localhost:5679/preference', {
+      method: 'DELETE',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        username: credentials.username,
+      })
+    })
+    .then(response => {
+      return response.json();
+    })
+    .then(response => {
+      dispatch(resetSuccess());
+    })
+    .catch(err => console.error('Error in Register User:', err));
+  }
+}
+
+export const resetRequest = () => {
+  return {
+    type: RESET_REQUEST
+  }
+}
+
+const resetSuccess = () => {
+  return {
+    type: RESET_SUCCESS
   }
 }
