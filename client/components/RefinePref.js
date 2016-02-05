@@ -2,14 +2,17 @@ import React from 'react';
 
 //Components
 import Poll from './Poll';
+import DeletePref from './DeletePref';
 
 class RefinePref extends React.Component {
   constructor(){
     super();
+    this.openDeleteModal = this.openDeleteModal.bind(this);
+    this.closeDeleteModal = this.closeDeleteModal.bind(this);
     this.displayPreferencePoll = this.displayPreferencePoll.bind(this);
-    this.displayResetCheck = this.displayResetCheck.bind(this);
-    this.handleResetRequest = this.handleResetRequest.bind(this);
-    this.handleReset = this.handleReset.bind(this);
+    this.state = {
+      showDeleteModal: false,
+    }
   }
 
   componentWillMount(){
@@ -18,21 +21,16 @@ class RefinePref extends React.Component {
     fetchYelpData();
   }
 
-  handleResetRequest(){
-    const { resetRequest } = this.props.pollActions;
-
-    resetRequest();
+  openDeleteModal(){
+    this.setState({
+      showDeleteModal: true
+    })
   }
 
-  handleReset(){
-    const { resetPoll, fetchYelpData } = this.props.pollActions;
-    const { username } = this.props;
-    const userInfo = {
-      username: username
-    }
-
-    resetPoll(userInfo);
-    fetchYelpData();
+  closeDeleteModal(){
+    this.setState({
+      showDeleteModal: false
+    })
   }
 
   displayPreferencePoll(){
@@ -43,27 +41,7 @@ class RefinePref extends React.Component {
     } else {
       return(
         <div>
-        Save some food for tomorrow!
-        </div>
-      )
-    }
-  }
-
-  displayResetCheck(){
-
-    if(this.props.resetCheck){
-      return(
-        <button onClick={this.handleResetRequest}>
-          Delete My Preferences
-        </button>
-      )
-    } else {
-      return(
-        <div>
-          Are you sure?
-          <button onClick={this.handleReset}>
-            Yes, I am sure. Delete my preferences.
-          </button>
+          Save some food for tomorrow!
         </div>
       )
     }
@@ -75,7 +53,15 @@ class RefinePref extends React.Component {
         <h1>Refine your Preferences.</h1>
         {this.displayPreferencePoll()}
         <h3>Reset your Preferences</h3>
-        {this.displayResetCheck()}
+        <div>
+          <button onClick={this.openDeleteModal}>
+            Delete My Preferences
+          </button>
+          <DeletePref
+            {...this.props}
+            showDeleteModal={this.state.showDeleteModal}
+            closeDeleteModal={this.closeDeleteModal} />
+        </div>
       </div>
     )
   }
