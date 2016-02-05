@@ -55,8 +55,7 @@ export default function pollReducer(state = initialState, action){
     case ActionTypes.RESET_SUCCESS:
       return Object.assign({}, state, {
         isSubmitting: true,
-        pollErrorMessage: '',
-        resetCheck: true
+        pollErrorMessage: ''
       })
     default:
       return state;

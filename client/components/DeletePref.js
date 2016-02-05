@@ -9,18 +9,21 @@ class DeletePref extends React.Component {
 
   handleReset(){
     const { resetPoll, fetchYelpData } = this.props.pollActions;
+    const { clearPoll } = this.props.pollActions;
     const { username, closeDeleteModal } = this.props;
     const userInfo = {
       username: username
     }
 
     resetPoll(userInfo);
+    clearPoll();
     fetchYelpData();
     closeDeleteModal();
   }
 
   render(){
     const { showDeleteModal, closeDeleteModal } = this.props;
+    console.log('props in delete pref', this.props);
 
     return(
       <Modal
