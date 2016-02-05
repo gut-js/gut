@@ -6,7 +6,9 @@ import {
   UPDATE_POLL,
   SYNC_POLL,
   END_POLL,
-  CLEAR_POLL
+  CLEAR_POLL,
+  RESET_REQUEST,
+  RESET_SUCCESS
 } from './../actions/pollActions';
 
 const initialState = {
@@ -15,7 +17,8 @@ const initialState = {
   username: '',
   isSubmitting: true,
   pollErrorMessage: '',
-  data: []
+  data: [],
+  resetCheck: true
 }
 
 export default function pollReducer(state = initialState, action){
@@ -60,6 +63,16 @@ export default function pollReducer(state = initialState, action){
         isSubmitting: true,
         pollErrorMessage: '',
         data: []
+      })
+    case RESET_REQUEST:
+      return Object.assign({}, state, {
+        resetCheck: false
+      })
+    case RESET_SUCCESS:
+      return Object.assign({}, state, {
+        isSubmitting: true,
+        pollErrorMessage: '',
+        resetCheck: true
       })
     default:
       return state;
