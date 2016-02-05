@@ -1,11 +1,12 @@
 import {
+  LOAD_YELP_DATA,
   SEND_POLL_REQUEST,
   SEND_POLL_SUCCESS,
   SEND_POLL_ERROR,
   UPDATE_POLL,
   SYNC_POLL,
   END_POLL,
-  LOAD_YELP_DATA
+  CLEAR_POLL
 } from './../actions/pollActions';
 
 const initialState = {
@@ -19,6 +20,10 @@ const initialState = {
 
 export default function pollReducer(state = initialState, action){
   switch(action.type){
+    case LOAD_YELP_DATA:
+      return Object.assign({}, state, {
+        data: action.info
+      })
     case SEND_POLL_REQUEST:
       return Object.assign({}, state, {
         selected: action.info.selected,
@@ -49,9 +54,12 @@ export default function pollReducer(state = initialState, action){
         isSubmitting: false,
         username: action.userInfo
       })
-    case LOAD_YELP_DATA:
+    case CLEAR_POLL:
       return Object.assign({}, state, {
-        data: action.info
+        username: '',
+        isSubmitting: true,
+        pollErrorMessage: '',
+        data: []
       })
     default:
       return state;
