@@ -3,6 +3,26 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var db = require('../db');
 
+router.delete('/',function(req,res){
+    var username = req.body.username;
+    console.log('username',username);
+    db.User.findOne({username:username},function(err,user){
+        if(err){
+            console.log('err finding user');
+            res.send(err);
+        }
+        else{
+            console.log('found user');
+            user.categories = {test:'test'};
+            user.markModified('categories');
+            user.save(function(err,user){
+                console.log('updated user',user);
+                res.json(user);
+            })
+        }
+    })
+})
+
 router.put('/',function(req,res){
 	var username = req.body.username;
 	var selected = req.body.selected;
