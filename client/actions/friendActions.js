@@ -1,13 +1,5 @@
 export const LOAD_REQUEST = 'LOAD_REQUEST';
 export const LOAD_SUCCESS = 'LOAD_SUCCESS';
-export const SEARCH_REQUEST = 'SEARCH_REQUEST';
-export const SEARCH_SUCCESS = 'SEARCH_SUCCESS';
-export const SEARCH_ERROR = 'SEARCH_ERROR';
-export const ADD_REQUEST = 'ADD_REQUEST';
-export const ADD_SUCCESS = 'ADD_SUCCESS';
-export const REMOVE_REQUEST = 'REMOVE_REQUEST';
-export const REMOVE_SUCCESS = 'REMOVE_SUCCESS';
-export const CLEAR_FRIENDS = 'CLEAR_FRIENDS';
 
 // Main load friends function
 export const loadFriends = (user) => {
@@ -43,6 +35,10 @@ const loadSuccess = (loadResults) => {
     loadResults
   }
 }
+
+export const SEARCH_REQUEST = 'SEARCH_REQUEST';
+export const SEARCH_SUCCESS = 'SEARCH_SUCCESS';
+export const SEARCH_ERROR = 'SEARCH_ERROR';
 
 // Main search function
 export const findFriends = (query, user) => {
@@ -94,6 +90,9 @@ const searchError = (err) => {
   }
 }
 
+export const ADD_REQUEST = 'ADD_REQUEST';
+export const ADD_SUCCESS = 'ADD_SUCCESS';
+
 // Main add friend function
 export const addFriend = (credentials) => {
   return dispatch => {
@@ -131,6 +130,10 @@ const addSuccess = () => {
     type: ADD_SUCCESS
   }
 }
+
+export const REMOVE_REQUEST = 'REMOVE_REQUEST';
+export const REMOVE_SUCCESS = 'REMOVE_SUCCESS';
+export const CLEAR_FRIENDS = 'CLEAR_FRIENDS';
 
 // Main remove friend Function
 export const removeFriend = (credentials) => {
