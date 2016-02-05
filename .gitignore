@@ -14,3 +14,7 @@ npm-debug.log.*
 
 #User Avatars
 uploads/
+
+#Test Files
+client/test.html
+client/testApp.js
