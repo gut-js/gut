@@ -155,7 +155,6 @@ export const removeFriend = (credentials) => {
       return response.json();
     })
     .then(response => {
-      console.log('res back from deletion', response);
       dispatch(loadSuccess(response));
     })
     .catch(err => console.error('Error in Add Friend:', err));
