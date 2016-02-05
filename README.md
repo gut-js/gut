@@ -17,21 +17,50 @@
 * [Sass](http://sass-lang.com/)
 * [Bootstrap](http://getbootstrap.com/)
 * [React Bootstrap](https://react-bootstrap.github.io/)
+
+#### APIs Used:
 * [Yelp API](https://www.yelp.com/developers/documentation/v2/overview)
+* [Google Maps Geocoding API](https://developers.google.com/maps/documentation/geocoding/intro?hl=en_US)
+* [Google Maps Geolocation API](https://developers.google.com/maps/documentation/geolocation/intro?hl=en_US)
+* [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/?hl=en_US)
+* [Google Places API Web Service](https://developers.google.com/places/?hl=en_US)
+* [Uber API](https://developer.uber.com/docs)
 
 #### To start contributing to the Gut codebase:
-1. Fork the repo
-2. Clone your fork locally
-3. Ensure MongoDB is installed. If not, 'brew install mongod' > install MongoDB globally
-4. 'mongod' > start a MongoDB instance
-5. 'npm install' > server and client dependencies
-7. 'webpack -w' > generates bundle.js file and compiles ES6 syntax using Babel
-8. 'npm start' > runs the app on a local server
-9. Visit http://localhost:5679/ on your browser for the landing page
+* Fork the repo
+* Clone your fork locally
+* Ensure MongoDB is installed. If not, install MongoDB globally
+```
+brew install mongod
+```
+* Start a MongoDB instance
+```
+mongod
+```
+* Create a config.js file in the root of the server directory
+```
+server
+└── config.js
+// your config file will contain the following:
+module.exports = {
+  google_api_key: 'INSERT KEY HERE',
+  uberClientId: 'INSERT_CLIENT_ID_HERE',
+  uberServerToken: 'INSERT_SERVER_TOKEN_HERE'
+};
+```
+* Install server and client dependencies
+* Generate bundle.js file and compile ES6 syntax using Babel
+* Run the app on a local server
+```
+npm install
+webpack -w
+npm start
+```
+* Visit http://localhost:5679/ on your browser for the landing page
 
 ## Front-End
 ### Client Application Information
-SnapPea was built using React for our views and Redux for our state container and data flow management. Because of this, our client folder is broken down as follows:
+SnapPea leverages React to render our views. We use Redux by Dan Abramov and the Rackt community to facilitate our state management. Because of this, our client folder is broken down as follows:
 
 ```
 client
@@ -85,6 +114,52 @@ client
 └── routes.js
 ```
 
+Below, you'll find our container and component structure:
+
+```
+Index.js
+└── Main.js
+    ├── HomePage.js // container
+    │   └── Navigation.js
+    │       ├── SignIn.js
+    │       └── Register.js
+    │  
+    └── Profile.js // container
+        ├── Navigation.js
+        │
+        ├── Poll.js
+        │   └── PollCategory.js
+        │   
+        └── ProfileHome.js
+            ├── LocationPref.js
+            │
+            ├── FriendsPref.js
+            │   ├── SelectedFriends.js
+            │   │   └── SelectedFriendEntry.js
+            │   │
+            │   └── FriendsList.js
+            │       └── FriendEntry.js
+            │   
+            ├── RestaurantPref.js
+            │   ├── Map.js
+            │   │   └── Marker.js
+            │   │
+            │   └── UberInfo.js
+            │   
+            ├── Friends.js
+            │   ├── AddFriend.js
+            │   │
+            │   └── FriendsList.js
+            │       └── FriendEntry.js
+            │      
+            └── RefinePref.js
+                ├── Poll.js
+                │   └── PollCategory.js
+                │
+                └── DeletePref.js
+
+```
+
 ### General
 
 ## Back-End
@@ -94,8 +169,8 @@ client
 
 ### Database
 
-## Team
-* Daisy Tsao
-* Shin Adachi
-* Justin Tan
-* Carl Bernardo
+## SnapPea Team
+* [Daisy Tsao](https://github.com/madcurie)
+* [Shin Adachi](https://github.com/shin064)
+* [Justin Tan](https://github.com/justanman)
+* [Carl Bernardo](https://github.com/carlbernardo)
