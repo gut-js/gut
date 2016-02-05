@@ -1,11 +1,9 @@
-import React, {PropTypes, Component} from 'react';
+import React, { PropTypes, Component } from 'react';
 
 const K_WIDTH = 15;
 const K_HEIGHT = 15;
 
 const greatPlaceStyle = {
-  // initially any map object has left top corner at lat lng coordinates
-  // it's on you to set object origin to 0,0 coordinates
   position: 'absolute',
   width: K_WIDTH,
   height: K_HEIGHT,
@@ -24,16 +22,15 @@ const greatPlaceStyle = {
 
 export default class Marker extends Component {
 
-  constructor(props) {
+  constructor(props){
     super(props);
     const propTypes = {
       text: PropTypes.string
     };
-
     const defaultProps = {};
   }
 
-  render() {
+  render(){
     return (
        <div style={greatPlaceStyle}>
           {this.props.text}

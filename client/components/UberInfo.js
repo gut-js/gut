@@ -14,13 +14,11 @@ class Fare extends React.Component {
 class UberInfo extends React.Component {
   constructor(){
     super();
-
+    this.displayUberSpinner = this.displayUberSpinner.bind(this);
+    this.displayUberInfo = this.displayUberInfo.bind(this);
     this.state = {
       isFetchingUberData: false
     }
-
-    this.displayUberSpinner = this.displayUberSpinner.bind(this);
-    this.displayUberInfo = this.displayUberInfo.bind(this);
   }
 
   componentWillMount(){

@@ -13,7 +13,6 @@ class SelectedFriendEntry extends React.Component {
   }
 
   render(){
-
     return(
       <div>
         <h2>{this.props.diner}</h2>
