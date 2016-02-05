@@ -96,7 +96,41 @@ class HomePage extends React.Component {
                 </a>
             </div>
         </div>
-        
+        <div className="container team text-center">
+          <h1 className="about-title">Meet the SnapPea Team</h1>
+          <div className="snappers">
+            <div className="row">
+              <span className="team-member col-md-3">
+                <image className="img-circle" height="135px" src="https://avatars3.githubusercontent.com/u/9559638?v=3&s=400"/>
+                <h3 className="member-name" >Daisy Tsao</h3>
+                <a href="https://www.linkedin.com/in/daisytsao"><i className="fa fa-linkedin-square fa-3x"></i></a>
+                <a href="https://github.com/madcurie" target="_blank"><i className="fa fa-github-square fa-3x"></i></a>
+                <h5>Likes React, Redux, and enforcing chores.</h5>
+              </span>
+              <span className="team-member2 col-md-3">
+                <image className="img-circle" height="135px" src="https://avatars3.githubusercontent.com/u/9559638?v=3&s=400"/>
+                <h3 className="member-name" >Carl Bernardo</h3>
+                <a href="https://www.linkedin.com/in/carlbernardo"><i className="fa fa-linkedin-square fa-3x"></i></a>
+                <a href="https://github.com/carlbernardo" target="_blank"><i className="fa fa-github-square fa-3x"></i></a>
+                <h5>Likes React, Redux, and hipster coffee joints.</h5>
+              </span>
+              <span className="team-member2 col-md-3">
+                <image className="img-circle" height="135px" src="https://avatars3.githubusercontent.com/u/9559638?v=3&s=400"/>
+                <h3 className="member-name" >Justin Tan</h3>
+                <a href="https://www.linkedin.com/in/justanman"><i className="fa fa-linkedin-square fa-3x"></i></a>
+                <a href="https://github.com/justanman" target="_blank"><i className="fa fa-github-square fa-3x"></i></a>
+                <h5>Likes React, Redux, and paying half price for everything.</h5>
+              </span>
+              <span className="team-member col-md-3">
+                <image className="img-circle" height="135px" src="https://avatars3.githubusercontent.com/u/9559638?v=3&s=400"/>
+                <h3 className="member-name" >Shin Adachi</h3>
+                <a href="https://www.linkedin.com/in/shin064"><i className="fa fa-linkedin-square fa-3x"></i></a>
+                <a href="http://www.shinadachi.com" target="_blank"><i className="fa fa-github-square fa-3x"></i></a>
+                <h5>Likes React, Redux, and NPR podcasts.</h5>
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
     )
   }
