@@ -60,7 +60,7 @@ npm start
 
 ## Front-End
 ### Client Application Information
-SnapPea leverages React to render our views. We use Redux by Dan Abramov and the Rackt community to facilitate our state management. Because of this, our client folder is broken down as follows:
+SnapPea leverages React to render our views. We use Redux by Dan Abramov to facilitate our state management. Because of this, our client folder is broken down as follows:
 
 ```
 client
@@ -160,7 +160,26 @@ Index.js
 
 ```
 
-### General
+### Redux and Application State
+
+State management for SnapPea utilizes Redux. The following directories manage our state:
+
+  * reducers
+  * actions
+  * containers
+
+For every action file, there is a corresponding reducer file.
+* Auth - Manages the logged in state of the user
+* Diner - Manages the state of the user's recommendations
+* Friend - Manages the state of the user's friends and friend search queries
+* Poll - Manages the state of the preferences poll (selected, unselected, businesses displayed, etc.)
+* View - Manages the state of the views displayed when logged in
+
+All API calls are made using [redux-thunk](https://github.com/gaearon/redux-thunk) middleware within the reducers. These actions are mapped to our components via mapDispatchToProps() within the containers. The containers are also where state is mapped as props and the store is passed down to our components to render.
+
+### Views
+
+All views are within the components directory. Please view the diagram above for the hierarchy.
 
 ## Back-End
 ### Server
