@@ -14,8 +14,10 @@ class FriendsPref extends React.Component {
 
   componentWillMount(){
     const { username } = this.props;
+    const { addToDiners } = this.props.dinerActions;
     const { loadFriends } = this.props.friendActions;
 
+    addToDiners(username);
     loadFriends(username);
   }
 

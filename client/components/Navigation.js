@@ -64,7 +64,6 @@ class Navigation extends React.Component {
     e.preventDefault();
     const { displayLocationChoice } = this.props.viewActions;
     const { username } = this.props;
-    const { addToDiners } = this.props.dinerActions;
     const { clearDiners, clearLocation } = this.props.dinerActions;
     const { clearFriends } = this.props.friendActions;
     const { clearPoll } = this.props.pollActions;
@@ -73,7 +72,6 @@ class Navigation extends React.Component {
     clearLocation();
     clearFriends();
     clearPoll();
-    addToDiners(username);
     displayLocationChoice();
   }
 
@@ -165,7 +163,7 @@ class Navigation extends React.Component {
         <Navbar.Header>
           <Navbar.Brand>
             <img
-              src='./../static/assets/snap_pea_logo.png'
+              src='./../static/assets/snap_pea_pea.png'
               alt='snap_pea_logo' />
           </Navbar.Brand>
           <Navbar.Toggle />
