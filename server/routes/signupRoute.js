@@ -18,6 +18,8 @@ router.post('/', function(req, res) {
   console.log('req.body:',req.body);
   var username = req.body.username;
   var password = req.body.password;
+  var firstname = req.body.firstname;
+  var lastname = req.body.lastname;
   var email = req.body.email;
 
   var gravatarUrl = 'http:'+gravatar.url(email, {s: '200'});
@@ -29,6 +31,8 @@ router.post('/', function(req, res) {
       var user = new db.User({
         username: username,
         password: hash,
+        firstname: firstname,
+        lastname: lastname,
         email: email,
         categories: {test:'test'},
         friends: {test:false},
@@ -61,6 +65,8 @@ router.post('/', function(req, res) {
                   message: 'Enjoy your token!',
                   token: token,
                   username: user.username,
+                  firstname: user.firstname,
+                  lastname: user.lastname,
                   businesses:businesses
                 });//end of res.json
           })//end of request_yelp

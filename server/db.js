@@ -11,6 +11,8 @@ db.Schema = mongoose.Schema;
 db.userSchema = new db.Schema ({
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true },
+  firstname: {type: String},
+  lastname: {type: String},
   categories: {},
   friends: {},
   email: { type: String },
