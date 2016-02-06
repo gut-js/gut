@@ -1,0 +1,110 @@
+.home {
+  .container {
+    padding: 50px;
+  }
+
+  .btn-success {
+    background-color: $green;
+
+  }
+  .lead {
+    color: white;
+  }
+  
+  .slide1, .slide2, .slide3 , .slide4, .slide5 {
+    min-height: 560px;
+    background-size: cover;
+    background-position: center center;
+  }
+  .slide1 {
+      background-image: url(https://tinypapers.files.wordpress.com/2013/02/032_5.jpg);
+  }
+  .slide2 {
+      background-image: url(http://travelchannel.sndimg.com/content/dam/images/travel/fullset/2012/05/17/ab/nashville-gac-restaurants-merchants.rend.tccom.616.462.jpeg);
+  }
+  .slide3 {
+      background-image: url(http://www.theavantguardian.com/wp-content/uploads/2014/01/IMG_4662.jpg);
+  }
+
+  .slide4 {
+    background-image: url(http://www.sanfrancisco.travel/sites/sftraveldev.prod.acquia-sites.com/files/field/image/starbelly_sf_large_party_table.jpg);
+  }
+  .slide5 {
+    background-image: url(http://i2.wp.com/wanderfulworldtac.files.wordpress.com/2013/06/nyhavn-night-b-w.jpg);
+  }
+  /*.slide6 {
+    background-image: url('./../assets/mexican_restaurant.jpg');
+  }*/
+
+  .carousel.carousel-fade .item {
+      -webkit-transition: opacity 1s linear;
+      -moz-transition: opacity 1s linear;
+      -ms-transition: opacity 1s linear;
+      -o-transition: opacity 1s linear;
+      transition: opacity 1s linear;
+      opacity: .5;
+  }
+  .carousel.carousel-fade .active.item {
+      opacity: 1;
+  }
+  .carousel.carousel-fade .active.left,
+  .carousel.carousel-fade .active.right {
+      left: 0;
+      z-index: 2;
+      opacity: 0;
+      filter: alpha(opacity=0);
+  }
+  .carousel-overlay {
+      position: absolute;
+      bottom: 100px;
+      right: 0;
+      left: 0;
+  }
+
+  .team {
+    background-color: $white;
+  }
+  .team-member {
+    text-align: center;
+  }
+  .about-title {
+    padding: 15px;
+    /*font-family: 'Amatic SC', cursive;*/
+    font-family: 'Karla', sans-serif;
+    font-size: 50px;
+    font-weight: bold;
+    /*background-color: $white;*/
+  }
+
+  .works-description {
+    padding: 30px;
+  }
+
+  .how {
+    padding: 30px;
+  }
+
+  .team-title{
+    /*color: ;*/
+    font-family: 'Karla', sans-serif;
+    font-size: 50px;
+    font-weight: bold;
+  }
+
+  
+
+  .team-member {
+    padding: 50px;
+    text-align: center;
+  }
+
+  .member-name {
+    /*background-color: $green;*/
+    color: $green;
+    padding: 5px;
+  }
+  .fa {
+    /*color:#333;*/
+    color: $green;
+  }
+}

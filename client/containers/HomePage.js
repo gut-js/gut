@@ -97,21 +97,6 @@ class HomePage extends React.Component {
                 </a>
             </div>
         </div>
-<<<<<<< efcef5c7a70c8a56c73ff5569d01e0fdd9e45e77
-<<<<<<< 5a9291888caf275ea0b1a143c75316f3fb896df8
-<<<<<<< 9de174fae304f529e9979c90809dbca91255a819
-<<<<<<< bb8b560ac0ba428a60623fdcb18975d34d840916
-=======
->>>>>>> [style] adds 'how it works' and 'meet the team' to /homepage
-=======
-<<<<<<< f99759db7e177754ec29b5c9efc4ff1903d147dc
->>>>>>> [style] sets up meet the team section on /homepage
-=======
-<<<<<<< 1956e168ccdfd4efda267c5b6650339b3419981d
-<<<<<<< f99759db7e177754ec29b5c9efc4ff1903d147dc
-=======
->>>>>>> [style] adds 'how it works' and 'meet the team' to /homepage
->>>>>>> [style] adds 'how it works' and 'meet the team' to /homepage
 
         <div className="container howitworks text-center">
           <h1 className="about-title">How It Works</h1>
@@ -135,61 +120,15 @@ class HomePage extends React.Component {
             </span>
           </div>
         </div>
-        
-<<<<<<< efcef5c7a70c8a56c73ff5569d01e0fdd9e45e77
-<<<<<<< 9de174fae304f529e9979c90809dbca91255a819
-=======
-<<<<<<< 1956e168ccdfd4efda267c5b6650339b3419981d
->>>>>>> [style] adds 'how it works' and 'meet the team' to /homepage
-        <div className="container team text-center">
-<<<<<<< a254db3439ddb90a798ab8b302a738b6633906fc
-<<<<<<< 388512835776cbb4fe810b53f714149eb4e4f990
-          <h1 className="team-title">Meet the SnapPea Team</h1>
-=======
-        <div className="container team text-center">
-          <h1 className="about-title">Meet the SnapPea Team</h1>
->>>>>>> [style] sets up meet the team section on /homepage
-<<<<<<< efcef5c7a70c8a56c73ff5569d01e0fdd9e45e77
-<<<<<<< 5a9291888caf275ea0b1a143c75316f3fb896df8
-=======
->>>>>>> [style] adds 'how it works' and 'meet the team' to /homepage
-=======
+
         <div className="container team text-center">
           <h1 className="team-title">Meet the SnapPea Team</h1>
->>>>>>> [style] adds 'how it works' and 'meet the team' to /homepage
-<<<<<<< 281a0bcc38e2ff1ed7d79533cd844285be53d878
-<<<<<<< efcef5c7a70c8a56c73ff5569d01e0fdd9e45e77
-=======
->>>>>>> [style] sets up meet the team section on /homepage
-=======
->>>>>>> [style] adds 'how it works' and 'meet the team' to /homepage
-=======
-=======
-          <h1 className="about-title">Meet the SnapPea Team</h1>
->>>>>>> [style] sets up meet the team section on /homepage
-<<<<<<< 77ae719bbe497790882e6be960a9ea5825c7a08d
->>>>>>> [style] sets up meet the team section on /homepage
-=======
-=======
-          <h1 className="team-title">Meet the SnapPea Team</h1>
->>>>>>> [style] adds 'how it works' and 'meet the team' to /homepage
->>>>>>> [style] adds 'how it works' and 'meet the team' to /homepage
           <div className="snappers">
             <div className="row">
 
               <span className="team-member col-md-3">
                 <image className="img-circle" height="135px" src="https://avatars3.githubusercontent.com/u/9559638?v=3&s=400"/>
                 <h3 className="member-name" >Daisy Tsao</h3>
-<<<<<<< efcef5c7a70c8a56c73ff5569d01e0fdd9e45e77
-<<<<<<< 5a9291888caf275ea0b1a143c75316f3fb896df8
-<<<<<<< 9de174fae304f529e9979c90809dbca91255a819
-<<<<<<< bb8b560ac0ba428a60623fdcb18975d34d840916
-=======
-=======
-<<<<<<< 1956e168ccdfd4efda267c5b6650339b3419981d
->>>>>>> [style] adds 'how it works' and 'meet the team' to /homepage
-<<<<<<< f99759db7e177754ec29b5c9efc4ff1903d147dc
->>>>>>> [style] sets up meet the team section on /homepage
                 <a href="https://www.linkedin.com/in/daisytsao"><i className="fa fa-linkedin-square fa-2x"></i></a>&nbsp;&nbsp;
                 <a href="https://github.com/madcurie" target="_blank"><i className="fa fa-github-square fa-2x"></i></a>
                 <h5>Likes React, Redux, and enforcing chores.</h5>
@@ -208,104 +147,14 @@ class HomePage extends React.Component {
                 <h3 className="member-name" >Justin Tan</h3>
                 <a href="https://www.linkedin.com/in/justanman"><i className="fa fa-linkedin-square fa-2x"></i></a>&nbsp;&nbsp;
                 <a href="https://github.com/justanman" target="_blank"><i className="fa fa-github-square fa-2x"></i></a>
-=======
-                <a href="https://www.linkedin.com/in/daisytsao"><i className="fa fa-linkedin-square fa-3x"></i></a>
-                <a href="https://github.com/madcurie" target="_blank"><i className="fa fa-github-square fa-3x"></i></a>
-<<<<<<< efcef5c7a70c8a56c73ff5569d01e0fdd9e45e77
-<<<<<<< 5a9291888caf275ea0b1a143c75316f3fb896df8
-=======
->>>>>>> [style] adds 'how it works' and 'meet the team' to /homepage
-=======
-                <a href="https://www.linkedin.com/in/daisytsao"><i className="fa fa-linkedin-square fa-2x"></i></a>&nbsp;&nbsp;
-                <a href="https://github.com/madcurie" target="_blank"><i className="fa fa-github-square fa-2x"></i></a>
->>>>>>> [style] adds 'how it works' and 'meet the team' to /homepage
-<<<<<<< efcef5c7a70c8a56c73ff5569d01e0fdd9e45e77
-                <h5>Likes React, Redux, and enforcing chores.</h5>
-              </span>
-              <span className="team-member col-md-3">
-                <image className="img-circle" height="135px" src="https://avatars3.githubusercontent.com/u/9559638?v=3&s=400"/>
-                <h3 className="member-name" >Carl Bernardo</h3>
-                <a href="https://www.linkedin.com/in/carlbernardo"><i className="fa fa-linkedin-square fa-2x"></i></a>&nbsp;&nbsp;
-                <a href="https://github.com/carlbernardo" target="_blank"><i className="fa fa-github-square fa-2x"></i></a>
                 <h5>Likes React, Redux, and hipster coffee joints.</h5>
-              </span>
-              <span className="team-member col-md-3">
-                <image className="img-circle" height="135px" src="https://avatars3.githubusercontent.com/u/9559638?v=3&s=400"/>
-                <h3 className="member-name" >Justin Tan</h3>
-<<<<<<< 9de174fae304f529e9979c90809dbca91255a819
-                <a href="https://www.linkedin.com/in/justanman"><i className="fa fa-linkedin-square fa-3x"></i></a>
-                <a href="https://github.com/justanman" target="_blank"><i className="fa fa-github-square fa-3x"></i></a>
->>>>>>> [style] sets up meet the team section on /homepage
-=======
-                <a href="https://www.linkedin.com/in/justanman"><i className="fa fa-linkedin-square fa-2x"></i></a>&nbsp;&nbsp;
-                <a href="https://github.com/justanman" target="_blank"><i className="fa fa-github-square fa-2x"></i></a>
->>>>>>> [style] adds 'how it works' and 'meet the team' to /homepage
-=======
-=======
->>>>>>> [style] adds 'how it works' and 'meet the team' to /homepage
-                <h5>Likes React, Redux, and enforcing chores.</h5>
-              </span>
-              <span className="team-member col-md-3">
-                <image className="img-circle" height="135px" src="https://avatars3.githubusercontent.com/u/9559638?v=3&s=400"/>
-                <h3 className="member-name" >Carl Bernardo</h3>
-                <a href="https://www.linkedin.com/in/carlbernardo"><i className="fa fa-linkedin-square fa-2x"></i></a>&nbsp;&nbsp;
-                <a href="https://github.com/carlbernardo" target="_blank"><i className="fa fa-github-square fa-2x"></i></a>
-                <h5>Likes React, Redux, and hipster coffee joints.</h5>
-              </span>
-              <span className="team-member col-md-3">
-                <image className="img-circle" height="135px" src="https://avatars3.githubusercontent.com/u/9559638?v=3&s=400"/>
-                <h3 className="member-name" >Justin Tan</h3>
-<<<<<<< 1956e168ccdfd4efda267c5b6650339b3419981d
-                <a href="https://www.linkedin.com/in/justanman"><i className="fa fa-linkedin-square fa-3x"></i></a>
-                <a href="https://github.com/justanman" target="_blank"><i className="fa fa-github-square fa-3x"></i></a>
->>>>>>> [style] sets up meet the team section on /homepage
-<<<<<<< efcef5c7a70c8a56c73ff5569d01e0fdd9e45e77
->>>>>>> [style] sets up meet the team section on /homepage
-=======
-=======
-                <a href="https://www.linkedin.com/in/justanman"><i className="fa fa-linkedin-square fa-2x"></i></a>&nbsp;&nbsp;
-                <a href="https://github.com/justanman" target="_blank"><i className="fa fa-github-square fa-2x"></i></a>
->>>>>>> [style] adds 'how it works' and 'meet the team' to /homepage
->>>>>>> [style] adds 'how it works' and 'meet the team' to /homepage
-                <h5>Likes React, Redux, and paying half price for everything.</h5>
               </span>
 
               <span className="team-member col-md-3">
                 <image className="img-circle" height="135px" src="https://avatars3.githubusercontent.com/u/9559638?v=3&s=400"/>
                 <h3 className="member-name" >Shin Adachi</h3>
-<<<<<<< efcef5c7a70c8a56c73ff5569d01e0fdd9e45e77
-<<<<<<< 5a9291888caf275ea0b1a143c75316f3fb896df8
-<<<<<<< 9de174fae304f529e9979c90809dbca91255a819
-<<<<<<< bb8b560ac0ba428a60623fdcb18975d34d840916
-                <a href="https://www.linkedin.com/in/shin064"><i className="fa fa-linkedin-square fa-2x"></i></a>&nbsp;&nbsp;
-                <a href="http://www.shinadachi.com" target="_blank"><i className="fa fa-github-square fa-2x"></i></a>
-=======
-                <a href="https://www.linkedin.com/in/shin064"><i className="fa fa-linkedin-square fa-3x"></i></a>
-                <a href="http://www.shinadachi.com" target="_blank"><i className="fa fa-github-square fa-3x"></i></a>
->>>>>>> [style] sets up meet the team section on /homepage
-=======
-                <a href="https://www.linkedin.com/in/shin064"><i className="fa fa-linkedin-square fa-2x"></i></a>&nbsp;&nbsp;
-                <a href="http://www.shinadachi.com" target="_blank"><i className="fa fa-github-square fa-2x"></i></a>
->>>>>>> [style] adds 'how it works' and 'meet the team' to /homepage
-=======
-=======
-<<<<<<< 1956e168ccdfd4efda267c5b6650339b3419981d
->>>>>>> [style] adds 'how it works' and 'meet the team' to /homepage
-<<<<<<< f99759db7e177754ec29b5c9efc4ff1903d147dc
-                <a href="https://www.linkedin.com/in/shin064"><i className="fa fa-linkedin-square fa-2x"></i></a>&nbsp;&nbsp;
-                <a href="http://www.shinadachi.com" target="_blank"><i className="fa fa-github-square fa-2x"></i></a>
-=======
-                <a href="https://www.linkedin.com/in/shin064"><i className="fa fa-linkedin-square fa-3x"></i></a>
-                <a href="http://www.shinadachi.com" target="_blank"><i className="fa fa-github-square fa-3x"></i></a>
->>>>>>> [style] sets up meet the team section on /homepage
-<<<<<<< efcef5c7a70c8a56c73ff5569d01e0fdd9e45e77
->>>>>>> [style] sets up meet the team section on /homepage
-=======
-=======
-                <a href="https://www.linkedin.com/in/shin064"><i className="fa fa-linkedin-square fa-2x"></i></a>&nbsp;&nbsp;
-                <a href="http://www.shinadachi.com" target="_blank"><i className="fa fa-github-square fa-2x"></i></a>
->>>>>>> [style] adds 'how it works' and 'meet the team' to /homepage
->>>>>>> [style] adds 'how it works' and 'meet the team' to /homepage
+                <a href="https://www.linkedin.com/in/shin-adachi-1b6bb1113"><i className="fa fa-linkedin-square fa-2x"></i></a>&nbsp;&nbsp;
+                <a href="http://github.com/shin064" target="_blank"><i className="fa fa-github-square fa-2x"></i></a>
                 <h5>Likes React, Redux, and NPR podcasts.</h5>
               </span>
               
