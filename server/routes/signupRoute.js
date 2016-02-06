@@ -14,8 +14,12 @@ var cities = require('../cities');
 
 //sign up for account
 router.post('/', function(req, res) {
+  console.log('inside signup route');
+  console.log('req.body:',req.body);
   var username = req.body.username;
   var password = req.body.password;
+  var firstname = req.body.firstname;
+  var lastname = req.body.lastname;
   var email = req.body.email;
 
   var gravatarUrl = 'http:'+gravatar.url(email, {s: '200'});
@@ -27,6 +31,8 @@ router.post('/', function(req, res) {
       var user = new db.User({
         username: username,
         password: hash,
+        firstname: firstname,
+        lastname: lastname,
         email: email,
         categories: {test:'test'},
         friends: {test:false},
@@ -47,15 +53,11 @@ router.post('/', function(req, res) {
           var token = jwt.sign(user, app.get('superSecret'), { expiresInminutes:1440 });
 
           var city = _.shuffle(cities).pop();
-          console.log('city',city);
           request_yelp({location:city},function(yelpErr,yelpRes,yelpBody){
             var parsed = JSON.parse(yelpBody);
-            console.log('parsed',parsed);
             var businesses = parsed.businesses;
                 businesses = _.shuffle(businesses);
-                console.log('businesses',businesses);
                 for (var i=0; i<businesses.length; i++) {
-                  console.log(businesses[i].image_url);
                   businesses[i].image_url = businesses[i].image_url.slice(0,-6)+'o.jpg';
                 }
                 res.json({
@@ -63,6 +65,8 @@ router.post('/', function(req, res) {
                   message: 'Enjoy your token!',
                   token: token,
                   username: user.username,
+                  firstname: user.firstname,
+                  lastname: user.lastname,
                   businesses:businesses
                 });//end of res.json
           })//end of request_yelp
