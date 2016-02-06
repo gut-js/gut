@@ -5,16 +5,31 @@ import FriendsPref from './FriendsPref';
 import Friends from './Friends';
 import LocationPref from './LocationPref';
 import RestaurantPref from './RestaurantPref';
-import RefinePref from './RefinePref'
+import RefinePref from './RefinePref';
+import RestaurantHistory from './RestaurantHistory';
 
 class ProfileHome extends React.Component {
   constructor(){
     super();
+    this.displayHome = this.displayHome.bind(this);
     this.displayFriendsChoice = this.displayFriendsChoice.bind(this);
     this.displayLocationChoice = this.displayLocationChoice.bind(this);
     this.displayResults = this.displayResults.bind(this);
     this.displayFriends = this.displayFriends.bind(this);
     this.displayPreferences = this.displayPreferences.bind(this);
+  }
+
+  displayHome(){
+    if(this.props.displayProfileHome){
+      return(
+        <div>
+          <RestaurantHistory />
+          <LocationPref {...this.props} />
+        </div>
+      )
+    } else {
+      return null;
+    }
   }
 
   displayFriendsChoice(){
@@ -68,8 +83,10 @@ class ProfileHome extends React.Component {
   }
 
   render(){
+    console.log('props in this marg', this.props);
     return(
       <div>
+        {this.displayHome()}
         {this.displayLocationChoice()}
         {this.displayFriendsChoice()}
         {this.displayResults()}
