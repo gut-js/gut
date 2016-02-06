@@ -1,6 +1,10 @@
 .home {
+  .container {
+    padding: 50px;
+  }
+
   .btn-success {
-    background-color: #66CC99;
+    background-color: $green;
 
   }
   .lead {
@@ -56,20 +60,38 @@
       right: 0;
       left: 0;
   }
+  .team {
+    background-color: $white;
+  }
   .team-member {
     text-align: center;
   }
+
   .about-title {
     padding: 15px;
     /*font-family: 'Amatic SC', cursive;*/
     font-family: 'Karla', sans-serif;
     font-size: 50px;
     font-weight: bold;
-    background-color: $white;
+    /*background-color: $white;*/
   }
-  .team-member2 {
+  .team-title{
+    /*color: ;*/
+    font-family: 'Karla', sans-serif;
+    font-size: 50px;
+    font-weight: bold;
+  }
+  /*.team-member2 {
     text-align: center;
     padding-top: 50px;
+  }*/
+  .works-description {
+    padding: 30px;
+  }
+
+  .team-member {
+    padding: 50px;
+    text-align: center;
   }
   .member-name {
     /*background-color: $green;*/
@@ -77,6 +99,7 @@
     padding: 5px;
   }
   .fa {
-    color:$green;
+    /*color:#333;*/
+    color: $green;
   }
 }

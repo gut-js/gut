@@ -83,6 +83,7 @@ class HomePage extends React.Component {
                     closeSignIn={this.closeSignIn}
                     openRegister={this.openRegister} />
                 </a>
+                &nbsp;&nbsp;
                 <a 
                   className="btn btn-lg btn-success fp-buttons"
                   href="#"
@@ -96,36 +97,61 @@ class HomePage extends React.Component {
                 </a>
             </div>
         </div>
+
+        <div className="container howitworks text-center">
+          <h1 className="about-title">How It Works</h1>
+
+          <div className="row text-center">
+            <span className="how col-md-4">
+              <h4 className="works-description">Take the indecision out of dining out </h4>
+              <image className="img-rounded works-pic" height="200px" src="http://jenwoo.17lemurs.com/47/wp-content/uploads/dumplings.jpg"/>
+              <h4 className="works-description"> Step 1: Choose your Favorite Photos </h4>
+            </span>
+            <span className="how col-md-4">
+              <h4 className="works-description">Explore unexpected culinary delights </h4>
+              
+              <image className="img-rounded works-pic" height="200px" src="http://www.sawleaf.com/wp-content/uploads/2015/05/Street-Food-Restaurant-on-Phan-Van-Dong-Street-Go-Vap-District-HCMC-04497_web_1024x683.jpg"/>
+              <h4 className="works-description"> Step 2: Select a Location (and Invite Friends)</h4>
+            </span>
+            <span className="how col-md-4">
+              <h4 className="works-description">Optimize all your group searches</h4>
+              <image className="img-rounded works-pic" height="200px" src="http://e.fastcompany.net/multisite_files/fastcompany/imagecache/1280/poster/2015/07/3049165-poster-p-1-google-searches-now-show-when-a-restaurant-is-busiest.jpg"/>
+              <h4 className="works-description">Step 3: Get Custom-Tailored Recommendations</h4>
+            </span>
+          </div>
+          
+        </div>
+        
         <div className="container team text-center">
-          <h1 className="about-title">Meet the SnapPea Team</h1>
+          <h1 className="team-title">Meet the SnapPea Team</h1>
           <div className="snappers">
             <div className="row">
               <span className="team-member col-md-3">
                 <image className="img-circle" height="135px" src="https://avatars3.githubusercontent.com/u/9559638?v=3&s=400"/>
                 <h3 className="member-name" >Daisy Tsao</h3>
-                <a href="https://www.linkedin.com/in/daisytsao"><i className="fa fa-linkedin-square fa-3x"></i></a>
-                <a href="https://github.com/madcurie" target="_blank"><i className="fa fa-github-square fa-3x"></i></a>
+                <a href="https://www.linkedin.com/in/daisytsao"><i className="fa fa-linkedin-square fa-2x"></i></a>&nbsp;&nbsp;
+                <a href="https://github.com/madcurie" target="_blank"><i className="fa fa-github-square fa-2x"></i></a>
                 <h5>Likes React, Redux, and enforcing chores.</h5>
               </span>
-              <span className="team-member2 col-md-3">
+              <span className="team-member col-md-3">
                 <image className="img-circle" height="135px" src="https://avatars3.githubusercontent.com/u/9559638?v=3&s=400"/>
                 <h3 className="member-name" >Carl Bernardo</h3>
-                <a href="https://www.linkedin.com/in/carlbernardo"><i className="fa fa-linkedin-square fa-3x"></i></a>
-                <a href="https://github.com/carlbernardo" target="_blank"><i className="fa fa-github-square fa-3x"></i></a>
+                <a href="https://www.linkedin.com/in/carlbernardo"><i className="fa fa-linkedin-square fa-2x"></i></a>&nbsp;&nbsp;
+                <a href="https://github.com/carlbernardo" target="_blank"><i className="fa fa-github-square fa-2x"></i></a>
                 <h5>Likes React, Redux, and hipster coffee joints.</h5>
               </span>
-              <span className="team-member2 col-md-3">
+              <span className="team-member col-md-3">
                 <image className="img-circle" height="135px" src="https://avatars3.githubusercontent.com/u/9559638?v=3&s=400"/>
                 <h3 className="member-name" >Justin Tan</h3>
-                <a href="https://www.linkedin.com/in/justanman"><i className="fa fa-linkedin-square fa-3x"></i></a>
-                <a href="https://github.com/justanman" target="_blank"><i className="fa fa-github-square fa-3x"></i></a>
+                <a href="https://www.linkedin.com/in/justanman"><i className="fa fa-linkedin-square fa-2x"></i></a>&nbsp;&nbsp;
+                <a href="https://github.com/justanman" target="_blank"><i className="fa fa-github-square fa-2x"></i></a>
                 <h5>Likes React, Redux, and paying half price for everything.</h5>
               </span>
               <span className="team-member col-md-3">
                 <image className="img-circle" height="135px" src="https://avatars3.githubusercontent.com/u/9559638?v=3&s=400"/>
                 <h3 className="member-name" >Shin Adachi</h3>
-                <a href="https://www.linkedin.com/in/shin064"><i className="fa fa-linkedin-square fa-3x"></i></a>
-                <a href="http://www.shinadachi.com" target="_blank"><i className="fa fa-github-square fa-3x"></i></a>
+                <a href="https://www.linkedin.com/in/shin064"><i className="fa fa-linkedin-square fa-2x"></i></a>&nbsp;&nbsp;
+                <a href="http://www.shinadachi.com" target="_blank"><i className="fa fa-github-square fa-2x"></i></a>
                 <h5>Likes React, Redux, and NPR podcasts.</h5>
               </span>
             </div>
