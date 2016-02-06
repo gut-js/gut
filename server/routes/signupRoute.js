@@ -14,6 +14,8 @@ var cities = require('../cities');
 
 //sign up for account
 router.post('/', function(req, res) {
+  console.log('inside signup route');
+  console.log('req.body:',req.body);
   var username = req.body.username;
   var password = req.body.password;
   var email = req.body.email;
@@ -47,15 +49,11 @@ router.post('/', function(req, res) {
           var token = jwt.sign(user, app.get('superSecret'), { expiresInminutes:1440 });
 
           var city = _.shuffle(cities).pop();
-          console.log('city',city);
           request_yelp({location:city},function(yelpErr,yelpRes,yelpBody){
             var parsed = JSON.parse(yelpBody);
-            console.log('parsed',parsed);
             var businesses = parsed.businesses;
                 businesses = _.shuffle(businesses);
-                console.log('businesses',businesses);
                 for (var i=0; i<businesses.length; i++) {
-                  console.log(businesses[i].image_url);
                   businesses[i].image_url = businesses[i].image_url.slice(0,-6)+'o.jpg';
                 }
                 res.json({

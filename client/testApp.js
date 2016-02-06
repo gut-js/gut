@@ -274,7 +274,14 @@ $(document).ready(function(){
       e.preventDefault();
       var username = $('#signupUsername').val();
       var password = $('#signupPassword').val();
-      var data = {username:username,password:password}
+      var firstname = $('#signupFirstname').val();
+      var lastname = $('#signupLastname').val();
+      var data = {
+        username:username,
+        password:password,
+        firstname:firstname,
+        lastname:lastname
+      }
       $.ajax({
           url: '/signup',
           type: 'POST',
