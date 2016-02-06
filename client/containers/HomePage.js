@@ -130,7 +130,7 @@ class HomePage extends React.Component {
             </span>
             <span className="how col-md-4">
               <h4 className="works-description">Optimize all your group searches</h4>
-              <image className="img-rounded works-pic" height="200px" src="http://e.fastcompany.net/multisite_files/fastcompany/imagecache/1280/poster/2015/07/3049165-poster-p-1-google-searches-now-show-when-a-restaurant-is-busiest.jpg"/>
+              <image className="img-rounded works-pic" height="200px" src="https://static.pexels.com/photos/11819/pexels-photo-11819.jpeg"/>
               <h4 className="works-description">Step 3: Get Custom-Tailored Recommendations</h4>
             </span>
           </div>
@@ -142,6 +142,7 @@ class HomePage extends React.Component {
 <<<<<<< 1956e168ccdfd4efda267c5b6650339b3419981d
 >>>>>>> [style] adds 'how it works' and 'meet the team' to /homepage
         <div className="container team text-center">
+<<<<<<< a254db3439ddb90a798ab8b302a738b6633906fc
 <<<<<<< 388512835776cbb4fe810b53f714149eb4e4f990
           <h1 className="team-title">Meet the SnapPea Team</h1>
 =======
@@ -166,7 +167,13 @@ class HomePage extends React.Component {
 =======
           <h1 className="about-title">Meet the SnapPea Team</h1>
 >>>>>>> [style] sets up meet the team section on /homepage
+<<<<<<< 77ae719bbe497790882e6be960a9ea5825c7a08d
 >>>>>>> [style] sets up meet the team section on /homepage
+=======
+=======
+          <h1 className="team-title">Meet the SnapPea Team</h1>
+>>>>>>> [style] adds 'how it works' and 'meet the team' to /homepage
+>>>>>>> [style] adds 'how it works' and 'meet the team' to /homepage
           <div className="snappers">
             <div className="row">
 
