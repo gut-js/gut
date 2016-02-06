@@ -65,6 +65,7 @@ const mapStateToProps = (state) => {
     unselected: state.pollReducer.unselected,
     pollErrorMessage: state.pollReducer.pollErrorMessage,
     data: state.pollReducer.data,
+    isFetchingYelp: state.pollReducer.isFetchingYelp,
 
     //diner state
     diners: state.dinerReducer.diners,

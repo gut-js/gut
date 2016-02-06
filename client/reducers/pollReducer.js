@@ -6,11 +6,20 @@ const initialState = {
   username: '',
   isSubmitting: true,
   pollErrorMessage: '',
-  data: []
+  data: [],
+  isFetchingYelp: false
 }
 
 export default function pollReducer(state = initialState, action){
   switch(action.type){
+    case ActionTypes.LOAD_YELP_REQUEST:
+      return Object.assign({}, state, {
+        isFetchingYelp: true
+      })
+    case ActionTypes.LOAD_YELP_SUCCESS:
+      return Object.assign({}, state, {
+        isFetchingYelp: false
+      })
     case ActionTypes.LOAD_YELP_DATA:
       return Object.assign({}, state, {
         data: action.info

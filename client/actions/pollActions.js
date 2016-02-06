@@ -1,10 +1,13 @@
 import { routeActions } from 'react-router-redux';
 
+export const LOAD_YELP_REQUEST = 'LOAD_YELP_REQUEST';
+export const LOAD_YELP_SUCCESS = 'LOAD_YELP_SUCCESS';
 export const LOAD_YELP_DATA = 'LOAD_YELP_DATA';
 
 // Fetches restaurants to be used in poll
 export const fetchYelpData = () => {
   return dispatch => {
+    dispatch(loadYelpRequest());
 
     return fetch('http://localhost:5679/poll', {
       method: 'GET',
@@ -18,6 +21,7 @@ export const fetchYelpData = () => {
     })
     .then(response => {
       dispatch(loadYelpData(response));
+      dispatch(loadYelpSuccess());
     })
   }
 }
@@ -26,6 +30,18 @@ const loadYelpData = (info) => {
   return {
     type: LOAD_YELP_DATA,
     info
+  }
+}
+
+const loadYelpRequest = () => {
+  return {
+    type: LOAD_YELP_REQUEST
+  }
+}
+
+const loadYelpSuccess = () => {
+  return {
+    type: LOAD_YELP_SUCCESS
   }
 }
 
