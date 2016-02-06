@@ -23,7 +23,6 @@ class DeletePref extends React.Component {
 
   render(){
     const { showDeleteModal, closeDeleteModal } = this.props;
-    console.log('props in delete pref', this.props);
 
     return(
       <Modal
