@@ -27,6 +27,7 @@ const routes = (
 		<Route path='/' component={Main}>
 			<IndexRoute component={HomePage} onEnter={checkAuth} />
 			<Route path='profile' onEnter={checkAuthProfile} component={Profile} />
+			<Route path='oauthcallback' onEnter={checkAuthProfile} component={Profile} />
 		</Route>
 	</Router>
 );
