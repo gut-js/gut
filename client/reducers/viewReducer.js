@@ -1,13 +1,3 @@
-// import {
-//   DISPLAY_FRIENDS_CHOICE,
-//   DISPLAY_LOCATION_CHOICE,
-//   DISPLAY_RESULTS,
-//   DISPLAY_ADD_FRIENDS,
-//   DISPLAY_PREFERENCES,
-//   DISPLAY_UBER_INFO,
-//   CLEAR_VIEWS
-// } from './../actions/viewActions';
-
 import * as ActionTypes from './../actions/viewActions';
 
 const initialState = {
@@ -16,7 +6,8 @@ const initialState = {
   displayResults: false,
   displayAddFriends: false,
   displayUberInfo: false,
-  displayPreferences: false
+  displayPreferences: false,
+  displayProfileHome: true
 }
 
 export default function viewReducer(state = initialState, action){
@@ -27,11 +18,13 @@ export default function viewReducer(state = initialState, action){
       displayFriendsChoice: false,
       displayResults: false,
       displayPreferences: false,
+      displayProfileHome: false,
       displayLocationChoice: true
     })
     case ActionTypes.DISPLAY_FRIENDS_CHOICE:
       return Object.assign({}, state, {
         displayLocationChoice: false,
+        displayProfileHome: false,
         displayFriendsChoice: true
       })
     case ActionTypes.DISPLAY_RESULTS:
@@ -45,6 +38,7 @@ export default function viewReducer(state = initialState, action){
         displayLocationChoice: false,
         displayResults: false,
         displayPreferences: false,
+        displayProfileHome: false,
         displayAddFriends: true
       })
     case ActionTypes.DISPLAY_PREFERENCES:
@@ -54,6 +48,7 @@ export default function viewReducer(state = initialState, action){
         displayResults: false,
         displayAddFriends: false,
         displayUberInfo: false,
+        displayProfileHome: false,
         displayPreferences: true
       })
     case ActionTypes.DISPLAY_UBER_INFO:
