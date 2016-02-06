@@ -57,7 +57,7 @@ export default function pollReducer(state = initialState, action){
     case ActionTypes.CLEAR_POLL:
       return Object.assign({}, state, {
         username: '',
-        isSubmitting: true,
+        isSubmitting: false,
         pollErrorMessage: '',
         data: []
       })
