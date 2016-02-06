@@ -104,18 +104,18 @@ class HomePage extends React.Component {
           <div className="row text-center">
             <span className="how col-md-4">
               <h4 className="works-description">Take the indecision out of dining out </h4>
-              <image className="img-rounded works-pic" height="200px" src="http://jenwoo.17lemurs.com/47/wp-content/uploads/dumplings.jpg"/>
+              <image className="img-rounded works-pic" height="200px" src="./../static/assets/home/dumplings.jpg"/>
               <h4 className="works-description"> Step 1: Choose your Favorite Photos </h4>
             </span>
             <span className="how col-md-4">
               <h4 className="works-description">Explore unexpected culinary delights </h4>
               
-              <image className="img-rounded works-pic" height="200px" src="http://www.sawleaf.com/wp-content/uploads/2015/05/Street-Food-Restaurant-on-Phan-Van-Dong-Street-Go-Vap-District-HCMC-04497_web_1024x683.jpg"/>
+              <image className="img-rounded works-pic" height="200px" src="./../static/assets/home/street-food.jpg"/>
               <h4 className="works-description"> Step 2: Select a Location (and Invite Friends)</h4>
             </span>
             <span className="how col-md-4">
               <h4 className="works-description">Optimize all your group searches</h4>
-              <image className="img-rounded works-pic" height="200px" src="https://static.pexels.com/photos/11819/pexels-photo-11819.jpeg"/>
+              <image className="img-rounded works-pic" height="200px" src="./../static/assets/home/pexels-photo-11819.jpeg"/>
               <h4 className="works-description">Step 3: Get Custom-Tailored Recommendations</h4>
             </span>
           </div>
@@ -127,7 +127,7 @@ class HomePage extends React.Component {
             <div className="row">
 
               <span className="team-member col-md-3">
-                <image className="img-circle" height="135px" src="https://avatars3.githubusercontent.com/u/9559638?v=3&s=400"/>
+                <image className="img-circle" height="135px" src="./../static/assets/avatar/carl.jpeg"/>
                 <h3 className="member-name" >Daisy Tsao</h3>
                 <a href="https://www.linkedin.com/in/daisytsao"><i className="fa fa-linkedin-square fa-2x"></i></a>&nbsp;&nbsp;
                 <a href="https://github.com/madcurie" target="_blank"><i className="fa fa-github-square fa-2x"></i></a>
@@ -135,7 +135,7 @@ class HomePage extends React.Component {
               </span>
 
               <span className="team-member col-md-3">
-                <image className="img-circle" height="135px" src="https://avatars3.githubusercontent.com/u/9559638?v=3&s=400"/>
+                <image className="img-circle" height="135px" src="./../static/assets/avatar/carl.jpeg"/>
                 <h3 className="member-name" >Carl Bernardo</h3>
                 <a href="https://www.linkedin.com/in/carlbernardo"><i className="fa fa-linkedin-square fa-2x"></i></a>&nbsp;&nbsp;
                 <a href="https://github.com/carlbernardo" target="_blank"><i className="fa fa-github-square fa-2x"></i></a>
@@ -143,7 +143,7 @@ class HomePage extends React.Component {
               </span>
 
               <span className="team-member col-md-3">
-                <image className="img-circle" height="135px" src="https://avatars3.githubusercontent.com/u/9559638?v=3&s=400"/>
+                <image className="img-circle" height="135px" src="./../static/assets/avatar/carl.jpeg"/>
                 <h3 className="member-name" >Justin Tan</h3>
                 <a href="https://www.linkedin.com/in/justanman"><i className="fa fa-linkedin-square fa-2x"></i></a>&nbsp;&nbsp;
                 <a href="https://github.com/justanman" target="_blank"><i className="fa fa-github-square fa-2x"></i></a>
@@ -151,7 +151,7 @@ class HomePage extends React.Component {
               </span>
 
               <span className="team-member col-md-3">
-                <image className="img-circle" height="135px" src="https://avatars3.githubusercontent.com/u/9559638?v=3&s=400"/>
+                <image className="img-circle" height="135px" src="./../static/assets/avatar/carl.jpeg"/>
                 <h3 className="member-name" >Shin Adachi</h3>
                 <a href="https://www.linkedin.com/in/shin-adachi-1b6bb1113"><i className="fa fa-linkedin-square fa-2x"></i></a>&nbsp;&nbsp;
                 <a href="http://github.com/shin064" target="_blank"><i className="fa fa-github-square fa-2x"></i></a>
