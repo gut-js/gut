@@ -17,6 +17,7 @@ class Navigation extends React.Component {
     this.displayLocationChoice = this.displayLocationChoice.bind(this);
     this.displayPreferences = this.displayPreferences.bind(this);
     this.displayFriends = this.displayFriends.bind(this);
+    this.displayProfileHome = this.displayProfileHome.bind(this);
     this.state = {
       showSignInModal: false,
       showRegisterModal: false
@@ -60,8 +61,7 @@ class Navigation extends React.Component {
     logoutUser();
   }
 
-  displayLocationChoice(e){
-    e.preventDefault();
+  displayLocationChoice(){
     const { displayLocationChoice } = this.props.viewActions;
     const { username } = this.props;
     const { clearDiners, clearLocation } = this.props.dinerActions;
@@ -97,6 +97,19 @@ class Navigation extends React.Component {
     clearFriends();
     clearPoll();
     displayAddFriends();
+  }
+
+  displayProfileHome(){
+    const { displayProfileHome } = this.props.viewActions;
+    const { clearDiners, clearLocation } = this.props.dinerActions;
+    const { clearFriends } = this.props.friendActions;
+    const { clearPoll } = this.props.pollActions;
+
+    clearDiners();
+    clearLocation();
+    clearFriends();
+    clearPoll();
+    displayProfileHome();
   }
 
   render(){
@@ -164,7 +177,8 @@ class Navigation extends React.Component {
           <Navbar.Brand>
             <img
               src='./../static/assets/snap_pea_pea.png'
-              alt='snap_pea_logo' />
+              alt='snap_pea_logo'
+              onClick={this.displayProfileHome} />
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
