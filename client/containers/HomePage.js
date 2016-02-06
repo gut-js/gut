@@ -97,7 +97,10 @@ class HomePage extends React.Component {
                 </a>
             </div>
         </div>
+<<<<<<< 9de174fae304f529e9979c90809dbca91255a819
 <<<<<<< bb8b560ac0ba428a60623fdcb18975d34d840916
+=======
+>>>>>>> [style] adds 'how it works' and 'meet the team' to /homepage
 
         <div className="container howitworks text-center">
           <h1 className="about-title">How It Works</h1>
@@ -123,17 +126,23 @@ class HomePage extends React.Component {
           
         </div>
         
+<<<<<<< 9de174fae304f529e9979c90809dbca91255a819
         <div className="container team text-center">
           <h1 className="team-title">Meet the SnapPea Team</h1>
 =======
         <div className="container team text-center">
           <h1 className="about-title">Meet the SnapPea Team</h1>
 >>>>>>> [style] sets up meet the team section on /homepage
+=======
+        <div className="container team text-center">
+          <h1 className="team-title">Meet the SnapPea Team</h1>
+>>>>>>> [style] adds 'how it works' and 'meet the team' to /homepage
           <div className="snappers">
             <div className="row">
               <span className="team-member col-md-3">
                 <image className="img-circle" height="135px" src="https://avatars3.githubusercontent.com/u/9559638?v=3&s=400"/>
                 <h3 className="member-name" >Daisy Tsao</h3>
+<<<<<<< 9de174fae304f529e9979c90809dbca91255a819
 <<<<<<< bb8b560ac0ba428a60623fdcb18975d34d840916
                 <a href="https://www.linkedin.com/in/daisytsao"><i className="fa fa-linkedin-square fa-2x"></i></a>&nbsp;&nbsp;
                 <a href="https://github.com/madcurie" target="_blank"><i className="fa fa-github-square fa-2x"></i></a>
@@ -154,26 +163,36 @@ class HomePage extends React.Component {
 =======
                 <a href="https://www.linkedin.com/in/daisytsao"><i className="fa fa-linkedin-square fa-3x"></i></a>
                 <a href="https://github.com/madcurie" target="_blank"><i className="fa fa-github-square fa-3x"></i></a>
+=======
+                <a href="https://www.linkedin.com/in/daisytsao"><i className="fa fa-linkedin-square fa-2x"></i></a>&nbsp;&nbsp;
+                <a href="https://github.com/madcurie" target="_blank"><i className="fa fa-github-square fa-2x"></i></a>
+>>>>>>> [style] adds 'how it works' and 'meet the team' to /homepage
                 <h5>Likes React, Redux, and enforcing chores.</h5>
               </span>
-              <span className="team-member2 col-md-3">
+              <span className="team-member col-md-3">
                 <image className="img-circle" height="135px" src="https://avatars3.githubusercontent.com/u/9559638?v=3&s=400"/>
                 <h3 className="member-name" >Carl Bernardo</h3>
-                <a href="https://www.linkedin.com/in/carlbernardo"><i className="fa fa-linkedin-square fa-3x"></i></a>
-                <a href="https://github.com/carlbernardo" target="_blank"><i className="fa fa-github-square fa-3x"></i></a>
+                <a href="https://www.linkedin.com/in/carlbernardo"><i className="fa fa-linkedin-square fa-2x"></i></a>&nbsp;&nbsp;
+                <a href="https://github.com/carlbernardo" target="_blank"><i className="fa fa-github-square fa-2x"></i></a>
                 <h5>Likes React, Redux, and hipster coffee joints.</h5>
               </span>
-              <span className="team-member2 col-md-3">
+              <span className="team-member col-md-3">
                 <image className="img-circle" height="135px" src="https://avatars3.githubusercontent.com/u/9559638?v=3&s=400"/>
                 <h3 className="member-name" >Justin Tan</h3>
+<<<<<<< 9de174fae304f529e9979c90809dbca91255a819
                 <a href="https://www.linkedin.com/in/justanman"><i className="fa fa-linkedin-square fa-3x"></i></a>
                 <a href="https://github.com/justanman" target="_blank"><i className="fa fa-github-square fa-3x"></i></a>
 >>>>>>> [style] sets up meet the team section on /homepage
+=======
+                <a href="https://www.linkedin.com/in/justanman"><i className="fa fa-linkedin-square fa-2x"></i></a>&nbsp;&nbsp;
+                <a href="https://github.com/justanman" target="_blank"><i className="fa fa-github-square fa-2x"></i></a>
+>>>>>>> [style] adds 'how it works' and 'meet the team' to /homepage
                 <h5>Likes React, Redux, and paying half price for everything.</h5>
               </span>
               <span className="team-member col-md-3">
                 <image className="img-circle" height="135px" src="https://avatars3.githubusercontent.com/u/9559638?v=3&s=400"/>
                 <h3 className="member-name" >Shin Adachi</h3>
+<<<<<<< 9de174fae304f529e9979c90809dbca91255a819
 <<<<<<< bb8b560ac0ba428a60623fdcb18975d34d840916
                 <a href="https://www.linkedin.com/in/shin064"><i className="fa fa-linkedin-square fa-2x"></i></a>&nbsp;&nbsp;
                 <a href="http://www.shinadachi.com" target="_blank"><i className="fa fa-github-square fa-2x"></i></a>
@@ -181,6 +200,10 @@ class HomePage extends React.Component {
                 <a href="https://www.linkedin.com/in/shin064"><i className="fa fa-linkedin-square fa-3x"></i></a>
                 <a href="http://www.shinadachi.com" target="_blank"><i className="fa fa-github-square fa-3x"></i></a>
 >>>>>>> [style] sets up meet the team section on /homepage
+=======
+                <a href="https://www.linkedin.com/in/shin064"><i className="fa fa-linkedin-square fa-2x"></i></a>&nbsp;&nbsp;
+                <a href="http://www.shinadachi.com" target="_blank"><i className="fa fa-github-square fa-2x"></i></a>
+>>>>>>> [style] adds 'how it works' and 'meet the team' to /homepage
                 <h5>Likes React, Redux, and NPR podcasts.</h5>
               </span>
             </div>
