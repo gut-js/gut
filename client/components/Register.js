@@ -11,10 +11,14 @@ class Register extends React.Component {
   handleClick(e){
     e.preventDefault();
     const { registerUser } = this.props.authActions;
+    const firstname = this.refs.firstname;
+    const lastname = this.refs.lastname;
     const username = this.refs.username;
     const password = this.refs.password;
     const email = this.refs.email;
     const userInfo = {
+      firstname: firstname.value,
+      lastname: lastname.value,
       username: username.value,
       password: password.value,
       email: email.value
@@ -22,6 +26,8 @@ class Register extends React.Component {
 
     registerUser(userInfo);
 
+    firstname.value = '';
+    lastname.value = '';
     username.value = '';
     password.value = '';
     email.value = '';
@@ -44,6 +50,20 @@ class Register extends React.Component {
         <image src='./../static/assets/spinner.gif' />
       </div> ) : (
         <form>
+          <div className='form-group'>
+            <input
+              type='text'
+              className='form-control'
+              placeholder='First Name'
+              ref='firstname' />
+          </div>
+          <div className='form-group'>
+            <input
+              type='text'
+              className='form-control'
+              placeholder='Last Name'
+              ref='lastname' />
+          </div>
           <div className='form-group'>
             <input
               type='text'

@@ -18,6 +18,8 @@ export const registerUser = (credentials) => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
+        firstname: credentials.firstname,
+        lastname: credentials.lastname,
         username: credentials.username,
         password: credentials.password,
         email: credentials.email
