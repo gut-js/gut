@@ -1,5 +1,6 @@
 import { routeActions } from 'react-router-redux';
 import { syncPoll } from './../actions/pollActions';
+import { displayProfileHome } from './../actions/viewActions';
 
 export const REGISTER_REQUEST = 'REGISTER_REQUEST';
 export const REGISTER_ERROR = 'REGISTER_ERROR';
@@ -90,7 +91,8 @@ export const authenticateUser = (token) => {
       try {
         if(response.username){
           dispatch(authenticateSuccess(response.username));
-          dispatch(routeActions.push('/profile'))
+          dispatch(displayProfileHome());
+          dispatch(routeActions.push('/profile'));
         } else {
           dispatch(authenticateError(response));
         }
