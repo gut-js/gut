@@ -15,6 +15,7 @@ db.userSchema = new db.Schema ({
   lastname: {type: String},
   categories: {},
   friends: {},
+  beenTo: {},
   email: { type: String },
   gravatarUrl: { type: String }
 });

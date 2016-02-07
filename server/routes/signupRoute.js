@@ -36,11 +36,12 @@ router.post('/', function(req, res) {
         email: email,
         categories: {test:'test'},
         friends: {test:false},
+        beenTo: {test:false},
         gravatarUrl: gravatarUrl
       });
 
-
       user.markModified('categories');
+      user.markModified('beenTo');
 
       user.save(function(err, user) {
         console.log('inside user.save');

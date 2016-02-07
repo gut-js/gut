@@ -65,8 +65,26 @@ $(document).ready(function(){
     $.ajax({
       url: '/poll',
       type: 'GET',
-      success: function(data){
-        console.log('success',data);
+      success: function(businesses){
+        console.log('success',businesses);
+
+        $.ajax({
+          url: '/history',
+          type: 'PUT',
+          data: JSON.stringify({
+            username:currentUsername,
+            restaurantName:businesses[0].name,
+            restaurantId:businesses[0].id
+          }),
+          contentType: 'application/json',
+          success: function(data2){
+            console.log('success',data2);
+          },
+          error: function(err){
+            console.log('error',err);
+          }
+        })
+
       },
       error: function(err){
         console.log('error',err);
