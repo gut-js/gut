@@ -9,14 +9,14 @@ class ProfilePic extends React.Component {
 
   handleReset(){
     // const { resetPoll, fetchYelpData } = this.props.pollActions;
-    // const { clearPoll } = this.props.pollActions;
+    // const { refreshPoll } = this.props.pollActions;
     // const { username, closeDeleteModal } = this.props;
     // const userInfo = {
     //   username: username
     // }
 
     // resetPoll(userInfo);
-    // clearPoll();
+    // refreshPoll();
     // fetchYelpData();
     // closeDeleteModal();
   }
@@ -37,7 +37,7 @@ class ProfilePic extends React.Component {
           <form action="/photo" method="POST" encType="multipart/form-data" >
             Select an image to upload:<br></br>
             <input type="file" name='image'/>
-            <input type="hidden" name="username" value= { this.props.username } /> 
+            <input type="hidden" name="username" value= { this.props.username } />
             <input type="submit" value="Upload Image"/>
           </form>
         </Modal.Body>
@@ -47,4 +47,3 @@ class ProfilePic extends React.Component {
 }
 
 export default ProfilePic;
-

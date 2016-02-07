@@ -75,6 +75,10 @@ export default function authReducer(state = initialState, action){
         username: '',
         showPoll: false
       })
+    case ActionTypes.CLEAR_POLL:
+      return Object.assign({}, state, {
+        showPoll: false
+      })
     default:
       return state;
   }

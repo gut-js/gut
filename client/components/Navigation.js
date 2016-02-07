@@ -49,10 +49,9 @@ class Navigation extends React.Component {
   }
 
   logOut(){
-    const { logoutUser } = this.props.authActions;
+    const { logoutUser, clearPoll } = this.props.authActions;
     const { clearViews } = this.props.viewActions;
     const { clearLocation } = this.props.dinerActions;
-    const { clearPoll } = this.props.pollActions;
 
     localStorage.removeItem('token');
     clearLocation();
@@ -62,6 +61,7 @@ class Navigation extends React.Component {
   }
 
   displayLocationChoice(){
+    const { clearPoll } = this.props.authActions;
     const { displayLocationChoice } = this.props.viewActions;
     const { username } = this.props;
     const { clearDiners, clearLocation } = this.props.dinerActions;
@@ -70,10 +70,12 @@ class Navigation extends React.Component {
     clearDiners();
     clearLocation();
     clearFriends();
+    clearPoll();
     displayLocationChoice();
   }
 
   displayPreferences(){
+    const { clearPoll } = this.props.authActions;
     const { displayMorePreferences } = this.props.viewActions;
     const { clearDiners, clearLocation } = this.props.dinerActions;
     const { clearFriends } = this.props.friendActions;
@@ -81,10 +83,12 @@ class Navigation extends React.Component {
     clearDiners();
     clearLocation();
     clearFriends();
+    clearPoll();
     displayMorePreferences();
   }
 
   displayFriends(){
+    const { clearPoll } = this.props.authActions;
     const { displayAddFriends } = this.props.viewActions;
     const { clearDiners, clearLocation } = this.props.dinerActions;
     const { clearFriends } = this.props.friendActions;
@@ -92,10 +96,12 @@ class Navigation extends React.Component {
     clearDiners();
     clearLocation();
     clearFriends();
+    clearPoll();
     displayAddFriends();
   }
 
   displayProfileHome(){
+    const { clearPoll } = this.props.authActions;
     const { displayProfileHome } = this.props.viewActions;
     const { clearDiners, clearLocation } = this.props.dinerActions;
     const { clearFriends } = this.props.friendActions;
@@ -103,6 +109,7 @@ class Navigation extends React.Component {
     clearDiners();
     clearLocation();
     clearFriends();
+    clearPoll();
     displayProfileHome();
   }
 

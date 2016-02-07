@@ -9,14 +9,14 @@ class DeletePref extends React.Component {
 
   handleReset(){
     const { resetPoll, fetchYelpData } = this.props.pollActions;
-    const { clearPoll } = this.props.pollActions;
+    const { refreshPoll } = this.props.pollActions;
     const { username, closeDeleteModal } = this.props;
     const userInfo = {
       username: username
     }
 
     resetPoll(userInfo);
-    clearPoll();
+    refreshPoll();
     fetchYelpData();
     closeDeleteModal();
   }
