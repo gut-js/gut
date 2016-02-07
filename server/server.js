@@ -26,7 +26,6 @@ app.get('/', function(req, res){
 
 app.use(bodyParser.json());
 
-
 // routes
 app.use('/login', require('./routes/loginRoute'));
 app.use('/signup', require('./routes/signupRoute'));
@@ -41,7 +40,7 @@ app.use('/friends', require('./routes/friendsRoute'));
 app.use('/uber', require('./routes/uberRoute'));
 app.use('/photo', require('./routes/photoRoute'));
 app.use('/poll', require('./routes/pollRoute'));
-app.use('/oauthcallback', require('./routes/oauthRoute'));
+app.use('/oauthsignin', require('./routes/oauthSigninRoute'));
 
 var port = process.env.PORT || 5679;
 

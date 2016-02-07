@@ -54,7 +54,7 @@ class SignIn extends React.Component {
         </Modal.Header>
         <Modal.Body>
           <form>
-            <a href='https://accounts.google.com/o/oauth2/auth?response_type=code&scope=openid%20profile%20email&client_id=1007941048671-mqral0q9jeg17ervhv01gknh7tml237i.apps.googleusercontent.com&redirect_uri=http://127.0.0.1:5679/oauthcallback&connection=google-oauth2'>Sign in with Google</a>
+            <a href='https://accounts.google.com/o/oauth2/auth?response_type=code&scope=openid%20profile%20email&client_id=1007941048671-mqral0q9jeg17ervhv01gknh7tml237i.apps.googleusercontent.com&redirect_uri=http://127.0.0.1:5679/oauthsignin&connection=google-oauth2'>Sign in with Google</a>
             <div className='form-group'>
               <input
                 type='text'
