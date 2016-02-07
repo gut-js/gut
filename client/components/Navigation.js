@@ -66,12 +66,10 @@ class Navigation extends React.Component {
     const { username } = this.props;
     const { clearDiners, clearLocation } = this.props.dinerActions;
     const { clearFriends } = this.props.friendActions;
-    const { clearPoll } = this.props.pollActions;
 
     clearDiners();
     clearLocation();
     clearFriends();
-    clearPoll();
     displayLocationChoice();
   }
 
@@ -90,12 +88,10 @@ class Navigation extends React.Component {
     const { displayAddFriends } = this.props.viewActions;
     const { clearDiners, clearLocation } = this.props.dinerActions;
     const { clearFriends } = this.props.friendActions;
-    const { clearPoll } = this.props.pollActions;
 
     clearDiners();
     clearLocation();
     clearFriends();
-    clearPoll();
     displayAddFriends();
   }
 
@@ -103,12 +99,10 @@ class Navigation extends React.Component {
     const { displayProfileHome } = this.props.viewActions;
     const { clearDiners, clearLocation } = this.props.dinerActions;
     const { clearFriends } = this.props.friendActions;
-    const { clearPoll } = this.props.pollActions;
 
     clearDiners();
     clearLocation();
     clearFriends();
-    clearPoll();
     displayProfileHome();
   }
 
