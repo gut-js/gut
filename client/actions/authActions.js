@@ -201,6 +201,7 @@ const signinSuccess = (user) => {
 }
 
 export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
+export const CLEAR_POLL = 'CLEAR_POLL';
 
 // Main Logout Function
 export const logoutUser = () => {
@@ -213,5 +214,11 @@ export const logoutUser = () => {
 const logoutSuccess = () => {
   return {
     type: LOGOUT_SUCCESS
+  }
+}
+
+export const clearPoll = () => {
+  return {
+      type: CLEAR_POLL
   }
 }
