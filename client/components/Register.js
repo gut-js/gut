@@ -1,11 +1,25 @@
 import React, { PropTypes } from 'react';
 import { Modal, Button } from 'react-bootstrap';
+import * as isValid from './../utils/validationHelperFunctions';
 
 class Register extends React.Component {
   constructor(){
     super();
+    this.displayUsernameErr = this.displayUsernameErr.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.switch = this.switch.bind(this);
+  }
+
+  displayUsernameErr(){
+    if(this.props.authErrorMsg.message){
+      return(
+        <p>
+          Sorry, this username has been taken. Please try another one.
+        </p>
+      )
+    } else {
+      return null;
+    }
   }
 
   handleClick(e){
@@ -40,11 +54,6 @@ class Register extends React.Component {
   }
 
   render(){
-    let errorMsg = this.props.authErrorMsg.message ? (
-      <p>
-        Sorry, this username has been taken. Please try another one.
-      </p>) : null;
-
     let infoBox = this.props.isFetching ? (
       <div>
         <image src='./../static/assets/spinner.gif' />
@@ -71,7 +80,7 @@ class Register extends React.Component {
               placeholder='Username'
               ref='username' />
           </div>
-          {errorMsg}
+          {this.displayUsernameErr()}
           <div className='form-group'>
             <input
               type='password'
@@ -105,10 +114,10 @@ class Register extends React.Component {
           <Modal.Title>
             Register
           </Modal.Title>
-          <Modal.Body>
-            {infoBox}
-          </Modal.Body>
         </Modal.Header>
+        <Modal.Body>
+          {infoBox}
+        </Modal.Body>
       </Modal>
     )
   }
