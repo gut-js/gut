@@ -3,6 +3,7 @@ import React from 'react';
 //Components
 import Poll from './Poll';
 import DeletePref from './DeletePref';
+import ProfilePic from './ProfilePic';
 
 class RefinePref extends React.Component {
   constructor(){
@@ -11,8 +12,11 @@ class RefinePref extends React.Component {
     this.closeDeleteModal = this.closeDeleteModal.bind(this);
     this.displayPreferencePoll = this.displayPreferencePoll.bind(this);
     this.displayLoadingSpinner = this.displayLoadingSpinner.bind(this);
+    this.openPicModal = this.openPicModal.bind(this);
+    this.closePicModal = this.closePicModal.bind(this);
     this.state = {
       showDeleteModal: false,
+      showPicModal: false
     }
   }
 
@@ -31,6 +35,18 @@ class RefinePref extends React.Component {
   closeDeleteModal(){
     this.setState({
       showDeleteModal: false
+    })
+  }
+
+  openPicModal(){
+    this.setState({
+      showPicModal: true
+    })
+  }
+
+  closePicModal(){
+    this.setState({
+      showPicModal: false
     })
   }
 
@@ -76,6 +92,16 @@ class RefinePref extends React.Component {
             {...this.props}
             showDeleteModal={this.state.showDeleteModal}
             closeDeleteModal={this.closeDeleteModal} />
+        </div>
+        <h1>Profile Picture</h1>
+        <div>
+          <button onClick={this.openPicModal}>
+            Upload a Profile Pic
+          </button>
+          <ProfilePic
+            {...this.props}
+            showPicModal={this.state.showPicModal}
+            closePicModal={this.closePicModal} />
         </div>
       </div>
     )
