@@ -41,6 +41,7 @@ app.use('/uber', require('./routes/uberRoute'));
 app.use('/photo', require('./routes/photoRoute'));
 app.use('/poll', require('./routes/pollRoute'));
 app.use('/oauthsignin', require('./routes/oauthSigninRoute'));
+app.use('/history', require('./routes/historyRoute'));
 
 var port = process.env.PORT || 5679;
 

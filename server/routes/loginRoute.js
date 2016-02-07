@@ -43,7 +43,8 @@ router.post('/', function(req, res){
                 message: 'Enjoy your token!',
                 token: token,
                 username: username,
-                loginMessage: loginMessage
+                loginMessage: loginMessage,
+                beenTo: user.beenTo
               });
             } else {
               res.json('InvalidPassword');
