@@ -179,7 +179,7 @@ class Navigation extends React.Component {
         <Navbar.Header>
           <Navbar.Brand>
             <img
-              src='./../static/assets/snap_pea_pea.png'
+              src='./../static/assets/snap_pea.png'
               alt='snap_pea_logo'
               onClick={this.displayProfileHome} />
           </Navbar.Brand>
