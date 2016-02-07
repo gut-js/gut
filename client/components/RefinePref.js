@@ -10,6 +10,7 @@ class RefinePref extends React.Component {
     this.openDeleteModal = this.openDeleteModal.bind(this);
     this.closeDeleteModal = this.closeDeleteModal.bind(this);
     this.displayPreferencePoll = this.displayPreferencePoll.bind(this);
+    this.displayLoadingSpinner = this.displayLoadingSpinner.bind(this);
     this.state = {
       showDeleteModal: false,
     }
@@ -47,10 +48,24 @@ class RefinePref extends React.Component {
     }
   }
 
+  displayLoadingSpinner(){
+    if(this.props.isFetchingYelp){
+      return(
+        <div>
+          <h1>One moment please</h1>
+          <image src='./../static/assets/spinner.gif' />
+        </div>
+      )
+    } else {
+      return null;
+    }
+  }
+
   render(){
     return(
       <div>
         <h1>Refine your Preferences.</h1>
+        {this.displayLoadingSpinner()}
         {this.displayPreferencePoll()}
         <h3>Reset your Preferences</h3>
         <div>
