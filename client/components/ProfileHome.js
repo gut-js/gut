@@ -20,13 +20,23 @@ class ProfileHome extends React.Component {
   }
 
   displayHome(){
+    const { beenTo } = this.props;
+
     if(this.props.displayProfileHome){
-      return(
-        <div>
-          <RestaurantHistory />
-          <LocationPref {...this.props} />
-        </div>
-      )
+      if(Object.keys(beenTo).length > 0){
+        return(
+          <div>
+            hello!
+          </div>
+        )
+      } else {
+        return(
+          <div>
+            testing
+            <LocationPref {...this.props} />
+          </div>
+        )
+      }
     } else {
       return null;
     }
@@ -83,6 +93,7 @@ class ProfileHome extends React.Component {
   }
 
   render(){
+    console.log('props in profile home', this.props);
     return(
       <div>
         {this.displayHome()}
