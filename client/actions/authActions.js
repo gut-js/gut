@@ -91,9 +91,11 @@ export const authenticateUser = (token) => {
       return response.json();
     })
     .then(response => {
+      console.log('res from auth', response);
       try {
         if(response.username){
           dispatch(authenticateSuccess(response.username));
+          // dispatch(syncHistory(response.beenTo));
           dispatch(displayProfileHome());
           dispatch(routeActions.push('/profile'));
         } else {

@@ -39,7 +39,6 @@ class Profile extends React.Component {
   }
 
   render(){
-    console.log('props on rpro', this.props);
     return(
       <div>
         <Navigation {...this.props} />
