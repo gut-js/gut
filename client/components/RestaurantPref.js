@@ -105,23 +105,33 @@ class RestaurantPref extends React.Component {
       let categories = this.props.topRestaurant.categories.map(function(cat){
         return cat[0];
       }).join(', ')
+      console.log(this.props.topRestaurant)
+
+      let reviews = 'reviews';
+      if (this.props.topRestaurant.review_count === 1) {
+        reviews = 'review'
+      }
+
       return (
         <div>
-          <h3>Based on your input, we think you'll really like eating at...</h3>
-          <h3>{this.props.topRestaurant.name}</h3>
+          <Button onClick={this.selectNext}>Next suggestion</Button>
+          <h4>Based on your input, we think you'll really like eating at...</h4>
+          <a href={this.props.topRestaurant.url}>
+            <h4>{this.props.topRestaurant.name}</h4>
+          </a>
+          <p><img src={this.props.topRestaurant.rating_img_url_large}/> {this.props.topRestaurant.review_count} {reviews}</p>
           <p>{categories}</p>
-          <p>{this.props.topRestaurant.display_phone}</p>
+          <img src={this.props.topRestaurant.image_url}/>
           <p>
             {this.props.topRestaurant.location.display_address[0]}<br/>
             {this.props.topRestaurant.location.display_address[1]}<br/>
             {this.props.topRestaurant.location.display_address[2]}
           </p>
           <a href={directionsUrl} target='_blank'>
-            Peas get directions!
+            <Button>
+              Peas get directions!
+            </Button>
           </a>
-          <div style={{width:300, height:300}}>
-            <Map lat={this.props.topRestaurant.location.coordinate.latitude} lng={this.props.topRestaurant.location.coordinate.longitude}/>
-          </div>
           <Button onClick={this.openUberModal}>
             <img src='./../static/assets/UBER_API_Badges_1x_22px.png' />    Ride there with Uber
             <UberInfo 
@@ -129,7 +139,9 @@ class RestaurantPref extends React.Component {
               showUberModal={this.state.showUberModal}
               closeUberModal={this.closeUberModal} />
           </Button>
-          <Button onClick={this.selectNext}>Next restaurant</Button>
+          <div style={{width:300, height:300}}>
+            <Map lat={this.props.topRestaurant.location.coordinate.latitude} lng={this.props.topRestaurant.location.coordinate.longitude}/>
+          </div>
         </div>
       )
     } else {
@@ -140,7 +152,6 @@ class RestaurantPref extends React.Component {
   render(){
   	return (
   	 	<div>
-        <h1>Results</h1>
         {this.displayLoadingSpinner()}
         {this.displayTopRestaurant()}
   	 	</div>
