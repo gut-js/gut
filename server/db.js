@@ -10,7 +10,7 @@ mongoose.connect(db.dbURI);
 db.Schema = mongoose.Schema;
 db.userSchema = new db.Schema ({
   username: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
+  password: { type: String },
   firstname: {type: String},
   lastname: {type: String},
   categories: {},
