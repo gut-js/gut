@@ -30,6 +30,7 @@ export const registerUser = (credentials) => {
       return response.json();
     })
     .then(response => {
+      console.log('res from registration', response);
       try {
         if(response.success){
           localStorage.token = response.token;
@@ -95,7 +96,7 @@ export const authenticateUser = (token) => {
       try {
         if(response.username){
           dispatch(authenticateSuccess(response.username));
-          // dispatch(syncHistory(response.beenTo));
+          dispatch(syncHistory(response.beenTo));
           dispatch(displayProfileHome());
           dispatch(routeActions.push('/profile'));
         } else {

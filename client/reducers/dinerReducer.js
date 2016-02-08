@@ -4,7 +4,7 @@ const initialState = {
   diners:[],
   location: '',
   recommendations: [],
-  beenTo: [],
+  beenTo: {},
   dinerErrorMessage: '',
   topRestaurant: {},
   isLoadingResults: false,
