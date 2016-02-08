@@ -7,6 +7,7 @@ class Register extends React.Component {
     super();
     this.setFirst = this.setFirst.bind(this);
     this.setLast = this.setLast.bind(this);
+    this.setPw = this.setPw.bind(this);
     this.setUser = this.setUser.bind(this);
     this.setEmail = this.setEmail.bind(this);
     this.displayAlphaErrFirst = this.displayAlphaErrFirst.bind(this);
@@ -19,6 +20,7 @@ class Register extends React.Component {
     this.state = {
       first: '',
       last: '',
+      pw: '',
       username: '',
       email: '',
       runStatus: ''
@@ -34,6 +36,12 @@ class Register extends React.Component {
   setLast(e){
     this.setState({
       last: e.target.value
+    })
+  }
+
+  setPw(e){
+    this.setState({
+      pw: e.target.value
     })
   }
 
@@ -75,7 +83,7 @@ class Register extends React.Component {
   }
 
   isFormError(){
-    if(this.state.first.length === 0 || this.state.last.length === 0 || this.state.username.length === 0 || this.state.email.length === 0){
+    if(this.state.first.length === 0 || this.state.last.length === 0 || this.state.pw.length === 0 || this.state.username.length === 0 || this.state.email.length === 0){
       this.setState({runStatus: 'Required fields cannot be left empty'});
       return true;
     }
@@ -161,7 +169,8 @@ class Register extends React.Component {
               type='password'
               className='form-control'
               placeholder='Password'
-              ref='password' />
+              ref='password'
+              onChange={this.setPw} />
           </div>
           <div className='form-group'>
             <input
