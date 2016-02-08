@@ -37,7 +37,8 @@ router.post('/', function(req, res) {
         categories: {test:'test'},
         friends: {test:false},
         beenTo: {test:false},
-        gravatarUrl: gravatarUrl
+        gravatarUrl: gravatarUrl,
+        searchTerm: username+firstname+lastname
       });
 
       user.markModified('categories');
@@ -55,6 +56,10 @@ router.post('/', function(req, res) {
 
           var city = _.shuffle(cities).pop();
           request_yelp({location:city},function(yelpErr,yelpRes,yelpBody){
+            if (yelpErr){
+              console.log('yelp error');
+              res.json(yelpErr);
+            }
             var parsed = JSON.parse(yelpBody);
             var businesses = parsed.businesses;
                 businesses = _.shuffle(businesses);

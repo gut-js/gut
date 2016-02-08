@@ -5,11 +5,10 @@ var _ = require('lodash');
 var db = require('../db');
 
 router.get('/',function(req,res){
-	console.log('inside usersRoute');
 	var filterName = req.query.username;
 	var searchTerm = req.query.searchTerm;
 	if (searchTerm){
-		var searchObj = {username: new RegExp(searchTerm,'i')};
+		var searchObj = {searchTerm: new RegExp(searchTerm,'i')};
 	}
 	else{
 		var searchObj = {};
