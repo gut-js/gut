@@ -131,6 +131,58 @@ const loadingResults = () => {
   }
 }
 
+export const ADD_TO_HISTORY_REQ = 'ADD_TO_HISTORY_REQ';
+export const ADD_TO_HISTORY_SUCCESS = 'ADD_TO_HISTORY_SUCCESS';
+export const SYNC_HISTORY = 'SYNC_HISTORY';
+
+// Adds selected restaurant to user history
+export const addToHistory = (info) => {
+  console.log('added history action', info);
+  return dispatch => {
+    dispatch(addToHistoryRequest());
+
+    return fetch('http://localhost:5679/history', {
+      method: 'PUT',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        username: info.username,
+        restaurantName: info.restaurantName,
+        restaurantId: info.restaurantId,
+        date: info.date
+      })
+    })
+    .then(response => {
+      return response.json();
+    })
+    .then(response => {
+      dispatch(addToHistorySuccess());
+    })
+    .catch(err => console.error('Error in Adding to History:', err));
+  }
+}
+
+const addToHistoryRequest = () => {
+  return {
+    type: ADD_TO_HISTORY_REQ
+  }
+}
+
+const addToHistorySuccess = () => {
+  return {
+    type: ADD_TO_HISTORY_SUCCESS
+  }
+}
+
+export const syncHistory = (history) => {
+  return {
+    type: SYNC_HISTORY,
+    history
+  }
+}
+
 export const LOAD_UBER_DATA = 'LOAD_UBER_DATA';
 export const LOADING_UBER_DATA = 'LOADING_UBER_DATA';
 export const CLEAR_UBER_DATA = 'CLEAR_UBER_DATA';

@@ -39,7 +39,7 @@ class Profile extends React.Component {
   }
 
   render(){
-    console.log('props in profile', this.props);
+    console.log('props on rpro', this.props);
     return(
       <div>
         <Navigation {...this.props} />
@@ -72,9 +72,11 @@ const mapStateToProps = (state) => {
     diners: state.dinerReducer.diners,
     location: state.dinerReducer.location,
     recommendations: state.dinerReducer.recommendations,
+    beenTo: state.dinerReducer.beenTo,
     topRestaurant: state.dinerReducer.topRestaurant,
     index: state.dinerReducer.index,
     isLoadingResults: state.dinerReducer.isLoadingResults,
+    isAddingHistory: state.dinerReducer.isAddingHistory,
     uberData: state.dinerReducer.uberData,
     isLoadingUberData: state.dinerReducer.isLoadingUberData,
     pickupLocation: state.dinerReducer.pickupLocation,
