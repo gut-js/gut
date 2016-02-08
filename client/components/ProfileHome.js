@@ -24,7 +24,7 @@ class ProfileHome extends React.Component {
     let history = [];
 
     if(this.props.displayProfileHome){
-      if(beenTo.test === false){
+      if(!beenTo.test){
         return(
           <div>
             <h1>Select a location to get started.</h1>
