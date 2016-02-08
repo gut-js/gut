@@ -10,11 +10,12 @@ import UberInfo from './UberInfo';
 class RestaurantPref extends React.Component {
   constructor(){
     super();
+    this.openUberModal = this.openUberModal.bind(this);
+    this.closeUberModal = this.closeUberModal.bind(this);
+    this.selectRestaurant = this.selectRestaurant.bind(this);
     this.selectNext = this.selectNext.bind(this);
     this.displayLoadingSpinner = this.displayLoadingSpinner.bind(this);
     this.displayTopRestaurant = this.displayTopRestaurant.bind(this);
-    this.openUberModal = this.openUberModal.bind(this);
-    this.closeUberModal = this.closeUberModal.bind(this);
     this.state = {
       showSignInModal: false,
       showRegisterModal: false
@@ -38,6 +39,20 @@ class RestaurantPref extends React.Component {
     this.setState({
       showUberModal: false
     })
+  }
+
+  selectRestaurant(){
+    const { username } = this.props;
+    const { addToHistory } = this.props.dinerActions;
+    const { name, id } = this.props.topRestaurant;
+    const restaurantInfo = {
+      username: username,
+      restaurantName: name,
+      restaurantId: id,
+      date: new Date()
+    }
+
+    addToHistory(restaurantInfo);
   }
 
   selectNext(e){
@@ -105,15 +120,16 @@ class RestaurantPref extends React.Component {
       let categories = this.props.topRestaurant.categories.map(function(cat){
         return cat[0];
       }).join(', ')
-      console.log(this.props.topRestaurant)
 
       let reviews = 'reviews';
       if (this.props.topRestaurant.review_count === 1) {
         reviews = 'review'
       }
 
+      console.log('props on ind restaurant', this.props);
       return (
         <div>
+          <Button onClick={this.selectRestaurant}>Select Restaurant</Button>
           <Button onClick={this.selectNext}>Next suggestion</Button>
           <h4>Based on your input, we think you'll really like eating at...</h4>
           <a href={this.props.topRestaurant.url}>
@@ -134,7 +150,7 @@ class RestaurantPref extends React.Component {
           </a>
           <Button onClick={this.openUberModal}>
             <img src='./../static/assets/UBER_API_Badges_1x_22px.png' />    Ride there with Uber
-            <UberInfo 
+            <UberInfo
               {...this.props}
               showUberModal={this.state.showUberModal}
               closeUberModal={this.closeUberModal} />
