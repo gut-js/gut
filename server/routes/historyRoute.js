@@ -15,7 +15,11 @@ router.put('/',function(req,res){
 		}
 
 		delete user.beenTo.test;
-		user.beenTo[restaurantId]=[restaurantName,'http://www.yelp.com/biz/'+restaurantId];
+		user.beenTo[restaurantId]={
+			name:restaurantName,
+			url:'http://www.yelp.com/biz/'+restaurantId,
+			date:Date.now()
+		}
 		user.markModified('beenTo');
 		user.save(function(err,user){
 			res.send(user.beenTo);

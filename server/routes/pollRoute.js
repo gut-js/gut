@@ -23,7 +23,9 @@ router.get('/',function(req,res){
 			}
 			if (business100.length>=100){
 				for (var k=0; k<business100.length; k++){
-					business100[k].image_url = business100[k].image_url.slice(0,-6)+'o.jpg';
+					if (business100[k].image_url){
+						business100[k].image_url = business100[k].image_url.slice(0,-6)+'o.jpg';
+					}
 				}
 				res.json(_.shuffle(business100));
 			}
