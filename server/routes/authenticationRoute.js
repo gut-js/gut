@@ -12,11 +12,14 @@ router.post('/', function(req, res){
   var decoded = jwt.decode(token);
   var username = decoded._doc.username;
 
-  db.User.findOne({username: username}, function(err, username){
+  db.User.findOne({username: username}, function(err, user){
     if (err) {
       res.send('InvalidToken');
     } else {
-      res.json({username: username});
+      res.json({
+        username: user.username,
+        beenTo: user.beenTo
+      });
     }
   });
 });
