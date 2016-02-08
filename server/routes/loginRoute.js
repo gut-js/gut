@@ -43,6 +43,7 @@ router.post('/', function(req, res){
                 message: 'Enjoy your token!',
                 token: token,
                 username: username,
+                beenTo: user.beenTo,
                 loginMessage: loginMessage,
                 beenTo: user.beenTo
               });
