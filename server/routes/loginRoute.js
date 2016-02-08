@@ -5,6 +5,7 @@ var jwt = require('jsonwebtoken');
 var mongoose = require('mongoose');
 var db = require('../db');
 var app = require('../server');
+var historyToArray = require('../functions/historyToArray');
 
 //log into account
 router.post('/', function(req, res){
@@ -43,7 +44,7 @@ router.post('/', function(req, res){
                 message: 'Enjoy your token!',
                 token: token,
                 username: username,
-                beenTo: user.beenTo,
+                beenTo: historyToArray(user.beenTo),
                 loginMessage: loginMessage,
               });
             } else {

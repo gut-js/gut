@@ -5,6 +5,7 @@ var jwt = require('jsonwebtoken');
 var mongoose = require('mongoose');
 var db = require('../db');
 var app = require('../server');
+var historyToArray = require('../functions/historyToArray');
 
 // authenticate user
 router.post('/', function(req, res){
@@ -18,7 +19,7 @@ router.post('/', function(req, res){
     } else {
       res.json({
         username: user.username,
-        beenTo: user.beenTo
+        beenTo: historyToArray(user.beenTo)
       });
     }
   });
