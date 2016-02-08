@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var app = require('../server');
 var db = require('../db');
+var historyToArray = require('../functions/historyToArray');
 
 router.put('/',function(req,res){
 	console.log('inside historyRoute');
@@ -22,7 +23,7 @@ router.put('/',function(req,res){
 		}
 		user.markModified('beenTo');
 		user.save(function(err,user){
-			res.send(user.beenTo);
+			res.send(historyToArray(user.beenTo));
 		})
 	})
 });
