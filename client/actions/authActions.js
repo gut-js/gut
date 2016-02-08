@@ -1,5 +1,6 @@
 import { routeActions } from 'react-router-redux';
 import { syncPoll } from './../actions/pollActions';
+import { displayProfileHome } from './../actions/viewActions';
 
 export const REGISTER_REQUEST = 'REGISTER_REQUEST';
 export const REGISTER_ERROR = 'REGISTER_ERROR';
@@ -17,6 +18,8 @@ export const registerUser = (credentials) => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
+        firstname: credentials.firstname,
+        lastname: credentials.lastname,
         username: credentials.username,
         password: credentials.password,
         email: credentials.email
@@ -90,7 +93,8 @@ export const authenticateUser = (token) => {
       try {
         if(response.username){
           dispatch(authenticateSuccess(response.username));
-          dispatch(routeActions.push('/profile'))
+          dispatch(displayProfileHome());
+          dispatch(routeActions.push('/profile'));
         } else {
           dispatch(authenticateError(response));
         }
@@ -197,6 +201,7 @@ const signinSuccess = (user) => {
 }
 
 export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
+export const CLEAR_POLL = 'CLEAR_POLL';
 
 // Main Logout Function
 export const logoutUser = () => {
@@ -209,5 +214,11 @@ export const logoutUser = () => {
 const logoutSuccess = () => {
   return {
     type: LOGOUT_SUCCESS
+  }
+}
+
+export const clearPoll = () => {
+  return {
+      type: CLEAR_POLL
   }
 }

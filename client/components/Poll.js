@@ -9,7 +9,6 @@ class Poll extends React.Component {
   }
 
   render(){
-    console.log('props in poll', this.props);
     return (
       <div>
        <PollCategory

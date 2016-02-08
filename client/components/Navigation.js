@@ -49,10 +49,9 @@ class Navigation extends React.Component {
   }
 
   logOut(){
-    const { logoutUser } = this.props.authActions;
+    const { logoutUser, clearPoll } = this.props.authActions;
     const { clearViews } = this.props.viewActions;
     const { clearLocation } = this.props.dinerActions;
-    const { clearPoll } = this.props.pollActions;
 
     localStorage.removeItem('token');
     clearLocation();
@@ -62,11 +61,11 @@ class Navigation extends React.Component {
   }
 
   displayLocationChoice(){
+    const { clearPoll } = this.props.authActions;
     const { displayLocationChoice } = this.props.viewActions;
     const { username } = this.props;
     const { clearDiners, clearLocation } = this.props.dinerActions;
     const { clearFriends } = this.props.friendActions;
-    const { clearPoll } = this.props.pollActions;
 
     clearDiners();
     clearLocation();
@@ -76,6 +75,8 @@ class Navigation extends React.Component {
   }
 
   displayPreferences(){
+    const { clearPoll } = this.props.authActions;
+    const { refreshPoll } = this.props.pollActions;
     const { displayMorePreferences } = this.props.viewActions;
     const { clearDiners, clearLocation } = this.props.dinerActions;
     const { clearFriends } = this.props.friendActions;
@@ -83,14 +84,16 @@ class Navigation extends React.Component {
     clearDiners();
     clearLocation();
     clearFriends();
+    clearPoll();
+    refreshPoll();
     displayMorePreferences();
   }
 
   displayFriends(){
+    const { clearPoll } = this.props.authActions;
     const { displayAddFriends } = this.props.viewActions;
     const { clearDiners, clearLocation } = this.props.dinerActions;
     const { clearFriends } = this.props.friendActions;
-    const { clearPoll } = this.props.pollActions;
 
     clearDiners();
     clearLocation();
@@ -100,10 +103,10 @@ class Navigation extends React.Component {
   }
 
   displayProfileHome(){
+    const { clearPoll } = this.props.authActions;
     const { displayProfileHome } = this.props.viewActions;
     const { clearDiners, clearLocation } = this.props.dinerActions;
     const { clearFriends } = this.props.friendActions;
-    const { clearPoll } = this.props.pollActions;
 
     clearDiners();
     clearLocation();
@@ -176,7 +179,7 @@ class Navigation extends React.Component {
         <Navbar.Header>
           <Navbar.Brand>
             <img
-              src='./../static/assets/snap_pea_pea.png'
+              src='./../static/assets/snap_pea.png'
               alt='snap_pea_logo'
               onClick={this.displayProfileHome} />
           </Navbar.Brand>

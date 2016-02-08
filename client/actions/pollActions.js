@@ -51,7 +51,7 @@ export const SEND_POLL_ERROR = 'SEND_POLL_ERROR';
 export const UPDATE_POLL = 'UPDATE_POLL';
 export const SYNC_POLL = 'SYNC_POLL';
 export const END_POLL = 'END_POLL';
-export const CLEAR_POLL = 'CLEAR_POLL';
+export const REFRESH_POLL = 'REFRESH_POLL';
 
 // Sends poll responses to backend
 export const sendPollChoices = (choices) => {
@@ -123,9 +123,9 @@ export const endPoll = (userInfo) => {
   }
 }
 
-export const clearPoll = () => {
+export const refreshPoll = () => {
   return {
-    type: CLEAR_POLL
+    type: REFRESH_POLL
   }
 }
 
