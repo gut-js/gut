@@ -131,7 +131,6 @@ class Register extends React.Component {
   }
 
   render(){
-    console.log('props in register', this.props);
     let infoBox = this.props.isFetching ? (
       <div>
         <image src='./../static/assets/spinner.gif' />

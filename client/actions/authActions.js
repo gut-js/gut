@@ -1,5 +1,6 @@
 import { routeActions } from 'react-router-redux';
 import { syncPoll } from './../actions/pollActions';
+import { syncHistory } from './../actions/dinerActions';
 import { displayProfileHome } from './../actions/viewActions';
 
 export const REGISTER_REQUEST = 'REGISTER_REQUEST';
@@ -151,12 +152,14 @@ export const signinUser = (credentials) => {
       return response.json();
     })
     .then(response => {
+      console.log('res in login', response);
       try {
         if(response.success){
           //save token
           localStorage.token = response.token;
           dispatch(signinSuccess(response));
-          dispatch(routeActions.push('/profile'))
+          dispatch(syncHistory(response.beenTo));
+          dispatch(routeActions.push('/profile'));
         } else {
           if(response === 'InvalidPassword'){
             dispatch(signinErrorPassword(response));
