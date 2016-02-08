@@ -21,9 +21,10 @@ class ProfileHome extends React.Component {
 
   displayHome(){
     const { beenTo } = this.props;
+    let history = [];
 
     if(this.props.displayProfileHome){
-      if(!beenTo.test){
+      if(beenTo.test === false){
         return(
           <div>
             <h1>Select a location to get started.</h1>
@@ -31,9 +32,20 @@ class ProfileHome extends React.Component {
           </div>
         )
       } else {
+        for(var key in beenTo){
+          history.push(<RestaurantHistory
+            restaurantName={beenTo[key].name}
+            link={beenTo[key].url}
+            key={key} />);
+        }
+
         return(
           <div>
-            hello!
+            <h1>History</h1>
+            <ul className='list-group'>
+              {history}
+            </ul>
+            <LocationPref {...this.props} />
           </div>
         )
       }
