@@ -1,4 +1,4 @@
-const validationHelperFunctions = {
+const isValid = {
   isAlpha(input){
     if(/[^a-zA-Z\s]/.test(input)) {
        return false;
@@ -23,9 +23,9 @@ const validationHelperFunctions = {
     return true;
   },
 
-  isValidEmail(input){
+  isEmail(input){
     if(/\S+@\S+\.\S+/.test(input)){
-      return true
+      return true;
     }
 
     return false;
@@ -48,4 +48,4 @@ const validationHelperFunctions = {
   }
 }
 
-export default validationHelperFunctions;
+export default isValid;
