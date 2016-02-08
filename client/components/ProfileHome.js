@@ -23,17 +23,17 @@ class ProfileHome extends React.Component {
     const { beenTo } = this.props;
 
     if(this.props.displayProfileHome){
-      if(Object.keys(beenTo).length > 0){
+      if(!beenTo.test){
         return(
           <div>
-            hello!
+            <h1>Select a location to get started.</h1>
+            <LocationPref {...this.props} />
           </div>
         )
       } else {
         return(
           <div>
-            testing
-            <LocationPref {...this.props} />
+            hello!
           </div>
         )
       }

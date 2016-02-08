@@ -44,7 +44,7 @@ export default function authReducer(state = initialState, action){
       return Object.assign({}, state, {
         isFetching: false,
         isLoggedIn: true,
-        username: action.info.username
+        username: action.info
       })
     case ActionTypes.SIGNIN_REQUEST:
       return Object.assign({}, state, {
