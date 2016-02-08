@@ -21,7 +21,7 @@ router.get('/',function(req,res){
 				return (user.username!==filterName && !owner.friends[user.username]);
 			});
 			var mappedUsers = users.map(function(user){
-				return {_id: user._id, username:user.username}
+				return {_id: user._id, username:user.username, firstname:user.firstname, lastname:user.lastname}
 			});
 
 			res.send(_.shuffle(mappedUsers));
