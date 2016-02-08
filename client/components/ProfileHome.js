@@ -83,7 +83,6 @@ class ProfileHome extends React.Component {
   }
 
   render(){
-    console.log('props in home', this.props);
     return(
       <div>
         {this.displayHome()}
