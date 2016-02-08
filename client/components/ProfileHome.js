@@ -33,7 +33,8 @@ class ProfileHome extends React.Component {
       } else {
         return(
           <div>
-            hello!
+            testing
+            <LocationPref {...this.props} />
           </div>
         )
       }
