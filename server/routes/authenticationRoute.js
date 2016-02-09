@@ -19,7 +19,8 @@ router.post('/', function(req, res){
     } else {
       res.json({
         username: user.username,
-        beenTo: historyToArray(user.beenTo)
+        beenTo: historyToArray(user.beenTo),
+        avatarUrl: user.avatarUrl
       });
     }
   });
