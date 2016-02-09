@@ -130,7 +130,7 @@ class RestaurantPref extends React.Component {
           <Button onClick={this.selectRestaurant}>Select Restaurant</Button>
           <Button onClick={this.selectNext}>Next suggestion</Button>
           <h4>Based on your input, we think you'll really like eating at...</h4>
-          <a href={this.props.topRestaurant.url}>
+          <a href={this.props.topRestaurant.url} target='_blank'>
             <h4>{this.props.topRestaurant.name}</h4>
           </a>
           <p><img src={this.props.topRestaurant.rating_img_url_large}/> {this.props.topRestaurant.review_count} {reviews}</p>

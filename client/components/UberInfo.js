@@ -70,7 +70,7 @@ class UberInfo extends React.Component {
         <div>
           {fares}
           <div>
-            <a href={uberUrl}>
+            <a href={uberUrl} target='_blank'>
               <Button><img src='./../static/assets/UBER_API_Badges_1x_22px.png' />    Request a Ride</Button>
             </a>
           </div>

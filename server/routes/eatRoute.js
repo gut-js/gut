@@ -7,8 +7,10 @@ var getGeolocationData = require('../functions/getGeolocationData');
 var getRecommendation = require('../functions/getRecommendation');
 
 router.get('/',function(req,res){
-	var location = req.query.location;
+	console.log('xxx', req.query.diners);
+	console.log('xxx', req.query.location);
 	var diners = JSON.parse(req.query.diners)
+	var location = JSON.parse(req.query.location);
 
 	db.User.find({
     'username': { $in: diners }
@@ -17,15 +19,19 @@ router.get('/',function(req,res){
 				console.log('err finding all diners');
 				res.send(err);
 			}
-		  if (location) {
+			if (Array.isArray(location)) {
+				var requestObj = {ll:location[0]+','+location[1]};
+				console.log('requestObj:', requestObj);
+				getRecommendation(requestObj, res, dinersInfo);
+			} else if (location) {
 		  	var requestObj = {location: location};
 		  	getRecommendation(requestObj, res, dinersInfo);
-		  }
-		  else {
+		  } else {
 		  	getGeolocationData().then(function(data) {
 		  		var latitude = data.location.lat;
 		  		var longitude = data.location.lng;
 		  		var requestObj = {ll:latitude+','+longitude};
+		  		console.log('requestObj:', requestObj);
 		  		getRecommendation(requestObj, res, dinersInfo);
 		  	})
 		  }
