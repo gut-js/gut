@@ -57,7 +57,7 @@ class FriendEntry extends React.Component {
       return(
         <img src={picPath}/>
       )
-    // } else {
+    // } else { //want to display default pic here
     //   return(
     //     <button
     //       className='badge'
