@@ -1,0 +1,64 @@
+.location-pref {
+  margin-top: 60px;
+
+  h1 {
+    text-align: center;
+    @include fontSize(50px);
+    margin: 40px auto;
+  }
+
+  .enter-location, .current-location {
+    background-color: $slategray;
+    height: 450px;
+    margin: 20px;
+    text-align: center;
+    box-shadow: 0 2px 2px 2px;
+  }
+
+  img {
+    display: inline-block;
+    margin-top:30px;
+    height: 80px;
+    width: 80px;
+  }
+
+  .btn {
+    background-color: $green;
+  }
+
+  .input-container {
+    form {
+      width:80%;
+      margin:0 auto;
+    }
+
+    input {
+      display: block;
+      height:50px;
+      margin-bottom:10px;
+    }
+
+    button {
+      height: 50px;
+      margin: 0 auto;
+      border-radius: 0;
+      color: $purewhite;
+      @include fontSize(30px);
+    }
+
+  }
+
+  .location-text-container {
+    text-align: center;
+    padding-top: 60px;
+    @include fontSize(36px);
+    margin-bottom: 20px;
+    color: $purewhite;
+  }
+
+  .current-location button {
+    margin-top: 50px;
+    width: 80%;
+  }
+
+}
