@@ -65,7 +65,9 @@ router.post('/', function(req, res) {
             var businesses = parsed.businesses;
                 businesses = _.shuffle(businesses);
                 for (var i=0; i<businesses.length; i++) {
-                  businesses[i].image_url = businesses[i].image_url.slice(0,-6)+'o.jpg';
+                  if (businesses[i].image_url){
+                    businesses[i].image_url = businesses[i].image_url.slice(0,-6)+'o.jpg';
+                  }
                 }
                 res.json({
                   success: true,
