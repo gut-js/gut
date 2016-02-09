@@ -82,8 +82,12 @@ export default function dinerReducer(state = initialState, action){
         beenTo: action.info
       })
     case ActionTypes.SYNC_HISTORY:
-      return Object.assign({},state, {
+      return Object.assign({}, state, {
         beenTo: action.history
+      })
+    case ActionTypes.CLEAR_HISTORY_SUCCESS:
+      return Object.assign({}, state, {
+        beenTo: []
       })
     case ActionTypes.LOAD_UBER_DATA:
       return Object.assign({}, state, {
