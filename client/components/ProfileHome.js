@@ -44,11 +44,12 @@ class ProfileHome extends React.Component {
 
         return(
           <div>
+            <h1>Select a location to get started.</h1>
+            <LocationPref {...this.props} />
             <h1>History</h1>
             <ul className='list-group'>
               {history}
             </ul>
-            <LocationPref {...this.props} />
           </div>
         );
       }
