@@ -16,10 +16,17 @@ router.put('/',function(req,res){
 		}
 
 		delete user.beenTo.test;
+		var d = new Date();
+		//var prettyDate = new Date(d);
+		var month = d.getMonth();
+		month++;
+		var day = d.getDate();
+		var year = d.getFullYear();
 		user.beenTo[restaurantId]={
 			name:restaurantName,
 			url:'http://www.yelp.com/biz/'+restaurantId,
-			date:Date.now()
+			date:Date.now(),
+			prettyDate:month+'/'+day+'/'+year
 		}
 		user.markModified('beenTo');
 		user.save(function(err,user){
