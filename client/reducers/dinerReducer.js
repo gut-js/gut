@@ -12,7 +12,8 @@ const initialState = {
   index: 1,
   uberData: {},
   isLoadingUberData: false,
-  pickupLocation: []
+  pickupLocation: [],
+  avatarUrl: 'http://localhost:5679/static/assets/avatar/default_pea.png'
 }
 
 export default function dinerReducer(state = initialState, action){
@@ -84,6 +85,10 @@ export default function dinerReducer(state = initialState, action){
     case ActionTypes.SYNC_HISTORY:
       return Object.assign({}, state, {
         beenTo: action.history
+      })
+    case ActionTypes.SYNC_AVATARURL:
+      return Object.assign({}, state, {
+        avatarUrl: action.url
       })
     case ActionTypes.CLEAR_HISTORY_SUCCESS:
       return Object.assign({}, state, {

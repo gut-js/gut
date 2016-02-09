@@ -95,6 +95,7 @@ class RefinePref extends React.Component {
         </div>
         <h1>Profile Picture</h1>
         <div>
+          <img src={this.props.avatarUrl}/>
           <button onClick={this.openPicModal}>
             Upload a Profile Pic
           </button>

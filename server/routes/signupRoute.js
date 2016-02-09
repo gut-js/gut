@@ -38,7 +38,8 @@ router.post('/', function(req, res) {
         friends: {test:false},
         beenTo: {test:false},
         gravatarUrl: gravatarUrl,
-        searchTerm: username+firstname+lastname
+        searchTerm: username+firstname+lastname,
+        avatarUrl: "http://localhost:5679/static/assets/avatar/default_pea.png"
       });
 
       user.markModified('categories');

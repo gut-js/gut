@@ -134,6 +134,7 @@ const loadingResults = () => {
 export const ADD_TO_HISTORY_REQ = 'ADD_TO_HISTORY_REQ';
 export const ADD_TO_HISTORY_SUCCESS = 'ADD_TO_HISTORY_SUCCESS';
 export const SYNC_HISTORY = 'SYNC_HISTORY';
+export const SYNC_AVATARURL = 'SYNC_AVATARURL';
 
 // Adds selected restaurant to user history
 export const addToHistory = (info) => {
@@ -180,6 +181,13 @@ export const syncHistory = (history) => {
   return {
     type: SYNC_HISTORY,
     history
+  }
+}
+
+export const syncAvatarUrl = (url) => {
+  return {
+    type: SYNC_AVATARURL,
+    url
   }
 }
 
