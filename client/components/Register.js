@@ -197,10 +197,10 @@ class Register extends React.Component {
       <Modal
         show={this.props.showRegisterModal}
         onHide={this.props.closeRegister}
-        className='loginmodal'>
+        className='loginmodal register'>
         <Modal.Header closeButton className="close-btn">
         </Modal.Header>
-        <Modal.Body className='modalbody' closeButton>
+        <Modal.Body className='modalbody'>
           {infoBox}
         </Modal.Body>
       </Modal>

@@ -35,9 +35,9 @@ class SignIn extends React.Component {
   displayError(){
     if(this.props.authErrorMsg){
       return(
-        <p>
+        <span className='login-error form-error'>
           Either the username or password you entered is incorrect.
-        </p>
+        </span>
       )
     } else {
       return null;
@@ -46,15 +46,14 @@ class SignIn extends React.Component {
 
   render(){
     return(
-      <Modal show={this.props.showSignInModal} onHide={this.props.closeSignIn}>
-        <Modal.Header closeButton>
-          <Modal.Title>
-            Sign in
-          </Modal.Title>
+      <Modal
+        show={this.props.showSignInModal}
+        onHide={this.props.closeSignIn}
+        className='loginmodal signin'>
+        <Modal.Header closeButton className='close-btn'>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className='modalbody'>
           <form>
-            <a href='https://accounts.google.com/o/oauth2/auth?response_type=code&scope=openid%20profile%20email&client_id=1007941048671-mqral0q9jeg17ervhv01gknh7tml237i.apps.googleusercontent.com&redirect_uri=http://127.0.0.1:5679/oauthsignin&connection=google-oauth2'>Sign in with Google</a>
             <div className='form-group'>
               <input
                 type='text'
@@ -69,16 +68,19 @@ class SignIn extends React.Component {
                 placeholder="Password"
                 ref='password' />
             </div>
+            {this.displayError()}
             <div className='form-group'>
-              {this.displayError()}
               <button
                 type='submit'
-                className='btn btn-block'
+                className='btn btn-block submit'
                 onClick={this.handleClick}>
                 Sign in
               </button>
+              <div className='toggle google'>
+                <a href='https://accounts.google.com/o/oauth2/auth?response_type=code&scope=openid%20profile%20email&client_id=1007941048671-mqral0q9jeg17ervhv01gknh7tml237i.apps.googleusercontent.com&redirect_uri=http://127.0.0.1:5679/oauthsignin&connection=google-oauth2'>Sign in with Google</a>
+              </div>
             </div>
-            <div>
+            <div className='toggle'>
               {"Don't"} have an account? Click <a href="#" onClick={this.switch}>here</a> to register.
             </div>
           </form>
