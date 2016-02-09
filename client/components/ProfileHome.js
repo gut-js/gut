@@ -37,7 +37,7 @@ class ProfileHome extends React.Component {
             <RestaurantHistory
               restaurantName={res.name}
               link={res.url}
-              date={res.date}
+              date={res.prettyDate}
               key={ind} />
           );
         }).slice(0,5);
