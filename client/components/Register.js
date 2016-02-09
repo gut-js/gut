@@ -58,24 +58,24 @@ class Register extends React.Component {
   }
 
   displayAlphaErrFirst(){
-    return isValid.isAlpha(this.state.first) ? null : <span>input must be a-z characters</span>
+    return isValid.isAlpha(this.state.first) ? null : "input must be a-z characters"
   }
 
   displayAlphaErrLast(){
-    return isValid.isAlpha(this.state.last) ? null : <span>input must be a-z characters</span>
+    return isValid.isAlpha(this.state.last) ? null : "input must be a-z characters"
   }
 
   displayEmailErr(){
     return isValid.isEmail(this.state.email) ? null :
-    <span>please enter a valid email address</span>
+    <span className="login-error">please enter a valid email address</span>
   }
 
   displayUsernameErr(){
     if(this.props.authErrorMsg.message){
       return(
-        <p>
+        <span className="login-error form-error">
           Sorry, this username has been taken. Please try another one.
-        </p>
+        </span>
       )
     } else {
       return null;
@@ -136,29 +136,29 @@ class Register extends React.Component {
         <image src='./../static/assets/spinner.gif' />
       </div> ) : (
       <form>
-        <div className='form-group'>
+        <div className='form-group name-input'>
           <input
             type='text'
             className='form-control'
-            placeholder='First Name'
+            placeholder='First Name*'
             ref='firstname'
             onChange={this.setFirst} />
         </div>
-        {this.displayAlphaErrFirst()}
-        <div className='form-group'>
+        <div className='form-group name-input'>
           <input
             type='text'
             className='form-control'
-            placeholder='Last Name'
+            placeholder='Last Name*'
             ref='lastname'
             onChange={this.setLast} />
         </div>
-        {this.displayAlphaErrLast()}
-        <div className='form-group'>
+        <span className='login-error'>{this.displayAlphaErrFirst()}</span>
+        <span className='login-error error-right'>{this.displayAlphaErrLast()}</span>
+        <div className='form-group username'>
           <input
             type='text'
             className='form-control'
-            placeholder='Username'
+            placeholder='Username*'
             ref='username'
             onChange={this.setUser} />
         </div>
@@ -167,7 +167,7 @@ class Register extends React.Component {
           <input
             type='password'
             className='form-control'
-            placeholder='Password'
+            placeholder='Password*'
             ref='password'
             onChange={this.setPw} />
         </div>
@@ -175,21 +175,20 @@ class Register extends React.Component {
           <input
             type='email'
             className='form-control'
-            placeholder='Email'
+            placeholder='Email*'
             ref='email'
             onChange={this.setEmail} />
         </div>
-        {this.state.runStatus}
+        <span className="login-error form-error">{this.state.runStatus}</span>
         <div className='form-group'>
           <button
             type='submit'
-            className='btn btn-block'
-            id='work'
-            onClick={this.handleClick}>Register
+            className='btn btn-block submit'
+            onClick={this.handleClick}><span>Register</span>
           </button>
         </div>
-        <div>
-          Already have an account? Click <a href="#" onClick={this.switch}>here</a> to sign in.
+        <div className='toggle'>
+          Already have an account? <br /> Click <a href="#" onClick={this.switch}>here</a> to sign in.
         </div>
       </form>
     );
@@ -199,12 +198,9 @@ class Register extends React.Component {
         show={this.props.showRegisterModal}
         onHide={this.props.closeRegister}
         className='loginmodal'>
-        <Modal.Header className='modalheader' closeButton>
-          <Modal.Title>
-            Register
-          </Modal.Title>
+        <Modal.Header closeButton className="close-btn">
         </Modal.Header>
-        <Modal.Body className='modalbody'>
+        <Modal.Body className='modalbody' closeButton>
           {infoBox}
         </Modal.Body>
       </Modal>
