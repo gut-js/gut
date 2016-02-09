@@ -97,10 +97,9 @@ class RestaurantPref extends React.Component {
     })
     destination = destination.replace(/\s/g, '+');
 
-    // convert coords
-    // TODO: remove hard-coded lat, lng
-    let startLat = '34.019383',
-        startLng = '-118.494491';
+    // convert coordinates to DMS format
+    let startLat = this.props.location[0].toString();
+    let startLng = this.props.location[1].toString();
 
     if (startLat.charAt(0) === '-') {
       startLat = '-' + magellan(startLat.slice(1)).toDMS()
