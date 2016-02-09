@@ -1,6 +1,22 @@
 $font-primary: 'Grand Hotel';
-$font-accent: 'Ubuntu';
+$font-accent: 'ABeeZee';
+
+
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return #{$remSize}rem;
+}
+
+@mixin fontSize($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
 
 body {
   font-family: $font-accent;
+  font-size: 16px;
+}
+
+a {
+  text-decoration: none;
 }
