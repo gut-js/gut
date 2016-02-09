@@ -43,14 +43,23 @@ class FriendsPref extends React.Component {
   }
 
   render(){
-    return (
-      <div className='row'>
-        <h1>Are you dining with anyone else?</h1>
-        <SelectedFriends {...this.props} />
-        <FriendsList {...this.props} />
-        {this.displayButton()}
-      </div>
-    )
+    if (this.props.location) {
+      return (
+        <div className='row'>
+          <h1>Are you dining with anyone else?</h1>
+          <SelectedFriends {...this.props} />
+          <FriendsList {...this.props} />
+          {this.displayButton()}
+        </div>
+      )
+    } else {
+      return (
+        <div>
+          <h3>Determining your location...</h3>
+          <image src='./../static/assets/spinner.gif' />
+        </div>
+      )
+    }
   }
 }
 

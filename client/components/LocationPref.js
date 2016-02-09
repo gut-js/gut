@@ -14,8 +14,14 @@ class LocationPref extends React.Component{
   }
 
   useCurrentLocation(){
+    const { setUserLocation } = this.props.dinerActions;
     const { displayFriendsChoice } = this.props.viewActions;
 
+    navigator.geolocation.getCurrentPosition(function(position) {
+      let userLatitude = position.coords.latitude;
+      let userLongitude = position.coords.longitude;
+      setUserLocation([userLatitude, userLongitude])
+    })
     displayFriendsChoice();
   }
 

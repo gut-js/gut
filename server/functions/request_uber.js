@@ -39,7 +39,6 @@ module.exports = function(coord, callback) {
 
   /* Add the query string to the url */
   var apiURL = url+'?'+paramURL;
-  console.log('apiURL: ', apiURL);
 
   /* Then we use request to send make the API Request */
   request(apiURL, function(error, response, body) {

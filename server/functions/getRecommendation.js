@@ -59,11 +59,6 @@ module.exports = function(requestObj,res,diners){ //account for multiple diners
 			recommendations.push(businesses.splice(i,1)[0]);
 		};
 
-		console.log('recommended order:');
-		recommendations.forEach(function(business){
-			console.log(business.name,business.weight);
-		});
-
 		res.json(recommendations);
 	})
 
