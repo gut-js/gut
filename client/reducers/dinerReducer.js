@@ -13,7 +13,7 @@ const initialState = {
   uberData: {},
   isLoadingUberData: false,
   pickupLocation: [],
-  avatarUrl: 'http://localhost:5679/static/assets/avatar/default_pea.png'
+  avatarUrl: 'http://localhost:5679/static/assets/default_pea.png'
 }
 
 export default function dinerReducer(state = initialState, action){
