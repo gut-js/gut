@@ -3,10 +3,12 @@ import * as ActionTypes from './../actions/dinerActions';
 const initialState = {
   diners:[],
   location: '',
-  recommendations:[],
+  recommendations: [],
+  beenTo: [],
   dinerErrorMessage: '',
   topRestaurant: {},
   isLoadingResults: false,
+  isAddingHistory: false,
   index: 1,
   uberData: {},
   isLoadingUberData: false,
@@ -69,6 +71,19 @@ export default function dinerReducer(state = initialState, action){
       return Object.assign({}, state, {
         isLoadingResults: true,
         topRestaurant: {}
+      })
+    case ActionTypes.ADD_TO_HISTORY_REQ:
+      return Object.assign({}, state, {
+        isAddingHistory: true
+      })
+    case ActionTypes.ADD_TO_HISTORY_SUCCESS:
+      return Object.assign({}, state, {
+        isAddingHistory: false,
+        beenTo: action.info
+      })
+    case ActionTypes.SYNC_HISTORY:
+      return Object.assign({},state, {
+        beenTo: action.history
       })
     case ActionTypes.LOAD_UBER_DATA:
       return Object.assign({}, state, {
