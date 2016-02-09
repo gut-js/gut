@@ -126,7 +126,6 @@ class RestaurantPref extends React.Component {
         reviews = 'review'
       }
 
-      console.log('props on ind restaurant', this.props);
       return (
         <div>
           <Button onClick={this.selectRestaurant}>Select Restaurant</Button>

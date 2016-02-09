@@ -4,7 +4,7 @@ const initialState = {
   diners:[],
   location: '',
   recommendations: [],
-  beenTo: {},
+  beenTo: [],
   dinerErrorMessage: '',
   topRestaurant: {},
   isLoadingResults: false,
@@ -78,7 +78,8 @@ export default function dinerReducer(state = initialState, action){
       })
     case ActionTypes.ADD_TO_HISTORY_SUCCESS:
       return Object.assign({}, state, {
-        isAddingHistory: false
+        isAddingHistory: false,
+        beenTo: action.info
       })
     case ActionTypes.SYNC_HISTORY:
       return Object.assign({},state, {

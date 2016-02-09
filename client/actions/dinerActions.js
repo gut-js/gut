@@ -137,7 +137,6 @@ export const SYNC_HISTORY = 'SYNC_HISTORY';
 
 // Adds selected restaurant to user history
 export const addToHistory = (info) => {
-  console.log('added history action', info);
   return dispatch => {
     dispatch(addToHistoryRequest());
 
@@ -158,7 +157,7 @@ export const addToHistory = (info) => {
       return response.json();
     })
     .then(response => {
-      dispatch(addToHistorySuccess());
+      dispatch(addToHistorySuccess(response));
     })
     .catch(err => console.error('Error in Adding to History:', err));
   }
@@ -170,9 +169,10 @@ const addToHistoryRequest = () => {
   }
 }
 
-const addToHistorySuccess = () => {
+const addToHistorySuccess = (info) => {
   return {
-    type: ADD_TO_HISTORY_SUCCESS
+    type: ADD_TO_HISTORY_SUCCESS,
+    info
   }
 }
 

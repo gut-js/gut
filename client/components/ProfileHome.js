@@ -24,7 +24,7 @@ class ProfileHome extends React.Component {
     let history = [];
 
     if(this.props.displayProfileHome){
-      if(!beenTo.test){
+      if(beenTo.length === 0){
         return(
           <div>
             <h1>Select a location to get started.</h1>
@@ -32,12 +32,15 @@ class ProfileHome extends React.Component {
           </div>
         )
       } else {
-        for(var key in beenTo){
-          history.push(<RestaurantHistory
-            restaurantName={beenTo[key].name}
-            link={beenTo[key].url}
-            key={key} />);
-        }
+        history = beenTo.map((res, ind) => {
+          return (
+            <RestaurantHistory
+              restaurantName={res.name}
+              link={res.url}
+              date={res.date}
+              key={ind} />
+          );
+        }).slice(0,5);
 
         return(
           <div>
@@ -47,7 +50,7 @@ class ProfileHome extends React.Component {
             </ul>
             <LocationPref {...this.props} />
           </div>
-        )
+        );
       }
     } else {
       return null;
@@ -105,7 +108,6 @@ class ProfileHome extends React.Component {
   }
 
   render(){
-    console.log('props in profile home', this.props);
     return(
       <div>
         {this.displayHome()}
