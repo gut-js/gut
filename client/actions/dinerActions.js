@@ -183,6 +183,37 @@ export const syncHistory = (history) => {
   }
 }
 
+export const CLEAR_HISTORY_SUCCESS = 'CLEAR_HISTORY_SUCCESS';
+
+// Clears user restaurant history
+export const clearHistory = (info) => {
+  return dispatch => {
+    return fetch('http://localhost:5679/history', {
+      method: 'DELETE',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        username: info
+      })
+    })
+    .then(response => {
+      return response.json();
+    })
+    .then(response => {
+      dispatch(clearHistorySuccess());
+    })
+    .catch(err => console.error('Error in Clearing History:', err));
+  }
+}
+
+const clearHistorySuccess = () => {
+  return {
+    type: CLEAR_HISTORY_SUCCESS
+  }
+}
+
 export const LOAD_UBER_DATA = 'LOAD_UBER_DATA';
 export const LOADING_UBER_DATA = 'LOADING_UBER_DATA';
 export const CLEAR_UBER_DATA = 'CLEAR_UBER_DATA';

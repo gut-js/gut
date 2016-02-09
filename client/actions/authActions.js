@@ -92,7 +92,6 @@ export const authenticateUser = (token) => {
       return response.json();
     })
     .then(response => {
-      console.log('res from auth', response);
       try {
         if(response.username){
           dispatch(authenticateSuccess(response.username));
@@ -155,7 +154,6 @@ export const signinUser = (credentials) => {
       return response.json();
     })
     .then(response => {
-      console.log('res in login', response);
       try {
         if(response.success){
           //save token

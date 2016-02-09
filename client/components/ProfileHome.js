@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'react-bootstrap';
 
 //Components
 import FriendsPref from './FriendsPref';
@@ -7,16 +8,34 @@ import LocationPref from './LocationPref';
 import RestaurantPref from './RestaurantPref';
 import RefinePref from './RefinePref';
 import RestaurantHistory from './RestaurantHistory';
+import ClearHistory from './ClearHistory';
 
 class ProfileHome extends React.Component {
   constructor(){
     super();
+    this.openClearModal = this.openClearModal.bind(this);
+    this.closeClearModal = this.closeClearModal.bind(this);
     this.displayHome = this.displayHome.bind(this);
     this.displayFriendsChoice = this.displayFriendsChoice.bind(this);
     this.displayLocationChoice = this.displayLocationChoice.bind(this);
     this.displayResults = this.displayResults.bind(this);
     this.displayFriends = this.displayFriends.bind(this);
     this.displayPreferences = this.displayPreferences.bind(this);
+    this.state = {
+      showClearModal: false
+    }
+  }
+
+  openClearModal(){
+    this.setState({
+      showClearModal: true
+    })
+  }
+
+  closeClearModal(){
+    this.setState({
+      showClearModal: false
+    })
   }
 
   displayHome(){
@@ -40,13 +59,20 @@ class ProfileHome extends React.Component {
               date={res.prettyDate}
               key={ind} />
           );
-        }).slice(0,5);
+        }).slice(0,8);
 
         return(
           <div>
             <h1>Select a location to get started.</h1>
             <LocationPref {...this.props} />
             <h1>History</h1>
+            <Button onClick={this.openClearModal}>
+              Clear History
+            </Button>
+            <ClearHistory
+              {...this.props}
+              showClearModal={this.state.showClearModal}
+              closeClearModal={this.closeClearModal} />
             <ul className='list-group'>
               {history}
             </ul>
