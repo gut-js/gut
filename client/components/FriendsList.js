@@ -26,6 +26,7 @@ class FriendsList extends React.Component {
             displayFriendsChoice={displayFriendsChoice}
             addToDiners={addToDiners}
             removeFromDiners={removeFromDiners}
+            photo={friend.avatarUrl}
             friendName={friend.username}
             categories={friend.categories}
             key={ind} />
@@ -41,6 +42,7 @@ class FriendsList extends React.Component {
   }
 
   render(){
+    console.log('porps in frenzlist', this.props);
     return(
       <div>
         <h2>Your Friends</h2>

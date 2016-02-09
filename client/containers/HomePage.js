@@ -126,7 +126,7 @@ class HomePage extends React.Component {
             <div className="row">
 
               <span className="team-member col-md-3">
-                <image className="img-circle" height="135px" src="./../static/assets/avatar/carl.jpeg"/>
+                <image className="img-circle" height="135px" src="./../static/assets/team/carl.jpeg"/>
                 <h3 className="member-name" >Daisy Tsao</h3>
                 <a href="https://www.linkedin.com/in/daisytsao"><i className="fa fa-linkedin-square fa-2x"></i></a>&nbsp;&nbsp;
                 <a href="https://github.com/madcurie" target="_blank"><i className="fa fa-github-square fa-2x"></i></a>
@@ -134,7 +134,7 @@ class HomePage extends React.Component {
               </span>
 
               <span className="team-member col-md-3">
-                <image className="img-circle" height="135px" src="./../static/assets/avatar/carl.jpeg"/>
+                <image className="img-circle" height="135px" src="./../static/assets/team/carl.jpeg"/>
                 <h3 className="member-name" >Carl Bernardo</h3>
                 <a href="https://www.linkedin.com/in/carlbernardo"><i className="fa fa-linkedin-square fa-2x"></i></a>&nbsp;&nbsp;
                 <a href="https://github.com/carlbernardo" target="_blank"><i className="fa fa-github-square fa-2x"></i></a>
@@ -142,7 +142,7 @@ class HomePage extends React.Component {
               </span>
 
               <span className="team-member col-md-3">
-                <image className="img-circle" height="135px" src="./../static/assets/avatar/carl.jpeg"/>
+                <image className="img-circle" height="135px" src="./../static/assets/team/carl.jpeg"/>
                 <h3 className="member-name" >Justin Tan</h3>
                 <a href="https://www.linkedin.com/in/justanman"><i className="fa fa-linkedin-square fa-2x"></i></a>&nbsp;&nbsp;
                 <a href="https://github.com/justanman" target="_blank"><i className="fa fa-github-square fa-2x"></i></a>
@@ -150,7 +150,7 @@ class HomePage extends React.Component {
               </span>
 
               <span className="team-member col-md-3">
-                <image className="img-circle" height="135px" src="./../static/assets/avatar/carl.jpeg"/>
+                <image className="img-circle" height="135px" src="./../static/assets/team/carl.jpeg"/>
                 <h3 className="member-name" >Shin Adachi</h3>
                 <a href="https://www.linkedin.com/in/shin-adachi-1b6bb1113"><i className="fa fa-linkedin-square fa-2x"></i></a>&nbsp;&nbsp;
                 <a href="http://github.com/shin064" target="_blank"><i className="fa fa-github-square fa-2x"></i></a>

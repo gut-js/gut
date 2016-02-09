@@ -76,7 +76,8 @@ router.post('/', function(req, res) {
                   username: user.username,
                   firstname: user.firstname,
                   lastname: user.lastname,
-                  businesses:businesses
+                  businesses:businesses,
+                  avatarUrl: "http://localhost:5679/static/assets/avatar/default_pea.png"
                 });//end of res.json
           })//end of request_yelp
         }//end of else
