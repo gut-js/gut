@@ -46,6 +46,7 @@ router.post('/', function(req, res){
                 username: username,
                 beenTo: historyToArray(user.beenTo),
                 loginMessage: loginMessage,
+                avatarUrl: user.avatarUrl
               });
             } else {
               res.json('InvalidPassword');

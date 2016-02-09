@@ -1,6 +1,6 @@
 import { routeActions } from 'react-router-redux';
 import { syncPoll } from './../actions/pollActions';
-import { syncHistory } from './../actions/dinerActions';
+import { syncHistory, syncAvatarUrl } from './../actions/dinerActions';
 import { displayProfileHome } from './../actions/viewActions';
 
 export const REGISTER_REQUEST = 'REGISTER_REQUEST';
@@ -170,7 +170,7 @@ export const signinUser = (credentials) => {
           }
         }
       } catch(e){
-        dispatch(signinError(response.error));
+        dispatch(signinErrorPassword(response.error));
       }
     })
     .catch(err => console.error('Error in Signing In User:', err));

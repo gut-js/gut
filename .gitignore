@@ -13,6 +13,7 @@ server/config.js
 npm-debug.log.*
 
 #User Avatars
+client/static/assets/avatar/
 uploads/
 
 #Test Files
