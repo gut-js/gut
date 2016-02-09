@@ -1,1 +1,6 @@
-//typography styling define variables here
+$font-primary: 'Grand Hotel';
+$font-accent: 'Ubuntu';
+
+body {
+  font-family: $font-accent;
+}
