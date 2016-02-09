@@ -160,6 +160,7 @@ export const signinUser = (credentials) => {
           localStorage.token = response.token;
           dispatch(signinSuccess(response));
           dispatch(syncHistory(response.beenTo));
+          dispatch(syncAvatarUrl(response.avatarUrl));
           dispatch(routeActions.push('/profile'));
         } else {
           if(response === 'InvalidPassword'){

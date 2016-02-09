@@ -6,7 +6,7 @@ class FriendEntry extends React.Component {
     this.displayButton = this.displayButton.bind(this);
     this.removeFriend = this.removeFriend.bind(this);
     this.selectDiner = this.selectDiner.bind(this);
-    this.displayProfilePic = this.displayProfilePic.bind(this);
+    // this.displayProfilePic = this.displayProfilePic.bind(this);
   }
 
   displayButton(){
@@ -53,9 +53,19 @@ class FriendEntry extends React.Component {
     // if(){//image exists in avatar folder
       const { friendName } = this.props;
       console.log('friendName: ', friendName);
-      var picPath = "./../static/assets/avatar/" + friendName;
+      var picPath = "http://localhost:5679/static/assets/avatar/" + friendName;
+      var errorPicPath = "./../static/assets/avatar/default_pea.png";
+      var errorPath = function(img) {
+        console.log('this: ', img);
+        return (
+            <img src={errorPicPath} />
+          )
+      }
+      // return(
+      //   <img src={picPath} onError="this.onError=null;this.src='./../static/assets/avatar/default_pea.png';" />
+      // )
       return(
-        <img src={picPath}/>
+        <img src={picPath} onError={errorPath(this)} />
       )
     // } else { //want to display default pic here
     //   return(

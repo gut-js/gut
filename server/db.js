@@ -18,7 +18,8 @@ db.userSchema = new db.Schema ({
   beenTo: {},
   email: { type: String },
   gravatarUrl: { type: String },
-  searchTerm: {type: String}
+  searchTerm: {type: String},
+  avatarUrl: {type: String}
 });
 db.userSchema.plugin(uniqueValidator);
 db.User = mongoose.model('User', db.userSchema);
