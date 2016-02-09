@@ -194,7 +194,9 @@ class Register extends React.Component {
       );
 
     return(
-      <Modal show={this.props.showRegisterModal} onHide={this.props.closeRegister}>
+      <Modal
+        show={this.props.showRegisterModal}
+        onHide={this.props.closeRegister}>
         <Modal.Header closeButton>
           <Modal.Title>
             Register
