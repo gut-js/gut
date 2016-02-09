@@ -28,4 +28,27 @@ router.put('/',function(req,res){
 	})
 });
 
+router.delete('/',function(req,res){
+	var username = req.body.username;
+	db.User.findOne({username:username},function(err,user){
+		if(err){
+			res.send(err);
+		}
+		user.beenTo={test:false};
+		user.markModified('beenTo');
+		user.save(function(err,user){
+			res.send(historyToArray(user.beenTo));
+		})
+	})
+})
+
 module.exports = router;
+
+
+
+
+
+
+
+
+
