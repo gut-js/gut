@@ -119,7 +119,8 @@ class Navigation extends React.Component {
     let menu = this.props.isLoggedIn ? (
       <Nav pullRight>
         <NavItem
-        eventKey={1}>
+        eventKey={1}
+        className='welcome-nav'>
         Welcome {this.props.username} !
         </NavItem>
         <NavItem

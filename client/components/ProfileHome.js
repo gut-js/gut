@@ -46,7 +46,6 @@ class ProfileHome extends React.Component {
       if(beenTo.length === 0){
         return(
           <div>
-            <h1>Select a location to get started.</h1>
             <LocationPref {...this.props} />
           </div>
         )
@@ -63,7 +62,6 @@ class ProfileHome extends React.Component {
 
         return(
           <div>
-            <h1>Select a location to get started.</h1>
             <LocationPref {...this.props} />
             <h1>History</h1>
             <Button onClick={this.openClearModal}>
@@ -135,6 +133,7 @@ class ProfileHome extends React.Component {
   }
 
   render(){
+    console.log('props in profile', this.props);
     return(
       <div>
         {this.displayHome()}
