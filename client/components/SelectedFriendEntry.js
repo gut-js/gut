@@ -12,10 +12,19 @@ class SelectedFriendEntry extends React.Component {
     removeFromDiners(diner);
   }
 
+  displayProfilePic(){
+    const { diner } = this.props;
+    var picPath = "./../static/assets/avatar/" + diner;
+    return(
+      <img src={picPath}/>
+    )
+  }
+
   render(){
     return(
       <div>
         <h2>{this.props.diner}</h2>
+        {this.displayProfilePic()}
         <button onClick={this.unselectDiner}>Remove Diner</button>
       </div>
     )

@@ -3,7 +3,7 @@ var router = express.Router();
 var multer = require('multer');
 var fs = require('fs');
 
-router.post('/', multer({dest:'./uploads/'}).single('image'),function(req,res,next){
+router.post('/', multer({dest:'./client/static/assets/avatar/'}).single('image'),function(req,res,next){
   console.log('##########req.body in photo upload:', req.body);
   console.log('req.file',req.file);
 
@@ -18,7 +18,8 @@ router.post('/', multer({dest:'./uploads/'}).single('image'),function(req,res,ne
       img_type = img_mimetype.slice(i+1);
     }
   }
-  var img_path = 'uploads/' + username + "." + img_type; //uploads/123.png
+
+  var img_path = 'client/static/assets/avatar/' + username; //uploads/bob
 
   next(
     fs.readFile(curr_path, function(error, data) {
