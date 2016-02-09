@@ -1,3 +1,31 @@
 .navbar {
   margin-bottom: 0;
+  background-color: $slategray;
+
+  img {
+    display: inline-block;
+    width: 120px;
+    height: auto;
+  }
+
+  .navbar-brand {
+    padding: 8px 15px;
+  }
+
+  .navbar-nav {
+
+    li>a {
+      color: $purewhite;
+      &:hover, &:active, &:focus {
+        color: $green
+     }
+   }
+   .welcome-nav a {
+     &:hover {
+       color: $purewhite;
+       cursor:default;
+     }
+   }
+  }
+
 }

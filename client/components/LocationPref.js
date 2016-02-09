@@ -38,29 +38,46 @@ class LocationPref extends React.Component{
 
   render(){
     return(
-      <div>
-        <h1>Please Choose Your Location</h1>
-        <button
-          type='submit'
-          className='btn btn-block'
-          onClick={this.useCurrentLocation}>
-          Current Location
-        </button>
-        <form>
-          <div className='form-group'>
-            <input
-              type='text'
-              className='form-control'
-              ref='startLocation'
-              placeholder='Enter a location' />
-            <button
-              type='submit'
-              className='btn btn-block'
-              onClick={this.useCustomLocation}>
-              Submit
-            </button>
+      <div >
+      <div className='row location-pref'>
+        <div className='enter-location col-sm-12 col-md-5'>
+            <img src='./../static/assets/snap_pea_pea.png' />
+            <div className='location-text-container'>
+              Enter a location
+            </div>
+            <div className='input-container'>
+            <form>
+              <div className='form-group'>
+                <input
+                type='text'
+                className='form-control'
+                ref='startLocation'
+                placeholder='Enter a location' />
+                <button
+                type='submit'
+                className='btn btn-block'
+                onClick={this.useCustomLocation}>
+                Submit
+                </button>
+              </div>
+            </form>
           </div>
-        </form>
+        </div>
+        <div className='current-location col-sm-12 col-md-5 col-md-push-1'>
+          <img src='./../static/assets/snap_pea_pea.png' />
+          <div className='location-text-container'>
+            Use your current location
+          </div>
+          <div className='input-container'>
+          <button
+            type='submit'
+            className='btn btn-block'
+            onClick={this.useCurrentLocation}>
+            Current Location
+          </button>
+          </div>
+        </div>
+      </div>
       </div>
     )
   }
