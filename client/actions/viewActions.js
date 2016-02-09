@@ -1,4 +1,5 @@
 export const DISPLAY_PROFILE_HOME = 'DISPLAY_PROFILE_HOME';
+export const DISPLAY_HISTORY = 'DISPLAY_HISTORY';
 export const DISPLAY_FRIENDS_CHOICE = 'DISPLAY_FRIENDS_CHOICE';
 export const DISPLAY_LOCATION_CHOICE = 'DISPLAY_LOCATION_CHOICE';
 export const DISPLAY_RESULTS = 'DISPLAY_RESULTS';
@@ -14,6 +15,14 @@ export const displayProfileHome = () => {
     dispatch({
       type: DISPLAY_PROFILE_HOME
     });
+  }
+}
+
+export const displayHistory = () => {
+  return dispatch => {
+    dispatch({
+      type: DISPLAY_HISTORY
+    })
   }
 }
 
