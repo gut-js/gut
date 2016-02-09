@@ -1,16 +1,37 @@
 .home {
   .container {
-    padding: 50px;
+    margin: 0 auto;
+    padding-top:50px;
+
+    .btn {
+      background-color: $green;
+      border-radius: 0;
+      width:35%;
+      max-width:250px;
+      border-color:$darkgreen;
+      &:hover {
+        background-color: $darkgreen;
+        border-color:$darkgreen;
+      }
+
+      .btn-success {
+        border-color:$darkgreen;
+      }
+   }
+}
+
+
+  .logo {
+    display: block;
+    width:70%;
+    max-width:550px;
+    margin:0 auto;
   }
 
-  .btn-success {
-    background-color: $green;
-
-  }
   .lead {
     color: white;
   }
-  
+
   .slide1, .slide2, .slide3 , .slide4, .slide5 {
     min-height: 560px;
     background-size: cover;
@@ -91,7 +112,7 @@
     font-weight: bold;
   }
 
-  
+
 
   .team-member {
     padding: 50px;

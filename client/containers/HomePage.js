@@ -70,11 +70,10 @@ class HomePage extends React.Component {
                 </div>
             </div>
             <div className="container carousel-overlay text-center">
-                <image height='100px' src="./../static/assets/snap_pea_logo.png"/>
-                <p className="lead" >Follow Your Gut</p>
-                <a 
+                <image className='logo' src="./../static/assets/snap_pea_logo.png"/>
+                <a
                   className="btn btn-lg btn-success fp-buttons"
-                  href="#" 
+                  href="#"
                   onClick={this.openSignIn}>
                   Sign In
                   <SignIn
@@ -84,7 +83,7 @@ class HomePage extends React.Component {
                     openRegister={this.openRegister} />
                 </a>
                 &nbsp;&nbsp;
-                <a 
+                <a
                   className="btn btn-lg btn-success fp-buttons"
                   href="#"
                   onClick={this.openRegister}>
@@ -109,7 +108,7 @@ class HomePage extends React.Component {
             </span>
             <span className="how col-md-4">
               <h4 className="works-description">Explore unexpected culinary delights </h4>
-              
+
               <image className="img-rounded works-pic" height="200px" src="./../static/assets/home/street-food.jpg"/>
               <h4 className="works-description"> Step 2: Select a Location (and Invite Friends)</h4>
             </span>
@@ -157,7 +156,7 @@ class HomePage extends React.Component {
                 <a href="http://github.com/shin064" target="_blank"><i className="fa fa-github-square fa-2x"></i></a>
                 <h5>Likes React, Redux, and NPR podcasts.</h5>
               </span>
-              
+
             </div>
           </div>
         </div>

@@ -1,1 +1,8 @@
 //basic styles
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+button {
+  border-radius: 0;
+}

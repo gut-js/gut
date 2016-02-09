@@ -1,0 +1,105 @@
+.loginmodal {
+  .form-group {
+    margin: 25px 0;
+  }
+
+  .login-error {
+    display: inline-block;
+    width:50%;
+    color:$purewhite;
+    padding-top:5px;
+  }
+  .error-right {
+    display: block;
+    float:right;
+    padding-left:10px;
+  }
+  .form-error {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.modal-content {
+  .modal-header {
+    border-bottom: none;
+    padding:0;
+    .close {
+      color: $purewhite;
+      @include fontSize(60px);
+      margin-top:-30px;
+      opacity:0.8;
+    }
+  }
+}
+
+.loginmodal .modal-content {
+  background-color: $slategray;
+  margin: 40px auto;
+  padding: 40px;
+  box-shadow: 0 4px 10px 4px;
+
+  .modalbody {
+    padding:0;
+
+    .submit {
+      background-color: $green;
+      color: $purewhite;
+      height: 65px;
+      @include fontSize(45px);
+      font-weight:bold;
+      font-family: $font-accent;
+      letter-spacing: 3px;
+      border-radius: 0;
+      cursor:pointer;
+      &:hover, &:focus {
+        background:$darkgreen;
+      }
+    }
+
+    .name-input {
+      display: inline-block;
+      width: 48%;
+      margin-bottom: 0;
+    }
+
+    div.name-input:first-child {
+      margin-right: 4%;
+    }
+
+    div.name-input:last-child {
+      float:right;
+      margin-left:2%;
+    }
+
+    input {
+      display: block;
+      height: 45px;
+      @include fontSize(26px);
+      letter-spacing: 1px;
+      color: $lightgray;
+      background-color: inherit;
+      border: 0.5px solid $purewhite;
+      border-radius: 0;
+    }
+
+    .username {
+      margin-top:-5px;
+    }
+
+    .toggle {
+      color: $purewhite;
+      text-align: center;
+
+      a {
+        color: $green;
+        cursor:pointer;
+      }
+
+    }
+
+    .google {
+      margin-top: 10px;
+    }
+  }
+}
