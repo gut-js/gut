@@ -59,6 +59,7 @@ export const findFriends = (query, user) => {
       return response.json();
     })
     .then(response => {
+      console.log('search response', response);
       try {
         dispatch(searchSuccess(response));
       } catch(e){

@@ -52,7 +52,6 @@ class FriendEntry extends React.Component {
   displayProfilePic(){
     // if(){//image exists in avatar folder
       const { friendName } = this.props;
-      console.log('friendName: ', friendName);
       var picPath = "http://localhost:5679/static/assets/avatar/" + friendName;
       var errorPicPath = "./../static/assets/avatar/default_pea.png";
       var errorPath = function(img) {
@@ -65,7 +64,7 @@ class FriendEntry extends React.Component {
       //   <img src={picPath} onError="this.onError=null;this.src='./../static/assets/avatar/default_pea.png';" />
       // )
       return(
-        <img src={picPath} onError={errorPath(this)} />
+        <img src={picPath} />
       )
     // } else { //want to display default pic here
     //   return(
