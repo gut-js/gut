@@ -7,7 +7,7 @@
       background-color: $green;
       border-radius: 0;
       width:35%;
-      max-width:250px;
+      max-width:170px;
       border-color:$darkgreen;
       &:hover {
         background-color: $darkgreen;
@@ -24,7 +24,7 @@
   .logo {
     display: block;
     width:70%;
-    max-width:550px;
+    max-width:400px;
     margin:0 auto;
   }
 
@@ -84,44 +84,47 @@
 
   .team {
     background-color: $white;
+    width: 100%;
   }
   .team-member {
     text-align: center;
   }
   .about-title {
-    padding: 15px;
+    padding: 5px;
     /*font-family: 'Amatic SC', cursive;*/
-    font-family: 'Karla', sans-serif;
-    font-size: 50px;
+    font-family: 'Grand Hotel', cursive;
+    font-size: 60px;
     font-weight: bold;
-    /*background-color: $white;*/
   }
 
   .works-description {
-    padding: 30px;
+    padding: 20px;
+    width: 100%;
   }
 
   .how {
-    padding: 30px;
+    padding: 20px;
   }
 
   .team-title{
-    /*color: ;*/
-    font-family: 'Karla', sans-serif;
-    font-size: 50px;
+    font-family: 'Grand Hotel', cursive;
+    font-size: 60px;
     font-weight: bold;
   }
 
 
 
   .team-member {
-    padding: 50px;
+    padding: 30px;
     text-align: center;
   }
 
+  .img-circle {
+      height: 170px;
+    }
+
   .member-name {
-    /*background-color: $green;*/
-    color: $green;
+    /*color: $green;*/
     padding: 5px;
   }
   .fa {
