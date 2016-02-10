@@ -2,6 +2,17 @@
   background-color:green;
 }
 
+.history-header {
+  h1 {
+    margin:20px auto;
+    margin-top: 80px;
+    text-align: center;
+  }
+}
 
-
-
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}

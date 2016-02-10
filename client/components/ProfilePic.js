@@ -20,20 +20,25 @@ class ProfilePic extends React.Component {
   render(){
     const { showPicModal, closePicModal } = this.props;
 
+    let avatar = this.props.avatarUrl ? (<img src={this.props.avatarUrl} />) : (null)
     return(
       <Modal
         show={showPicModal}
         onHide={closePicModal}>
         <Modal.Header closeButton>
-        Upload a Profile Pic
         </Modal.Header>
         <Modal.Body>
-          <form action="/photo" method="POST" encType="multipart/form-data" onSubmit={this.handleSubmit}>
-            Select an image to upload:<br></br>
-            <input type="file" name='image'/>
-            <input type="hidden" name="username" value= { this.props.username } />
-            <input type="submit" value="Upload Image"/>
-          </form>
+          <div className='text-center'>
+            <h6 className='cursive'>Upload a Profile Pic</h6>
+            <form action="/photo" method="POST" encType="multipart/form-data" onSubmit={this.handleSubmit}>
+              {avatar}
+              <input type="file" name='image'/>
+              <input type="hidden" name="username" value= { this.props.username } />
+              <div>
+                <input type="submit" value="Upload"/>
+              </div>
+            </form>
+          </div>
         </Modal.Body>
       </Modal>
     )

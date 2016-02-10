@@ -73,29 +73,30 @@ class RefinePref extends React.Component {
 
   render(){
     return(
-      <div className='poll-header'>
+      <div className='poll-header text-center'>
+        <h6 className='cursive'>Refine your preferences</h6>
+        <p>By giving us an idea of your preferences, the SnapPea algorithm can provide better recommendations!</p>
+        <p>Want to <a onClick={this.openDeleteModal}>reset your preferences</a>?</p>
         {this.displayPreferencePoll()}
         {this.displayLoadingSpinner()}
-        <h3>Reset your Preferences</h3>
-        <div>
-          <button onClick={this.openDeleteModal}>
-            Delete My Preferences
-          </button>
+        <div className='text-center'>
           <DeletePref
             {...this.props}
             showDeleteModal={this.state.showDeleteModal}
             closeDeleteModal={this.closeDeleteModal} />
         </div>
-        <h1>Profile Picture</h1>
-        <div>
+        <div className='text-center'>
+          <h1 className='cursive'>Profile picture</h1>
           <img src={this.props.avatarUrl}/>
-          <button onClick={this.openPicModal}>
-            Upload a Profile Pic
-          </button>
-          <ProfilePic
-            {...this.props}
-            showPicModal={this.state.showPicModal}
-            closePicModal={this.closePicModal} />
+          <div>
+            <button onClick={this.openPicModal}>
+              Change your pic
+            </button>
+            <ProfilePic
+              {...this.props}
+              showPicModal={this.state.showPicModal}
+              closePicModal={this.closePicModal} />
+          </div>
         </div>
       </div>
     )

@@ -58,8 +58,9 @@ class ProfileHome extends React.Component {
     if(this.props.displayHistory){
       if(beenTo.length === 0){
         return(
-          <div>
-            Find a restaurant and select it!
+          <div className='history-header'>
+            <h1 className='text-center'>It looks like you haven't visited any restaurants recently...</h1>
+            <h4 className='text-center'>Use <Button className='btn'>Save to History</Button> to keep track of places you've tried!</h4>
           </div>
         )
       } else {
@@ -73,7 +74,12 @@ class ProfileHome extends React.Component {
           );
         }).slice(0,8);
 
-        return history;
+        return (
+          <div>
+            <h1>Restaurants you've visited</h1>
+            {history}
+          </div>
+        )
       }
     } else {
       return null;
