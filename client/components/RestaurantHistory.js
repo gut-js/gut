@@ -8,7 +8,7 @@ class RestaurantHistory extends React.Component {
       <li className='list-group-item'>
         <h3>{restaurantName}</h3>
         <p>Visited: {date}</p>
-        <Button href={link}>Check it out on Yelp!</Button>
+        <Button href={link} target='_blank'>Check it out on Yelp!</Button>
       </li>
     )
   }

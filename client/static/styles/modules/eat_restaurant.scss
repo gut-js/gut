@@ -1,1 +1,35 @@
 //for the pages that show each recommended restaurant
+.btn {
+  height: 45px;
+  @include fontSize(26px);
+  letter-spacing: 1px;
+  color: $purewhite;
+  background-color: #5CAB8C;
+  border: 0.5px solid $purewhite;
+  border-radius: 0;
+}
+
+.map {
+  text-align: center;
+}
+
+.saved-message {
+  color: $purewhite;
+  text-align: center;
+}
+
+.top-button {
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+}
+
+.bottom {
+  padding-top: 15px;
+  padding-bottom: 100px;
+}
+
+.address {
+  margin-top: 10px
+}
