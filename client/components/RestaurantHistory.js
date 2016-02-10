@@ -3,13 +3,15 @@ import { Button } from 'react-bootstrap';
 
 class RestaurantHistory extends React.Component {
   render(){
-    const { restaurantName, link, date } = this.props;
-    return(
-      <li className='list-group-item'>
-        <h3>{restaurantName}</h3>
-        <p>Visited: {date}</p>
-        <Button href={link} target='_blank'>Check it out on Yelp!</Button>
-      </li>
+    const { restaurantName, link, date, city } = this.props;
+    return (
+      <div>
+        <li className='list-group-item'>
+          <a href={link} target='_blank'><h3>{restaurantName}</h3></a>
+          <p>{city}</p>
+          <p>Visited on {date}</p>
+        </li>
+      </div>
     )
   }
 }

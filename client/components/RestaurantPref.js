@@ -135,8 +135,16 @@ class RestaurantPref extends React.Component {
         reviews = 'review'
       }
 
+      console.log('xxx', startLng, startLat)
+
+      let directionsButton = !(startLat.slice(-10) === '°0\'0.0000"' && startLng.slice(-10) === '°0\'0.0000"') ? (<a href={directionsUrl} target='_blank'>
+          <Button className='top-button'>
+            Get Directions
+          </Button>
+        </a>) : ( null )
+
       return (
-        <div className='row bottom'>
+        <div className='row bottom non-button'>
           <div className='col-sm-12 col-md-6 col-md-offset-3 text-center'>
             <Modal
               show={this.state.showFavoriteModal}
@@ -180,11 +188,7 @@ class RestaurantPref extends React.Component {
                   closeUberModal={this.closeUberModal} />
               </Button>
             </a>
-            <a href={directionsUrl} target='_blank'>
-              <Button className='top-button'>
-                Get Directions
-              </Button>
-            </a>
+            {directionsButton}
           </div>
           </div>
         </div>
