@@ -103,8 +103,12 @@
 
 @media (max-width: 895px) {
   .add-friends {
-    height:230px;
-    min-height:100px;
+    height:100%;
+    min-height:380px;
+  }
+
+  .add-friends, .user-friends {
+    flex-grow: 1;
   }
 
   .add-user-container .row {
