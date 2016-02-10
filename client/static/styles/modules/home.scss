@@ -85,6 +85,7 @@
   .team {
     background-color: $white;
     width: 100%;
+    padding: 20px
   }
   .team-member {
     text-align: center;
@@ -95,15 +96,22 @@
     font-family: 'Grand Hotel', cursive;
     font-size: 60px;
     font-weight: bold;
+    color:$green;
   }
 
-  .works-description {
-    padding: 20px;
+  .howitworks {
     width: 100%;
+    padding: 50px;
+  }
+
+  .description {
+    padding: 20px;
+    /*color:white;*/
   }
 
   .how {
     padding: 20px;
+    /*background-image: url(http://www.theavantguardian.com/wp-content/uploads/2014/01/IMG_4662.jpg)*/
   }
 
   .team-title{

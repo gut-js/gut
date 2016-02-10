@@ -99,23 +99,21 @@ class HomePage extends React.Component {
 
         <div className="container howitworks text-center">
           <h1 className="about-title">How It Works</h1>
-
           <div className="row text-center">
+            <div className="how col-md-4">
+              <h4 className="description">Take the indecision out of dining out </h4>
+              <image className="img-rounded pic" height="200px" src="./../static/assets/home/dumplings.jpg"/>
+              <h4 className="description"> Step 1: Choose your Favorite Food Photos </h4>
+            </div>
             <span className="how col-md-4">
-              <h4 className="works-description">Take the indecision out of dining out </h4>
-              <image className="img-rounded works-pic" height="200px" src="./../static/assets/home/dumplings.jpg"/>
-              <h4 className="works-description"> Step 1: Choose your Favorite Photos </h4>
+              <h4 className="description">Explore unexpected culinary delights </h4>
+              <image className="img-rounded pic" height="200px" src="./../static/assets/home/street-food.jpg"/>
+              <h4 className="description"> Step 2: Select a Location (and Invite Friends)</h4>
             </span>
             <span className="how col-md-4">
-              <h4 className="works-description">Explore unexpected culinary delights </h4>
-
-              <image className="img-rounded works-pic" height="200px" src="./../static/assets/home/street-food.jpg"/>
-              <h4 className="works-description"> Step 2: Select a Location (and Invite Friends)</h4>
-            </span>
-            <span className="how col-md-4">
-              <h4 className="works-description">Optimize all your group searches</h4>
-              <image className="img-rounded works-pic" height="200px" src="./../static/assets/home/pexels-photo-11819.jpeg"/>
-              <h4 className="works-description">Step 3: Get Custom-Tailored Recommendations</h4>
+              <h4 className="description">Optimize all your group searches</h4>
+              <image className="img-rounded pic" height="200px" src="./../static/assets/home/pexels-photo-11819.jpeg"/>
+              <h4 className="description">Step 3: Get Custom-Tailored Recommendations</h4>
             </span>
           </div>
         </div>
