@@ -132,8 +132,9 @@ class Register extends React.Component {
 
   render(){
     let infoBox = this.props.isFetching ? (
-      <div>
-        <image src='./../static/assets/spinner.gif' />
+      <div className='register-spinner'>
+        <h3>Creating your pod...</h3>
+        <image src='./../static/assets/darkspinner.gif' />
       </div> ) : (
       <form>
         <div className='form-group name-input'>

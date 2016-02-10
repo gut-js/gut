@@ -16,9 +16,9 @@ class RestaurantPref extends React.Component {
     this.selectNext = this.selectNext.bind(this);
     this.displayLoadingSpinner = this.displayLoadingSpinner.bind(this);
     this.displayTopRestaurant = this.displayTopRestaurant.bind(this);
+    this.closeFavoriteModal = this.closeFavoriteModal.bind(this);
     this.state = {
-      showSignInModal: false,
-      showRegisterModal: false
+      showFavoriteModal: false
     }
   }
 
@@ -58,6 +58,11 @@ class RestaurantPref extends React.Component {
     }
 
     addToHistory(restaurantInfo);
+    this.setState({showFavoriteModal: true})
+  }
+
+  closeFavoriteModal(){
+    this.setState({showFavoriteModal: false})
   }
 
   selectNext(e){
@@ -131,35 +136,56 @@ class RestaurantPref extends React.Component {
       }
 
       return (
-        <div>
-          <Button onClick={this.selectRestaurant}>Select Restaurant</Button>
-          <Button onClick={this.selectNext}>Next suggestion</Button>
-          <h4>Based on your input, we think you'll really like eating at...</h4>
-          <a href={this.props.topRestaurant.url} target='_blank'>
-            <h4>{this.props.topRestaurant.name}</h4>
-          </a>
-          <p><img src={this.props.topRestaurant.rating_img_url_large}/> {this.props.topRestaurant.review_count} {reviews}</p>
-          <p>{categories}</p>
-          <img src={this.props.topRestaurant.image_url}/>
-          <p>
-            {this.props.topRestaurant.location.display_address[0]}<br/>
-            {this.props.topRestaurant.location.display_address[1]}<br/>
-            {this.props.topRestaurant.location.display_address[2]}
-          </p>
-          <a href={directionsUrl} target='_blank'>
-            <Button>
-              Peas get directions!
-            </Button>
-          </a>
-          <Button onClick={this.openUberModal}>
-            <img src='./../static/assets/UBER_API_Badges_1x_22px.png' />    Ride there with Uber
-            <UberInfo
-              {...this.props}
-              showUberModal={this.state.showUberModal}
-              closeUberModal={this.closeUberModal} />
-          </Button>
-          <div style={{width:300, height:300}}>
-            <Map lat={this.props.topRestaurant.location.coordinate.latitude} lng={this.props.topRestaurant.location.coordinate.longitude}/>
+        <div className='row bottom'>
+          <div className='col-sm-12 col-md-6 col-md-offset-3 text-center'>
+            <Modal
+              show={this.state.showFavoriteModal}
+              onHide={this.closeFavoriteModal}
+              className='loginmodal register'>
+              <Modal.Header closeButton className="close-btn">
+              </Modal.Header>
+              <Modal.Body className='modalbody'>
+                <p className='saved-message'>Restaurant added to history</p>
+              </Modal.Body>
+            </Modal>
+            <span>
+              <Button className='btn top-button' onClick={this.selectRestaurant}>Save to History</Button>
+              <Button className='btn top-button' onClick={this.selectNext}>Next suggestion</Button>
+            </span>
+            <h4>Based on your input, we think you'll really like eating at...</h4>
+            <a href={this.props.topRestaurant.url} target='_blank'>
+              <h2>{this.props.topRestaurant.name}</h2>
+            </a>
+            <p><img src={this.props.topRestaurant.rating_img_url_large}/> {this.props.topRestaurant.review_count} {reviews}</p>
+            <p>{categories}</p>
+            <img src={this.props.topRestaurant.image_url} width='66%'/>
+            <p className='address'>
+              {this.props.topRestaurant.location.display_address[0]}<br/>
+              {this.props.topRestaurant.location.display_address[1]}<br/>
+              {this.props.topRestaurant.location.display_address[2]}
+            </p>
+            <p>
+              <span className='glyphicon glyphicon-earphone'></span><span>{this.props.topRestaurant.display_phone}</span>
+            </p>
+            <div className='center-block map' style={{height:300, width:300}}>
+              <Map lat={this.props.topRestaurant.location.coordinate.latitude} lng={this.props.topRestaurant.location.coordinate.longitude}/>
+            </div>
+          <div>
+            <a>
+              <Button onClick={this.openUberModal} className='top-button'>
+                <img src='./../static/assets/UBER_API_Badges_1x_22px.png' />Ride there with Uber
+                <UberInfo
+                  {...this.props}
+                  showUberModal={this.state.showUberModal}
+                  closeUberModal={this.closeUberModal} />
+              </Button>
+            </a>
+            <a href={directionsUrl} target='_blank'>
+              <Button className='top-button'>
+                Get Directions
+              </Button>
+            </a>
+          </div>
           </div>
         </div>
       )

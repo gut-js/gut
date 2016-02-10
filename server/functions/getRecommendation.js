@@ -58,7 +58,11 @@ module.exports = function(requestObj,res,diners){ //account for multiple diners
 			totalWeight -= businesses[i].weight;
 			recommendations.push(businesses.splice(i,1)[0]);
 		};
-
+		for (var i = 0; i < recommendations.length; i++) {
+			if (recommendations[i].image_url) {
+				recommendations[i].image_url = recommendations[i].image_url.slice(0, -6)+'o.jpg';
+			}
+		}
 		res.json(recommendations);
 	})
 
