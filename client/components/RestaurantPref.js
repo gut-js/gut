@@ -144,7 +144,7 @@ class RestaurantPref extends React.Component {
         </a>) : ( null )
 
       return (
-        <div className='row bottom'>
+        <div className='row bottom non-button'>
           <div className='col-sm-12 col-md-6 col-md-offset-3 text-center'>
             <Modal
               show={this.state.showFavoriteModal}
