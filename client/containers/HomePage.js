@@ -131,35 +131,35 @@ class HomePage extends React.Component {
             <div className="row">
 
               <span className="team-member col-md-3">
-                <image className="img-circle" height="135px" src="./../static/assets/team/daisy.jpg"/>
+                <center><image className="img-circle" height="135px" src="./../static/assets/team/daisy.jpg"/>
                 <h3 className="member-name" >Daisy Tsao</h3>
                 <a href="https://www.linkedin.com/in/daisytsao"><i className="fa fa-linkedin-square fa-2x"></i></a>&nbsp;&nbsp;
                 <a href="https://github.com/madcurie" target="_blank"><i className="fa fa-github-square fa-2x"></i></a>
-                <h5>Likes React, Redux, and enforcing chores.</h5>
+                <h5>Likes React, Redux, and enforcing chores.</h5></center>
               </span>
 
               <span className="team-member col-md-3">
-                <image className="img-circle" height="135px" src="./../static/assets/team/carl.jpg"/>
+                <center><image className="img-circle" height="135px" src="./../static/assets/team/carl.jpg"/>
                 <h3 className="member-name" >Carl Bernardo</h3>
                 <a href="https://www.linkedin.com/in/carlbernardo"><i className="fa fa-linkedin-square fa-2x"></i></a>&nbsp;&nbsp;
                 <a href="https://github.com/carlbernardo" target="_blank"><i className="fa fa-github-square fa-2x"></i></a>
-                <h5>Likes React, Redux, and hipster coffee joints.</h5>
+                <h5>Likes React, Redux, and hipster coffee joints.</h5></center>
               </span>
 
               <span className="team-member col-md-3">
-                <image className="img-circle" height="135px" src="./../static/assets/team/justin.jpg"/>
+                <center><image className="img-circle" height="135px" src="./../static/assets/team/justin.jpg"/>
                 <h3 className="member-name" >Justin Tan</h3>
                 <a href="https://www.linkedin.com/in/justanman"><i className="fa fa-linkedin-square fa-2x"></i></a>&nbsp;&nbsp;
                 <a href="https://github.com/justanman" target="_blank"><i className="fa fa-github-square fa-2x"></i></a>
-                <h5>Likes React, Redux, and paying half price for everything.</h5>
+                <h5>Likes React, Redux, and paying half price for everything.</h5></center>
               </span>
 
               <span className="team-member col-md-3">
-                <image className="img-circle" height="135px" src="./../static/assets/team/shin.jpg"/>
+                <center><image className="img-circle" height="135px" src="./../static/assets/team/shin.jpg"/>
                 <h3 className="member-name" >Shin Adachi</h3>
                 <a href="https://www.linkedin.com/in/shin-adachi-1b6bb1113"><i className="fa fa-linkedin-square fa-2x"></i></a>&nbsp;&nbsp;
                 <a href="https://github.com/shin064" target="_blank"><i className="fa fa-github-square fa-2x"></i></a>
-                <h5>Likes React, Redux, and NPR podcasts.</h5>
+                <h5>Likes React, Redux, and NPR podcasts.</h5></center>
               </span>
 
             </div>
