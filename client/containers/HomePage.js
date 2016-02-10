@@ -101,16 +101,16 @@ class HomePage extends React.Component {
           <h1 className="about-title">How It Works</h1>
           <div className="row">
             <div className="steps text-center col-xs-12 col-md-4">
-              <h4 className="step"> Step 1 </h4> 
-              <h4>Choose your Favorite Food Photos </h4>
-              <h4 className="step"> Step 2 </h4> 
-              <h4> Select a Location (and Invite Friends) </h4>
-              <h4 className="step"> Step 3 </h4> 
-              <h4> Get Custom-Tailored Recommendations </h4>
+              <center><h4 className="step" > Step 1 </h4> </center>
+              <h4 className="describe">Choose your Favorite Food Photos </h4>
+              <center><h4 className="step"> Step 2 </h4> </center>
+              <h4 className="describe"> Select a Location (and Invite Friends) </h4>
+              <center><h4 className="step"> Step 3 </h4></center>
+              <h4 className="describe"> Get Custom-Tailored Restaurant Recommendations </h4>
             </div>
-
             <div className="gif text-center col-xs-12 col-md-8">
             </div>
+            
           </div>
         </div>
         <div className="purpose text-center">
@@ -121,7 +121,7 @@ class HomePage extends React.Component {
             <h4 className="right">Explore unexpected culinary delights </h4>
           </div>
           <div className="how3">
-            <h4 className="description">Optimize all your group searches</h4>
+            <h4 className="description">Optimize your group searches</h4>
           </div>
         </div>
 
@@ -131,35 +131,35 @@ class HomePage extends React.Component {
             <div className="row">
 
               <span className="team-member col-md-3">
-                <image className="img-circle" height="135px" src="./../static/assets/team/daisy.jpg"/>
+                <center><image className="img-circle" height="135px" src="./../static/assets/team/daisy.jpg"/>
                 <h3 className="member-name" >Daisy Tsao</h3>
                 <a href="https://www.linkedin.com/in/daisytsao"><i className="fa fa-linkedin-square fa-2x"></i></a>&nbsp;&nbsp;
                 <a href="https://github.com/madcurie" target="_blank"><i className="fa fa-github-square fa-2x"></i></a>
-                <h5>Likes React, Redux, and enforcing chores.</h5>
+                <h5>Likes React, Redux, and enforcing chores.</h5></center>
               </span>
 
               <span className="team-member col-md-3">
-                <image className="img-circle" height="135px" src="./../static/assets/team/carl.jpg"/>
+                <center><image className="img-circle" height="135px" src="./../static/assets/team/carl.jpg"/>
                 <h3 className="member-name" >Carl Bernardo</h3>
                 <a href="https://www.linkedin.com/in/carlbernardo"><i className="fa fa-linkedin-square fa-2x"></i></a>&nbsp;&nbsp;
                 <a href="https://github.com/carlbernardo" target="_blank"><i className="fa fa-github-square fa-2x"></i></a>
-                <h5>Likes React, Redux, and hipster coffee joints.</h5>
+                <h5>Likes React, Redux, and hipster coffee joints.</h5></center>
               </span>
 
               <span className="team-member col-md-3">
-                <image className="img-circle" height="135px" src="./../static/assets/team/justin.jpg"/>
+                <center><image className="img-circle" height="135px" src="./../static/assets/team/justin.jpg"/>
                 <h3 className="member-name" >Justin Tan</h3>
                 <a href="https://www.linkedin.com/in/justanman"><i className="fa fa-linkedin-square fa-2x"></i></a>&nbsp;&nbsp;
                 <a href="https://github.com/justanman" target="_blank"><i className="fa fa-github-square fa-2x"></i></a>
-                <h5>Likes React, Redux, and paying half price for everything.</h5>
+                <h5>Likes React, Redux, and paying half price for everything.</h5></center>
               </span>
 
               <span className="team-member col-md-3">
-                <image className="img-circle" height="135px" src="./../static/assets/team/shin.jpg"/>
+                <center><image className="img-circle" height="135px" src="./../static/assets/team/shin.jpg"/>
                 <h3 className="member-name" >Shin Adachi</h3>
                 <a href="https://www.linkedin.com/in/shin-adachi-1b6bb1113"><i className="fa fa-linkedin-square fa-2x"></i></a>&nbsp;&nbsp;
-                <a href="http://github.com/shin064" target="_blank"><i className="fa fa-github-square fa-2x"></i></a>
-                <h5>Likes React, Redux, and NPR podcasts.</h5>
+                <a href="https://github.com/shin064" target="_blank"><i className="fa fa-github-square fa-2x"></i></a>
+                <h5>Likes React, Redux, and NPR podcasts.</h5></center>
               </span>
 
             </div>
