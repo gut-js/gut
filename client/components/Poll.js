@@ -10,7 +10,7 @@ class Poll extends React.Component {
 
   render(){
     return (
-      <div>
+      <div className='poll-header'>
         <h1>Select <span className='cursive'>one</span></h1>
         <PollCategory
           pollActions={this.props.pollActions}
