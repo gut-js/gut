@@ -108,9 +108,8 @@ class HomePage extends React.Component {
               <center><h4 className="step"> Step 3 </h4></center>
               <h4 className="describe"> Get Custom-Tailored Restaurant Recommendations </h4>
             </div>
-            <div className="gif text-center col-xs-12 col-md-8">
+            <div className="gif col-xs-12 col-md-8"> 
             </div>
-            
           </div>
         </div>
         <div className="purpose text-center">
