@@ -97,24 +97,31 @@ class HomePage extends React.Component {
             </div>
         </div>
 
-        <div className="container howitworks text-center">
+        <div className="about text-center">
           <h1 className="about-title">How It Works</h1>
-          <div className="row text-center">
-            <div className="how col-md-4">
-              <h4 className="description">Take the indecision out of dining out </h4>
-              <image className="img-rounded pic" height="200px" src="./../static/assets/home/dumplings.jpg"/>
-              <h4 className="description"> Step 1: Choose your Favorite Food Photos </h4>
+          <div className="row">
+            <div className="steps text-center col-xs-12 col-md-4">
+              <h4 className="step"> Step 1 </h4> 
+              <h4>Choose your Favorite Food Photos </h4>
+              <h4 className="step"> Step 2 </h4> 
+              <h4> Select a Location (and Invite Friends) </h4>
+              <h4 className="step"> Step 3 </h4> 
+              <h4> Get Custom-Tailored Recommendations </h4>
             </div>
-            <span className="how col-md-4">
-              <h4 className="description">Explore unexpected culinary delights </h4>
-              <image className="img-rounded pic" height="200px" src="./../static/assets/home/street-food.jpg"/>
-              <h4 className="description"> Step 2: Select a Location (and Invite Friends)</h4>
-            </span>
-            <span className="how col-md-4">
-              <h4 className="description">Optimize all your group searches</h4>
-              <image className="img-rounded pic" height="200px" src="./../static/assets/home/pexels-photo-11819.jpeg"/>
-              <h4 className="description">Step 3: Get Custom-Tailored Recommendations</h4>
-            </span>
+
+            <div className="gif text-center col-xs-12 col-md-8">
+            </div>
+          </div>
+        </div>
+        <div className="purpose text-center">
+          <div className="how1">
+            <h4 className="description">Take the indecision out of dining out </h4>
+          </div>
+          <div className="how2">
+            <h4 className="right">Explore unexpected culinary delights </h4>
+          </div>
+          <div className="how3">
+            <h4 className="description">Optimize all your group searches</h4>
           </div>
         </div>
 
