@@ -42,7 +42,7 @@
 .friend-entry {
   min-height:150px;
   img {
-    border-radius:0;
+    border-radius:50%;
     width:120px;
     height:120px;
     display:inline-block;
@@ -57,7 +57,8 @@
 }
 
 .friends button,
-.add-friends button {
+.add-friends button,
+.friend-entry .remove-diner {
   width:80px;
   height:30px;
   background-color:$slategray;
@@ -67,24 +68,47 @@
 }
 
 .add-user-container {
-  display:flex;
   height:100%;
   width:100%;
+  max-width: 1200px;
   min-width:40px;
   min-height:450px;
   background-color: $slategray;
   margin-bottom:30px;
 
+  .row {
+    display: flex;
+  }
 }
 
 .add-friends button {
   background-color: $green;
 }
 
+.add-friends-msg h4 {
+  color: $purewhite;
+}
+
+#dine-alone {
+  position: relative;
+  bottom: 0;
+  width: 200px;
+  padding: 15px;
+  font-size: 20px;
+  height: auto;
+  margin: 0 auto;
+  float: none;
+  margin-bottom: 30px;
+}
+
 @media (max-width: 895px) {
   .add-friends {
-    height:200px;
+    height:230px;
     min-height:100px;
+  }
+
+  #dine-alone {
+    margin-bottom: 30px;
   }
 
   .friends {
