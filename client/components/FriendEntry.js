@@ -47,7 +47,6 @@ class FriendEntry extends React.Component {
   }
 
   render(){
-    console.log('props in frend entry', this.props);
     return(
       <li className='list-group-item friend-entry'>
         {this.displayButton()}

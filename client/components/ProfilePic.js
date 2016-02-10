@@ -10,10 +10,8 @@ class ProfilePic extends React.Component {
   handleSubmit(){ //start here
     // const { resetPoll, fetchYelpData } = this.props.pollActions;
     // const { refreshPoll } = this.props.pollActions;
-    console.log('handleSubmit works!');
     const { username } = this.props;
     const { syncAvatarUrl } = this.props.dinerActions;
-    console.log('syncAvatarUrl:', this.props);
     syncAvatarUrl('http://localhost:5679/static/assets/avatar/' + username);
     const { closePicModal } = this.props;
     closePicModal();
@@ -21,8 +19,6 @@ class ProfilePic extends React.Component {
 
   render(){
     const { showPicModal, closePicModal } = this.props;
-    console.log('props in ProfilePic', this.props);
-    console.log('username: ', this.props.username);
 
     return(
       <Modal

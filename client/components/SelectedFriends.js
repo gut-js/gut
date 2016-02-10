@@ -23,20 +23,15 @@ class SelectedFriends extends React.Component {
         )
       });
     } else {
-      return(
-        <div>
-          Please select friends!
-        </div>
-      )
+      return null;
     }
   }
 
   render(){
-    console.log('props in selected friends list', this.props);
     return(
-      <div>
+      <ul className='list-group'>
         {this.displaySelected()}
-      </div>
+      </ul>
     )
   }
 }

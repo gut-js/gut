@@ -39,6 +39,7 @@ class PollCategory extends React.Component {
       return(
         <div className='row poll'>
           <div className='col-sm-12 col-md-6 choice-one'>
+            <h2>This</h2>
             <img
               src={this.props.data[0].image_url}
               alt='choice1'
@@ -46,9 +47,9 @@ class PollCategory extends React.Component {
               width='350px'
               className='image-one'
               onClick={this.selectImage} />
-              <h2>This</h2>
           </div>
           <div className='col-sm-12 col-md-6 choice-two'>
+            <h2>That</h2>
             <img
             src={this.props.data[1].image_url}
             alt='choice2'
@@ -56,7 +57,6 @@ class PollCategory extends React.Component {
             width='350px'
             className='image-two'
             onClick={this.selectImage} />
-            <h2>That</h2>
           </div>
         </div>
       )

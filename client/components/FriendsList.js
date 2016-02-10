@@ -39,8 +39,8 @@ class FriendsList extends React.Component {
       });
     } else {
       return(
-        <div>
-          Please add friends!
+        <div className='add-friends-msg'>
+          <h4>Peas add friends</h4>
         </div>
       )
     }
@@ -49,7 +49,7 @@ class FriendsList extends React.Component {
   render(){
     return(
       <div className='friends'>
-        <h1>Your Pea-ps</h1>
+        <h1>Your <span className='cursive'>pea-ps</span></h1>
         <ul className='list-group'>
           {this.displayFriends()}
         </ul>

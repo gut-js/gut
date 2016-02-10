@@ -90,16 +90,17 @@ class Navigation extends React.Component {
 
   displayPreferences(){
     const { clearPoll } = this.props.authActions;
-    const { refreshPoll } = this.props.pollActions;
+    const { refreshPoll, fetchYelpData } = this.props.pollActions;
     const { displayMorePreferences } = this.props.viewActions;
     const { clearDiners, clearLocation } = this.props.dinerActions;
     const { clearFriends } = this.props.friendActions;
 
+    refreshPoll();
+    clearPoll();
     clearDiners();
     clearLocation();
     clearFriends();
-    clearPoll();
-    refreshPoll();
+    fetchYelpData();
     displayMorePreferences();
   }
 

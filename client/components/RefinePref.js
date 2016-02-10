@@ -20,12 +20,6 @@ class RefinePref extends React.Component {
     }
   }
 
-  componentWillMount(){
-    const { fetchYelpData } = this.props.pollActions;
-
-    fetchYelpData();
-  }
-
   openDeleteModal(){
     this.setState({
       showDeleteModal: true
@@ -80,9 +74,8 @@ class RefinePref extends React.Component {
   render(){
     return(
       <div className='poll-header'>
-        <h1>Select <span className='cursive'>one</span></h1>
-        {this.displayLoadingSpinner()}
         {this.displayPreferencePoll()}
+        {this.displayLoadingSpinner()}
         <h3>Reset your Preferences</h3>
         <div>
           <button onClick={this.openDeleteModal}>
