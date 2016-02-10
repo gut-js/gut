@@ -76,9 +76,6 @@ class SignIn extends React.Component {
                 onClick={this.handleClick}>
                 Sign in
               </button>
-              <div className='toggle google'>
-                <a href='https://accounts.google.com/o/oauth2/auth?response_type=code&scope=openid%20profile%20email&client_id=1007941048671-mqral0q9jeg17ervhv01gknh7tml237i.apps.googleusercontent.com&redirect_uri=http://127.0.0.1:5679/oauthsignin&connection=google-oauth2'>Sign in with Google</a>
-              </div>
             </div>
             <div className='toggle'>
               {"Don't"} have an account? Click <a href="#" onClick={this.switch}>here</a> to register.
