@@ -60,22 +60,26 @@ class Friends extends React.Component {
 
   render(){
     return(
-      <div>
-        <h1>Add Friends</h1>
-        <div className='input-group'>
-          <span className='input-group-addon'>@</span>
-          <input
-            className='form-control'
-            type='text'
-            placeholder='Enter a username'
-            ref='friendQuery'
-            onChange={this.sendQuery} />
-        </div>
-        <ul className='list-group'>
-          {this.displaySearchResults()}
-        </ul>
-        <div>
-          <FriendsList {...this.props} />
+    <div className='add-user-container col-md-12'>
+       <div className='row'>
+          <div className='add-friends col-sm-12 col-md-6'>
+            <h1>Add Pea-ps</h1>
+            <div className='input-group'>
+              <span className='input-group-addon'>@</span>
+              <input
+                className='form-control'
+                type='text'
+                placeholder='Enter a username'
+                ref='friendQuery'
+                onChange={this.sendQuery} />
+            </div>
+            <ul className='list-group'>
+              {this.displaySearchResults()}
+            </ul>
+          </div>
+          <div className='user-friends col-sm-12 col-md-6'>
+            <FriendsList {...this.props} />
+          </div>
         </div>
       </div>
     )

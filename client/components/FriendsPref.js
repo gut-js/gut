@@ -54,8 +54,8 @@ class FriendsPref extends React.Component {
       )
     } else {
       return (
-        <div>
-          <h3>Determining your location...</h3>
+        <div className='spinner'>
+          <h1>Determining your <span className='cursive'>location</span>...</h1>
           <image src='./../static/assets/spinner.gif' />
         </div>
       )

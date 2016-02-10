@@ -1,6 +1,44 @@
+.poll-header {
+  h1 {
+    margin:20px auto;
+    text-align: center;
+  }
+}
+
 .poll {
+  .choice-one, .choice-two {
+    text-align:center;
+    padding:40px;
+  }
+
+  .choice-one h2, .choice-two h2 {
+    color:#fff;
+    margin: 20px auto;
+  }
+
+  .choice-one {
+    background-color: $green;
+  }
+
+  .choice-two {
+    background-color: $slategray;
+  }
+
   img {
     border-radius: 50%;
     text-align: center;
+    box-shadow: 0 4px 10px 4px;
+    cursor:pointer;
   }
+}
+
+.spinner {
+  text-align: center;
+  margin-top: 80px;
+}
+
+.cursive {
+  font-family:$font-primary;
+  @include fontSize(90px);
+  margin-bottom: 60px;
 }

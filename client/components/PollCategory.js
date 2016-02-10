@@ -46,6 +46,7 @@ class PollCategory extends React.Component {
               width='350px'
               className='image-one'
               onClick={this.selectImage} />
+              <h2>This</h2>
           </div>
           <div className='col-sm-12 col-md-6 choice-two'>
             <img
@@ -55,6 +56,7 @@ class PollCategory extends React.Component {
             width='350px'
             className='image-two'
             onClick={this.selectImage} />
+            <h2>That</h2>
           </div>
         </div>
       )
