@@ -84,7 +84,7 @@ class RestaurantPref extends React.Component {
   displayLoadingSpinner(){
     if(this.props.isLoadingResults){
       return (
-        <div>
+        <div className='spinner'>
           <h1>Our algorithm is crunching numbers. Your recommendation will be ready in a snap!</h1>
           <image src='./../static/assets/spinner.gif' />
         </div>
