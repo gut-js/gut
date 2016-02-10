@@ -13,10 +13,15 @@ class FriendsList extends React.Component {
     const { userFriends, username, displayFriendsChoice, diners } = this.props;
     const { removeFriend } = this.props.friendActions;
     const { addToDiners, removeFromDiners } = this.props.dinerActions;
+    let dinersArr = [];
 
     if(userFriends.length > 0){
+      for(var i = 1; i < diners.length; i++){
+        dinersArr.push(diners[i].friendName);
+      }
+
       return userFriends.filter(friend => {
-        return diners.indexOf(friend.username) === -1
+        return dinersArr.indexOf(friend.username) === -1
       })
       .map((friend, ind) => {
         return(
@@ -42,7 +47,6 @@ class FriendsList extends React.Component {
   }
 
   render(){
-    console.log('porps in frenzlist', this.props);
     return(
       <div>
         <h2>Your Friends</h2>

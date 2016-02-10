@@ -25,8 +25,13 @@ class RestaurantPref extends React.Component {
   componentWillMount(){
     const { fetchSnapPeaData } = this.props.dinerActions;
     const { diners, location } = this.props;
+    const dinerInfo = [diners[0]];
 
-    fetchSnapPeaData(diners, location);
+    for(var i = 1; i < diners.length; i++){
+      dinerInfo.push(diners[i].friendName);
+    }
+
+    fetchSnapPeaData(dinerInfo, location);
   }
 
   openUberModal(){

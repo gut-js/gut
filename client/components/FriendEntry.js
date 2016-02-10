@@ -43,12 +43,17 @@ class FriendEntry extends React.Component {
   }
 
   selectDiner(){
-    const { friendName, addToDiners } = this.props;
-
-    addToDiners(friendName);
+    const { friendName, photo, addToDiners } = this.props;
+    const friendInfo = {
+      friendName: friendName,
+      photo: photo
+    }
+    
+    addToDiners(friendInfo);
   }
 
   render(){
+    console.log('props in frend entry', this.props);
     return(
       <li className='list-group-item'>
         {this.displayButton()}

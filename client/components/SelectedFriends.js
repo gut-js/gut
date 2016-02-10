@@ -14,14 +14,14 @@ class SelectedFriends extends React.Component {
     const diners = this.props.diners.slice(1);
 
     if(diners.length > 0){
-      return diners.map((diner, ind) => {
+      for(var key in diners){
         return(
           <SelectedFriendEntry
             removeFromDiners={removeFromDiners}
-            diner={diner}
-            key={ind} />
+            diner={diners[key]}
+            key={key} />
         )
-      });
+      }
     } else {
       return(
         <div>
@@ -32,6 +32,7 @@ class SelectedFriends extends React.Component {
   }
 
   render(){
+    console.log('props in selected friends list', this.props);
     return(
       <div>
         {this.displaySelected()}
