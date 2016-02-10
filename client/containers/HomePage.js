@@ -101,16 +101,16 @@ class HomePage extends React.Component {
           <h1 className="about-title">How It Works</h1>
           <div className="row">
             <div className="steps text-center col-xs-12 col-md-4">
-              <h4 className="step"> Step 1 </h4> 
-              <h4>Choose your Favorite Food Photos </h4>
-              <h4 className="step"> Step 2 </h4> 
-              <h4> Select a Location (and Invite Friends) </h4>
-              <h4 className="step"> Step 3 </h4> 
-              <h4> Get Custom-Tailored Recommendations </h4>
+              <center><h4 className="step" > Step 1 </h4> </center>
+              <h4 className="describe">Choose your Favorite Food Photos </h4>
+              <center><h4 className="step"> Step 2 </h4> </center>
+              <h4 className="describe"> Select a Location (and Invite Friends) </h4>
+              <center><h4 className="step"> Step 3 </h4></center>
+              <h4 className="describe"> Get Custom-Tailored Restaurant Recommendations </h4>
             </div>
-
             <div className="gif text-center col-xs-12 col-md-8">
             </div>
+            
           </div>
         </div>
         <div className="purpose text-center">
@@ -121,7 +121,7 @@ class HomePage extends React.Component {
             <h4 className="right">Explore unexpected culinary delights </h4>
           </div>
           <div className="how3">
-            <h4 className="description">Optimize all your group searches</h4>
+            <h4 className="description">Optimize your group searches</h4>
           </div>
         </div>
 
@@ -158,7 +158,7 @@ class HomePage extends React.Component {
                 <image className="img-circle" height="135px" src="./../static/assets/team/shin.jpg"/>
                 <h3 className="member-name" >Shin Adachi</h3>
                 <a href="https://www.linkedin.com/in/shin-adachi-1b6bb1113"><i className="fa fa-linkedin-square fa-2x"></i></a>&nbsp;&nbsp;
-                <a href="http://github.com/shin064" target="_blank"><i className="fa fa-github-square fa-2x"></i></a>
+                <a href="https://github.com/shin064" target="_blank"><i className="fa fa-github-square fa-2x"></i></a>
                 <h5>Likes React, Redux, and NPR podcasts.</h5>
               </span>
 

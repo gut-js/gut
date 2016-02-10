@@ -91,7 +91,6 @@
       font-family: 'Grand Hotel', cursive;
       font-size: 60px;
       font-weight: bold;
-      color: $green;
     }
 
     .steps {
@@ -99,21 +98,35 @@
       display: flex;
       justify-content:center;
       flex-direction: column;
+      height: 100%;
+      margin: 0px;
+      padding-left: 30px;
+      padding-right: 30px;
+      padding-bottom: 30px;
 
       .step {
-        padding: 0px;
-        color: black;
+        padding: 15px;
+        width: 90%;
         text-align: center;
-        width: 100%;
         font-size: 20px;
+        background-color: $white;
+        display: block;
+      }
+
+      .describe {
+        padding-left: 20px;
+        padding-right: 20px;
+        font-size: 25px;
+        font-family: 'Karla'
       }
     }
     .gif {
-      background-image: url("https://media.giphy.com/media/E186t2c4ocG76/giphy.gif");
+      background-image: url("http://search.criticalzone.org/assets/img/photos/screencast_placeholder.jpg");
       padding: 50px;
       text-align: center;
       background-size: cover;
       height: 500px;
+      margin: 0px;
     }
   }
 
@@ -129,6 +142,7 @@
       color: white;
       background-color: black;
       text-align: left;
+      font-size: 20px;
     }
 
     .right{
@@ -137,6 +151,7 @@
       text-align: right;
       color: white;
       background-color: black;
+      font-size: 20px;
     }
 
     .how1 {
