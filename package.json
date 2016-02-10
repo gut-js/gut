@@ -32,6 +32,7 @@
     "jsonwebtoken": "^5.5.4",
     "lodash": "^4.0.1",
     "magellan-coords": "^1.1.0",
+    "moment": "^2.11.2",
     "mongoose": "^4.4.1",
     "mongoose-unique-validator": "^0.6.2",
     "multer": "^1.1.0",
