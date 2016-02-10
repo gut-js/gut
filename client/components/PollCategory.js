@@ -37,19 +37,27 @@ class PollCategory extends React.Component {
   displayPoll(){
     if(this.props.data.length > 1){
       return(
-        <div>
-          <img
-            src={this.props.data[0].image_url}
-            alt='choice1'
-            height='500px'
-            width='500px'
+        <div className='row poll'>
+          <div className='col-sm-12 col-md-6 choice-one'>
+            <img
+              src={this.props.data[0].image_url}
+              alt='choice1'
+              height='350px'
+              width='350px'
+              className='image-one'
+              onClick={this.selectImage} />
+              <h2>This</h2>
+          </div>
+          <div className='col-sm-12 col-md-6 choice-two'>
+            <img
+            src={this.props.data[1].image_url}
+            alt='choice2'
+            height='350px'
+            width='350px'
+            className='image-two'
             onClick={this.selectImage} />
-          <img
-          src={this.props.data[1].image_url}
-          alt='choice2'
-          height='500px'
-          width='500px'
-          onClick={this.selectImage} />
+            <h2>That</h2>
+          </div>
         </div>
       )
     } else {

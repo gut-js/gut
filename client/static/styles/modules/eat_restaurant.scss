@@ -4,9 +4,19 @@
   @include fontSize(26px);
   letter-spacing: 1px;
   color: $purewhite;
-  background-color: #5CAB8C;
-  border: 0.5px solid $purewhite;
+  background-color: $green;
+  border: 0.5px solid $darkgreen;
   border-radius: 0;
+
+  &:hover, &:focus {
+    background:$darkgreen;
+    color: $purewhite;
+  }
+
+  .btn-success {
+    background: $darkgreen;
+    border-color:$darkgreen;
+  }
 }
 
 .map {

@@ -48,8 +48,8 @@ class FriendsList extends React.Component {
 
   render(){
     return(
-      <div>
-        <h2>Your Friends</h2>
+      <div className='friends'>
+        <h1>Your Pea-ps</h1>
         <ul className='list-group'>
           {this.displayFriends()}
         </ul>

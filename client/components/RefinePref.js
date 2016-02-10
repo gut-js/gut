@@ -67,8 +67,8 @@ class RefinePref extends React.Component {
   displayLoadingSpinner(){
     if(this.props.isFetchingYelp){
       return(
-        <div>
-          <h1>One moment please</h1>
+        <div className='spinner'>
+          <h1 className='cursive'>One moment please</h1>
           <image src='./../static/assets/spinner.gif' />
         </div>
       )
@@ -79,8 +79,8 @@ class RefinePref extends React.Component {
 
   render(){
     return(
-      <div>
-        <h1>Refine your Preferences.</h1>
+      <div className='poll-header'>
+        <h1>Select <span className='cursive'>one</span></h1>
         {this.displayLoadingSpinner()}
         {this.displayPreferencePoll()}
         <h3>Reset your Preferences</h3>

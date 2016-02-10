@@ -11,10 +11,11 @@ class Poll extends React.Component {
   render(){
     return (
       <div>
-       <PollCategory
-        pollActions={this.props.pollActions}
-        data={this.props.data}
-        username={this.props.username} />
+        <h1>Select <span className='cursive'>one</span></h1>
+        <PollCategory
+          pollActions={this.props.pollActions}
+          data={this.props.data}
+          username={this.props.username} />
       </div>
     )
   }

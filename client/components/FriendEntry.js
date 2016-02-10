@@ -12,21 +12,15 @@ class FriendEntry extends React.Component {
     if(this.props.displayFriendsChoice){
       return(
         <button
-          className='badge'
           onClick={this.selectDiner}>
-          <span className='glyphicon glyphicon-plus'>
           Dine with
-          </span>
         </button>
       )
     } else {
       return(
         <button
-          className='badge'
           onClick={this.removeFriend}>
-          <span className='glyphicon glyphicon-minus'>
           Remove
-          </span>
         </button>
       )
     }
@@ -48,19 +42,16 @@ class FriendEntry extends React.Component {
       friendName: friendName,
       photo: photo
     }
-    
+
     addToDiners(friendInfo);
   }
 
   render(){
     console.log('props in frend entry', this.props);
     return(
-      <li className='list-group-item'>
+      <li className='list-group-item friend-entry'>
         {this.displayButton()}
-        <span className='badge'>
-          {Object.keys(this.props.categories).length} Categories
-        </span>
-        <p>{this.props.friendName}</p>
+        <h3>{this.props.friendName}</h3>
         <img src={this.props.photo} />
       </li>
     )

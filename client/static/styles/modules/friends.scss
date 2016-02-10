@@ -1,1 +1,93 @@
-//for adding/removing friends page
+
+.add-friends, .user-friends {
+  align-items:stretch;
+  height:inherit;
+  text-align: center;
+  min-height:450px;
+  padding-bottom:20px;
+
+  h1 {
+    margin: 60px auto 40px auto;
+    color:$purewhite;
+  }
+}
+
+.add-friends {
+  background-color: $slategray;
+
+  input {
+    height:40px;
+    @include fontSize(24px);
+  }
+}
+
+.user-friends {
+  background-color: $green;
+
+  ul>li>img {
+    display: inline-block;
+    max-width:120px;
+    width:30%;
+    height:auto;
+    text-align: left;
+  }
+}
+
+.input-group-addon {
+  background-color: $green;
+  color:$purewhite;
+  @include fontSize(24px);
+}
+
+.friend-entry {
+  min-height:150px;
+  img {
+    border-radius:0;
+    width:120px;
+    height:120px;
+    display:inline-block;
+    position:absolute;
+    left:20px;
+    bottom:20px;
+  }
+
+  h3 {
+    margin:45px 0 30px 0;
+  }
+}
+
+.friends button,
+.add-friends button {
+  width:80px;
+  height:30px;
+  background-color:$slategray;
+  color:$purewhite;
+  @include fontSize(20px);
+  float:right;
+}
+
+.add-user-container {
+  display:flex;
+  height:100%;
+  width:100%;
+  min-width:40px;
+  min-height:450px;
+  background-color: $slategray;
+  margin-bottom:30px;
+
+}
+
+.add-friends button {
+  background-color: $green;
+}
+
+@media (max-width: 895px) {
+  .add-friends {
+    height:200px;
+    min-height:100px;
+  }
+
+  .friends {
+    padding-top:5px;
+  }
+}

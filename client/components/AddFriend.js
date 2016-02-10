@@ -22,8 +22,7 @@ class AddFriend extends React.Component {
     return(
       <li className='list-group-item' ref='friendUsername'>
         {friendName}
-        <button className='badge' onClick={this.addFriend}>
-        <span className='glyphicon glyphicon-plus'>Add</span>
+        <button onClick={this.addFriend}>Add
         </button>
       </li>
     )
