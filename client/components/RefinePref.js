@@ -20,12 +20,6 @@ class RefinePref extends React.Component {
     }
   }
 
-  componentWillMount(){
-    const { fetchYelpData } = this.props.pollActions;
-
-    fetchYelpData();
-  }
-
   openDeleteModal(){
     this.setState({
       showDeleteModal: true

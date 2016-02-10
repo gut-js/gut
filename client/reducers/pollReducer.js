@@ -7,6 +7,7 @@ const initialState = {
   isSubmitting: true,
   pollErrorMessage: '',
   data: [],
+  isRefreshed: false,
   isFetchingYelp: false
 }
 
