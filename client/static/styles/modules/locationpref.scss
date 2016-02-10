@@ -1,6 +1,10 @@
 .location-pref {
   margin-top: 60px;
 
+  .location-error {
+    color: $purewhite;
+  }
+
   h1 {
     text-align: center;
     @include fontSize(50px);

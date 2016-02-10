@@ -31,9 +31,13 @@ class LocationPref extends React.Component{
     const { displayFriendsChoice } = this.props.viewActions;
     const location = this.refs.startLocation.value;
 
-    setUserLocation(location);
-    this.refs.startLocation.value = '';
-    displayFriendsChoice();
+    if(location === ''){
+      return null;
+    } else {
+      setUserLocation(location);
+      this.refs.startLocation.value = '';
+      displayFriendsChoice();
+    }
   }
 
   render(){
