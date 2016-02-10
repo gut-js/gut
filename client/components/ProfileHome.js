@@ -16,6 +16,7 @@ class ProfileHome extends React.Component {
     this.openClearModal = this.openClearModal.bind(this);
     this.closeClearModal = this.closeClearModal.bind(this);
     this.displayHome = this.displayHome.bind(this);
+    this.displayHistory = this.displayHistory.bind(this);
     this.displayFriendsChoice = this.displayFriendsChoice.bind(this);
     this.displayLocationChoice = this.displayLocationChoice.bind(this);
     this.displayResults = this.displayResults.bind(this);
@@ -39,14 +40,26 @@ class ProfileHome extends React.Component {
   }
 
   displayHome(){
+    if(this.props.displayProfileHome){
+      return(
+        <div>
+          <LocationPref {...this.props} />
+        </div>
+      )
+    } else {
+      return null;
+    }
+  }
+
+  displayHistory(){
     const { beenTo } = this.props;
     let history = [];
 
-    if(this.props.displayProfileHome){
+    if(this.props.displayHistory){
       if(beenTo.length === 0){
         return(
           <div>
-            <LocationPref {...this.props} />
+            Find a restaurant and select it!
           </div>
         )
       } else {
@@ -60,22 +73,7 @@ class ProfileHome extends React.Component {
           );
         }).slice(0,8);
 
-        return(
-          <div>
-            <LocationPref {...this.props} />
-            <h1>History</h1>
-            <Button onClick={this.openClearModal}>
-              Clear History
-            </Button>
-            <ClearHistory
-              {...this.props}
-              showClearModal={this.state.showClearModal}
-              closeClearModal={this.closeClearModal} />
-            <ul className='list-group'>
-              {history}
-            </ul>
-          </div>
-        );
+        return history;
       }
     } else {
       return null;
@@ -137,6 +135,7 @@ class ProfileHome extends React.Component {
     return(
       <div>
         {this.displayHome()}
+        {this.displayHistory()}
         {this.displayLocationChoice()}
         {this.displayFriendsChoice()}
         {this.displayResults()}

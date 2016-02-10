@@ -15,6 +15,7 @@ class Navigation extends React.Component {
     this.closeRegister = this.closeRegister.bind(this);
     this.logOut = this.logOut.bind(this);
     this.displayLocationChoice = this.displayLocationChoice.bind(this);
+    this.displayHistory = this.displayHistory.bind(this);
     this.displayPreferences = this.displayPreferences.bind(this);
     this.displayFriends = this.displayFriends.bind(this);
     this.displayProfileHome = this.displayProfileHome.bind(this);
@@ -58,6 +59,19 @@ class Navigation extends React.Component {
     clearViews();
     clearPoll();
     logoutUser();
+  }
+
+  displayHistory(){
+    const { clearPoll } = this.props.authActions;
+    const { displayHistory } = this.props.viewActions;
+    const { clearDiners, clearLocation } = this.props.dinerActions;
+    const { clearFriends } = this.props.friendActions;
+
+    clearDiners();
+    clearLocation();
+    clearFriends();
+    clearPoll();
+    displayHistory();
   }
 
   displayLocationChoice(){
@@ -130,10 +144,10 @@ class Navigation extends React.Component {
           Lets Eat
         </NavItem>
         <NavItem
-          eventKey={3}
+          eventKey={2}
           href='#'
-          onClick={this.displayPreferences}>
-          Refine your Preferences
+          onClick={this.displayHistory}>
+          History
         </NavItem>
         <NavItem
           eventKey={4}
@@ -142,7 +156,13 @@ class Navigation extends React.Component {
           Friends
         </NavItem>
         <NavItem
-          eventKey={5}
+        eventKey={5}
+        href='#'
+        onClick={this.displayPreferences}>
+        Settings
+        </NavItem>
+        <NavItem
+          eventKey={6}
           href='#'
           onClick={this.logOut}>
         Log out

@@ -23,6 +23,7 @@ export const fetchSnapPeaData = (diners, location) => {
        return response.json();
      })
      .then(response => {
+       console.log('res back from server', response);
        try {
          dispatch(loadSnapPeaData(response));
          dispatch(setTopRestaurant(response[0]));
@@ -42,6 +43,7 @@ export const fetchSnapPeaData = (diners, location) => {
        return response.json();
      })
      .then(response => {
+       console.log('res from server', response)
        try {
          dispatch(loadSnapPeaData(response));
          dispatch(setTopRestaurant(response[0]));

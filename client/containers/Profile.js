@@ -88,6 +88,7 @@ const mapStateToProps = (state) => {
     displayAddFriends: state.viewReducer.displayAddFriends,
     displayUberInfo: state.viewReducer.displayUberInfo,
     displayPreferences: state.viewReducer.displayPreferences,
+    displayHistory: state.viewReducer.displayHistory,
     displayProfileHome: state.viewReducer.displayProfileHome,
 
     //friend state

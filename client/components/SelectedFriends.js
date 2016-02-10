@@ -32,6 +32,7 @@ class SelectedFriends extends React.Component {
   }
 
   render(){
+    console.log('props in selected friends list', this.props);
     return(
       <div>
         {this.displaySelected()}
