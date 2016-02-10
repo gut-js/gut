@@ -13,13 +13,12 @@ class SelectedFriendEntry extends React.Component {
   }
 
   render(){
-    console.log('props in selected frend', this.props);
     return(
-      <div>
-        <h2>{this.props.diner.friendName}</h2>
+      <li className='list-group-item friend-entry'>
+        <button className='remove-diner' onClick={this.unselectDiner}>Remove</button>
+        <h3>{this.props.diner.friendName}</h3>
         <img src={this.props.diner.photo} />
-        <button onClick={this.unselectDiner}>Remove Diner</button>
-      </div>
+      </li>
     )
   }
 }

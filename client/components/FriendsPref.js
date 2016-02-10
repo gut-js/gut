@@ -33,11 +33,11 @@ class FriendsPref extends React.Component {
 
     if(diners.length > 1){
       return(
-        <Button onClick={this.displayRestaurantResults}>Find us a restaurant!</Button>
+        <Button id='dine-alone' onClick={this.displayRestaurantResults}>Find us a table</Button>
       )
     } else {
       return(
-        <Button onClick={this.displayRestaurantResults}>Table for one, please!</Button>
+        <Button id='dine-alone' onClick={this.displayRestaurantResults}>Table for one</Button>
       )
     }
   }
@@ -45,11 +45,17 @@ class FriendsPref extends React.Component {
   render(){
     if (this.props.location) {
       return (
-        <div className='row'>
-          <h1>Are you dining with anyone else?</h1>
-          <SelectedFriends {...this.props} />
-          <FriendsList {...this.props} />
-          {this.displayButton()}
+        <div className='add-user-container col-md-12 col-xl-12'>
+          <div className='row'>
+            <div className='add-friends col-sm-12 col-md-6 col-xl-6'>
+              <h1>Select <span className='cursive'>pea-ps</span> to dine with</h1>
+              {this.displayButton()}
+              <SelectedFriends {...this.props} />
+            </div>
+            <div className='user-friends col-sm-12 col-md-6 col-xl-6'>
+              <FriendsList {...this.props} />
+            </div>
+          </div>
         </div>
       )
     } else {
