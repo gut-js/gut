@@ -17,9 +17,8 @@
       .btn-success {
         border-color:$darkgreen;
       }
-   }
-}
-
+    }
+  }
 
   .logo {
     display: block;
@@ -82,53 +81,117 @@
       left: 0;
   }
 
+  .about {
+    background-color: white;
+
+    .about-title {
+      background-color: white;
+      padding: 30px;
+      /*font-family: 'Amatic SC', cursive;*/
+      font-family: 'Grand Hotel', cursive;
+      font-size: 60px;
+      font-weight: bold;
+      color: $green;
+    }
+
+    .steps {
+      text-align: center;
+      display: flex;
+      justify-content:center;
+      flex-direction: column;
+
+      .step {
+        padding: 0px;
+        color: black;
+        text-align: center;
+        width: 100%;
+        font-size: 20px;
+      }
+    }
+    .gif {
+      background-image: url("https://media.giphy.com/media/E186t2c4ocG76/giphy.gif");
+      padding: 50px;
+      text-align: center;
+      background-size: cover;
+      height: 500px;
+    }
+  }
+
+  .purpose {
+
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+
+    .description {
+      margin: 0px;
+      padding: 30px;
+      color: white;
+      background-color: black;
+      text-align: left;
+    }
+
+    .right{
+      margin: 0px;
+      padding: 30px;
+      text-align: right;
+      color: white;
+      background-color: black;
+    }
+
+    .how1 {
+      width: 100%;
+      height: 400px;
+      background-image: url(http://www.saviobianconi.com/wp-content/uploads/2015/02/saviobianconi_photographers_thailand_1.jpg);
+      background-size: cover;
+      margin: 0px;
+
+    }
+    .how2 {
+      width: 100%;
+      height: 400px;
+      background-image: url(https://reflectionsofchina.files.wordpress.com/2012/03/shanghais-busy-streets.jpg);
+      background-size: cover;
+      margin: 0px;
+    }
+    .how3 {
+      width: 100%;
+      height: 400px;
+      background-image: url(https://cdn1.vox-cdn.com/thumbor/QiFK-MP_zfNG6Lr4fpLwqJvysg0=/0x105:2000x1230/1310x737/cdn0.vox-cdn.com/uploads/chorus_image/image/46276926/20150303-Mu_Ramen--10.0.0.0.0.jpg);
+      background-size: cover;
+      margin: 0px;
+    }
+  }
+
   .team {
     background-color: $white;
     width: 100%;
-  }
-  .team-member {
-    text-align: center;
-  }
-  .about-title {
-    padding: 5px;
-    /*font-family: 'Amatic SC', cursive;*/
-    font-family: 'Grand Hotel', cursive;
-    font-size: 60px;
-    font-weight: bold;
-  }
-
-  .works-description {
     padding: 20px;
-    width: 100%;
-  }
 
-  .how {
-    padding: 20px;
-  }
-
-  .team-title{
-    font-family: 'Grand Hotel', cursive;
-    font-size: 60px;
-    font-weight: bold;
-  }
-
-
-
-  .team-member {
-    padding: 30px;
-    text-align: center;
-  }
-
-  .img-circle {
-      height: 170px;
+    .team-title{
+      padding:50px;
+      font-family: 'Grand Hotel', cursive;
+      font-size: 60px;
+      font-weight: bold;
     }
+    
+    .team-member {
+      text-align: center;
+      padding: 30px;
 
-  .member-name {
-    /*color: $green;*/
-    padding: 5px;
-  }
-  .fa {
-    /*color:#333;*/
-    color: $green;
+      .member-name {
+        /*color: $green;*/
+        padding: 5px;
+      } 
+
+      .img-circle {
+        height: 170px;
+      }
+
+      .fa {
+        /*color:#333;*/
+        color: $green;
+      }
+    }
   }
 }
