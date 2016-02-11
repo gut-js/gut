@@ -250,7 +250,6 @@ DELETE request to /preference
 data: {username:String}
 return value: updated user info
 
-Friend Stuff:
 To search for users in the database except for yourself:
 GET request to /users?username=String&searchTerm=String
 if searchTerm is an empty string, server will return all users excluding your friends. If searchTerm is provided, server will return all users whose username contains the searchTerm, excluding your friends.
