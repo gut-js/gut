@@ -35,7 +35,7 @@ router.post('/', function(req, res) {
         lastname: lastname,
         email: email,
         categories: {test:'test'},
-        friends: {test:false},
+        friends: {fuy7:false},
         beenTo: {test:false},
         gravatarUrl: gravatarUrl,
         searchTerm: username+firstname+lastname,
