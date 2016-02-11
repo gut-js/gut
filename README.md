@@ -182,11 +182,122 @@ All API calls are made using [redux-thunk](https://github.com/gaearon/redux-thun
 All views are within the components directory. Please view the diagram above for the hierarchy.
 
 ## Back-End
+The Snap-Pea Custom RESTful API is built with Node.js, Node Express, MongoDB, and Mongoose. Its restaurant data is powered by Yelp's Search API.
+
 ### Server
+The Node.js/Express server has the following routes and functions.
+```
+server
+├── routes
+│   ├── addFriendRoute.js
+│   ├── authenticationRoute.js
+│   ├── eatRoute.js
+│   ├── friendsRoute.js
+│   ├── historyRoute.js
+│   ├── loginRoute.js
+│   ├── oauthSigninRoute.js
+│   ├── photoRoute.js
+│   ├── pollRoute.js
+│   ├── preferenceRoute.js
+│   ├── removeFriendRoute.js
+│   ├── signupRoute.js
+│   ├── uberRoute.js
+│   ├── usersRoute.js
+│   └── yelpRoute.js
+│
+├── functions
+│   ├── getGeolocationData.js
+│   ├── getRecommendation.js
+│   ├── historyToArray.js
+│   ├── request_uber.js
+│   └── request_yelp.js
+│
+├── businesses.js
+├── cities.js
+├── config.js
+├── db.js
+└── server.js
+```
+
 
 ### REST/CRUD Outline:
+To register for an account:
+POST request to /signup
+data: {username:’String’, password:’String’, firstname:’String’, lastname: ‘String’,  email: ‘String’}
+return value: {username:String, token:String, businesses:Array}
+
+To login:
+POST request to /login
+data: {username:String, password:String}
+return value: {username:String, token:String}
+
+To submit poll result:
+PUT request to /preference
+data: {username:’username’, selected:[array of categories],  unselected:[array of categories]}
+return value: updated user data
+
+To go out to eat:
+GET request to /eat?diners=(Stringified Array of usernames)&location=location
+Location is optional. If none is given, geolocation is used.
+return value: array of businesses in recommended order as determined by the user’s preference
+
+To refine user preferences:
+GET request to /poll
+return value: array of 20 businesses to be used in poll
+
+To delete user preferences:
+DELETE request to /preference
+data: {username:String}
+return value: updated user info
+
+To search for users in the database except for yourself:
+GET request to /users?username=String&searchTerm=String
+if searchTerm is an empty string, server will return all users excluding your friends. If searchTerm is provided, server will return all users whose username contains the searchTerm, excluding your friends.
+return value: array of objects, each object containing a username and userID.
+
+To add a friend:
+PUT request to /addfriend
+data: JSON.stringify({username:String, friendname:String})
+return value: array of objects representing updated friendlist
+
+To get all of your friends:
+GET request to /friends?username=username
+Return value: Array of objects representing all of your friends. Each object contains all information about a friend.
+
+To remove a friend:
+DELETE request to /removefriend
+data: JSON.stringify({username:String, friendname:String})
+return value: name of the removed friend
+
+To save a restaurant into user’s beenTo property:
+PUT request to /history
+data: JSON.stringify({username:String, restaurantName:String, restaurantId:String})
+return value: updated beenTo property for that user
+
+To delete a user’s beenTo property:
+DELETE request to /history
+data: JSON.stringify({username:String})
+return value: updated beenTo property for that user (which should be an empty array now)
 
 ### Database
+The MongoDB/Mongoose database stores basic information about the user, as well as the user's preferences. The user schema is as shown below:
+```
+db.userSchema = new db.Schema ({
+  username: { type: String, required: true, unique: true },
+  password: { type: String },
+  firstname: {type: String},
+  lastname: {type: String},
+  categories: {},
+  friends: {},
+  beenTo: {},
+  email: { type: String },
+  gravatarUrl: { type: String },
+  searchTerm: {type: String},
+  avatarUrl: {type: String}
+});
+```
+
+The preferences for that user are stored in the categories object, and is constantly updated as the algorithm learns more about the types of food that the user likes/dislikes.
 
 ## SnapPea Team
 * [Daisy Tsao](https://github.com/madcurie)
