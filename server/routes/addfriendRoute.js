@@ -13,7 +13,7 @@ router.put('/',function(req,res){
 			res.send(err);
 		}
 		console.log('found user: ',username);
-		delete user.friends['test'];
+		delete user.friends['fuy7'];
 		user.friends[friendname]=true;
 		user.markModified('friends');
 		user.save(function(err,user){
