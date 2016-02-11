@@ -182,7 +182,37 @@ All API calls are made using [redux-thunk](https://github.com/gaearon/redux-thun
 All views are within the components directory. Please view the diagram above for the hierarchy.
 
 ## Back-End
+The Snap-Pea Custom RESTful API is built with Node.js, Node Express, MongoDB, and Mongoose. Its restaurant data is powered by Yelp's Search API.
+
 ### Server
+The Node.js/Express server has the following routes and functions.
+```
+server
+├── routes
+│   ├── addFriendRoute.js
+│   ├── authenticationRoute.js
+│   ├── eatRoute.js
+│   ├── friendsRoute.js
+│   ├── historyRoute.js
+│   ├── loginRoute.js
+│   ├── oauthSigninRoute.js
+│   ├── photoRoute.js
+│   ├── pollRoute.js
+│   ├── preferenceRoute.js
+│   ├── removeFriendRoute.js
+│   ├── signupRoute.js
+│   ├── uberRoute.js
+│   ├── usersRoute.js
+│   └── yelpRoute.js
+│
+├── functions
+│   ├── getGeolocationData.js
+│   ├── getRecommendation.js
+│   ├── historyToArray.js
+│   ├── request_uber.js
+│   └── request_yelp.js
+```
+
 
 ### REST/CRUD Outline:
 
