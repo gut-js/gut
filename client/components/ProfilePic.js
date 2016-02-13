@@ -12,7 +12,7 @@ class ProfilePic extends React.Component {
     // const { refreshPoll } = this.props.pollActions;
     const { username } = this.props;
     const { syncAvatarUrl } = this.props.dinerActions;
-    syncAvatarUrl('http://54.200.133.56:8080/static/assets/avatar/' + username);
+    syncAvatarUrl('../static/assets/avatar/' + username);
     const { closePicModal } = this.props;
     closePicModal();
   }
