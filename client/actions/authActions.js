@@ -78,7 +78,7 @@ export const authenticateUser = (token) => {
   return dispatch => {
     dispatch(registerRequest);
 
-    return fetch('http://54.200.133.56:8080/authenticate', {
+    return fetch('/authenticate', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -139,7 +139,7 @@ export const signinUser = (credentials) => {
   return dispatch => {
     dispatch(signinRequest(credentials));
 
-    return fetch('http://54.200.133.56:8080/login', {
+    return fetch('/login', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',

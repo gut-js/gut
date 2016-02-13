@@ -6,7 +6,7 @@ export const loadFriends = (user) => {
   return dispatch => {
     dispatch(loadRequest());
 
-    return fetch('http://54.200.133.56:8080/friends?username=' + user, {
+    return fetch('/friends?username=' + user, {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
@@ -48,7 +48,7 @@ export const findFriends = (query, user) => {
   return dispatch => {
     dispatch(searchRequest(query));
 
-    return fetch('http://54.200.133.56:8080/users?username=' + username + '&searchTerm=' + searchTerm, {
+    return fetch('/users?username=' + username + '&searchTerm=' + searchTerm, {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
@@ -98,7 +98,7 @@ export const addFriend = (credentials) => {
   return dispatch => {
     dispatch(addRequest());
 
-    return fetch('http://54.200.133.56:8080/addfriend', {
+    return fetch('/addfriend', {
       method: 'PUT',
       headers: {
         'Accept': 'application/json',
@@ -140,7 +140,7 @@ export const removeFriend = (credentials) => {
   return dispatch => {
     dispatch(removeRequest());
 
-    return fetch('http://54.200.133.56:8080/removefriend', {
+    return fetch('/removefriend', {
       method: 'DELETE',
       headers: {
         'Accept': 'application/json',
