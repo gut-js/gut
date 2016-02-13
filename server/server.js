@@ -3,7 +3,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var uniqueValidator = require('mongoose-unique-validator');
 var app = express();
-var port = process.env.PORT || 5679;
+var port = process.env.PORT || 8080;
 
 //auth
 var jwtSecret = 'thupers3crT$14';
