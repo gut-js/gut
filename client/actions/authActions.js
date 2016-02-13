@@ -12,7 +12,7 @@ export const registerUser = (credentials) => {
   return dispatch => {
     dispatch(registerRequest(credentials));
 
-    return fetch('http://54.200.133.56:8080/signup', {
+    return fetch('/signup', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',

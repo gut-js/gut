@@ -12,6 +12,9 @@ app.set('superSecret', jwtSecret);
 app.use(function(req, res, next){
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+
+  console.log('req', req.url);
+  console.log('method', req.method);
   next();
 });
 
@@ -43,7 +46,7 @@ app.use('/poll', require('./routes/pollRoute'));
 app.use('/oauthsignin', require('./routes/oauthSigninRoute'));
 app.use('/history', require('./routes/historyRoute'));
 
-var port = process.env.PORT || 5679;
+//var port = process.env.PORT || 5679;
 
 //middleware
 function authenticate(req, res, next){
