@@ -9,7 +9,7 @@ export const fetchYelpData = () => {
   return dispatch => {
     dispatch(loadYelpRequest());
 
-    return fetch('http://localhost:5679/poll', {
+    return fetch('http://54.200.133.56:8080/poll', {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
@@ -58,7 +58,7 @@ export const sendPollChoices = (choices) => {
   return dispatch => {
     dispatch(sendPollRequest(choices));
 
-    return fetch('http://localhost:5679/preference', {
+    return fetch('http://54.200.133.56:8080/preference', {
       method: 'PUT',
       headers: {
         'Accept': 'application/json',
@@ -135,7 +135,7 @@ export const RESET_SUCCESS = 'RESET_SUCCESS';
 //allows user to start with clean slate
 export const resetPoll = (credentials) => {
   return dispatch => {
-    return fetch('http://localhost:5679/preference', {
+    return fetch('http://54.200.133.56:8080/preference', {
       method: 'DELETE',
       headers: {
         'Accept': 'application/json',

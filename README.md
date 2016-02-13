@@ -56,7 +56,7 @@ npm install
 webpack -w
 npm start
 ```
-* Visit http://localhost:5679/ on your browser for the landing page
+* Visit http://54.200.133.56:8080/ on your browser for the landing page
 
 ## Front-End
 ### Client Application Information

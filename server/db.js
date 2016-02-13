@@ -5,7 +5,7 @@ var db = {};
 
 //******DATABASE SET UP
 
-db.dbURI = 'mongodb://localhost/gut';
+db.dbURI = 'mongodb://54.200.133.56:27017/gut';
 mongoose.connect(db.dbURI);
 db.Schema = mongoose.Schema;
 db.userSchema = new db.Schema ({
