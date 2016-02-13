@@ -40,7 +40,7 @@ console.log('inside bcrypt db:', db);
         beenTo: {test:false},
         gravatarUrl: gravatarUrl,
         searchTerm: username+firstname+lastname,
-        avatarUrl: "http://54.200.133.56:8080/static/assets/default_pea.png"
+        avatarUrl: "./../static/assets/default_pea.png"
       });
 
       user.markModified('categories');
@@ -78,7 +78,7 @@ console.log('inside bcrypt db:', db);
                   firstname: user.firstname,
                   lastname: user.lastname,
                   businesses:businesses,
-                  avatarUrl: "../static/assets/default_pea.png"
+                  avatarUrl: "./../static/assets/default_pea.png"
                 });//end of res.json
           })//end of request_yelp
         }//end of else
