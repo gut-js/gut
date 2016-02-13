@@ -14,7 +14,7 @@ router.post('/', multer({dest:'./client/static/assets/avatar/'}).single('image')
         console.log('err finding user');
       }
       else {
-        user.avatarUrl = "http://54.200.133.56:8080/static/assets/avatar/" + username;
+        user.avatarUrl = "./../static/assets/avatar/" + username;
         user.save(function(){})
       }
     })
