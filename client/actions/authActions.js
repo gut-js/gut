@@ -27,11 +27,9 @@ export const registerUser = (credentials) => {
       })
     })
     .then(response => {
-console.log('response in authactions:', response);
       return response.json();
     })
     .then(response => {
-      console.log('res from registration', response);
       try {
         if(response.success){
           localStorage.token = response.token;
