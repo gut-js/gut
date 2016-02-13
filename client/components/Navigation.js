@@ -136,7 +136,7 @@ class Navigation extends React.Component {
         <NavItem
         eventKey={1}
         className='welcome-nav'>
-        Welcome back, {this.props.username}!
+        Welcome {this.props.username}!
         </NavItem>
         <NavItem
           eventKey={2}
