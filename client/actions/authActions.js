@@ -27,6 +27,7 @@ export const registerUser = (credentials) => {
       })
     })
     .then(response => {
+console.log('response in authactions:', response);
       return response.json();
     })
     .then(response => {

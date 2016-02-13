@@ -28,6 +28,7 @@ router.post('/', function(req, res) {
   bcrypt.genSalt(10, function(err, salt) {
     bcrypt.hash(password, salt, function(err, hash) {
       //store user info
+console.log('inside bcrypt db:', db);
       var user = new db.User({
         username: username,
         password: hash,

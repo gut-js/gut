@@ -9,6 +9,7 @@ var historyToArray = require('../functions/historyToArray');
 
 // authenticate user
 router.post('/', function(req, res){
+console.log('in authenticate user: req', req);
   var token = req.body.token || req.query.token || req.header['x-access-token'];
   var decoded = jwt.decode(token);
   var username = decoded._doc.username;
