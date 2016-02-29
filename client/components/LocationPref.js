@@ -9,8 +9,19 @@ class LocationPref extends React.Component{
   }
 
   componentDidMount(){
+    const { setUserLocation } = this.props.dinerActions;
+
     const input = this.refs.startLocation;
     const autocomplete = new google.maps.places.Autocomplete(input);
+
+    autocomplete.addListener('place_changed', function() {
+      var place = autocomplete.getPlace();
+      if (!place.geometry) {
+        window.alert("Autocomplete's returned place contains no geometry");
+        return;
+      }
+      setUserLocation([place.geometry.location.lat(), place.geometry.location.lng()])
+    });
   }
 
   useCurrentLocation(){
@@ -34,7 +45,6 @@ class LocationPref extends React.Component{
     if(location === ''){
       return null;
     } else {
-      setUserLocation(location);
       this.refs.startLocation.value = '';
       displayFriendsChoice();
     }
