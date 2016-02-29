@@ -7,7 +7,7 @@ node_modules
 client/dist/
 
 #Config File (API Keys)
-#server/config.js
+server/config.js
 
 #NPM Debug Log
 npm-debug.log.*
