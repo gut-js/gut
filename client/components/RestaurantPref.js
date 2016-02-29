@@ -164,7 +164,8 @@ class RestaurantPref extends React.Component {
             </a>
             <p><img src={this.props.topRestaurant.rating_img_url_large}/> {this.props.topRestaurant.review_count} {reviews}</p>
             <p>{categories}</p>
-            <img src={this.props.topRestaurant.image_url} width='66%'/>
+            <p><img src='./../static/assets/yelp.png' width='25%' /></p>
+            <p><img src={this.props.topRestaurant.image_url} width='66%'/></p>
             <p className='address'>
               {this.props.topRestaurant.location.display_address[0]}<br/>
               {this.props.topRestaurant.location.display_address[1]}<br/>
