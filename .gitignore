@@ -10,7 +10,7 @@ client/dist/
 server/config.js
 
 #NPM Debug Log
-npm-debug.log.*
+npm-debug.log*
 
 #User Avatars
 client/static/assets/avatar/

@@ -161,6 +161,9 @@ class HomePage extends React.Component {
               </span>
 
             </div>
+            <div className="row">
+              <h5>Logo Design by <a href="https://www.linkedin.com/in/alex-flamini-9204107a">Alex Flamini</a></h5>
+            </div>
           </div>
         </div>
       </div>
